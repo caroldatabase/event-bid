@@ -1,0 +1,44 @@
+<div class="row">
+     <div class="col-sm-4">
+        <div class="form-field">
+            <label>Describe what kind of flowers you like (i.e. type & colour).
+</label>
+            <textarea></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>How would you like your arrangement presented?</label>
+            <select class="multipleSelection" required multiple="multiple"
+                    data-ng-model="task.graphicBanners" name="graphicBanners"
+                    ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
+                <option value="Invitations">Cut Flowers Gift Wrapped (No Vase)
+</option>
+                <option value="Banners or Posters">Vased Flowers</option>
+                <option value="Flyers">Flowers in Wicker Basket</option>
+                <option value="Place Setting names">Centerpiece
+</option>
+                <option value="Templates for presentations">Plants</option>
+                <option value="Other">Roses</option>
+                <option value="Other">Gift Basket
+</option>
+                <option value="Other">Funeral</option>
+                <option value="Other">Church</option>
+                <option value="Other">Wedding</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What price range are you looking at for your flowers?</label>
+            <select class="singleSelection" required
+                    data-ng-model="task.designPrinted" name="designPrinted"
+                    ng-class="{error : postTaskForm.designPrinted.$invalid && postTaskForm.$submitted}">
+                <option value="Yes">below 10$</option>
+                <option value="No">above 10$</option>
+                
+            </select>
+        </div>
+    </div>
+</div>

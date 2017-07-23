@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event Bid</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+      ================================================== -->
+    <link rel="stylesheet" type="text/css" href="app/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-theme.css.map" />
+    <link rel="stylesheet" type="text/css" href="app/css/bootstrap.css.map" />
+    <link rel="stylesheet" href="app/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="app/css/style.css" />
+
+    <link href="app/css/vaibhav_style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="app/css/select2.min.css" />
+    
+    
+    <link rel="shortcut icon" href="app/images/favicon.ico">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    <!-- Favicons
+        ================================================== -->
+
+    <script type="text/javascript" src="app/js/jquery.js"></script>
+    
+    <script src="https://use.fontawesome.com/796412e158.js"></script>
+    
+    <script src="app/js/angular.js"></script>
+    <script src="app/js/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+    
+    <script type="text/javascript" src="app/js/bootstrap.min.js"></script>
+    <script src="app/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="app/js/bootbox.min.js"></script>
+    <script type="text/javascript" src="app/js/moment.js"></script>
+    <script type="text/javascript" src="app/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="app/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" type="text/css" />
+    
+    <script src="app/app.js"></script>
+    <script src="app/services/constants.js"></script>
+    <script src="app/services/commonService.js"></script>
+    <script src="app/services/httpService.js"></script>
+    <script src="app/controllers/dashBoardController.js"></script>
+    <script src="app/controllers/loginController.js"></script>
+    <script src="app/controllers/postTaskController.js"></script>
+    <script src="app/controllers/aboutusController.js"></script>
+    <script src="app/controllers/profileController.js"></script>
+    <script src="app/directives/eventMenu/eventMenu.js"></script>
+    <script src="app/controllers/updateProfileController.js"></script>
+    <script src="app/controllers/addCategoryController.js"></script>
+    <script src="app/controllers/EBManagerController.js"></script>
+    <script src="app/controllers/contactUsController.js"></script>
+</head>
+<body ng-app="eventBid">
+    <event-menu></event-menu>
+    <div class="loader" data-ng-if ="loaderIndicator" >
+       <img src="app/images/loader_image.gif" alt="">
+    </div>
+    <div ng-view></div>
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-section footer-border-bottom">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <h4 class="footer-title">Event Bid</h4>
+                        <ul class="footer-links">
+                            <li><a href="#/about-us">About Us</a></li>
+                            <li><a href="#/how-it-works">How it works</a></li>
+                            <li><a href="#/Rewards">Rewards</a></li>
+                            <li><a href="#/categories">Categories</a></li>
+                            <li><a href="#/blog">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 class="footer-title">Contact Us</h4>
+                        <ul class="footer-links">
+                            <li><a href="#/contact-us">Contact Us</a></li>
+                            <li><a href="#/FAQ's">FAQs</a></li>
+                            <li><a data-toggle="modal" data-target="#addCategoryPopup">Request a Category</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 class="footer-title">EB Manager</h4>
+                        <ul class="footer-links MB20">
+                            <li><a href="#">About EB Manager</a></li>
+                            <li><a href="#">Manage my event</a></li>
+                        </ul>
+                        <h4 class="footer-title">The Important Stuff</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Term & Conditions</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4 class="footer-title">Categories</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Hair & Beauty</a></li>
+                            <li><a href="#">Catering</a></li>
+                            <li><a href="#">Patisserie</a></li>
+                            <li><a href="#">Cleaning</a></li>
+                            <li><a href="#">Entertainment & Talent</a></li>
+                            <li><a href="#">Waiting/Waitressing</a></li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Car & Venue Hire</a></li>
+                            <li><a href="#">Supply Hire</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4 class="footer-title">Connect With Us</h4>
+                        <div class="social_network">
+                            <a href="#"><i class="icons instagram"></i> Instagram</a>
+                            <a href="#"><i class="icons fb"></i> Facebook</a>
+                            <a href="#"><i class="icons eb"></i> Snap Chat @eventbid</a>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+
+            <div class="footer-section text-center footer-social-network">
+                <a href="#">
+                    <svg class="Icon-image" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.41 8.65h-3v-2a.8.8 0 0 1 .84-.91h2.12V2.51h-2.93a3.7 3.7 0 0 0-4 4v2.14H7.59V12h1.87v9.5h3.95V12h2.66l.34-3.35z"></path>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="Icon-image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M8.192 21c-2.28 0-4.404-.668-6.192-1.815 2.144.252 4.282-.342 5.98-1.672-1.768-.034-3.26-1.202-3.772-2.806.633.12 1.256.085 1.823-.07-1.942-.39-3.282-2.14-3.24-4.01.545.302 1.17.484 1.83.505C2.822 9.93 2.313 7.555 3.37 5.738c1.992 2.444 4.97 4.053 8.326 4.22C11.106 7.434 13.024 5 15.63 5c1.163 0 2.212.49 2.95 1.276.92-.18 1.785-.517 2.565-.98-.3.944-.942 1.736-1.775 2.235.817-.097 1.596-.314 2.32-.635-.542.807-1.228 1.52-2.016 2.088C19.93 14.665 15.694 21 8.192 21z"></path>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="Icon-image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M24 12.5h-3v3h-2v-3h-3v-2h3v-3h2v3h3M7 18.5c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.89 0 3.47.69 4.69 1.83l-1.9 1.83C9.27 7.66 8.36 7.08 7 7.08c-2.39 0-4.34 1.98-4.34 4.42S4.61 15.92 7 15.92c2.77 0 3.81-1.99 3.97-3.02H7v-2.4h6.61c.06.35.11.702.11 1.16 0 4-2.68 6.84-6.72 6.84z"></path>
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg class="Icon-image" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6.168 20C4.97 20 4 19.03 4 17.835c0-1.196.97-2.165 2.168-2.165 1.197 0 2.167.97 2.167 2.165 0 1.196-.97 2.165-2.167 2.165zm5.18 0c-.04-4.03-3.314-7.298-7.348-7.34V9.455c5.814.04 10.518 4.74 10.56 10.546h-3.212zm5.44 0C16.77 12.937 11.054 7.24 4 7.208V4c8.83.03 15.98 7.18 16 16h-3.21z" fill-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    
+</body>
+</html>
+ 

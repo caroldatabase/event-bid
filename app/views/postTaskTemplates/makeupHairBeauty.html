@@ -1,0 +1,120 @@
+<div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>What do you need?</label>
+                                <select class="multipleSelection" multiple="multiple" required data-ng-model="task.makeup.serviceType" name="serviceType" id="serviceType"
+                                        ng-class="{error : postTaskForm.serviceType.$invalid && postTaskForm.$submitted}" data-ng-change="changeServiceType()">
+                                    <option value="Hair">Hair</option>
+                                    <option value="Make up">Make up</option>
+                                    <option value="Other beauty service">Other beauty service</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>Location</label>
+                                <select class="singleSelection" required data-ng-model="task.location" name="location" 
+                                        ng-class="{Validation : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="">Come to Me</option>
+                                    <option value="">I'll come to you</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>What do you need to bring?</label>
+                                <select class="singleSelection" required data-ng-model="task.location" name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="">Bring your products</option>
+                                    <option value="">Use my products</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row" data-ng-if="makeUpIndicator">
+
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Describe what kind of make-up look you are going for?</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any special requests or requirements?	</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>
+                Show me some photos that inspire your make up look.
+                (Allow three photo uploads)
+            </label>
+            <input type="file" class="form-control">
+        </div>
+    </div>
+</div>
+                    <div class="row" data-ng-if="hairIndicator">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Describe what kind of hair style you would like?</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What kind of hair do you have (tick up to three)?</label>
+            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.hairType" name="hairType"
+                    ng-class="{error : postTaskForm.hairType.$invalid && postTaskForm.$submitted}">
+                <option value="Long">Long</option>
+                <option value="Short">Short</option>
+                <option value="Medium length">Medium length</option>
+                <option value="Curly">Curly</option>
+                <option value="Straight">Straight</option>
+                <option value="Wavy">Wavy</option>
+                <option value="Thin">Thin</option>
+                <option value="Thick">Thick</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>
+                Do you have any special requests for you hair style?
+                i.e. floral wreath
+            </label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Show me some photos that have inspired your head style.</label>
+            <input type="file" class="form-control">
+        </div>
+    </div>
+</div>
+<div class="row" data-ng-if="otherBeautyServicesIndicator">
+    <div class="form-field">
+        <label>OTHER BEAUTY SERVICES</label>
+        <select class="multipleSelection" multiple="multiple" required data-ng-model="task.otherBeautyServiceType" name="otherBeautyServiceType"
+                ng-class="{error : postTaskForm.otherBeautyServiceType.$invalid && postTaskForm.$submitted}">
+            <option value="Facial">Facial </option>
+            <option value="Spray tan">Spray tan</option>
+            <option value="Nails">Nails (manicure and/or pedicure)</option>
+            <option value="Waxing">Waxing</option>
+            <option value="Threading">Threading</option>
+        </select>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Please describe in more detail what you would like?	</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any special requirement or information you need to tell your beauty therapist?	</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+</div>

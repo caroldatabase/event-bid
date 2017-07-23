@@ -1,0 +1,53 @@
+﻿<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>How many waiter or waitresses do you need for your event? (in $)</label>
+            <input type="number" class="form-control" ng-model="task.totalwaiters" name="totalwaiters" min="1" max="15"
+                   required
+                   ng-class="{error : postTaskForm.totalwaiters.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have a dress code for your event?</label>
+            <select class="singleSelection" required
+                    data-ng-model="task.dressCode" name="dressCode"
+                    ng-class="{error : postTaskForm.dressCode.$invalid && postTaskForm.$submitted}">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="task.dressCode == 'Yes'" >
+        <div class="form-field">
+            <label>please describe your dress code.</label>
+            (in $)
+            <input type="number" class="form-control" ng-model="task.dressCodeDesc" name="dressCodeDesc"
+                   required
+                   ng-class="{error : postTaskForm.dressCodeDesc.$invalid && postTaskForm.$submitted}">
+          
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What is your budget for your waiters/waitresses?</label>
+             (in $)
+            <input type="number" class="form-control" ng-model="task.totalBudget" name="totalBudget"
+                   required
+                   ng-class="{error : postTaskForm.totalBudget.$invalid && postTaskForm.$submitted}">
+            <select class="singleSelection" required data-ng-model="task.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
+                <option value="">Select Type of Cost</option>
+                <option value="Per Person">Per Person</option>
+                <option value="Per Piece">Per Hour</option>
+                <option value="Total">Total</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What will your waiters/waitresses be doing at your event?	</label>
+            <textarea class="form-control"></textarea>
+        </div>
+    </div>
+</div>

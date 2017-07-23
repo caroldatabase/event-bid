@@ -1,0 +1,28 @@
+﻿<div class="content-body">
+    <h1 style="color: red; text-align: center;">under Construction </h1>
+
+    <h1>Sign Up </h1>
+
+    <label>Email ID :</label>
+    <input type="email" ng-model="user.email" />
+
+    <label>UserName :</label>
+    <input type="text" ng-model="user.userName" />
+
+    <label>Password :</label>
+    <input type="password" ng-model="user.Password" />
+
+    <label>Confirm Password :</label>
+    <input type="password" ng-model="user.cnfrmPassword" />
+
+    <label>I want to </label>
+
+    <input type="radio" ng-model="user.TaskType" value="post_Task" /> post a task
+    <input type="radio" ng-model="user.TaskType" value="complete_Task" /> complete a task
+
+
+    <input type="submit" value="create account" ng-click="createAccount()" />
+
+    <input type="button" ng-click=fbLogin(); value="facebook login" />
+
+</div>

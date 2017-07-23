@@ -1,0 +1,52 @@
+<div class="row">
+   
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>How many waiter or waitresses do you need for your event? </label>
+            <input type="number" class="form-control" ng-model="task.totalWaiter" name="totalWaiter" min="1" max="15"
+                   required
+                   ng-class="{error : postTaskForm.totalWaiter.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have a dress code for your event?</label>
+            <select class="singleSelection" required
+                    data-ng-model="task.dressCode" name="dressCode"
+                    ng-class="{error : postTaskForm.dressCode.$invalid && postTaskForm.$submitted}">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if ="task.dresscode === 'Yes'">
+        <div class="form-field">
+            <label>Please describe your dress code.</label>
+            <input type="text" class="form-control" ng-model="task.dressCodeDescription" name="dressCodeDescription"
+                   required
+                   ng-class="{error : postTaskForm.dressCodeDescription.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What will your waiters/waitresses be doing at your event?</label>
+            <input type="text" class="form-control" ng-model="task.waitersTask" name="waitersTask"
+                   required
+                   ng-class="{error : postTaskForm.waitersTask.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What is your budget for your waiters/waitresses? $</label>
+            <input type="number" class="form-control" ng-model="task.waitersBudget" name="waitersBudget                                   `   "
+                   required min="1" max="100000"
+                   ng-class="{error : postTaskForm.waitersBudget.$invalid && postTaskForm.$submitted}">
+            <select class="singleSelection" required data-ng-model="task.waiterBudgetType " name="waiterBudgetType" ng-class="{error : postTaskForm.waiterBudgetType.$invalid && postTaskForm.$submitted}">
+                <option value="">Select Budget type</option>
+                <option value="Per Person">Per hour</option>
+                <option value="Per Piece">Per car</option>
+                <option value="Total">Total</option>
+            </select>
+        </div>
+    </div>
+</div>

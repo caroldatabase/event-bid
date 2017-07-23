@@ -1,0 +1,141 @@
+<div class="content-body">
+<div class="container">
+<div class="row">
+    
+    <div class="how-its-works">
+        <h3>How it works</h3>
+        <p> EB Manager is for those who are wishing to have their entire event organised by one of the EB managers. The EB Manager is there to be your personal assistant 
+        in all things surrounding your event. You can engage the EB manager to whatever capacity you wish. 
+        They can organise the entire event for you, so all you have to do is show up to you event and enjoy it. They are here to take the stress away from your big day.</p>
+
+        <p> Simply fill out a function form and click submit.
+        Once we have received your application, our EB Managers will review what you need and swiftly contact you within 48 hours. </p>
+
+        <p>Alternatively, fill out a contact form to arrange a time to chat to one of our EB manager who can help you with everything you need for your event.
+        </p>
+    </div>
+
+    <div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    
+      <li role="presentation" ng-class="{active: functionIndicator }"><a aria-controls="function" data-ng-click="showFunctionSettingsTab()" role="tab" data-toggle="tab"> Function Form</a></li>
+      <li role="presentation" ng-class="{active: contactusIndicator }"><a aria-controls="contact" role="tab" data-ng-click="showContactSettingsTab()" data-toggle="tab">Contact EB Manager </a></li>
+
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+      
+      <div role="tabpanel" class="tab-pane" id="function" data-ng-show="functionIndicator" ng-class="{active: functionIndicator }">
+          <form role="form" name="EBManagerFunctionalForm">
+              <div class="form-group">
+                  <h4>Event Title</h4>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Event Title" required data-ng-model="event.title"
+                         ng-class="{error : EBManagerFunctionalForm.title.$invalid && EBManagerFunctionalForm.$submitted}">
+              </div>
+              <div class="form-group">
+                  <h4>Event Type</h4>
+                  <select data-ng-model="event.eventType" name="eventType" id="eventType"
+                          ng-class="{error : EBManagerFunctionalForm.eventType.$invalid && EBManagerFunctionalForm.$submitted}">
+                      <option value="wedding">wedding</option>
+                      <option value="Engagement">Engagement</option>
+                      <option value="kitchen tea or high tea">kitchen tea or high tea</option>
+                      <option value="hens night">hens night</option>
+                      <option value="bucks night">bucks night</option>
+                      <option value="birthday">birthday</option>
+                      <option value="children’s birthday">children’s birthday</option>
+                      <option value="corporate event">corporate event</option>
+                      <option value="other celebration">other celebration</option>
+                      <option value="cocktail">cocktail</option>
+                      <option value="anniversary">anniversary</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Date" required>
+              </div>
+              <div class="form-group">
+                  <h3>Time</h3>
+                  <select>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <h3>Total Event Budget</h3>
+                  <select>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                      <option value="lorem">lorem</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <h3>How many guests at your event?</h3>
+                  <select>
+                      <option value="10">10</option>
+                      <option value="10-20">10-20</option>
+                      <option value="20-30">20-30</option>
+                      <option value="30-40">30-40</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                  <h3>What You Need</h3>
+                  <select>
+                      <option value="Catering">Catering</option>
+                      <option value="Patisserie">Patisserie</option>
+                      <option value="Cleaning">Cleaning</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Hair Styling">Hair Styling</option>
+                      <option value="Make Up">Make Up</option>
+                      <option value="Flower arrangements">Flower arrangements</option>
+                      <option value="Waiting/Waitressing">Waiting/Waitressing</option>
+                      <option value="Photography">Photography</option>
+                      <option value="Videography">Videography</option>
+                      <option value="Car hire">Car hire</option>
+                      <option value="Venue Hire">Venue Hire</option>
+                      <option value="Supply Hire">Supply Hire</option>
+                      <option value="Graphic Design">Graphic Design</option>
+                      <option value="Other">Other</option>
+                  </select>
+              </div>
+          </form>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="contact" data-ng-show="contactusIndicator" ng-class="{active: contactusIndicator }">
+          <h2>Contact Us</h2>
+          <form role="form">
+              <br style="clear:both">
+
+              <div class="form-group">
+                  <input type="text" class="form-control" id="name" name="name" placeholder="First Name" required>
+              </div>
+              <div class="form-group">
+
+                  <input type="text" class="form-control" id="name" name="name" placeholder="Last Name" required>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="email" name="email" placeholder="Username/Event Bid mail" required>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
+              </div>
+
+              <div class="form-group">
+                  <p>Tell us a little more about how we can help you?</p>
+                  <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                  <span class="help-block"><p id="characterLeft" class="help-block ">(Allow 1000 characters)</p></span>
+              </div>
+
+              <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+          </form>
+      </div>
+     
+    
+  </div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E4D9278-6AA3-4C70-BE89-CF4AF8D2279C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eventBid</RootNamespace>
+    <AssemblyName>eventBid</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\controllers\aboutusController.js" />
+    <Content Include="app\controllers\addCategoryController.js" />
+    <Content Include="app\controllers\contactUsController.js" />
+    <Content Include="app\controllers\EBManagerController.js" />
+    <Content Include="app\controllers\profileController.js" />
+    <Content Include="app\controllers\updateProfileController.js" />
+    <Content Include="app\css\bootstrap-theme.css" />
+    <Content Include="app\css\bootstrap-theme.min.css" />
+    <Content Include="app\css\bootstrap.min.css" />
+    <Content Include="app\css\vaibhav_style.css" />
+    <Content Include="app\directives\eventMenu\eventMenu.js" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\images\4-stars.png" />
+    <Content Include="app\images\apple-app-store.svg" />
+    <Content Include="app\images\browse.jpg" />
+    <Content Include="app\images\cat-bg.png" />
+    <Content Include="app\images\cate-back.jpg" />
+    <Content Include="app\images\category-head.jpg" />
+    <Content Include="app\images\category-icon-web-dev-cef31823.svg" />
+    <Content Include="app\images\category\Car_and_venue_hire.png" />
+    <Content Include="app\images\category\Catering.png" />
+    <Content Include="app\images\category\Cleaning.png" />
+    <Content Include="app\images\category\Entertainment_and_talent.png" />
+    <Content Include="app\images\category\Floristry.png" />
+    <Content Include="app\images\category\Graphic_design.png" />
+    <Content Include="app\images\category\Hair_and_beauty.png" />
+    <Content Include="app\images\category\Patisserie.png" />
+    <Content Include="app\images\category\Photography_and_videography.png" />
+    <Content Include="app\images\category\Supply_hire.png" />
+    <Content Include="app\images\category\Waiting_staff.png" />
+    <Content Include="app\images\close_icon.png" />
+    <Content Include="app\images\dashboard\About_us.png" />
+    <Content Include="app\images\dashboard\EB_Manager.png" />
+    <Content Include="app\images\dashboard\How_it_works.png" />
+    <Content Include="app\images\dashboard\Rewards.png" />
+    <Content Include="app\images\earning.jpg" />
+    <Content Include="app\images\event-planing.jpg" />
+    <Content Include="app\images\fb-icon.png" />
+    <Content Include="app\images\fb_icon - Copy.png" />
+    <Content Include="app\images\fb_icon.png" />
+    <Content Include="app\images\gmail-icon.png" />
+    <Content Include="app\images\google-play-store.svg" />
+    <Content Include="app\images\hiring.jpg" />
+    <Content Include="app\images\Home_Slider_Images\banner-1.jpg" />
+    <Content Include="app\images\Home_Slider_Images\banner-2.jpg" />
+    <Content Include="app\images\Home_Slider_Images\banner-3.jpg" />
+    <Content Include="app\images\Home_Slider_Images\banner-4.jpg" />
+    <Content Include="app\images\how-it-works.jpg" />
+    <Content Include="app\images\loader.gif" />
+    <Content Include="app\images\loader_image.gif" />
+    <Content Include="app\images\overview-company-overview.jpg" />
+    <Content Include="app\images\party.jpg" />
+    <Content Include="app\images\request-cate.png" />
+    <Content Include="app\images\submit-btn.png" />
+    <Content Include="app\images\Thumbnail_img.jpg" />
+    <Content Include="app\images\Thumbnail_img_2.jpg" />
+    <Content Include="app\images\Thumbnail_img_3.jpg" />
+    <Content Include="app\images\_logo.png" />
+    <Content Include="app\views\Category.html" />
+    <Content Include="app\views\contact-us.html" />
+    <Content Include="app\views\postTaskTemplates\photographyVideography.html" />
+    <Content Include="app\css\bootstrap-theme.css.map" />
+    <Content Include="app\css\bootstrap-theme.min.css.map" />
+    <Content Include="app\css\bootstrap.css.map" />
+    <Content Include="app\css\bootstrap.min.css.map" />
+    <Content Include="app\css\distth_-webfont.woff" />
+    <Content Include="app\css\distth_-webfont.woff2" />
+    <None Include="Properties\PublishProfiles\eventBid.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\controllers\dashBoardController.js" />
+    <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\postTaskController.js" />
+    <Content Include="app\css\bootstrap-datetimepicker.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\owl.carousel.css" />
+    <Content Include="app\css\select2.min.css" />
+    <Content Include="app\css\style.css" />
+    <Content Include="app\images\ajax-loader.gif" />
+    <Content Include="app\images\banner-2.jpg" />
+    <Content Include="app\images\banner-3.jpg" />
+    <Content Include="app\images\banner-4.jpg" />
+    <Content Include="app\images\banner.jpg" />
+    <Content Include="app\images\beauty-hairstyle-icon.png" />
+    <Content Include="app\images\browse-icon.png" />
+    <Content Include="app\images\calendar-icon.png" />
+    <Content Include="app\images\carousel_arrow.png" />
+    <Content Include="app\images\catering-icon.png" />
+    <Content Include="app\images\facebook-icon.png" />
+    <Content Include="app\images\favicon.png" />
+    <Content Include="app\images\hospitality-icon.png" />
+    <Content Include="app\images\instagram-icon.png" />
+    <Content Include="app\images\logo-icon.png" />
+    <Content Include="app\images\logo.png" />
+    <Content Include="app\images\manager-icon.png" />
+    <Content Include="app\images\patisserie-icon.png" />
+    <Content Include="app\images\post-task.png" />
+    <Content Include="app\images\profile_icon.png" />
+    <Content Include="app\images\profile_Pictures.jpg" />
+    <Content Include="app\images\retail-icon.png" />
+    <Content Include="app\images\reward-icon.png" />
+    <Content Include="app\images\time-icon.png" />
+    <Content Include="app\images\uses-icon.png" />
+    <Content Include="app\js\angular-route.js" />
+    <Content Include="app\js\angular.js" />
+    <Content Include="app\js\bootbox.min.js" />
+    <Content Include="app\js\bootstrap-datetimepicker.js" />
+    <Content Include="app\js\bootstrap.min.js" />
+    <Content Include="app\js\jquery.js" />
+    <Content Include="app\js\moment.js" />
+    <Content Include="app\js\owl.carousel.min.js" />
+    <Content Include="app\js\select2.full.min.js" />
+    <Content Include="app\services\commonService.js" />
+    <Content Include="app\services\constants.js" />
+    <Content Include="app\services\httpService.js" />
+    <Content Include="app\views\dashBoard.html" />
+    <Content Include="app\views\EBManager.html" />
+    <Content Include="app\directives\eventMenu\headerNavigation.html" />
+    <Content Include="app\views\how-it-works.html" />
+    <Content Include="app\views\post-task.html" />
+    <Content Include="app\views\browseTasks.html" />
+    <Content Include="app\views\postTaskTemplates\carVenue.html" />
+    <Content Include="app\views\postTaskTemplates\catering.html" />
+    <Content Include="app\views\postTaskTemplates\cleaning.html" />
+    <Content Include="app\views\postTaskTemplates\entertainmentTalent.html" />
+    <Content Include="app\views\postTaskTemplates\floristry.html" />
+    <Content Include="app\views\postTaskTemplates\graphicDesign.html" />
+    <Content Include="app\views\postTaskTemplates\makeupHairBeauty.html" />
+    <Content Include="app\views\postTaskTemplates\patisserie.html" />
+    <Content Include="app\views\postTaskTemplates\supplyHire.html" />
+    <Content Include="app\views\postTaskTemplates\waiterWaitress.html" />
+    <Content Include="app\views\postTaskTemplates\waiting_and_service.html" />
+    <Content Include="app\views\profile.html" />
+    <Content Include="app\views\requestCategory.html" />
+    <Content Include="app\views\Rewards.html" />
+    <Content Include="app\views\sitemap\about-us.html" />
+    <Content Include="app\views\sitemap\blog.html" />
+    <Content Include="app\views\sitemap\category.html" />
+    <Content Include="index.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>45463</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/eventBid</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/eventBid</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

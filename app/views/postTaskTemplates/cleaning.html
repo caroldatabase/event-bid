@@ -1,0 +1,78 @@
+<div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>Cleaning Checklist:</label>
+                                <select class="multipleSelection" multiple="multiple" required 
+                                data-ng-model="task.location" name="location" 
+                                ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="Full floor clean (vacuum, mop & polish)">Full floor clean (vacuum, mop & polish)</option>
+                                    <option value="Vacuum only">Vacuum only</option>
+                                    <option value="Mop only">Mop only</option>
+                                    <option value="Dish washing (on site)">Dish washing (on site)</option>
+                                      <option value="Appliance clean">Appliance clean</option>
+                                       <option value="Furniture clean">Furniture clean</option>
+                                        <option value="Full kitchen clean">Full kitchen clean (including appliances and dishwashing)</option>
+                                        
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>What equipment will you need?</label>
+                                <select class="singleSelection" required data-ng-model="task.location"
+                                 name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="I have my own cleaning supplies">I have my own cleaning supplies</option>
+                                    <option value="Can you please bring all the cleaning supplies">Can you please bring all the cleaning supplies</option>
+                                     <option value="I have some things supplies, this includes">
+                                         I have some things supplies, this includes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>Time Required : (hours)</label>
+                                <select class="singleSelection" required data-ng-model="task.location" name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>Number of cleaners needed: </label>
+                                <select class="singleSelection" required data-ng-model="task.location" 
+                                name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                    <option value="">4</option>
+                                    <option value="">5</option>
+                                    <option value="">6</option>
+                                    <option value="">7</option>
+                                </select>
+                            </div>
+                        </div>
+                       
+                            <div class="col-sm-4">
+                            <div class="form-field">
+                                <label>Proposed Budget</label>
+                                $ 
+                                 <input type="number" class="form-control" ng-model="task.totalCost" name="totalCost" 
+                                  required min="0"
+                                     ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+                                      <select class="singleSelection" required data-ng-model="task.location" name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                    <option value="Per Person">per person</option>
+                                    <option value="Per Piece">per hour</option>
+                                    <option value="Total">total</option>
+                                </select>
+                            </div>
+                    
+                        </div>
+                    </div>

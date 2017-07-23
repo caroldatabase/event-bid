@@ -1,0 +1,342 @@
+<header id="header" class="navbar-fixed-top"  data-ng-controller="loginController">
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <a href="#/" class="homeLogo"><img src="app/images/logo.png" alt=""></a>
+            </div>
+            <div class="col-sm-8">
+                <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#eb-navbar" data-toggle="collapse" type="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+                <nav class="home-nav navbar-collapse collapse" id="eb-navbar" aria-expanded="false">
+
+                    <ul class="nav navbar-nav">
+                        <li><a href="#/how-it-works">How it works </a></li>
+                        <li data-ng-show ="!isLogin"><a data-toggle="modal" data-target="#signUpPopup" data-ng-click="openSignUpPopup()">Join</a></li>
+                        <li data-ng-show="!isLogin">
+                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" data-ng-click="openLoginPopup()">Login <span class="caret"></span></a>
+                            <ul class="dropdown-menu accountList" aria-labelledby="dropdownMenu2">
+                                <li><small>If you are a new user</small><a data-ng-click="openSignUpPopup()" data-toggle="modal" data-target="#signUpPopup">Register</a></li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a class="btn btn-primary" data-toggle="modal" data-target="#loginPopup" data-ng-click="openLoginPopup()">Login</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="userAction" data-ng-show="isLogin">
+                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> <i class="profilce_pic"></i> Welcome, {{firstName}}<span class="caret"></span></a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                <li><a href="#/profile">Profile</a></li>
+                                <li><a data-ng-click="logout();">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--login pop up -->
+<div class="modal fade" id="loginPopup" tabindex="-1" ng-controller="loginController">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Login</h3>
+                        <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                            {{ message}}
+                        </div>
+                        <div class="alert alert-danger" data-ng-show="emailIndicator">
+                            Please enter valid email address.
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <form name="loginForm" novalidate class="signUpForm">
+                            <div class="popup-form-row">
+                                <div class="form-field">
+                                    <input type="email" class="form-control" placeholder="Email" required name="email" id="email" data-ng-model="user.email"
+                                           data-ng-blur="checkEmail()"
+                                           ng-class="{error : (loginForm.email.$invalid && loginForm.$submitted) || emailIndicator}">
+                                </div>
+                            </div>
+                            <div class="popup-form-row last">
+                                <div class="form-field">
+                                    <input type="password" class="form-control" placeholder="password" name="password" required data-ng-model="user.password" 
+                                           ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                                </div>
+                            </div>
+                            <a href="" class="forgot_btn" data-dismiss="modal" data-toggle="modal" data-target="#forgetPopup">Forgot Password?</a>
+                            <div class="popup-button-group">
+                                <input type="button" value="Login" class="btn btn-primary btn-block login_btn" data-ng-click="login()">
+                                <a  class="fb_login_btn btn btn-block"> <img src="app/images/fb_icon.png" alt=""> Log in with Facebook </a>
+                            </div>
+                            <div class="eb_bottom_btn"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signUpPopup">Sign Up On Event Bid</a> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+</div>
+<!--Forgot-->
+<div class="modal fade" id="forgetPopup" tabindex="-1" ng-controller="ForgetPassController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Forget Password</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="emailErrorIndicator">
+                        {{message}}
+                    </div>
+                    <form name="forgotPassForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>Your email address:</label>
+                                <input type="email" class="form-control" data-ng-model="emailID" required autofocus data-ng-blur="checkEmail()"
+                                       ng-class="{error : forgotPassForm.email.$invalid && forgotPassForm.$submitted}" name="email" id="email">
+                            </div>
+                        </div>
+                        <p class="eb-note">
+                            Enter your register email address, and we will send you an
+                            reset password link on it
+                        </p>
+                        <div class="popup-button-group">
+                            <input type="submit" value="Send" class="btn btn-primary btn-block" data-ng-click="forgetPassword()">
+                        </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Sign UP-->
+<div class="modal fade" id="signUpPopup" tabindex="-1" data-ng-controller="loginController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-close="modalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Join EventBid</h3>
+                    <div class="alert alert-danger" data-ng-show="errorIndicator">
+                        {{ message}}
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form class="signUpForm" name="signUpForm" novalidate>
+                        <div class="popup-form-row row">
+                            <div class="col-sm-5">
+                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
+                                    <img src="app/images/hiring.jpg">
+                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
+                                           name="userType" /> <span class="input-letter">Start hiring</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-none form-field signup-redio">
+                                    or
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
+                                    <img src="app/images/earning.jpg">
+                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> <span class="input-letter">Start earning</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center row" data-ng-if="!SignUpIndicator">
+                                <a data-ng-click="EmailLogin()" class="btn btn-primary btn-block login_btn">
+                                     <span>Continue with Email</span></a>
+                        </div>
+                        <div class="text-center row" data-ng-if="!SignUpIndicator">
+                            <a class="fb_login_btn btn btn-block"> <img src="app/images/fb_icon.png" alt=""> Log in with Facebook </a>
+                        </div>
+                        <div data-ng-if="SignUpIndicator">
+                            <div class="popup-form-row row">
+                                <div class="col-sm-6">
+                                    <div class="form-field">
+                                        <input type="text" class="form-control" name="firstName" placeholder="First Name" required data-ng-model="user.firstName"
+                                               ng-class="{error : signUpForm.$submitted && signUpForm.firstName.$invalid }">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-field">
+                                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required data-ng-model="user.lastName"
+                                                ng-class="{error : signUpForm.lastName.$invalid && signUpForm.$submitted }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-form-row row">
+                                <div class="col-sm-12">
+                                    <div class="form-field">
+                                        <!--<label>Email</label>-->
+                                        <input type="email" class="form-control" name="email" placeholder="Work email" required data-ng-model="user.email"
+                                                ng-class="{error : signUpForm.email.$invalid && signUpForm.$submitted }">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-form-row row">
+                                <div class="col-sm-12">
+                                    <div class="form-field">
+                                        <input type="text" class="form-control" name="companyURL" placeholder="Company URL (ex. www.yourcompany.com)" 
+                                               data-ng-model="user.companyURL">
+                                    </div>
+                                </div>
+                            </div><div class="popup-form-row row" data-ng-show="categoriesIndicator">
+        <div class="col-sm-12">
+        <label class="control-label">Categories <span data-ng-show="user.selectedCategories.length > 3" style="color: red">maximum three categories can be selected.</span></label>
+        <div class="form-field" ng-class="{error : user.selectedCategories.length > 3 }">
+
+            <select class="form-control" name="selectedCategories" id="selectedCategories" ng-model="user.selectedCategories" multiple
+                    data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>
+
+        </div>
+    </div>
+</div>
+                            
+
+                            <div class="popup-form-row row">
+                                <div class="col-sm-12">
+                                    <div class="form-field">
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required data-ng-model="user.password"
+                                               ng-class="{error : (signUpForm.password.$invalid && signUpForm.$submitted) || passwordIndicator}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-form-row row">
+                                <div class="col-sm-12">
+                                    <div class="form-field">
+                                        <input type="password" name="cnfrmPass" class="form-control" placeholder="Confirm Password" required data-ng-model="user.cnfrmPass"
+                                               ng-class="{error : (signUpForm.cnfrmPass.$invalid && signUpForm.$submitted)  || passwordIndicator}">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-button-group">
+                                <div>
+                                    <input type="button" value="sign-up" class="btn btn-primary btn-block remove-bottom" data-ng-click="createAccount()">
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                    <div class="btmtext">
+                        By signing-up you agree to EventBid's platform agreement,Privacy Policy and Client Agreement. <br />
+                        already signed-up ? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginPopup"><u>Login</u></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Prompt to login -->
+<div class="modal fade" id="promptLoginPopup" tabindex="-1" ng-controller="dashBoardController" >
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="promptCloseWithoutAction()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Get the most out of EventBid</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="popup-form-row">
+                        <div class="form-field">
+                            <label>Easy one Time Sign In Process</label>
+                            
+                        </div>
+                    </div>
+                    
+                   <div class="text-center">
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#signUpPopup" data-ng-click="promptModalClose()">Join</a>
+                           <a class="btn btn-primary" data-toggle="modal" data-target="#loginPopup" data-ng-click="promptModalClose()">Login</a>                      
+                   </div> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Request a new category-->
+<div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Add a Category</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                        {{message}}
+                    </div>
+                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                        {{message}}
+                    </div>
+                    <form name="addCategoryForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>category name : </label>
+                                <input type="text" class="form-control" data-ng-model="categoryName" required autofocus
+                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
+                            </div>
+                        </div>
+
+                        <div class="popup-button-group">
+                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--view categories-->
+<div class="modal fade" id="viewCategoryPopup" tabindex="-1" ng-controller="viewCategoryController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Category Details</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                        {{message}}
+                    </div>
+                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                        {{message}}
+                    </div>
+                    <form name="addCategoryForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>category name : </label>
+                                <input type="text" class="form-control" data-ng-model="categoryName" required autofocus
+                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
+                            </div>
+                        </div>
+
+                        <div class="popup-button-group">
+                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

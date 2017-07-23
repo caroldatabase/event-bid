@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What do you require for your event? (can tick as many as you like)</label>
+            <select class="multipleSelection" required multiple="multiple"
+                    data-ng-model="task.entertainment" name="entertainmentRequirement"
+                    ng-class="{error : postTaskForm.entertainmentRequirement.$invalid && postTaskForm.$submitted}">
+                <option value="Singer">Singer</option>
+                <option value="Musician">Musician</option>
+                <option value="Band">Band</option>
+                <option value="Clown">Clown</option>
+                <option value="Singer">Singer</option>
+                <option value="Kids Party Entertainment">Kids Party Entertainment</option>
+                <option value="Dancer">Dancer</option>
+                <option value="Comedian">Comedian</option>
+                <option value="MC">MC</option>
+                <option value="Face Painter">Face Painter</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>No. of guests at event</label>
+            <input type="number" class="form-control" ng-model="task.totalGuests" name="totalGuests" min="1" max="5000"
+                   required
+                   ng-class="{error : postTaskForm.totalGuests.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any equipment ready that your talent can use?</label>
+            <input type="text" class="form-control" ng-model="task.equipment" name="equipment"
+                   required
+                   ng-class="{error : postTaskForm.equipment.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What does your talent need to bring with them?</label>
+            <input type="number" class="form-control" ng-model="task.equipmentRequired" name="equipmentRequired"
+                   required
+                   ng-class="{error : postTaskForm.equipmentRequired.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+</div>
