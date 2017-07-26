@@ -26,7 +26,7 @@ app.config(function ($routeProvider) {
     })
     .when("/how-it-works", {
         templateUrl: "app/views/how-it-works.html",
-
+        controller: "howItWorksCtrl"
     })
         .when("/add-category", {
             templateUrl: "app/views/requestCategory.html",
