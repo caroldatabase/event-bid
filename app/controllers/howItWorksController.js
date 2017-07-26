@@ -41,5 +41,9 @@
         $('#collapseOne').hide();
         $("i", this).toggleClass("up down");
     });
-   
+    
+    $scope.openSignupModal = function()
+    {
+        $('#signUpPopup').modal('toggle');
+    }
 });
