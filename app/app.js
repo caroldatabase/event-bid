@@ -42,7 +42,7 @@ app.config(function ($routeProvider) {
         })
         .when("/Rewards", {
             templateUrl: "app/views/Rewards.html",
-
+            controller: "rewardsCtrl"
         })
     .when("/post-task", {
         templateUrl: "app/views/post-task.html",
