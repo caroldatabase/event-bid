@@ -29,7 +29,7 @@ app.config(function ($routeProvider) {
         controller: "howItWorksCtrl"
     })
         .when("/add-category", {
-            templateUrl: "app/views/requestCategory.html",
+            templateUrl: "app/views/request-a-category.html",
 
         })
         .when("/browse-tasks", {

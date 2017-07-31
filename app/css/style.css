@@ -1192,3 +1192,12 @@ a.fb_login_btn.btn.btn-block:hover{
 {
     color: #fff;
 }
+
+.hire .option-input {
+    width: 45px !important;
+    height: 45px !important;
+}
+.center-element {
+    margin: 0 auto !important;
+    display: table;
+}

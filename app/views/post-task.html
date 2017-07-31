@@ -22,8 +22,8 @@
                     <div class="col-sm-4">
                         <div class="form-field">
                             <label>Event Title</label>
-                            <input type="text" class="form-control" ng-model="task.eventTitle" name="title" required
-                                   ng-class="{error : postTaskForm.title.$invalid && postTaskForm.$submitted}">
+                            <input type="text" class="form-control" ng-model="task.eventTitle" name="eventTitle" required
+                                   ng-class="{error : postTaskForm.eventTitle.$invalid && postTaskForm.$submitted}">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -48,7 +48,7 @@
                         <div class="form-field">
                            <label>Date Required</label>
                             <input type="text" class="form-control datepicker cal_icon" required readonly data-ng-model="task.dateRequired"
-                                   name="date" ng-class="{error : postTaskForm.date.$invalid && postTaskForm.$submitted}">
+                                   name="date" ng-class="{error : postTaskForm.dateRequired.$invalid && postTaskForm.$submitted}">
                         </div>
                     </div>
                 </div>
@@ -56,15 +56,15 @@
                     <div class="col-sm-4">
                         <div class="form-field">
                             <label>Time From</label>
-                            <input type="text" class="form-control timepicker time_icon" required data-ng-model="task.fromtime" 
-                            name="fromtime" ng-class="{error : postTaskForm.fromtime.$invalid && postTaskForm.$submitted}">
+                            <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeFrom" readonly
+                                   name="timeFrom" ng-class="{error : postTaskForm.timeFrom.$invalid && postTaskForm.$submitted}">
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-field">
                             <label>Time To </label>
-                            <input type="text" class="form-control timepicker time_icon" required data-ng-model="task.fromtime" 
-                            name="fromtime" ng-class="{error : postTaskForm.fromtime.$invalid && postTaskForm.$submitted}">
+                            <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeTo" readonly
+                                   name="timeTo" ng-class="{error : postTaskForm.timeTo.$invalid && postTaskForm.$submitted}">
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -72,14 +72,13 @@
                             <label>Category </label>
                             <div ng-class="{error : postTaskForm.category.$invalid && postTaskForm.$submitted}">
                                 <select class="singleSelection" required data-ng-model="task.category" name="category"
-                                 data-ng-change="categoryChange()">
+                                        data-ng-change="categoryChange()">
                                     <option value="" selected="selected">SELECT CATEGORY</option>
                                     <option value="Make Up,Hair & Beauty">MAKE UP, HAIR & BEAUTY</option>
                                     <option value="Catering">CATERING</option>
                                     <option value="Cleaning Services">CLEANING SERVICES</option>
                                     <option value="Car & Venue Hire">CAR & VENUE HIRE</option>
                                     <option value="Entertainment & Talent">ENTERTAINMENT & TALENT</option>
-                                    <option value="waiting/Waitressing">WAITING/WAITRESSING</option>
                                     <option value="Graphic Design">GRAPHIC DESIGN</option>
                                     <option value="supply hire">SUPPLY HIRE</option>
                                     <option value="Floristry">FLORISTRY</option>
@@ -125,9 +124,9 @@
                     <div ng-include src="'app/views/postTaskTemplates/graphicDesign.html'"></div>
                 </div>
                   <!--waiting/Waitressing--> 
-                <div data-ng-if="task.category === 'waiting/Waitressing'">
+                <!--<div data-ng-if="task.category === 'waiting/Waitressing'">
                     <div ng-include src="'app/views/postTaskTemplates/waiterWaitress.html'"></div>
-                </div>
+                </div>-->
                 <!--Supply Hire-->
                 <div data-ng-if="task.category === 'supply hire'">
                     

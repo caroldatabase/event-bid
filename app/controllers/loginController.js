@@ -10,7 +10,7 @@
     $scope.EmailLogin = EmailLogin;
     $scope.checkEmail = checkEmail;
     $scope.logout = logout;
-                init();
+    init();
 
     //scope.variables 
     $scope.SignUpIndicator = false;
@@ -45,7 +45,6 @@
         
         
     }
-
     
     function selectCategories()
     {
@@ -226,7 +225,23 @@
         
     }
 
+    $scope.openSignupModal = function () {
+        $scope.user = {};
+        $('#signUpPopup').modal('toggle');
+        $("#signUpPopup").modal({ backdrop: "static" });
+        $('#signUpPopup').modal('show');
+        $scope.signUpForm.$setUntouched();
+        $scope.signUpForm.$setPristine();
+    }
     
+    $scope.openLoginModal = function () {
+        $('#loginPopup').modal('toggle');
+        $("#loginPopup").modal({ backdrop: "static" });
+        $('#loginPopup').modal('show');
+        $scope.loginForm.$setUntouched();
+        $scope.loginForm.$setPristine();
+        $scope.user = {};
+    }
 }]);
 app.controller('ForgetPassController', ['$scope', 'httpService', function ($scope, httpService) {
     $scope.forgetPassword = forgetPassword;

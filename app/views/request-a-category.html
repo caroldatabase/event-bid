@@ -1,12 +1,5 @@
 <div class="content-body">
-    <div class="sub-banner">
-            <img src="app/images/how-it-works.jpg">
-        <div class="banner-overlay">
-            <h3>Request a category</h3>
-            <h4>An overview of hiring and freelancing on Upwork.</h4>
-            <button>Sign Up</button>
-        </div>
-    </div>
+    
     <div class="container how-it-tabs">
         <div class="row">
             <div class="col-sm-12">
@@ -14,13 +7,13 @@
                 <div class="request-form">
 			<div class="row">
 				<div class="col-sm-12">
-					<h4>Name</h4>
+					<h4>Name :</h4>
 				</div>
 				<div class="col-sm-6">
-					<input type="text" placeholder="First Name">
+					<input type="text" placeholder="First">
 				</div>
 				<div class="col-sm-6">
-					<input type="text" placeholder="Last Name">
+					<input type="text" placeholder="Last">
 				</div>
 			</div>
 			<div class="row">
@@ -28,25 +21,54 @@
 					<h4>Email:</h4>
 				</div>
 				<div class="col-sm-12">
-					<input type="email" placeholder="Enetr Email">
+					<input type="email" placeholder="Enter Email">
 				</div>
 				
 			</div>
 			<div class="row hire">
 				
-				<div class="col-sm-6">
-					<button class="">I am a hire</button>
+				<div class="col-sm-12">
+					                    <form class="signUpForm" name="signUpForm" novalidate>
+                                        <div class="popup-form-row row">
+                                            <div class="col-sm-2"></div>
+                                            <div class="col-sm-3">
+                                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
+                                                    
+                                                    <img src="app/images/hirer.png">
+                                                    <div class="center-element">
+                                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
+                                                           name="userType" /> <span class="input-letter">I am a hirer</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <div class="b-none form-field signup-redio">
+                                                    or
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
+                                                    <img src="app/images/provider.png">
+                                                    <div class="center-element">
+                                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> <span class="input-letter">I am service provider</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2"></div>
+                                        </div>
+                       
+                        
+
+                    </form>
 				</div>
-				<div class="col-sm-6">
-					<button class="">I am a Service Provider</button>
-				</div>
+				
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
 					<h4>Title of new category:</h4>
 				</div>
 				<div class="col-sm-12">
-					<input type="email" placeholder="category">
+					<input type="text">
 				</div>
 				
 			</div>
@@ -62,7 +84,8 @@
             <div class="row hire">
 				
 				<div class="col-sm-12">
-					<button class="">Subnit</button>
+                    <br/><br/>
+                    <a href="#"><img src="app/images/submit-btn.png" alt=""></a>
 				</div>
 				
 			</div>

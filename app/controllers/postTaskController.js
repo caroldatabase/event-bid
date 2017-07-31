@@ -21,15 +21,24 @@
                 changeYear: true,
                 startDate: todayDate
             });
-            $('.timepicker').datetimepicker({
-                pickDate: false,
-                pickTime: true
+            $('.timepicker').timepicker({
+                timeFormat: 'h:mm p',
+                interval: 30,
+                minTime: '07',
+                maxTime: '11:30pm',
+                defaultTime: '11',
+                startTime: '07:00',
+                dynamic: false,
+                dropdown: true,
+                scrollbar: true
             });
         })
         httpService.getCategory().then(function (data) {
             $scope.categoryList = data.data.data;
         });
         $scope.task = {};
+        $scope.task.timeFrom = "11:00 A.M";
+        $scope.task.timeTo = "11:00 A.M";
     }
     
     function selectHireType(data)
