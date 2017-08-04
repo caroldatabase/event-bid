@@ -36,10 +36,15 @@
 
               <div class="form-group">
                   <h4>Comments or Questions : </h4>
-                  <textarea class="form-control" type="textarea" id="message" name="message" rows="7"
+                  <textarea class="form-control" type="textarea" id="message" name="message" rows="7" ng-keyup="countChar();"
                             ng-class="{error : contactusForm.message.$invalid && contactusForm.$submitted}"
                             required data-ng-model="user.comments"></textarea>
-                  <span class="help-block"><p id="characterLeft" class="help-block ">(5000 characters remaining)</p></span>
+                  <span class="help-block"><p id="characterLeft" class="help-block ">
+                                               <div style="font-size: 12px; float: right; color: #666">
+                                                   <span id="charNum">5000</span>
+                                                   <span>Words Remaining</span>
+                                               </div>
+                     </p></span>
               </div>
               <a data-ng-click="contactUs()" id="submit"><img src="app/images/submit-btn.png" alt=""></a>
           </form>

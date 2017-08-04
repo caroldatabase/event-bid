@@ -37,4 +37,17 @@
         }
 
     }
+
+    $scope.countChar = function () {
+        if ($scope.user.comments) {
+            var len = $scope.user.comments.length;
+            if (len >= 5000) {
+                $scope.user.comments = $scope.user.comments.substring(0, 5000);
+            } else {
+                $('#charNum').text(5000 - len);
+            }
+        }
+        else
+            $('#charNum').text(5000);
+    }
 });

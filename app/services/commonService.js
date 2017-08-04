@@ -1,4 +1,4 @@
-app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope', 'httpService',
+app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope',
     function ($location, $window, $cookies, $route, $rootScope) {
     var commonService = {
         updateLocationPath : updateLocationPath,

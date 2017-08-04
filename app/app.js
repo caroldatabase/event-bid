@@ -1,4 +1,4 @@
-﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngMessages', 'ngCookies']);
+﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
 
 window.fbAsyncInit = function () {
     FB.init({
@@ -20,16 +20,17 @@ window.fbAsyncInit = function () {
 
 app.config(function ($routeProvider) {
     $routeProvider
-    .when("/", {
-        templateUrl: "app/views/dashBoard.html",
-        controller: "dashBoardController"
-    })
-    .when("/how-it-works", {
-        templateUrl: "app/views/how-it-works.html",
-        controller: "howItWorksCtrl"
-    })
+        .when("/", {
+            templateUrl: "app/views/dashBoard.html",
+            controller: "dashBoardController"
+        })
+        .when("/how-it-works", {
+            templateUrl: "app/views/how-it-works.html",
+            controller: "howItWorksCtrl"
+        })
         .when("/add-category", {
             templateUrl: "app/views/request-a-category.html",
+            controller: "requestCategoryCtrl"
 
         })
         .when("/browse-tasks", {

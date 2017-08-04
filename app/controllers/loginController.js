@@ -15,6 +15,7 @@
     //scope.variables 
     $scope.SignUpIndicator = false;
     $scope.user = {};
+    $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
     $scope.errorIndicator = false;
      $rootScope.loaderIndicator = false;
 
@@ -207,9 +208,9 @@
         });
     }
 
-    function checkEmail()
+    function checkEmail(form)
     {
-        if ($scope.loginForm.$error.email) {
+        if (form.$error.pattern) {
             $scope.emailIndicator = true;
         }
         else

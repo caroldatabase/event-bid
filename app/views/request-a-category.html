@@ -1,98 +1,120 @@
 <div class="content-body">
-    
-    <div class="container how-it-tabs">
-        <div class="row">
-            <div class="col-sm-12">
-               
-                <div class="request-form">
-			<div class="row">
-				<div class="col-sm-12">
-					<h4>Name :</h4>
-				</div>
-				<div class="col-sm-6">
-					<input type="text" placeholder="First">
-				</div>
-				<div class="col-sm-6">
-					<input type="text" placeholder="Last">
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h4>Email:</h4>
-				</div>
-				<div class="col-sm-12">
-					<input type="email" placeholder="Enter Email">
-				</div>
-				
-			</div>
-			<div class="row hire">
-				
-				<div class="col-sm-12">
-					                    <form class="signUpForm" name="signUpForm" novalidate>
-                                        <div class="popup-form-row row">
-                                            <div class="col-sm-2"></div>
-                                            <div class="col-sm-3">
-                                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                                    
-                                                    <img src="app/images/hirer.png">
-                                                    <div class="center-element">
-                                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
-                                                           name="userType" /> <span class="input-letter">I am a hirer</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <div class="b-none form-field signup-redio">
-                                                    or
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-3">
-                                                <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                                    <img src="app/images/provider.png">
-                                                    <div class="center-element">
-                                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> <span class="input-letter">I am service provider</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-2"></div>
-                                        </div>
-                       
-                        
-
-                    </form>
-				</div>
-				
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h4>Title of new category:</h4>
-				</div>
-				<div class="col-sm-12">
-					<input type="text">
-				</div>
-				
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h4>Why do you need a new category?</h4>
-				</div>
-				<div class="col-sm-12">
-					<textarea class="form-control" rows="5"></textarea>
-				</div>
-				
-			</div>
-            <div class="row hire">
-				
-				<div class="col-sm-12">
-                    <br/><br/>
-                    <a href="#"><img src="app/images/submit-btn.png" alt=""></a>
-				</div>
-				
-			</div>
-		</div>
-                    
-            </div>
+    <div class="sub-banner">
+            <img src="app/images/how-it-works.jpg">
+        <div class="banner-overlay">
+            <h3>Request a category</h3>
+            <h4>An overview of hiring and freelancing on Upwork.</h4>
+            <button>Sign Up</button>
         </div>
+    </div>
+    <div class="container how-it-tabs">
+        <form name="requestCategoryForm" novalidate>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="request-form">
+                        <div class="row">
+                            <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                                {{ message}}
+                            </div>
+                            <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                                {{message}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4>Name:</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="First Name" name="firstName" required data-ng-model="reqUser.firstName"
+                                       ng-class="{error : requestCategoryForm.firstName.$invalid && requestCategoryForm.$submitted }">
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" placeholder="Last Name" name="lastName" required data-ng-model="reqUser.lastName"
+                                       ng-class="{error : requestCategoryForm.lastName.$invalid && requestCategoryForm.$submitted }">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4>Email:</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="email" name="email" required data-ng-model="reqUser.email" ng-pattern="emailFormat"
+                                       ng-class="{error : requestCategoryForm.email.$invalid && requestCategoryForm.$submitted }">
+                            </div>
+
+                        </div>
+                        <div class="row hire">
+
+                            <div class="col-sm-12">
+                                <div class="popup-form-row row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-3">
+                                        <div class="form-field signup-redio">
+
+                                            <img src="app/images/hirer.png">
+                                            <div class="center-element">
+                                                <input type="radio" class="option-input checkbox" value="taskHirer" name="userType" required data-ng-model="reqUser.userType"
+                                                       ng-class="{error : requestCategoryForm.userType.$invalid && requestCategoryForm.$submitted }" />
+                                                 <span class="input-letter">I am a hirer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="b-none form-field signup-redio">
+                                            or
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-field signup-redio">
+                                            <img src="app/images/provider.png">
+                                            <div class="center-element">
+                                                <input type="radio" class="option-input checkbox" value="taskSeeker" name="userType" required data-ng-model="reqUser.userType"
+                                                       ng-class="{error : requestCategoryForm.userType.$invalid && requestCategoryForm.$submitted }" />
+                                                 <span class="input-letter">I am service provider</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4>Title of new category:</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" name="title" required data-ng-model="reqUser.titleOfNewCategory"
+                                       ng-class="{error : requestCategoryForm.title.$invalid && requestCategoryForm.$submitted }">
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h4>Why do you need a new category?</h4>
+                            </div>
+                            <div class="col-sm-12">
+                                <textarea class="form-control" rows="10" name="whyNeedCategory" required data-ng-model="reqUser.whyNeedCategory" ng-keyup="countChar();"
+                                          ng-class="{error : requestCategoryForm.whyNeedCategory.$invalid && requestCategoryForm.$submitted }"></textarea>
+                                <div style="font-size: 12px; float: right; color: #666">
+                                    <span id="charNum">5000</span>
+                                    <span>Words Remaining</span>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="row hire">
+
+                            <div class="col-sm-12">
+                                <br /><br />
+                                <a data-ng-click="requestCategory()"><img src="app/images/submit-btn.png" alt=""></a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
     </div>
     
     

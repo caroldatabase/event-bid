@@ -2,7 +2,7 @@
     {
         ENVIORNMENT :
             {
-                WEBUAT: 'http://krsdata.net/eventbid',
+                WEBUAT: 'http://webpedialab.com/eventbid',
                 LOCAL: 'http://localhost/eventBid_webapi'
             },
         ERRORMESSAGE:

@@ -10,7 +10,8 @@
         addCategory: addCategory,
         getCategory: getCategory,
         postTask: postTask,
-        contactus: contactus
+        contactus: contactus,
+        newEBCategory: newEBCategory
     };
 
     function createAccount(user) {
@@ -24,7 +25,12 @@
         return $http.post(serviceBase + 'api/v1/user/contactus', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
+    }
 
+    function newEBCategory(user) {
+        return $http.post(serviceBase + 'api/v1/newEBCategory/create', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
     }
 
     function postTask(user) {
