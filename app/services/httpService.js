@@ -11,7 +11,9 @@
         getCategory: getCategory,
         postTask: postTask,
         contactus: contactus,
-        newEBCategory: newEBCategory
+        newEBCategory: newEBCategory,
+        deleteCategory: deleteCategory,
+        browseAllTask: browseAllTask
     };
 
     function createAccount(user) {
@@ -33,8 +35,8 @@
         });
     }
 
-    function postTask(user) {
-        return $http.post(serviceBase + 'api/v1/post-task/create' , user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+    function postTask(task) {
+        return $http.post(serviceBase + 'api/v1/post-task/create' , task, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 
@@ -61,16 +63,30 @@
             return response;
         });
     }
+    // category section 
 
-    function addCategory(categoryName)
+    function addCategory(category)
     {
-        return $http.post(serviceBase + 'api/v1/post-task/category?categoryName=' +  categoryName, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.post(serviceBase + 'api/v1/post-task/category',   category , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
 
     function getCategory() {
         return $http.get(serviceBase + 'api/v1/post-task/getcategory', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function deleteCategory(categoryid) {
+        return $http.get(serviceBase + 'api/v1/category/delete/' + categoryid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+    
+    //task section 
+    function browseAllTask() {
+        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

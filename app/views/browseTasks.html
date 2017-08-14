@@ -34,25 +34,25 @@
             </div>
         </div>
     </div>
-
+    <a class="card-pop" data-toggle="modal" data-target="#taskDetailModal">
     <div class="browse-list">
         <div class="container">
-            <ul>
+            <ul data-ng-repeat="data in taskList track by $index">
                 <li>
-                    <h3>Title</h3>
+                    <h3>{{data.event_title}}</h3>
                     <p>Lorem ipsum dolor sit amet is the dummy text</p>
                 </li>
                 <li class="text-center category-img">
-                    <img src="app/images/category/Catering.png">
+                    <img ng-src="{{data.category.categoryImage}}" alt="category image">
                 </li>
                 <li>
-                    <h3>Wedding</h3>
+                    <h3>{{data.event_type}}</h3>
 
                 </li>
                 <li class="third-cont">
                     <p>
-                        <span>Rosana</span>
-                        <span>VIC</span>
+                        <span>{{data.date_required}}</span>
+                        <span>From {{data.time_from}} To {{data.time_to}}</span>
                     </p>
                 </li>
                 <li>
@@ -67,67 +67,39 @@
                 </li>
             </ul>
 
-            <ul>
-                <li>
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet is the dummy text</p>
-                </li>
-                <li class="text-center category-img">
-                    <img src="app/images/category/Catering.png">
-                </li>
-                <li>
-                    <h3>Wedding</h3>
 
-                </li>
-                <li class="third-cont">
-                    <p>
-                        <span>Rosana</span>
-                        <span>VIC</span>
-                    </p>
-                </li>
-                <li>
-                    <h3>$5000</h3>
-
-                </li>
-                <li class="third-cont right-text">
-                    <p>
-                        <span>Rebecca A</span>
-                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                    </p>
-                </li>
-            </ul>
-
-            <ul>
-                <li>
-                    <h3>Title</h3>
-                    <p>Lorem ipsum dolor sit amet is the dummy text</p>
-                </li>
-                <li class="text-center category-img">
-                    <img src="app/images/category/Catering.png">
-                </li>
-                <li>
-                    <h3>Wedding</h3>
-
-                </li>
-                <li class="third-cont">
-                    <p>
-                        <span>Rosana</span>
-                        <span>VIC</span>
-                    </p>
-                </li>
-                <li>
-                    <h3>$5000</h3>
-
-                </li>
-                <li class="third-cont right-text">
-                    <p>
-                        <span>Rebecca A</span>
-                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                    </p>
-                </li>
-            </ul>
         </div>
 
     </div>
+</a>
+
+<!-- Modal -->
+<div id="taskDetailModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Task Title</h4>
+      </div>
+      <div class="modal-body">
+        <p>vaibhav lives in khandwa. It is a good place.</p>
+          <p><b>Wedding</b> <b>Category Name</b></p>
+           <p><b>Date Required</b> 12/09/2017</p>
+          <p><b>Time From</b> 11:00 am</p>
+          <p><b>Time To</b> 11:00 am</p>
+          <div class="event-detail-pop">
+              <p>Lorem ipsum dolor sit amet is the dummy text describing the web content for showing to user.</p>
+          </div>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Start Working</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
   

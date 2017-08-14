@@ -48,7 +48,7 @@
                         <div class="form-field">
                            <label>Date Required</label>
                             <input type="text" class="form-control datepicker cal_icon" required readonly data-ng-model="task.dateRequired"
-                                   name="date" ng-class="{error : postTaskForm.dateRequired.$invalid && postTaskForm.$submitted}">
+                                   name="dateRequired" ng-class="{error : postTaskForm.dateRequired.$invalid && postTaskForm.$submitted}">
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                         <div class="form-field">
                             <label>Category </label>
                             <div ng-class="{error : postTaskForm.category.$invalid && postTaskForm.$submitted}">
-                                <select class="singleSelection" required data-ng-model="task.category" name="category"
+                                <!--<select class="singleSelection" required data-ng-model="task.category" name="category"
                                         data-ng-change="categoryChange()">
                                     <option value="" selected="selected">SELECT CATEGORY</option>
                                     <option value="Make Up,Hair & Beauty">MAKE UP, HAIR & BEAUTY</option>
@@ -85,42 +85,46 @@
                                     <option value="Photography & Videography">PHOTOGRAPHY & VIDEOGRAPHY</option>
                                     <option value="Patisserie">PATISSERIE</option>
                                     <option value="Waiting & Service">WAITING & SERVICE</option>
+                                </select>-->
+                                <select class="singleSelection" required data-ng-model="task.category" name="category" id="category"
+                                        data-ng-change="categoryChange()" ng-options="item.id as (item.name | uppercase) for item in categoryList">
+                                    <option value="" selected="selected">SELECT CATEGORY</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- make Up , Hair and Beauty --> 
-                <div data-ng-if="task.category === 'Make Up,Hair & Beauty'" >
+                <div data-ng-if="task.category === categoryConst.MAKE_UP_HAIR_BEAUTY">
                     <div ng-include src="'app/views/postTaskTemplates/makeupHairBeauty.html'" data-ng-cloak></div>
                 </div>
-                <!--Caterine--> 
-                <div data-ng-if="task.category === 'Catering'">
+                <!--Catering--> 
+                <div data-ng-if="task.category === categoryConst.CATERING">
                     <div ng-include src="'app/views/postTaskTemplates/catering.html'" ng-cloak></div>
                 </div>
                  <!--Cleaning--> 
-                 <div data-ng-if= "task.category === 'Cleaning Services'">
-                     <div ng-include src="'app/views/postTaskTemplates/cleaning.html'" ng-cloak></div>
-                 </div>
+                <div data-ng-if="task.category === categoryConst.CLEANING_SERVICES">
+                    <div ng-include src="'app/views/postTaskTemplates/cleaning.html'" ng-cloak></div>
+                </div>
                  <!--Car & Venue Hire--> 
-                 <div data-ng-if= "task.category === 'Car & Venue Hire'">
-                     <div ng-include src="'app/views/postTaskTemplates/carVenue.html'" ng-cloak></div>
-                 </div>
+                <div data-ng-if="task.category === categoryConst.CAR_VENUE_HIRE">
+                    <div ng-include src="'app/views/postTaskTemplates/carVenue.html'" ng-cloak></div>
+                </div>
                  <!--Entertainment & Talent--> 
-                 <div data-ng-if= "task.category === 'Entertainment & Talent'">
-                     <div ng-include src="'app/views/postTaskTemplates/entertainmentTalent.html'"></div>
-                 </div>
+                <div data-ng-if="task.category === categoryConst.ENTERTAINMENT_TALENT">
+                    <div ng-include src="'app/views/postTaskTemplates/entertainmentTalent.html'"></div>
+                </div>
                  
                  <!--Photography and Videography--> 
-                <div data-ng-if="task.category === 'Photography & Videography'">
+                <div data-ng-if="task.category === categoryConst.PHOTOGRAPHY_VIDEOGRAPHY">
                     <div ng-include src="'app/views/postTaskTemplates/photographyVideography.html'"></div>
                 </div>
                  <!--Patisserie--> 
-                 <div data-ng-if= "task.category === 'Patisserie'">
-                     <div ng-include src="'app/views/postTaskTemplates/patisserie.html'"></div>
-                 </div>
+                <div data-ng-if="task.category === categoryConst.PATISSERIE">
+                    <div ng-include src="'app/views/postTaskTemplates/patisserie.html'"></div>
+                </div>
                  <!--Graphic Design--> 
-                <div data-ng-if="task.category === 'Graphic Design'">
+                <div data-ng-if="task.category === categoryConst.GRAPHIC_DESIGN">
                     <div ng-include src="'app/views/postTaskTemplates/graphicDesign.html'"></div>
                 </div>
                   <!--waiting/Waitressing--> 
@@ -128,26 +132,36 @@
                     <div ng-include src="'app/views/postTaskTemplates/waiterWaitress.html'"></div>
                 </div>-->
                 <!--Supply Hire-->
-                <div data-ng-if="task.category === 'supply hire'">
-                    
+                <div data-ng-if="task.category === categoryConst.SUPPLY_HIRE">
+
                     <div ng-include src="'app/views/postTaskTemplates/supplyHire.html'"></div>
                 </div>
                 <!--waiting & service-->
-                <div data-ng-if="task.category === 'Waiting & Service'">
+                <div data-ng-if="task.category === categoryConst.WAITING_SERVICE">
 
                     <div ng-include src="'app/views/postTaskTemplates/waiting_and_service.html'"></div>
                 </div>
                 <!--Floristry-->
-                <div data-ng-if="task.category === 'Floristry'">
-                    
+                <div data-ng-if="task.category === categoryConst.FLORISTRY">
+
                     <div ng-include src="'app/views/postTaskTemplates/floristry.html'"></div>
                 </div>
                 
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-field">
-                            <label>Inspiration photos</label>
-                            <input type="file" class="form-control">
+                            <label>Inspiration photos (upto 3 images)</label>
+                            <input type="file" class="form-control" name="categoryImage" id="categoryImage"
+                                   fileread="categoryImage" accept="image/*" data-ng-model="categoryImage">
+                        </div>
+                        <div class="form-field ">
+                            <label>Uploaded Image :</label>
+                            <div data-ng-if="task.inspirationPhoto.length > 0" data-ng-repeat="data in task.inspirationPhoto">
+                                <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                            </div>
+                            <div data-ng-if="task.inspirationPhoto.length == 0" >
+                                <img ng-src="{{task.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
+                            </div>
                         </div>
                     </div>
                 </div>

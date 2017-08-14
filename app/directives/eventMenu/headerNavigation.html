@@ -139,9 +139,9 @@
                         <div class="popup-form-row row">
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                    <img src="app/images/hiring.jpg">
+                                    <img src="app/images/icon-post-task.png">
                                     <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
-                                           name="userType" /> <span class="input-letter">Start hiring</span>
+                                           name="userType" />
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -151,8 +151,10 @@
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                    <img src="app/images/earning.jpg">
-                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> <span class="input-letter">Start earning</span>
+                                    <img src="app/images/icon-do-task.png">
+                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType"
+                                            value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> 
+                                    
                                 </div>
                             </div>
                         </div>
@@ -271,44 +273,10 @@
     </div>
 </div>
 
-<!--Request a new category-->
-<div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
-    <div class="eb-vAlignment">
-        <div class="modal-dialog eb-vAlignCenter">
-            <div class="modal-content">
-                <div class="eb-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Add a Category</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="extraSpace"></div>
-                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
-                        {{message}}
-                    </div>
-                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                        {{message}}
-                    </div>
-                    <form name="addCategoryForm" novalidate>
-                        <div class="popup-form-row">
-                            <div class="form-field">
-                                <label>category name : </label>
-                                <input type="text" class="form-control" data-ng-model="categoryName" required autofocus
-                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
-                            </div>
-                        </div>
 
-                        <div class="popup-button-group">
-                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!--view categories-->
-<div class="modal fade" id="viewCategoryPopup" tabindex="-1" ng-controller="viewCategoryController">
+<!--<div class="modal fade" id="viewCategoryPopup" tabindex="-1" ng-controller="viewCategoryController">
     <div class="eb-vAlignment">
         <div class="modal-dialog eb-vAlignCenter">
             <div class="modal-content">
@@ -341,4 +309,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

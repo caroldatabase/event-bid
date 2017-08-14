@@ -1,9 +1,11 @@
-﻿app.controller('postTaskController', ['$scope', 'commonService', 'httpService', function ($scope, commonService, httpService) {
+﻿app.controller('postTaskController', ['$scope', 'commonService', 'httpService', 'CONSTANTS', '$rootScope', function ($scope, commonService, httpService, CONSTANTS, $rootScope) {
     init();
     $scope.postTask = postTask;
     $scope.categoryChange = categoryChange;
     $scope.selectHireType = selectHireType;
     $scope.changeServiceType = changeServiceType;
+    $scope.categoryConst = CONSTANTS.CATEGORY;
+    $scope.upload = upload;
     function init()
     {
         commonService.scrollToTop();
@@ -19,7 +21,9 @@
                 format: 'MM-DD-YYYY',
                 changeMonth: true,
                 changeYear: true,
-                startDate: todayDate
+                minDate: todayDate
+            }).on("dp.change", function () {
+                $(this).trigger('blur');
             });
             $('.timepicker').timepicker({
                 timeFormat: 'h:mm p',
@@ -33,12 +37,8 @@
                 scrollbar: true
             });
         })
-        httpService.getCategory().then(function (data) {
-            $scope.categoryList = data.data.data;
-        });
-        $scope.task = {};
-        $scope.task.timeFrom = "11:00 A.M";
-        $scope.task.timeTo = "11:00 A.M";
+        $scope.categoryList = $rootScope.categoryList;
+        resetData();
     }
     
     function selectHireType(data)
@@ -92,15 +92,75 @@
     {
         $scope.postTaskForm.$setSubmitted(true);
         if ($scope.postTaskForm.$valid) {
-            commonService.scrollToTop();
-            $scope.successMessageIndicator = true;
-            $scope.errorMessageIndicator = false;
-            $scope.message = "Task submitted successfully.";
-            $scope.task = {};
+            $rootScope.loaderIndicator = true;
+            $scope.task.post_user_id = commonService.getUserid();
+            $scope.task.task_status = "open";
+            httpService.postTask($scope.task).then(function (result) {
+                if (result.data.code = 200 && result.data.message == "Post task created successfully.")
+                {
+                    commonService.scrollToTop();
+                    resetData();
+                    $rootScope.loaderIndicator = false;
+                    $scope.successMessageIndicator = true;
+                    $scope.errorMessageIndicator = false;
+                    $scope.message = "Task submitted successfully.";
+                    $scope.task = {};
+                }
+                else {
+                    $rootScope.loaderIndicator = false;
+                    $scope.errorMessageIndicator = false;
+                    $scope.message = "Error occured. Please try after some time.";
+                }
+            });
         }
         else {
             $scope.errorMessageIndicator = true;
             $scope.message = "Please enter required fields";
         }
     }
+    function upload()
+    {
+        setTimeout(function () {
+            if ($scope.categoryImage) {
+                $scope.task.inspirationPhoto.push($scope.categoryImage);
+            }
+            }, 2000);
+    }
+
+
+    function resetData()
+    {
+        $scope.task = {};
+        $scope.task.category_question = {};
+        $scope.task.inspirationPhoto = [];
+        $scope.task.timeFrom = "11:00 A.M";
+        $scope.task.timeTo = "11:00 A.M";
+        if ($scope.postTaskForm) {
+            $scope.postTaskForm.$setPristine();
+            $scope.postTaskForm.$setUntouched();
+            $scope.postTaskForm.$submitted = false;
+        }
+    }
+
+
+    $rootScope.$on("imageAdded", function (event, fileUploaded) {
+        if (fileUploaded) {
+            if ($scope.task.inspirationPhoto) { //push into array case and check if it exists.
+                if ($scope.task.inspirationPhoto.length < 3) {
+                    $scope.task.inspirationPhoto.push(fileUploaded);
+                    setTimeout(function(){
+                        $('#categoryImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+        }
+    });
+
 }])
+
+

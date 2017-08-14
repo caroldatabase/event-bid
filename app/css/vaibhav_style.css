@@ -139,7 +139,8 @@ text-align:right;
 .request-form {
     float: left;
     width: 100%;
-    padding: 20px 0px;
+    padding: 20px 15px;
+    background: #eee;
 }
 .request-form input {
     float: left;

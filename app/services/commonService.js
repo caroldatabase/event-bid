@@ -6,7 +6,8 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
         setCookieValues: setCookieValues,
         reloadRoute: reloadRoute,
         deleteCookieValues: deleteCookieValues,
-        checkUserLoggedIn: checkUserLoggedIn
+        checkUserLoggedIn: checkUserLoggedIn,
+        getUserid: getUserid
     };
 
     function updateLocationPath(pathValue) {
@@ -30,6 +31,13 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
         if (dataType == "UserID")
             $cookies.remove("UserID");
 
+    }
+    
+    function getUserid()
+    {
+        var userId = "";
+        userId = $cookies.get("UserID");
+        return userId;
     }
     function reloadRoute()
     {

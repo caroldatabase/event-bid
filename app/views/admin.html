@@ -1,0 +1,71 @@
+﻿
+<div class="category-page text-center">
+    <div class="sub-banner">
+        <img src="app/images/category-head.jpg">
+    </div>
+</div>
+<h2 style="text-align:center"><u>Admin Section</u></h2>
+<div class="container">
+    <div class="row">
+        <input type="button" value="add category" data-toggle="modal" data-ng-click="openAddCategoryPopup()" />
+        <br/>
+        <b>All categories :</b>
+        
+        <ul data-ng-repeat="item in categories">
+            <li>
+                {{item.name}}
+                <img src="{{item.categoryImage}}" alt="" />
+                <input type="button" value="delete category" data-ng-click="deleteCategory(item)" />
+            </li>
+        </ul>
+    </div>
+   
+</div>
+
+<!--Request a new category-->
+<div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Add a Category</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                        {{message}}
+                    </div>
+                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                        {{message}}
+                    </div>
+                    <form name="addCategoryForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>category name : </label>
+                                <input type="text" class="form-control" data-ng-model="category.categoryName" required autofocus
+                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
+                            </div>
+                            <div class="form-field">
+                                <div class="form-group ">
+                                    <label>Upload	</label>
+                                    <input type="file" class="form-control" name="category.categoryImage" id="categoryImage" required
+                                           fileread="category.categoryImage" accept="image/*" data-ng-model="category.categoryImage"
+                                           ng-class="{error : addCategoryForm.categoryImage.$invalid && addCategoryForm.$submitted}" />
+                                </div>
+                                <div class="form-group ">
+                                    <label>Uploaded Image :</label>
+                                    <img src="{{category.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popup-button-group">
+                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

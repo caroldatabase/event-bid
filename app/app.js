@@ -35,7 +35,7 @@ app.config(function ($routeProvider) {
         })
         .when("/browse-tasks", {
             templateUrl: "app/views/browseTasks.html",
-
+            controller: "browseTaskCtrl"
         })
         .when("/EBManager", {
             templateUrl: "app/views/EBManager.html",
@@ -75,6 +75,10 @@ app.config(function ($routeProvider) {
             templateUrl: "app/views/profile.html",
             controller : "profileController"
         })
+         .when("/admin", {
+             templateUrl: "app/views/admin.html",
+             controller: "adminCtrl"
+         })
     .otherwise({
         redirect: '/'
     });

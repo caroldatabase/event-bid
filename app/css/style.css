@@ -845,10 +845,9 @@ input[type="file"]{
 
 .signUpForm{margin:0 0 20px 0}
 .signUpForm .popup-form-row .signup-redio {
-    padding: 10px 10px 20px;
+    padding: 10px 10px 0px;
     border-radius: 4px;
     text-align: center;
-    border: 1px solid #ccc;
     color: #a9a9a9;
 }
 .signUpForm .popup-form-row .signup-redio.b-none{border:none}
@@ -866,7 +865,7 @@ input[type="file"]{
 }
 
 .loader{position: fixed;
-    background: #000;
+    background: #eee;
     width: 100%;
     height: 100%;
     text-align: center; z-index: 99999; opacity: }
@@ -1200,4 +1199,75 @@ a.fb_login_btn.btn.btn-block:hover{
 .center-element {
     margin: 0 auto !important;
     display: table;
+}
+.setting-pages
+{
+    padding: 25px 0px;
+}
+.menubar-left {
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+}
+.menubar-left ul li {
+    text-align: left;
+}
+.menubar-left a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    font-size: 18px;
+}
+.menubar-left a:hover
+{
+    background:#298992;
+    text-decoration: none;
+    color: #fff;
+}
+.setting-pages label
+{
+    font-size: 16px;
+    float: left;
+    width: 100%;
+    font-weight: 300;
+}
+.setting-pages input
+{
+    font-size: 16px;
+    float: left;
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding-left: 15px;
+    
+}
+a.active-side
+{
+   background:#298992;
+    text-decoration: none;
+    color: #fff; 
+}
+i {
+    border: 0 !important;
+}
+button.multiselect.dropdown-toggle.btn.btn-default:hover {
+    background: #12ab9c;
+    color: #fff;
+    text-shadow: none;
+}
+.form-field.signup-redio input.option-input.checkbox {
+    margin-top: 30px;
+}
+.uploaded-image {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+ul.multiselect-container.dropdown-menu li a:hover {
+    color: #333;
+}
+.request-input {
+    margin-top: 0px !important;
 }

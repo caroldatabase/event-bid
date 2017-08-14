@@ -25,7 +25,7 @@
     {
         executeJquery();
         httpService.getCategory().then(function (data) {
-            $scope.categoryList = data.data.data;
+            $rootScope.categoryList = $scope.categoryList = data.data.data;
         });
 
     }

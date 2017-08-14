@@ -140,3 +140,39 @@
 			</div>
 		</div>
 </div>-->
+
+<!--view categories-->
+<div class="modal fade" id="viewCategoryPopup" tabindex="-1" ng-controller="viewCategoryController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Category Details</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                        {{message}}
+                    </div>
+                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                        {{message}}
+                    </div>
+                    <form name="addCategoryForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>category name : </label>
+                                <input type="text" class="form-control" data-ng-model="categoryName" required autofocus
+                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
+                            </div>
+                        </div>
+
+                        <div class="popup-button-group">
+                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

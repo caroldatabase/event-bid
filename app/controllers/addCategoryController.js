@@ -6,27 +6,38 @@
     init();
     function init()
     {
-
+        $scope.category = {};
     }
     function addNewCategory()
     {
         $scope.addCategoryForm.$setSubmitted(true);
         if ($scope.addCategoryForm.$valid) {
             $rootScope.loaderIndicator = true;
-            httpService.addCategory($scope.categoryName).then(function (data) {
+            httpService.addCategory($scope.category).then(function (data) {
                 if(data.data.message == 'category created successfully.')
                 {
                     $rootScope.loaderIndicator = false;
                     $scope.successMessageIndicator = true;
                     $scope.ErrorIndicator = false;
                     $scope.message = "Category added successfully.";
-                    $scope.categoryName = null;
+                    $scope.category = {};
+                    $('#categoryName').val("");
+                    $('#categoryImage').val("");
+                    $rootScope.$broadcast("addedCategory", function () {
+                    });
                 }
                 else
                 {
-                    $rootScope.loaderIndicator = false;
-                    $scope.message = "Category name already exists."
-                    $scope.ErrorIndicator = true;
+                    if (data.data.message == "Request URL not available") {
+                        $rootScope.loaderIndicator = false;
+                        $scope.message = "Something went wrong. Technical issues."
+                        $scope.ErrorIndicator = true;
+                    }
+                    else {
+                        $rootScope.loaderIndicator = false;
+                        $scope.message = "Category name already exists."
+                        $scope.ErrorIndicator = true;
+                    }
                 }
             });
         }
@@ -39,9 +50,11 @@
 
     function ModalClose()
     {
-        $scope.categoryName = null;
+        $scope.category = {};
         $scope.ErrorIndicator = false;
         $scope.successMessageIndicator = false;
         angular.element('#categoryName').removeClass('error');
     }
+
+  
 }]);
