@@ -1270,4 +1270,22 @@ ul.multiselect-container.dropdown-menu li a:hover {
 }
 .request-input {
     margin-top: 0px !important;
+
+}
+.browse-task-detail-pop .modal-dialog {
+    left: 0 !important;
+}
+.browse-task-detail-pop .modal-header
+{
+    text-align: center;
+    background: #349d93;
+    color: #fff;
+}
+.browse-task-detail-pop button.btn.btn-default
+{
+    background: #349d93;
+    color: #fff;
+    font-weight: 400;
+    border: 0;
+    padding: 15px;
 }
