@@ -1289,3 +1289,27 @@ ul.multiselect-container.dropdown-menu li a:hover {
     border: 0;
     padding: 15px;
 }
+.container.admin-page ul {
+    float: left;
+    width: 33.33%;
+    margin-bottom: 15px;
+}
+.input-adjust {
+    float: left;
+    width: 48%;
+    margin: 1%;
+    position: relative;
+}
+.place-ico {
+    position: absolute;
+    right: 10px;
+    top: 12px;
+}
+.other-iocn-d {
+    position: absolute;
+    right: 25px;
+    top: 36px;
+}
+.col-sm-4 textarea {
+    width: 100%;
+}

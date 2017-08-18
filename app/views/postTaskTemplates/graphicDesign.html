@@ -26,6 +26,7 @@
             </select>
         </div>
     </div>
+    
     <div class="col-sm-4">
         <div class="form-field">
             <label>If you need it printed, how many do you require?</label>
@@ -40,9 +41,12 @@
             </select>
         </div>
     </div>
+    <div class="col-sm-12">
+    </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What is your total budget for your design job? $</label>
+            <label>What is your total budget for your design job? </label>
+            <span class="other-iocn-d">$</span>
             <input type="number" class="form-control" ng-model="task.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
                    required
                    ng-class="{error : postTaskForm.totalBudgetForbanners.$invalid && postTaskForm.$submitted}">

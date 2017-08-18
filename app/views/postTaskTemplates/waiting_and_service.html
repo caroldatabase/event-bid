@@ -1,7 +1,7 @@
 ﻿<div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>How many waiter or waitresses do you need for your event? (in $)</label>
+            <label>How many waiter or waitresses do you need for your event?</label>
             <input type="number" class="form-control" ng-model="task.totalwaiters" name="totalwaiters" min="1" max="15"
                    required
                    ng-class="{error : postTaskForm.totalwaiters.$invalid && postTaskForm.$submitted}">
@@ -22,7 +22,6 @@
     <div class="col-sm-4" data-ng-if="task.dressCode == 'Yes'" >
         <div class="form-field">
             <label>please describe your dress code.</label>
-            (in $)
             <input type="number" class="form-control" ng-model="task.dressCodeDesc" name="dressCodeDesc"
                    required
                    ng-class="{error : postTaskForm.dressCodeDesc.$invalid && postTaskForm.$submitted}">
@@ -32,17 +31,24 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>What is your budget for your waiters/waitresses?</label>
-             (in $)
+             
+            <div class="input-adjust">
+            <span class="place-ico">$</span>
             <input type="number" class="form-control" ng-model="task.totalBudget" name="totalBudget"
                    required
                    ng-class="{error : postTaskForm.totalBudget.$invalid && postTaskForm.$submitted}">
+            </div>
+            <div class="input-adjust">
             <select class="singleSelection" required data-ng-model="task.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select Type of Cost</option>
                 <option value="Per Person">Per Person</option>
                 <option value="Per Piece">Per Hour</option>
                 <option value="Total">Total</option>
             </select>
+            </div>
         </div>
+    </div>
+    <div class="col-sm-12">
     </div>
     <div class="col-sm-4">
         <div class="form-field">

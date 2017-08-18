@@ -39,18 +39,22 @@
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>Budget</label>
-            $
-            <input type="number" class="form-control" ng-model="task.totalCost" name="totalCost"
-                   required
-                   ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
-            <select class="singleSelection" required data-ng-model="task.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
-                <option value="">Select Budget type</option>
-                <option value="Per Person">Per hour</option>
-                <option value="Per Piece">Per car</option>
-                <option value="Total">Total</option>
-            </select>
-        </div>
+            <label style="width:100%; margin-left:5px;">Budget</label>
+            <div class="input-adjust">
+                <span class="place-ico">$</span>
+                <input type="number" class="form-control" ng-model="task.totalCost" name="totalCost"
+                       required
+                       ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}"/>
+                </div>
+            <div class="input-adjust">
+                <select class="singleSelection" required data-ng-model="task.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
+                    <option value="">Select Budget type</option>
+                    <option value="Per Person">Per hour</option>
+                    <option value="Per Piece">Per car</option>
+                    <option value="Total">Total</option>
+                </select>
+            </div>
+            </div>
     </div>
 </div>
 

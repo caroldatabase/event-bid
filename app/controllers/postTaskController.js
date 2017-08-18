@@ -1,4 +1,5 @@
-﻿app.controller('postTaskController', ['$scope', 'commonService', 'httpService', 'CONSTANTS', '$rootScope', function ($scope, commonService, httpService, CONSTANTS, $rootScope) {
+﻿app.controller('postTaskController', ['$scope', 'commonService', 'httpService', 'CONSTANTS', '$rootScope', '$compile',
+    function ($scope, commonService, httpService, CONSTANTS, $rootScope, $compile) {
     init();
     $scope.postTask = postTask;
     $scope.categoryChange = categoryChange;
@@ -24,6 +25,7 @@
                 minDate: todayDate
             }).on("dp.change", function () {
                 $(this).trigger('blur');
+
             });
             $('.timepicker').timepicker({
                 timeFormat: 'h:mm p',
@@ -36,8 +38,13 @@
                 dropdown: true,
                 scrollbar: true
             });
-        })
-        $scope.categoryList = $rootScope.categoryList;
+
+        });
+       
+        
+        httpService.getCategory().then(function (data) {
+            $rootScope.categoryList = $scope.categoryList = data.data.data;
+        });
         resetData();
     }
     
@@ -67,7 +74,7 @@
                 maximumSelectionLength: 3
             });
         }, 000);
-        console.log($scope.task.category);
+        
     }
     function changeServiceType(data)
     {
@@ -88,13 +95,19 @@
         });
 
     }
+    
+    
+
     function postTask()
     {
+        $scope.task.timeFrom = $('#timeFrom').val();
+        $scope.task.timeTo = $('#timeTo').val();
         $scope.postTaskForm.$setSubmitted(true);
         if ($scope.postTaskForm.$valid) {
             $rootScope.loaderIndicator = true;
             $scope.task.post_user_id = commonService.getUserid();
             $scope.task.task_status = "open";
+            
             httpService.postTask($scope.task).then(function (result) {
                 if (result.data.code = 200 && result.data.message == "Post task created successfully.")
                 {
@@ -135,6 +148,8 @@
         $scope.task.inspirationPhoto = [];
         $scope.task.timeFrom = "11:00 A.M";
         $scope.task.timeTo = "11:00 A.M";
+        $scope.task.eventType = "";
+        $scope.task.category = "";
         if ($scope.postTaskForm) {
             $scope.postTaskForm.$setPristine();
             $scope.postTaskForm.$setUntouched();
@@ -162,5 +177,10 @@
     });
 
 }])
+
+
+
+
+
 
 

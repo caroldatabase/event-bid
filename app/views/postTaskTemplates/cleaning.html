@@ -62,16 +62,20 @@
                        
                             <div class="col-sm-4">
                             <div class="form-field">
-                                <label>Proposed Budget</label>
-                                $ 
+                                <label style="width:100%; margin-left:5px;">Proposed Budget</label>
+                                <div class="input-adjust">
+                                    <span class="place-ico">$</span>
+  
                                  <input type="number" class="form-control" ng-model="task.totalCost" name="totalCost" 
                                   required min="0"
-                                     ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+                                        ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}"/></div>
+                                <div class="input-adjust">
                                       <select class="singleSelection" required data-ng-model="task.location" name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
                                     <option value="Per Person">per person</option>
                                     <option value="Per Piece">per hour</option>
                                     <option value="Total">total</option>
                                 </select>
+                                </div>
                             </div>
                     
                         </div>
