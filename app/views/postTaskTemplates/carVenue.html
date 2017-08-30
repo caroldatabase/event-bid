@@ -2,9 +2,9 @@
             <div class="col-sm-4">
                             <div class="form-field">
                                 <label>Type of Hire</label>
-                                <select class="multipleSelection" required multiple="multiple"
-                                data-ng-model="task.hireType" name="location" data-ng-change="selectHireType()"
-                                ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                                <select class="multipleSelection" required multiple="multiple" id="hireType"
+                                        data-ng-model="task.category_question.hireType" name="hireType" data-ng-change="selectHireType()"
+                                        ng-class="{error : postTaskForm.hireType.$invalid && postTaskForm.$submitted}">
                                     <option value="Car Hire">Car Hire</option>
                                     <option value="Venue Hire">Venue Hire</option>
                                 </select>
@@ -12,12 +12,12 @@
                         </div>
    
 </div>
-
+<!--car hire-->
 <div class="row" data-ng-if="carIndicator">
     <div class="col-sm-4">
         <div class="form-field">
             <label>Type of car</label>
-            <select class="singleSelection" required data-ng-model="task.carType" name="carType"
+            <select class="singleSelection" required data-ng-model="task.category_question.carType" name="carType"
                     ng-class="{error : postTaskForm.carType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select car Type</option>
                 <option value="limo classic">LIMO CLASSIC</option>
@@ -32,7 +32,7 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>No. of cars required</label>
-            <input type="number" class="form-control" ng-model="task.totalCost" name="totalCars" min="1" max="7"
+            <input type="number" class="form-control" ng-model="task.category_question.totalCars" name="totalCars" min="1" max="7"
                    required
                    ng-class="{error : postTaskForm.totalCars.$invalid && postTaskForm.$submitted}">
         </div>
@@ -42,12 +42,13 @@
             <label style="width:100%; margin-left:5px;">Budget</label>
             <div class="input-adjust">
                 <span class="place-ico">$</span>
-                <input type="number" class="form-control" ng-model="task.totalCost" name="totalCost"
+                <input type="number" class="form-control" ng-model="task.category_question.totalCost" name="totalCost"
                        required
-                       ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}"/>
+                       ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
                 </div>
             <div class="input-adjust">
-                <select class="singleSelection" required data-ng-model="task.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
+                <select class="singleSelection" required data-ng-model="task.category_question.totalCostType"
+                        name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
                     <option value="">Select Budget type</option>
                     <option value="Per Person">Per hour</option>
                     <option value="Per Piece">Per car</option>
@@ -57,12 +58,12 @@
             </div>
     </div>
 </div>
-
+<!--venue hire-->
 <div class="row" data-ng-if="venueIndicator">
     <div class="col-sm-4">
         <div class="form-field">
             <label>Type of Venue</label>
-            <select class="singleSelection" required data-ng-model="task.venueType" name="venueType"
+            <select class="singleSelection" required data-ng-model="task.category_question.venueType" name="venueType"
                     ng-class="{error : postTaskForm.venueType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select venue Type</option>
                 <option value="Small Hall">Small Hall</option>
@@ -77,8 +78,8 @@
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>No. of cars required</label>
-            <input type="number" class="form-control" ng-model="task.totalGuest" name="totalGuest" min="1"
+            <label>No. of guests :</label>
+            <input type="number" class="form-control" ng-model="task.category_question.totalGuest" name="totalGuest" min="1"
                    required
                    ng-class="{error : postTaskForm.totalGuest.$invalid && postTaskForm.$submitted}">
         </div>
@@ -86,7 +87,7 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>Venue Cleaning</label>
-            <select class="singleSelection" required data-ng-model="task.venueCleaning" name="venueCleaning"
+            <select class="singleSelection" required data-ng-model="task.category_question.venueCleaning" name="venueCleaning"
                     ng-class="{error : postTaskForm.venueCleaning.$invalid && postTaskForm.$submitted}">
                 <option value="">Select Venue Cleaning Type </option>
                 <option value="I am happy to be responsible for cleaning after my event">I am happy to be responsible for cleaning after my event</option>

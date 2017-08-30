@@ -11,11 +11,11 @@
     {
         commonService.scrollToTop();
         $(document).ready(function () {
+            var todayDate = new Date();
             $(".singleSelection").select2();
             $(".multipleSelection").select2({
                 maximumSelectionLength: 3
             });
-            var todayDate = new Date();
             $('.datepicker').datetimepicker({
                 pickDate: true,
                 pickTime: false,
@@ -38,27 +38,29 @@
                 dropdown: true,
                 scrollbar: true
             });
-
         });
        
         
         httpService.getCategory().then(function (data) {
             $rootScope.categoryList = $scope.categoryList = data.data.data;
+            //plot each category
+            //for (var property in $scope.categoryConst) {
+            //    if ($scope.categoryConst.hasOwnProperty(property)) {
+            //        $scope.task.category = $scope.categoryConst[property];
+                   
+            //    }
+            //}
+            
         });
         resetData();
     }
     
-    function selectHireType(data)
+    function selectHireType()
     {
-        setTimeout(function () {
-            $(".singleSelection").select2();
-            $(".multipleSelection").select2({
-                maximumSelectionLength: 3
-            });
-        }, 300);
+        
         $scope.carIndicator = false;
         $scope.venueIndicator = false;
-        angular.forEach($scope.task.hireType, function (value, key) {
+        angular.forEach($scope.task.category_question.hireType, function (value, key) {
             if (value == "Car Hire")
                 $scope.carIndicator = true;
             if (value == "Venue Hire")
@@ -66,25 +68,26 @@
             
         });
     }
-    function categoryChange()
+    function categoryChange(item)
     {
-        setTimeout(function() {
-           $(".singleSelection").select2();
-           $(".multipleSelection").select2({
-                maximumSelectionLength: 3
-            });
-        }, 000);
+        //setTimeout(function() {
+        //   $(".singleSelection").select2();
+        //   $(".multipleSelection").select2({
+        //        maximumSelectionLength: 3
+        //    });
+        //}, 000);
+        
+        if (item == $scope.categoryConst.CAR_VENUE_HIRE) {
+            //setTimeout(function() {
+                    $(".multipleSelection").select2({
+                        maximumSelectionLength: 3
+                    });
+            //}, 000);
+        }
         
     }
     function changeServiceType(data)
     {
-        setTimeout(function () {
-            $(".singleSelection").select2();
-            $(".multipleSelection").select2({
-                maximumSelectionLength: 3
-            });
-        }, 300);
-        
         angular.forEach($scope.task.serviceType, function (value, key) {
             if (value == "Hair")
                 $scope.hairIndicator = true;
@@ -175,7 +178,6 @@
             }
         }
     });
-
 }])
 
 
