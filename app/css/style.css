@@ -1313,3 +1313,86 @@ ul.multiselect-container.dropdown-menu li a:hover {
 .col-sm-4 textarea {
     width: 100%;
 }
+
+.container.customer-dashboard {
+    padding: 40px 0px;
+}
+.top-menu-btn span
+{
+font-size:24px;
+margin-left:15px;
+color:#484848;
+}
+.jobs-list {
+    background: #eee;
+    float: left;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+}
+.jobs-list h4 {
+    text-align: center;
+    background: #018479;
+    margin: -15px;
+    border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color: #fff;
+    padding: 10px;
+
+}
+.jobs-list ul {
+    margin-top: 30px;
+    float: left;
+    width: 100%;
+}
+.jobs-list ul a {
+    color: #484848;
+    font-size: 18px;
+    padding: 10px 0px;
+	border-bottom:1px solid #ccc;
+	display:block;
+
+}
+.jobs-list ul a:hover
+{
+background:#018479;
+color:#fff;
+}
+.jobs-list ul li
+{
+margin-left: 15px;
+text-align:center;
+}
+.container.jobs-dasborad
+{
+padding-bottom:40px;
+}
+.dashborad-post-btn
+{
+float:left;
+width:100%;
+margin-top:35px;
+margin-bottom:25px;
+text-align: center;
+}
+.dashborad-post-btn a
+{
+background:#018479;
+font-size:16px;
+padding:10px 20px;
+color:#fff;
+border-radius:5px;
+}
+.dashborad-post-btn a:hover
+{
+background:#109699;
+}
+.text-content-dash
+{
+float:left;
+width:100%;
+font-size:16px;
+color:#484848;
+margin-top:35px;
+text-align:center;
+}
