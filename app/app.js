@@ -83,6 +83,10 @@ app.config(function ($routeProvider) {
             templateUrl: "app/views/customer-dashboard.html",
             controller: "customerDashboardCtrl"
         })
+        .when("/buisness-dashboard", {
+            templateUrl: "app/views/buisness-dashboard.html",
+            controller: "buisnessDashboardCtrl"
+        })
     .otherwise({
         redirect: '/'
     });
