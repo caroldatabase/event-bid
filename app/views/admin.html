@@ -5,8 +5,13 @@
     </div>
 </div>
 <h2 style="text-align:center"><u>Admin Section</u></h2>
-<div class="container">
+
+<input type="button" value="Category management" data-ng-click="openCategorySection()"/>
+<input type="button" value="Task management" data-ng-click="openTaskSection()" />
+<input type="button" value="Blog management" data-ng-click="openBlogSection()" />
+<div class="container" data-ng-if="categoryIndicator">
     <div class="row">
+        <h4>Category Management</h4>
         <input type="button" value="add category" data-toggle="modal" data-ng-click="openAddCategoryPopup()" />
         <br/>
         <b>All categories :</b>

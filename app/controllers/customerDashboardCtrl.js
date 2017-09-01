@@ -2,7 +2,7 @@
     init();
 
     function init() {
-        alert("hello");
+        //alert("hello");
     }
 
 }]);

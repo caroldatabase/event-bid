@@ -3,7 +3,14 @@
 
     function init()
     {
+        $scope.categoryIndicator = false;
         getCategory();
+    }
+
+    //category section 
+    $scope.openCategorySection = function()
+    {
+        $scope.categoryIndicator = true;
     }
 
     $scope.openAddCategoryPopup = function () {
@@ -27,8 +34,10 @@
 
     function getCategory()
     {
+        $rootScope.loaderIndicator = true;
         httpService.getCategory().then(function (response) {
             $scope.categories = response.data.data;
+            $rootScope.loaderIndicator = false;
         });
     }
 

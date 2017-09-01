@@ -84,7 +84,7 @@ app.config(function ($routeProvider) {
             controller: "customerDashboardCtrl"
         })
         .when("/buisness-dashboard", {
-            templateUrl: "app/views/buisness-dashboard.html",
+            templateUrl: "app/views/business-dashboard.html",
             controller: "buisnessDashboardCtrl"
         })
     .otherwise({

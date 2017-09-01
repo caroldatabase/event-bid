@@ -1375,24 +1375,35 @@ margin-top:35px;
 margin-bottom:25px;
 text-align: center;
 }
-.dashborad-post-btn a
-{
-background:#018479;
-font-size:16px;
-padding:10px 20px;
-color:#fff;
-border-radius:5px;
+.dashborad-post-btn a {
+    background: #018479;
+    font-size: 16px;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
 }
 .dashborad-post-btn a:hover
 {
 background:#109699;
+text-decoration: none;
+color:#fff;
 }
-.text-content-dash
-{
-float:left;
-width:100%;
-font-size:16px;
-color:#484848;
-margin-top:35px;
-text-align:center;
+.text-content-dash {
+    float: left;
+    width: 100%;
+    font-size: 16px;
+    color: #666;
+    margin-top: 35px;
+    text-align: center;
+}
+.banner-name-user.text-center {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 33%;
+}
+.banner-name-user.text-center h1 {
+    font-size: 65px;
+    text-shadow: 3px 1px 7px #018479;
 }
