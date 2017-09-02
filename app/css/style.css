@@ -1407,3 +1407,158 @@ color:#fff;
     font-size: 65px;
     text-shadow: 3px 1px 7px #018479;
 }
+.user-pic {
+    height: 110px;
+    border-radius: 100%;
+    width: 110px;
+    overflow: hidden;
+    margin: 0 auto;
+}.user-pic img
+{
+    height: 100%;
+    width: 100%;
+}
+.side-bar-profile {
+    padding: 15px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #e9e9e9;
+}
+p.user-name {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+p.pro-ratting {
+    text-align: center;
+    margin-top: 0px;
+}
+p.location-text {
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+span.from-pro {
+    float: left;
+}
+span.loc-pro {
+    float: right;
+}
+p.pro-contact-me {
+    float: left;
+    width: 100%;
+}
+.side-bar-profile {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+p.pro-contact-me {
+    text-align: center;
+	margin-top:25px;
+}
+p.pro-contact-me a {
+    background: #0b7f74;
+    color: #fff;
+    padding: 10px 15px;
+    display: block;
+    width: 60%;
+    font-size: 18px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+p.skill-pro {
+    margin: 0px -15px;
+    background: #eee;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 20px;
+}.skill-list
+{
+margin-top:15px;
+margin-left:15px;
+}
+.skill-list li
+{
+padding:5px 0px;
+list-style:disc;
+}
+.portfolio-list {
+    float: left;
+    width: 100%;
+}
+ul.images-portfolio li {
+    width: 23%;
+    float: left;
+    margin: 0;
+    margin-right: 1%;
+    margin-bottom: 20px;
+}
+.portfolio-list {
+    float: left;
+    width: 100%;
+}
+.jobs-profile {
+    padding: 15px;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.jobs-pro-heading {
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    /* font-size: 24px; */
+}
+.jobs-pro-heading h2
+{
+font-size:24px;
+}
+.job-status-thumb {
+    float: left;
+    width: 100%;
+    padding: 15px 0px;
+	border-bottom:1px solid #e9e9e9;
+}
+.job-status-thumb h3 {
+    font-size: 18px;
+}
+p.status-desc {
+    margin-top: 10px;
+    font-size: 13px;
+}
+.review-pro {
+    float: left;
+    width: 100%;
+}
+.review-user.text-center {
+    float: left;
+    width: 10%;
+    margin-right: 3%;
+}
+.review-user.text-center p
+{
+font-size:13px;
+}
+.review-content-pro {
+    float: left;
+    width: 87%;
+}
+.review-pro {
+    padding: 15px 0px;
+    border-bottom: 1px solid #e9e9e9;
+}
+.jobs-profile {
+    padding: 15px;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+}

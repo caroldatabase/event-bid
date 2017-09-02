@@ -4,6 +4,7 @@
     function init()
     {
         $scope.categoryIndicator = false;
+        $scope.blogIndicator = false;
         getCategory();
     }
 
@@ -11,6 +12,7 @@
     $scope.openCategorySection = function()
     {
         $scope.categoryIndicator = true;
+        $scope.blogIndicator = false;
     }
 
     $scope.openAddCategoryPopup = function () {
@@ -44,4 +46,19 @@
     $rootScope.$on("addedCategory", function (event, args) {
         getCategory();
     });
+
+    $rootScope.$on("addedBlogs", function (event, args) {
+       // getCategory();
+    });
+
+    $scope.openBlogSection = function()
+    {
+        $scope.categoryIndicator = false;
+        $scope.blogIndicator = true;
+    }
+
+    $scope.openAddBlogPopup = function () {
+        $('#addBlogPopup').modal('show');
+    }
+
 });

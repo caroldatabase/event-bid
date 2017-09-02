@@ -72,7 +72,7 @@ app.config(function ($routeProvider) {
 
         })
         .when("/profile", {
-            templateUrl: "app/views/profile.html",
+            templateUrl: "app/views/profile-page.html",
             controller : "profileController"
         })
          .when("/admin", {
