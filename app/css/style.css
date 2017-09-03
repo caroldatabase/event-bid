@@ -1420,8 +1420,8 @@ color:#fff;
 }
 .side-bar-profile {
     padding: 15px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #e9e9e9;
+    background: #eee;
+    border-bottom: 1px solid #ccc;
 }
 p.user-name {
     text-align: center;
@@ -1472,7 +1472,7 @@ p.pro-contact-me a {
 }
 p.skill-pro {
     margin: 0px -15px;
-    background: #eee;
+    background: #ccc;
     text-align: center;
     padding: 10px;
     font-size: 16px;
@@ -1561,4 +1561,42 @@ font-size:13px;
     margin-top: 20px;
     float: left;
     width: 100%;
+}
+.post-hub-content {
+    background: #f9f9f9;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.post-hub-content h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+p.hub-tag {
+    color: #ccc;
+    font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+p.post-read {
+    text-align: right;
+	color:##0b7f74;
+}
+p.post-read a{
+    text-align: right;
+	color:##0b7f74;
+}
+p.post-desc {
+    color: #484848;
+}
+.hub-post {
+    margin-bottom: 20px;
+}
+.hub-thumbnails
+{
+margin-top:30px;
+}
+.blog-desc {
+    height:150px !important;
 }
