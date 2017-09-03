@@ -2,7 +2,7 @@
                         <div class="col-sm-4">
                             <div class="form-field">
                                 <label>Cleaning Checklist:</label>
-                                <select class="multipleSelection" multiple="multiple" required
+                                <select class="multipleSelection" multiple="multiple" required id="cleaningChecklist"
                                         data-ng-model="task.category_question.cleaningChecklist" name="cleaningChecklist"
                                         ng-class="{error : postTaskForm.cleaningChecklist.$invalid && postTaskForm.$submitted}">
                                     <option value="Full floor clean (vacuum, mop & polish)">Full floor clean (vacuum, mop & polish)</option>
@@ -20,7 +20,7 @@
                             <div class="form-field">
                                 <label>What equipment will you need?</label>
                                 <select class="singleSelection" required data-ng-model="task.category_question.equipmentRequired" name="equipmentRequired"
-                                        ng-class="{error : postTaskForm.equipmentRequired.$invalid && postTaskForm.$submitted}">
+                                        ng-class="{error : postTaskForm.equipmentRequired.$invalid && postTaskForm.$submitted}" id="equipmentRequired">
                                     <option value="">Please select</option>
                                     <option value="I have my own cleaning supplies">I have my own cleaning supplies</option>
                                     <option value="Can you please bring all the cleaning supplies">Can you please bring all the cleaning supplies</option>
@@ -54,13 +54,13 @@
                                 <select class="singleSelection" required data-ng-model="task.category_question.cleanersNeeded" name="cleanersNeeded"
                                         ng-class="{error : postTaskForm.cleanersNeeded.$invalid && postTaskForm.$submitted}">
                                     <option value="">Please Select</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
-                                    <option value="">5</option>
-                                    <option value="">6</option>
-                                    <option value="">7</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
                                 </select>
                             </div>
                         </div>

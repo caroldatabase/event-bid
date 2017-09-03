@@ -5,13 +5,13 @@ app.directive("fileread", ['$rootScope',
           scope: {
               fileread: "="
           },
-          link: function (scope, element, attributes) {
+          link: function (scope, element, attrs) {
               element.bind("change", function (changeEvent) {
                   var reader = new FileReader();
                   reader.onload = function (loadEvent) {
                       scope.$apply(function () {
                           scope.fileread = loadEvent.target.result;
-                          $rootScope.$broadcast("imageAdded", scope.fileread);
+                          $rootScope.$broadcast("imageAdded", scope.fileread, attrs.imageType);
                       });
                   }
                   reader.readAsDataURL(changeEvent.target.files[0]);

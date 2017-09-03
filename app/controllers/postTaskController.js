@@ -5,10 +5,15 @@
     $scope.categoryChange = categoryChange;
     $scope.selectHireType = selectHireType;
     $scope.changeServiceType = changeServiceType;
-    $scope.categoryConst = CONSTANTS.CATEGORY;
-    $scope.upload = upload;
+   // $scope.categoryConst = CONSTANTS.CATEGORY;
+   
     function init()
     {
+        $(".singleSelection").select2();
+        $(".multipleSelection").select2({
+
+        });
+        $rootScope.loaderIndicator = true;
         commonService.scrollToTop();
         $(document).ready(function () {
             var todayDate = new Date();
@@ -27,6 +32,7 @@
                 $(this).trigger('blur');
 
             });
+
             $('.timepicker').timepicker({
                 timeFormat: 'h:mm p',
                 interval: 30,
@@ -38,23 +44,20 @@
                 dropdown: true,
                 scrollbar: true
             });
+           
         });
-       
-        
+
         httpService.getCategory().then(function (data) {
             $rootScope.categoryList = $scope.categoryList = data.data.data;
-            //plot each category
-            //for (var property in $scope.categoryConst) {
-            //    if ($scope.categoryConst.hasOwnProperty(property)) {
-            //        $scope.task.category = $scope.categoryConst[property];
-                   
-            //    }
-            //}
-            
+            $scope.categoryConst = commonService.getCategoryMapping($scope.categoryList);
+            $rootScope.loaderIndicator = false;
         });
         resetData();
+
+       
     }
     
+   
     function selectHireType()
     {
         
@@ -70,19 +73,31 @@
     }
     function categoryChange(item)
     {
-        //setTimeout(function() {
-        //   $(".singleSelection").select2();
-        //   $(".multipleSelection").select2({
-        //        maximumSelectionLength: 3
-        //    });
-        //}, 000);
+       
+        $(".singleSelection").select2();
         
         if (item == $scope.categoryConst.CAR_VENUE_HIRE) {
-            //setTimeout(function() {
                     $(".multipleSelection").select2({
                         maximumSelectionLength: 3
                     });
-            //}, 000);
+        }
+        else if (item == $scope.categoryConst.CLEANING)
+        {
+            setTimeout(function(){
+            $(".multipleSelection").select2({
+              
+            });
+            }, 000);
+        }
+        else if (item == $scope.categoryConst.PATISSERIE)
+        {
+            $scope.task.category_question = {};
+            $scope.task.category_question.desertImages = [];
+            setTimeout(function () {
+                $(".multipleSelection").select2({
+
+                });
+            }, 000);
         }
         
     }
@@ -110,7 +125,7 @@
             $rootScope.loaderIndicator = true;
             $scope.task.post_user_id = commonService.getUserid();
             $scope.task.task_status = "open";
-            
+            console.log(JSON.stringify($scope.task));
             httpService.postTask($scope.task).then(function (result) {
                 if (result.data.code = 200 && result.data.message == "Post task created successfully.")
                 {
@@ -121,6 +136,8 @@
                     $scope.errorMessageIndicator = false;
                     $scope.message = "Task submitted successfully.";
                     $scope.task = {};
+                    //$('#eventType').val() = "";
+                    //$('#category').val() = "";
                 }
                 else {
                     $rootScope.loaderIndicator = false;
@@ -134,25 +151,16 @@
             $scope.message = "Please enter required fields";
         }
     }
-    function upload()
-    {
-        setTimeout(function () {
-            if ($scope.categoryImage) {
-                $scope.task.inspirationPhoto.push($scope.categoryImage);
-            }
-            }, 2000);
-    }
+    
 
 
     function resetData()
     {
         $scope.task = {};
-        $scope.task.category_question = {};
         $scope.task.inspirationPhoto = [];
+        //$scope.task.category_question.desertImages = [];
         $scope.task.timeFrom = "11:00 A.M";
         $scope.task.timeTo = "11:00 A.M";
-        $scope.task.eventType = "";
-        $scope.task.category = "";
         if ($scope.postTaskForm) {
             $scope.postTaskForm.$setPristine();
             $scope.postTaskForm.$setUntouched();
@@ -161,13 +169,26 @@
     }
 
 
-    $rootScope.$on("imageAdded", function (event, fileUploaded) {
+    $rootScope.$on("imageAdded", function (event, fileUploaded, imageType) {
         if (fileUploaded) {
-            if ($scope.task.inspirationPhoto) { //push into array case and check if it exists.
+            if (imageType == "categoryImage" && $scope.task.inspirationPhoto) { //push into array case and check if it exists.
                 if ($scope.task.inspirationPhoto.length < 3) {
                     $scope.task.inspirationPhoto.push(fileUploaded);
                     setTimeout(function(){
                         $('#categoryImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+            if ( imageType == "desertImage" && $scope.task.category_question.desertImages) { //push into array case and check if it exists.
+                if ($scope.task.category_question.desertImages.length < 3) {
+                    $scope.task.category_question.desertImages.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#desertImage').val("");
                     }, 2000);
                 }
                 else {

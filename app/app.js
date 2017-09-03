@@ -104,3 +104,4 @@ app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
 });
+

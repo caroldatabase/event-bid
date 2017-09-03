@@ -1,5 +1,5 @@
-app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope',
-    function ($location, $window, $cookies, $route, $rootScope) {
+app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope', '$filter', 
+    function ($location, $window, $cookies, $route, $rootScope, $filter) {
     var commonService = {
         updateLocationPath : updateLocationPath,
         scrollToTop: scrollToTop,
@@ -7,9 +7,20 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
         reloadRoute: reloadRoute,
         deleteCookieValues: deleteCookieValues,
         checkUserLoggedIn: checkUserLoggedIn,
-        getUserid: getUserid
+        getUserid: getUserid,
+        getCategoryMapping: getCategoryMapping
     };
 
+    function getCategoryMapping(categoryList)
+    {
+        var categoryConst = {};
+        for (var i = 0; i < categoryList.length; i++)
+        {
+            var filtered = $filter('uppercase')(categoryList[i].name);
+            categoryConst[filtered.replace(/\ /gi, '_')] = categoryList[i].id;
+        }
+        return categoryConst;
+    }
     function updateLocationPath(pathValue) {
         $location.path(pathValue);
     }
