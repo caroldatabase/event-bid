@@ -119,7 +119,10 @@
     }
     function changeServiceType(data)
     {
-        angular.forEach($scope.task.serviceType, function (value, key) {
+        $scope.hairIndicator = false;
+        $scope.makeUpIndicator = false;
+        $scope.otherBeautyServicesIndicator = false;
+        angular.forEach($scope.task.category_question.serviceType, function (value, key) {
             if (value == "Hair")
                 $scope.hairIndicator = true;
             if(value == "Make up")
@@ -132,6 +135,8 @@
     
     function photoVideoEventRequired()
     {
+        $scope.PhotographyIndicator = false;
+        $scope.VideographyIndicator = false;
         angular.forEach($scope.task.category_question.eventRequirement, function (value, key) {
             if (value == "Photography")
                 $scope.PhotographyIndicator = true;
@@ -226,6 +231,32 @@
                     $scope.task.category_question.graphicImages.push(fileUploaded);
                     setTimeout(function () {
                         $('#graphicImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+            if (imageType == "makeuplookImage") { //push into array case and check if it exists.
+                if ($scope.task.category_question.makeuplookImages.length < 3) {
+                    $scope.task.category_question.makeuplookImages.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#makeuplookImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+            if (imageType == "hairStyleImage") { //push into array case and check if it exists.
+                if ($scope.task.category_question.hairStyleImages.length < 3) {
+                    $scope.task.category_question.hairStyleImages.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#hairStyleImage').val("");
                     }, 2000);
                 }
                 else {

@@ -22,7 +22,8 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>No. of guests at event</label>
-            <input type="number" class="form-control" ng-model="task.category_question.equipmentReadyForTalent" name="equipmentReadyForTalent" min="1" max="5000"
+            <input type="number" class="form-control" ng-model="task.category_question.equipmentReadyForTalent" 
+                   name="equipmentReadyForTalent" min="1" max="5000"
                    required
                    ng-class="{error : postTaskForm.equipmentReadyForTalent.$invalid && postTaskForm.$submitted}">
         </div>
@@ -30,7 +31,8 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>Do you have any equipment ready that your talent can use?</label>
-            <input type="text" class="form-control" ng-model="task.category_question.equipmentReadyForTalent" name="equipmentReadyForTalent"
+            <input type="text" class="form-control" ng-model="task.category_question.equipmentReadyForTalent" 
+                   name="equipmentReadyForTalent"
                    required
                    ng-class="{error : postTaskForm.equipmentReadyForTalent.$invalid && postTaskForm.$submitted}" />
                   
@@ -39,7 +41,8 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>What does your talent need to bring with them?</label>
-            <input type="number" class="form-control" ng-model="task.category_question.thingsRequiredForTalent" name="thingsRequiredForTalent"
+            <input type="number" class="form-control" ng-model="task.category_question.thingsRequiredForTalent"
+                   name="thingsRequiredForTalent"
                    required
                    ng-class="{error : postTaskForm.thingsRequiredForTalent.$invalid && postTaskForm.$submitted}">
         </div>
