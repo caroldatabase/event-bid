@@ -5,6 +5,7 @@
     $scope.categoryChange = categoryChange;
     $scope.selectHireType = selectHireType;
     $scope.changeServiceType = changeServiceType;
+    $scope.photoVideoEventRequired = photoVideoEventRequired;
    // $scope.categoryConst = CONSTANTS.CATEGORY;
    
     function init()
@@ -75,6 +76,11 @@
     {
        
         $(".singleSelection").select2();
+        setTimeout(function () {
+            $(".multipleSelection").select2({
+
+            });
+        }, 000);
         
         if (item == $scope.categoryConst.CAR_VENUE_HIRE) {
                     $(".multipleSelection").select2({
@@ -99,6 +105,16 @@
                 });
             }, 000);
         }
+        else if (item == $scope.categoryConst.GRAPHIC_DESIGN)
+        {
+            $scope.task.category_question = {};
+            $scope.task.category_question.graphicImages = [];
+            setTimeout(function () {
+                $(".multipleSelection").select2({
+
+                });
+            }, 000);
+        }
         
     }
     function changeServiceType(data)
@@ -114,7 +130,15 @@
 
     }
     
-    
+    function photoVideoEventRequired()
+    {
+        angular.forEach($scope.task.category_question.eventRequirement, function (value, key) {
+            if (value == "Photography")
+                $scope.PhotographyIndicator = true;
+            if (value == "Videography")
+                $scope.VideographyIndicator = true;
+        });
+    }
 
     function postTask()
     {
@@ -189,6 +213,19 @@
                     $scope.task.category_question.desertImages.push(fileUploaded);
                     setTimeout(function () {
                         $('#desertImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+            if (imageType == "graphicImage" && $scope.task.category_question.graphicImages) { //push into array case and check if it exists.
+                if ($scope.task.category_question.graphicImages.length < 3) {
+                    $scope.task.category_question.graphicImages.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#graphicImage').val("");
                     }, 2000);
                 }
                 else {

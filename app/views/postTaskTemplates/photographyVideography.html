@@ -1,74 +1,124 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What do you need for your event?
-</label>
+            <label>What do you need for your event?</label>
             <select class="multipleSelection" required multiple="multiple"
-                    data-ng-model="task.graphicBanners" name="graphicBanners"
-                    ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
-                <option value="Invitations">Photography
-</option>
-                <option value="Banners or Posters">Videography</option>
+                    data-ng-model="task.category_question.eventRequirement" name="eventRequirement"
+                    ng-class="{error : postTaskForm.eventRequirement.$invalid && postTaskForm.$submitted}" data-ng-change="photoVideoEventRequired()">
+                <option value="Photography">Photography</option>
+                <option value="Videography">Videography</option>
             </select>
         </div>
     </div>
     
-    <div class="col-sm-4">
+    <div class="col-sm-4" data-ng-if="PhotographyIndicator">
         <div class="form-field">
             <label>What kind of services will you need from your photographer?</label>
             <select class="singleSelection" required
-                    data-ng-model="task.numberOfBanners" name="numberOfBanners"
-                    ng-class="{error : postTaskForm.numberOfBanners.$invalid && postTaskForm.$submitted}">
-                <option value="Not applicable">Full day photo coverage</option>
-                <option value="1 to 50">Half day photo coverage</option>
-                <option value="50 to 100">Under 3 hour photo coverage
-</option>
-                <option value="100 to 150">Finished photo collection (fully edited)
-</option>
-                <option value="150+">A photo album with chosen photos</option>
-                <option value="150+">CD or flash drive with all files (unedited)</option>
-                <option value="150+">Other</option>
+                    data-ng-model="task.category_question.servicesRequired" name="servicesRequired"
+                    ng-class="{error : postTaskForm.servicesRequired.$invalid && postTaskForm.$submitted}">
+                <option value="Full day photo coverage">Full day photo coverage</option>
+                <option value="Half day photo coverage">Half day photo coverage</option>
+                <option value="Under 3 hour photo coverage">Under 3 hour photo coverage</option>
+                <option value="Finished photo collection">Finished photo collection (fully edited)</option>
+                <option value="A photo album with chosen photos">A photo album with chosen photos</option>
+                <option value="CD or flash drive with all files">CD or flash drive with all files (unedited)</option>
+                <option value="Other">Other</option>
             </select>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" data-ng-if="PhotographyIndicator">
         <div class="form-field">
             <label>How many photographers would you like for your event?</label>
-            <input type="number" class="form-control" ng-model="task.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
+            <input type="number" class="form-control" ng-model="task.category_question.totalPhotographerRequired"
+                   name="totalPhotographerRequired" min="1" max="5000"
                    required
-                   ng-class="{error : postTaskForm.totalBudgetForbanners.$invalid && postTaskForm.$submitted}">
+                   ng-class="{error : postTaskForm.totalPhotographerRequired.$invalid && postTaskForm.$submitted}">
         </div>
     </div>
-    <div class="col-sm-4">
+
+</div>
+
+<div class="row">
+    <div class="col-sm-4" data-ng-if="PhotographyIndicator">
         <div class="form-field">
             <label>How many guests at your event?</label>
-            <input type="number" class="form-control" ng-model="task.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
+            <input type="number" class="form-control" ng-model="task.category_question.totalGuest"
+                   name="totalGuest" min="1" max="5000"
                    required
-                   ng-class="{error : postTaskForm.totalBudgetForbanners.$invalid && postTaskForm.$submitted}">
+                   ng-class="{error : postTaskForm.totalGuest.$invalid && postTaskForm.$submitted}">
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" data-ng-if="PhotographyIndicator">
         <div class="form-field">
             <label>How many places do you require your photographer to be </label>
+            <input type="text" class="form-control" required placeholder="1 to 7 " min="1" max="7"
+                   data-ng-model="task.category_question.placesRequiredForPhotographers" name="placesRequiredForPhotographers"
+                   ng-class="{error : postTaskForm.placesRequiredForPhotographers.$invalid && postTaskForm.$submitted}" />
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="PhotographyIndicator">
+        <div class="form-field">
+            <label>Add any additional comments to help explain what you need to your photographer.</label>
+            <textarea class="form-control" data-ng-model="task.category_question.additionalComments"
+                      name="additionalComments" required
+                      ng-class="{error : postTaskForm.additionalComments.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+</div>
+
+<!--videography-->
+
+<div class="row">
+    <div class="col-sm-4" data-ng-if="VideographyIndicator">
+        <div class="form-field">
+            <label>What kind of services do you need from your videographer?</label>
             <select class="singleSelection" required
-                    data-ng-model="task.numberOfBanners" name="numberOfBanners"
-                    ng-class="{error : postTaskForm.numberOfBanners.$invalid && postTaskForm.$submitted}">
-                <option value="Not applicable">1</option>
-                <option value="1 to 50">2</option>
-                <option value="50 to 100">3
-</option>
-                <option value="100 to 150">4
-</option>
-                <option value="150+">5</option>
-                <option value="150+">6</option>
-                <option value="150+">7</option>
+                    data-ng-model="task.category_question.servicesRequiredVideographer" name="servicesRequiredVideographer"
+                    ng-class="{error : postTaskForm.servicesRequiredVideographer.$invalid && postTaskForm.$submitted}">
+                <option value="Full day video coverage">Full day video coverage</option>
+                <option value="Half day video coverage">Half day video coverage</option>
+                <option value="Under 3 hour video coverage">Under 3 hour video coverage</option>
+                <option value="Full edited video on DVD or flash drive">Full edited video on DVD or flash drive</option>
+                <option value="other">Other</option>
             </select>
         </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" data-ng-if="VideographyIndicator">
         <div class="form-field">
-            <label>Add any additional comments to help explain what you need to your photographer.</label>
-            <textarea></textarea>
+            <label>How many videographer  would you like for your event?</label>
+            <input type="number" class="form-control" ng-model="task.category_question.totalvideographerRequired"
+                   name="totalvideographerRequired" min="1" max="5000"
+                   required
+                   ng-class="{error : postTaskForm.totalvideographerRequired.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4" data-ng-if="VideographyIndicator">
+        <div class="form-field">
+            <label>How many guests at your event?</label>
+            <input type="number" class="form-control" ng-model="task.category_question.totalGuestVideography"
+                   name="totalGuestVideography" min="1" max="5000"
+                   required
+                   ng-class="{error : postTaskForm.totalGuestVideography.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="VideographyIndicator">
+        <div class="form-field">
+            <label>How many places do you require your Videographer to be </label>
+            <input type="number" class="form-control" required placeholder="1 to 7 " min="1" max="7"
+                   data-ng-model="task.category_question.placesRequiredForVideographer" name="placesRequiredForVideographer"
+                   ng-class="{error : postTaskForm.placesRequiredForVideographer.$invalid && postTaskForm.$submitted}" />
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="VideographyIndicator">
+        <div class="form-field">
+            <label>Add any additional comments to help explain what you need to your Videographer.</label>
+            <textarea class="form-control" data-ng-model="task.category_question.additionalCommentsVideographer"
+                      name="additionalCommentsVideographer" required
+                      ng-class="{error : postTaskForm.additionalCommentsVideographer.$invalid && postTaskForm.$submitted}"></textarea>
         </div>
     </div>
 </div>

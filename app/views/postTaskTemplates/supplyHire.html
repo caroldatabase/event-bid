@@ -1,70 +1,55 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What do you need designed for your event?</label>
+            <label>What supplies do you need?</label>
             <select class="multipleSelection" required multiple="multiple"
-                    data-ng-model="task.graphicBanners" name="graphicBanners"
-                    ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
-                <option value="Invitations">Invitations</option>
-                <option value="Banners or Posters">Banners or Posters</option>
-                <option value="Flyers">Flyers</option>
-                <option value="Place Setting names">Place Setting names</option>
-                <option value="Templates for presentations">Templates for presentations</option>
+                    data-ng-model="task.category_question.supplyTypes" name="supplyTypes"
+                    ng-class="{error : postTaskForm.supplyTypes.$invalid && postTaskForm.$submitted}">
+                <option value="BBQ">BBQ</option>
+                <option value="Spit">Spit</option>
+                <option value="Outdoor Heating">Outdoor Heating</option>
+                <option value="Chair, table and other outdoor furniture">Chair, table and other outdoor furniture</option>
+                <option value="Chair and Table coverings">Chair and Table coverings</option>
+                <option value="Outdoor lighting">Outdoor lighting</option>
+                <option value="Indoor lighting">Indoor lighting</option>
+                <option value="Balloons">Balloons</option>
+                <option value="Amplifier">Amplifier</option>
                 <option value="Other">Other</option>
             </select>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>Do you need to have your design printed?</label>
-            <select class="singleSelection" required
-                    data-ng-model="task.designPrinted" name="designPrinted"
-                    ng-class="{error : postTaskForm.designPrinted.$invalid && postTaskForm.$submitted}">
+            <label>Describe what you need in a little more detail so we make sure we get you think the right thing.</label>
+            <textarea class="form-control" data-ng-model="task.category_question.decriptionInDetail" name="decriptionInDetail" 
+                      required
+                      ng-class="{error : postTaskForm.decriptionInDetail.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label style="width:100%; margin-left:5px;">Would you like the supplier to include cleaning in the cost? </label>
+            <select class="singleSelection" required data-ng-model="task.category_question.IscleaningPriceToBeIncluded"
+                    name="IscleaningPriceToBeIncluded"
+                    ng-class="{error : postTaskForm.IscleaningPriceToBeIncluded.$invalid && postTaskForm.$submitted}">
+                <option value="">Please select</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
-                
-            </select>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="form-field">
-            <label>If you need it printed, how many do you require?</label>
-            <select class="singleSelection" required
-                    data-ng-model="task.numberOfBanners" name="numberOfBanners"
-                    ng-class="{error : postTaskForm.numberOfBanners.$invalid && postTaskForm.$submitted}">
                 <option value="Not applicable">Not applicable</option>
-                <option value="1 to 50">1 to 50</option>
-                <option value="50 to 100">50 to 100</option>
-                <option value="100 to 150">100 to 150</option>
-                <option value="150+">150+</option>
             </select>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-12">
-    </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What is your total budget for your design job?</label>
-            <span class="other-iocn-d">$</span>
-            <input type="number" class="form-control" ng-model="task.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
-                   required
-                   ng-class="{error : postTaskForm.totalBudgetForbanners.$invalid && postTaskForm.$submitted}">
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="form-field">
-            <label>Show us some designs that have inspired what your design should look like?
-            (Allow up to three photo uploads)
-            </label>
-            <input type="file" class="form-control">
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="form-field">
-            <label>Do you have any other information that you would like to share with the designer?</label>
-            <input type="text" class="form-control" ng-model="task.additionalInformation" name="additionalInformation" min="1" max="5000"
-                   required
-                   ng-class="{error : postTaskForm.additionalInformation.$invalid && postTaskForm.$submitted}">
+            <label style="width:100%; margin-left:5px;">Will you expect to return or discard what you are supplied? </label>
+            <select class="singleSelection" required data-ng-model="task.category_question.returnSupplies" name="returnSupplies"
+                    ng-class="{error : postTaskForm.returnSupplies.$invalid && postTaskForm.$submitted}">
+                <option value="">Please select</option>
+                <option value="Return i.e. BBQ, furniture">Return i.e. BBQ, furniture</option>
+                <option value="Discard i.e. table covers, balloons">Discard i.e. table covers, balloons</option>
+            </select>
         </div>
     </div>
 </div>

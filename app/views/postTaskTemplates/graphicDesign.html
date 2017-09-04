@@ -5,7 +5,6 @@
             <select class="multipleSelection" required multiple="multiple"
                     data-ng-model="task.category_question.graphicBanners" name="graphicBanners"
                     ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
-                <option value="">Please Select</option>
                 <option value="Invitations">Invitations</option>
                 <option value="Banners or Posters">Banners or Posters</option>
                 <option value="Flyers">Flyers</option>
@@ -60,7 +59,16 @@
             <label>Show us some designs that have inspired what your design should look like?
             (Allow up to three photo uploads)
             </label>
-            <input type="file" class="form-control">
+            <input type="file" class="form-control" name="graphicImage" id="graphicImage"
+                   fileread="graphicImage" image-type="graphicImage" accept="image/*" data-ng-model="graphicImage">
+                <label>Uploaded Image :</label>
+            <div data-ng-if="task.category_question.graphicImages.length > 0" data-ng-repeat="data in task.category_question.graphicImages track by $index">
+                <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="graphicPhoto">
+            </div>
+            <div data-ng-if="task.category_question.graphicImages.length == 0">
+                <img width="100" height="50" alt="Image preview..." id="graphicPhoto">
+            </div>
+         
         </div>
     </div>
     <div class="col-sm-4">
