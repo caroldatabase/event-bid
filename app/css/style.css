@@ -1401,11 +1401,12 @@ color:#fff;
     position: absolute;
     text-align: center;
     width: 100%;
-    top: 33%;
+    top: 36%;
 }
 .banner-name-user.text-center h1 {
     font-size: 65px;
     text-shadow: 3px 1px 7px #018479;
+    color:#fff;
 }
 .user-pic {
     height: 110px;
@@ -1493,10 +1494,10 @@ list-style:disc;
     width: 100%;
 }
 ul.images-portfolio li {
-    width: 23%;
+    width: 25%;
     float: left;
     margin: 0;
-    margin-right: 1%;
+    padding: 1%;
     margin-bottom: 20px;
 }
 .portfolio-list {
@@ -1513,7 +1514,7 @@ ul.images-portfolio li {
     float: left;
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     /* font-size: 24px; */
 }
 .jobs-pro-heading h2
@@ -1599,4 +1600,19 @@ margin-top:30px;
 }
 .hub-head h1 {
     color: #aaa !important;
+}
+.review-outer {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+}
+.review-head {
+    text-align: center;
+}
+.review-head h3 {
+    margin-top: 0;
+    margin-bottom: 0;
 }
