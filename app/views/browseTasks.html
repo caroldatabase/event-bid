@@ -11,7 +11,8 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="search-bar">
-                        <input type="text" placeholder="Search-task" class="search-input">
+                        <input type="text" placeholder="Search-task" class="search-input" data-ng-model="searchText" name="searchText"
+                               id="searchText">
                         <i class="fa fa-search"></i>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
     <a class="card-pop" data-toggle="modal" data-target="#taskDetailModal">
     <div class="browse-list">
         <div class="container">
-            <ul data-ng-repeat="data in filteredLists track by $index">
+            <ul data-ng-repeat="data in filteredLists | filter : searchText">
                 <li>
                     <h3>{{data.event_title}}</h3>
                     <p>Lorem ipsum dolor sit amet is the dummy text</p>
