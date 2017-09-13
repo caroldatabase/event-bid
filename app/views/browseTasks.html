@@ -27,46 +27,48 @@
                     <button>Filter By Category</button>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <button>Filter By Location</button>
+                    <button>Filter By EventType</button>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <button>Filter By Event</button>
+                    <button>Filter By Date</button>
                 </div>
             </div>
         </div>
     </div>
-    <a class="card-pop" data-toggle="modal" data-target="#taskDetailModal">
+    
     <div class="browse-list">
         <div class="container">
             <ul data-ng-repeat="data in filteredLists | filter : searchText">
-                <li>
-                    <h3>{{data.event_title}}</h3>
-                    <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
-                </li>
-                <li class="text-center category-img">
-                    <img ng-src="{{data.category.categoryImage}}" alt="category image">
-                </li>
-                <li>
-                    <h3>{{data.event_type}}</h3>
-                </li>
-                <li class="third-cont">
-                    <p>
-                        <span>{{data.date_required}}</span>
-                        <span>From {{data.time_from}} To {{data.time_to}}</span>
-                    </p>
-                </li>
-                <li>
-                    <h3>$5000</h3>
+                <a class="card-pop" data-ng-click="openSelectedtaskInDetail(data)">
+                    <li>
+                        <h3>{{data.event_title}}</h3>
+                        <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
+                    </li>
+                    <li class="text-center category-img">
+                        <img ng-src="{{data.category.categoryImage}}" alt="category image">
+                    </li>
+                    <li>
+                        <h3>{{data.event_type}}</h3>
+                    </li>
+                    <li class="third-cont">
+                        <p>
+                            Event date : <span>{{data.date_required}}</span>
+                            <span>From {{data.time_from}} To {{data.time_to}}</span>
+                        </p>
+                    </li>
+                    <li>
+                        <h3>${{data.category_question.totalCost}} ,{{data.category_question.totalCostType}}</h3>
 
-                </li>
-                <li class="third-cont right-text">
-                    <p>
-                        <span>{{data.post_user_detail.first_name}}</span>
-                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                    </p>
-                </li>
+                    </li>
+                    <li class="third-cont right-text">
+                        <p>
+                            <span>{{data.post_user_detail.first_name}}</span>
+                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        </p>
+                    </li>
+                </a>
             </ul>
-            
+
 
         </div>
 
@@ -87,16 +89,30 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Task Title</h4>
+        <h4 class="modal-title">{{taskDetail.event_title}}</h4>
       </div>
       <div class="modal-body">
         <p>vaibhav lives in khandwa. It is a good place.</p>
-          <p><b>Wedding</b> <b>Category Name</b></p>
-           <p><b>Date Required</b> 12/09/2017</p>
-          <p><b>Time From</b> 11:00 am</p>
-          <p><b>Time To</b> 11:00 am</p>
+            <p><b>Event Type </b> : {{taskDetail.event_type}}
+          <br/>
+            <b>Category Name</b> : {{taskDetail.category.name}} 
+                <img ng-src="{{taskDetail.category.categoryImage}}" alt="category image">
+            
+          </p>
+           <p><b>Date Required</b> {{taskDetail.date_required }}</p>
+          <p><b>Time From</b> {{taskDetail.time_from}}</p>
+          <p><b>Time To</b> {{taskDetail.time_to}}</p>
           <div class="event-detail-pop">
-              <p>Lorem ipsum dolor sit amet is the dummy text describing the web content for showing to user.</p>
+              <ul>
+                  <li ng-repeat="(key, val) in taskDetail.category_question">
+                      {{key}}: {{val}}
+                  </li>
+              </ul>
+          </div>
+          <div>
+              Task Posted by :
+               name :  {{taskDetail.post_user_detail.first_name}}
+               rating :  {{taskDetail.post_user_detail.rating}}
           </div>
       </div>
       <div class="modal-footer">

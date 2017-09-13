@@ -16,7 +16,8 @@
         $rootScope.loaderIndicator = true;
         httpService.browseAllTask().then(function (response) {
             $scope.taskList = response.data.data;
-            //$scope.taskList = $scope.taskList.map(getCategoryDetails);
+            $scope.taskList = $scope.taskList.map(getTaskDetails);
+            console.log($scope.taskList);
             //getCategoryDetails();
             $rootScope.loaderIndicator = false;
 
@@ -29,17 +30,21 @@
         });
     }
 
-    function getCategoryDetails()
+    function getTaskDetails(item)
     {
-        for(i=0; i< $scope.taskList.length; i++)
-        {
-            for(j=0; j < $rootScope.categoryList.length ; j++)
-            {
-                if ($scope.taskList[i].category_id == $rootScope.categoryList[j].id)
-                    $scope.taskList[i].categoryImage = $rootScope.categoryList[j].categoryImage;
+        item.category_question = angular.fromJson(item.category_question);
+        return item;
+    }
 
-            }
-        }
+    $scope.openSelectedtaskInDetail = function(data)
+    {              
+            $('#taskDetailModal').modal('toggle');
+            $("#taskDetailModal").modal({ backdrop: "static" });
+            $('#taskDetailModal').modal('show');
+            $scope.taskDetail = {};
+            $scope.taskDetail = data
+            //$scope.taskDetail.category_question = angular.fromJson($scope.taskDetail.category_question);
+            console.log(data);
     }
 
 });

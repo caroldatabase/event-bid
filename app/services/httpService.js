@@ -13,7 +13,8 @@
         contactus: contactus,
         newEBCategory: newEBCategory,
         deleteCategory: deleteCategory,
-        browseAllTask: browseAllTask
+        browseAllTask: browseAllTask,
+        deleteTask: deleteTask
     };
 
     function createAccount(user) {
@@ -80,6 +81,12 @@
 
     function deleteCategory(categoryid) {
         return $http.get(serviceBase + 'api/v1/category/delete/' + categoryid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function deleteTask(taskid) {
+        return $http.get(serviceBase + 'api/v1/post-task/delete/' + taskid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

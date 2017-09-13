@@ -88,13 +88,13 @@
                                        ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
                                 </div>
                                 <div class="input-adjust">
-                                <select class="singleSelection" required data-ng-model="task.category_question.totalCostType" name="totalCostType"
-                                        ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
-                                    <option value="">Select Type of Cost</option>
-                                    <option value="Per Person">Per Person</option>
-                                    <option value="Per Piece">Per Piece</option>
-                                    <option value="Total">Total</option>
-                                </select>
+                                    <select class="singleSelection" required data-ng-model="task.category_question.costType" name="totalCostType"
+                                            ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
+                                        <option value="">Select Type of Cost</option>
+                                        <option value="Per Person">Per Person</option>
+                                        <option value="Per Piece">Per Piece</option>
+                                        <option value="Total">Total</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

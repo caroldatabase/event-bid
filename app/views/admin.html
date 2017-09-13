@@ -25,7 +25,6 @@
             </li>
         </ul>
     </div>
-   
 </div>
 <!--blog management-->
 <div class="container">
@@ -38,6 +37,53 @@
     </div>
 </div>
     </div>
+<!--task management-->
+<div class="container" data-ng-if="taskIndicator">
+    <div class="row">
+        <h4>Task Management</h4>
+        <div class="browse-list">
+            <div class="container">
+                <ul data-ng-repeat="data in filteredLists | filter : searchText">
+                    <div class="card-pop">
+                        <li>
+                            <h3>{{data.event_title}}</h3>
+                            <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
+                        </li>
+                        <li class="text-center category-img">
+                            <img ng-src="{{data.category.categoryImage}}" alt="category image">
+                        </li>
+                        <li>
+                            <h3>{{data.event_type}}</h3>
+                        </li>
+                        <li class="third-cont">
+                            <p>
+                                Event date : <span>{{data.date_required}}</span>
+                                <span>From {{data.time_from}} To {{data.time_to}}</span>
+                            </p>
+                        </li>
+                        <li class="third-cont right-text">
+                            <p>
+                                <span>{{data.post_user_detail.first_name}}</span>
+                                <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                            </p>
+                        </li>
+                        <input type="button" value="delete Task" data-ng-click="deleteTask(item)" />
+                    </div>
+                </ul>
+
+                
+
+            </div>
+
+        </div>
+        
+    </div>
+    <pagination ng-model="currentPage"
+                total-items="taskList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
+</div>
 <!--Request a new category-->
 <div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
     <div class="eb-vAlignment">
