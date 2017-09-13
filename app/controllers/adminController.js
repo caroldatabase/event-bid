@@ -62,6 +62,7 @@
         $scope.categoryIndicator = false;
         $scope.blogIndicator = true;
         $scope.taskIndicator = false;
+        getAllBlogs();
     }
 
     $scope.openTaskSection = function () {
@@ -85,6 +86,15 @@
         });
     }
 
+    function getAllBlogs()
+    {
+        $rootScope.loaderIndicator = true;
+        httpService.getAllBlogs().then(function (response) {
+            $scope.blogList = response.data.data;
+            console.log($scope.blogList);
+            $rootScope.loaderIndicator = false;
+        });
+    }
     $scope.openAddBlogPopup = function () {
         $('#addBlogPopup').modal('show');
     }
@@ -96,6 +106,18 @@
             $rootScope.loaderIndicator = true;
             httpService.deleteTask(data.id).then(function (response) {
                 getAllTask();
+                $rootScope.loaderIndicator = false;
+            });
+        }
+    }
+
+    $scope.deleteBlog = function()
+    {
+        var r = confirm("Are you sure you want to delete this Blog?");
+        if (r == true) {
+            $rootScope.loaderIndicator = true;
+            httpService.deleteBlog(data.id).then(function (response) {
+                getAllBlogs();
                 $rootScope.loaderIndicator = false;
             });
         }

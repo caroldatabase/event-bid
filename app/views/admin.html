@@ -33,16 +33,25 @@
     </div>
 </div>
             <!--blog management-->
-            <div class="container">
-                <div data-ng-if="blogIndicator">
-                    <div class="row">
-                        <h4>Blog Management</h4>
-                        <input type="button" value="add blog" data-toggle="modal" data-ng-click="openAddBlogPopup()" />
-                        <br />
-                        <b>All Blogs :</b>
-                    </div>
-                </div>
-            </div>
+            <div class="container admin-blog">
+    <div data-ng-if="blogIndicator">
+        <div class="row">
+            <h4>Blog Management</h4>
+            <input type="button" value="add blog" data-toggle="modal" data-ng-click="openAddBlogPopup()" />
+            <br />
+            <b>All Blogs :</b>
+            <ul data-ng-repeat="item in blogList">
+                <li>
+                    Blog title : {{item.blog_tittle}}
+                    Blog subtitle : {{item.blog_sub_tittle}}
+                    Blog Description : {{item.blog_description}}
+                    Blog Image : <img ng-src="{{item.blog_image}}" alt="" />
+                    <input type="button" value="delete Blog" data-ng-click="deleteBlog(item)" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
             <!--task management-->
             <div class="container" data-ng-if="taskIndicator">
                 <div class="row">

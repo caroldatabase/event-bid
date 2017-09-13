@@ -14,7 +14,10 @@
         newEBCategory: newEBCategory,
         deleteCategory: deleteCategory,
         browseAllTask: browseAllTask,
-        deleteTask: deleteTask
+        deleteTask: deleteTask,
+        getAllBlogs: getAllBlogs,
+        createBlog: createBlog,
+        deleteBlog: deleteBlog
     };
 
     function createAccount(user) {
@@ -79,6 +82,12 @@
         });
     }
 
+    function deleteBlog(blogid) {
+        return $http.get(serviceBase + 'api/v1/blog/delete/' + blogid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
     function deleteCategory(categoryid) {
         return $http.get(serviceBase + 'api/v1/category/delete/' + categoryid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
@@ -94,6 +103,18 @@
     //task section 
     function browseAllTask() {
         return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getAllBlogs() {
+        return $http.get(serviceBase + 'api/v1/getEventbidHub', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function createBlog() {
+        return $http.get(serviceBase + 'api/v1/blog/create', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

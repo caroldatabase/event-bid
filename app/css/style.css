@@ -1771,3 +1771,7 @@ h4.tsk-head {
     border-radius: 5px;
     width:100%;
 }
+col-sm-12.admin-btn input:hover
+{
+background:#0b7f74;
+}
