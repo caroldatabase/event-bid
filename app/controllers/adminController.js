@@ -110,7 +110,7 @@
         }
     }
 
-    $scope.deleteBlog = function()
+    $scope.deleteBlog = function(data)
     {
         var r = confirm("Are you sure you want to delete this Blog?");
         if (r == true) {
