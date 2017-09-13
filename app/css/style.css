@@ -1616,3 +1616,17 @@ margin-top:30px;
     margin-top: 0;
     margin-bottom: 0;
 }
+.col-sm-12.admin-btn {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.col-sm-12.admin-btn input {
+    background: #298992;
+    border: 0;
+    padding: 15px;
+    margin: 0px 15px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}

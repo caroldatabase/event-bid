@@ -15,8 +15,8 @@
         </div>
     </div>
 </div>
-            <!--category management-->
-            <div class="container category-management" " data-ng-if=" categoryindicator">
+  <!--category management-->
+    <div class="container category-management" data-ng-if="categoryIndicator">
     <div class="row">
         <h4>Category Management</h4>
         <input type="button" value="add category" data-toggle="modal" data-ng-click="openAddCategoryPopup()" />
@@ -26,7 +26,7 @@
         <ul data-ng-repeat="item in categories">
             <li>
                 {{item.name}}
-                <img src="{{item.categoryImage}}" alt="" />
+                <img ng-src="{{item.categoryImage}}" alt="" />
                 <input type="button" value="delete category" data-ng-click="deleteCategory(item)" />
             </li>
         </ul>

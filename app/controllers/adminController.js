@@ -44,6 +44,7 @@
         $rootScope.loaderIndicator = true;
         httpService.getCategory().then(function (response) {
             $scope.categories = response.data.data;
+            console.log($scope.categories);
             $rootScope.loaderIndicator = false;
         });
     }
