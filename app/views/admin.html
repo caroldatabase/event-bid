@@ -5,18 +5,24 @@
     </div>
 </div>
 <h2 style="text-align:center"><u>Admin Section</u></h2>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 admin-btn">
 
-<input type="button" value="Category management" data-ng-click="openCategorySection()"/>
-<input type="button" value="Task management" data-ng-click="openTaskSection()" />
-<input type="button" value="Blog management" data-ng-click="openBlogSection()" />
-<!--category management-->
-<div class="container" data-ng-if="categoryIndicator">
+            <input type="button" value="Category management" data-ng-click="openCategorySection()" />
+            <input type="button" value="Task management" data-ng-click="openTaskSection()" />
+            <input type="button" value="Blog management" data-ng-click="openBlogSection()" />
+        </div>
+    </div>
+</div>
+            <!--category management-->
+            <div class="container category-management" " data-ng-if=" categoryindicator">
     <div class="row">
         <h4>Category Management</h4>
         <input type="button" value="add category" data-toggle="modal" data-ng-click="openAddCategoryPopup()" />
-        <br/>
+        <br />
         <b>All categories :</b>
-        
+
         <ul data-ng-repeat="item in categories">
             <li>
                 {{item.name}}
@@ -26,161 +32,161 @@
         </ul>
     </div>
 </div>
-<!--blog management-->
-<div class="container">
-<div data-ng-if="blogIndicator">
-    <div class="row">
-        <h4>Blog Management</h4>
-        <input type="button" value="add blog" data-toggle="modal" data-ng-click="openAddBlogPopup()" />
-        <br />
-        <b>All Blogs :</b>
-    </div>
-</div>
-    </div>
-<!--task management-->
-<div class="container" data-ng-if="taskIndicator">
-    <div class="row">
-        <h4>Task Management</h4>
-        <div class="browse-list">
+            <!--blog management-->
             <div class="container">
-                <ul data-ng-repeat="data in filteredLists | filter : searchText">
-                    <div class="card-pop">
-                        <li>
-                            <h3>{{data.event_title}}</h3>
-                            <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
-                        </li>
-                        <li class="text-center category-img">
-                            <img ng-src="{{data.category.categoryImage}}" alt="category image">
-                        </li>
-                        <li>
-                            <h3>{{data.event_type}}</h3>
-                        </li>
-                        <li class="third-cont">
-                            <p>
-                                Event date : <span>{{data.date_required}}</span>
-                                <span>From {{data.time_from}} To {{data.time_to}}</span>
-                            </p>
-                        </li>
-                        <li class="third-cont right-text">
-                            <p>
-                                <span>{{data.post_user_detail.first_name}}</span>
-                                <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                            </p>
-                        </li>
-                        <input type="button" value="delete Task" data-ng-click="deleteTask(item)" />
+                <div data-ng-if="blogIndicator">
+                    <div class="row">
+                        <h4>Blog Management</h4>
+                        <input type="button" value="add blog" data-toggle="modal" data-ng-click="openAddBlogPopup()" />
+                        <br />
+                        <b>All Blogs :</b>
                     </div>
-                </ul>
-
-                
-
-            </div>
-
-        </div>
-        
-    </div>
-    <pagination ng-model="currentPage"
-                total-items="taskList.length"
-                max-size="maxSize"
-                boundary-links="true">
-    </pagination>
-</div>
-<!--Request a new category-->
-<div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
-    <div class="eb-vAlignment">
-        <div class="modal-dialog eb-vAlignCenter">
-            <div class="modal-content">
-                <div class="eb-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Add a Category</h3>
-                </div>
-                <div class="modal-body">
-                    <div class="extraSpace"></div>
-                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
-                        {{message}}
-                    </div>
-                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                        {{message}}
-                    </div>
-                    <form name="addCategoryForm" novalidate>
-                        <div class="popup-form-row">
-                            <div class="form-field">
-                                <label>category name : </label>
-                                <input type="text" class="form-control" data-ng-model="category.categoryName" required autofocus
-                                       ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
-                            </div>
-                            <div class="form-field">
-                                <div class="form-group ">
-                                    <label>Upload	</label>
-                                    <input type="file" class="form-control" name="category.categoryImage" id="categoryImage" required
-                                           fileread="category.categoryImage" accept="image/*" data-ng-model="category.categoryImage"
-                                           ng-class="{error : addCategoryForm.categoryImage.$invalid && addCategoryForm.$submitted}" />
-                                </div>
-                                <div class="form-group ">
-                                    <label>Uploaded Image :</label>
-                                    <img src="{{category.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="popup-button-group">
-                            <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+            <!--task management-->
+            <div class="container" data-ng-if="taskIndicator">
+                <div class="row">
+                    <h4>Task Management</h4>
+                    <div class="browse-list">
+                        <div class="container">
+                            <ul data-ng-repeat="data in filteredLists | filter : searchText">
+                                <div class="card-pop">
+                                    <li>
+                                        <h3>{{data.event_title}}</h3>
+                                        <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
+                                    </li>
+                                    <li class="text-center category-img">
+                                        <img ng-src="{{data.category.categoryImage}}" alt="category image">
+                                    </li>
+                                    <li>
+                                        <h3>{{data.event_type}}</h3>
+                                    </li>
+                                    <li class="third-cont">
+                                        <p>
+                                            Event date : <span>{{data.date_required}}</span>
+                                            <span>From {{data.time_from}} To {{data.time_to}}</span>
+                                        </p>
+                                    </li>
+                                    <li class="third-cont right-text">
+                                        <p>
+                                            <span>{{data.post_user_detail.first_name}}</span>
+                                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                        </p>
+                                    </li>
+                                    <input type="button" value="delete Task" data-ng-click="deleteTask(item)" />
+                                </div>
+                            </ul>
 
-<!--Request a new  pop up-->
-<div class="modal fade" id="addBlogPopup" tabindex="-1" ng-controller="addBlogController">
-    <div class="eb-vAlignment">
-        <div class="modal-dialog eb-vAlignCenter">
-            <div class="modal-content">
-                <div class="eb-modal-header">
-                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Add a Blog</h3>
+
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="modal-body">
-                    <div class="extraSpace"></div>
-                    <div class="alert alert-danger" data-ng-if="ErrorIndicator">
-                        {{message}}
-                    </div>
-                    <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                        {{message}}
-                    </div>
-                    <form name="addBlogForm" novalidate>
-                        <div class="popup-form-row">
-                            <div class="form-field">
-                                <label>Blog Heading : </label>
-                                <input type="text" class="form-control" data-ng-model="blog.blogHeading" required autofocus
-                                       ng-class="{error : addBlogForm.blogHeading.$invalid && addBlogForm.$submitted}" name="blogHeading" id="blogHeading">
+                <pagination ng-model="currentPage"
+                            total-items="taskList.length"
+                            max-size="maxSize"
+                            boundary-links="true">
+                </pagination>
+            </div>
+            <!--Request a new category-->
+            <div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
+                <div class="eb-vAlignment">
+                    <div class="modal-dialog eb-vAlignCenter">
+                        <div class="modal-content">
+                            <div class="eb-modal-header">
+                                <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title">Add a Category</h3>
                             </div>
-                            <div class="form-field">
-                                <div class="form-group ">
-                                    <label>Upload	</label>
-                                    <input type="file" class="form-control" name="blogHeaderImage" id="blogHeaderImage" required
-                                           fileread="blog.blogHeaderImage" accept="image/*" data-ng-model="blog.blogHeaderImage"
-                                           ng-class="{error : addBlogForm.blogHeaderImage.$invalid && addBlogForm.$submitted}" />
+                            <div class="modal-body">
+                                <div class="extraSpace"></div>
+                                <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                                    {{message}}
                                 </div>
-                                <div class="form-group ">
-                                    <label>Uploaded Image :</label>
-                                    <img src="{{blog.blogHeaderImage}}" width="100" height="50" alt="Image preview..." id="blogHeaderImage">
+                                <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                                    {{message}}
                                 </div>
-                            </div>
-                            <div class="form-field">
-                                <label>Blog Description : </label>
-                                <textarea class="form-control blog-desc" data-ng-model="blog.blogDescription" required rows="10"
-                                          ng-class="{error : addBlogForm.blogDescription.$invalid && addBlogForm.$submitted}" name="blogDescription" id="blogDescription"></textarea>
-                            </div>
-                        </div>
+                                <form name="addCategoryForm" novalidate>
+                                    <div class="popup-form-row">
+                                        <div class="form-field">
+                                            <label>category name : </label>
+                                            <input type="text" class="form-control" data-ng-model="category.categoryName" required autofocus
+                                                   ng-class="{error : addCategoryForm.categoryName.$invalid && addCategoryForm.$submitted}" name="categoryName" id="categoryName">
+                                        </div>
+                                        <div class="form-field">
+                                            <div class="form-group ">
+                                                <label>Upload	</label>
+                                                <input type="file" class="form-control" name="category.categoryImage" id="categoryImage" required
+                                                       fileread="category.categoryImage" accept="image/*" data-ng-model="category.categoryImage"
+                                                       ng-class="{error : addCategoryForm.categoryImage.$invalid && addCategoryForm.$submitted}" />
+                                            </div>
+                                            <div class="form-group ">
+                                                <label>Uploaded Image :</label>
+                                                <img src="{{category.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                        <div class="popup-button-group">
-                            <input type="submit" value="add a blog" class="btn btn-primary btn-block" data-ng-click="addNewBlog()">
+                                    <div class="popup-button-group">
+                                        <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+            <!--Request a new  pop up-->
+            <div class="modal fade" id="addBlogPopup" tabindex="-1" ng-controller="addBlogController">
+                <div class="eb-vAlignment">
+                    <div class="modal-dialog eb-vAlignCenter">
+                        <div class="modal-content">
+                            <div class="eb-modal-header">
+                                <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title">Add a Blog</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="extraSpace"></div>
+                                <div class="alert alert-danger" data-ng-if="ErrorIndicator">
+                                    {{message}}
+                                </div>
+                                <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                                    {{message}}
+                                </div>
+                                <form name="addBlogForm" novalidate>
+                                    <div class="popup-form-row">
+                                        <div class="form-field">
+                                            <label>Blog Heading : </label>
+                                            <input type="text" class="form-control" data-ng-model="blog.blogHeading" required autofocus
+                                                   ng-class="{error : addBlogForm.blogHeading.$invalid && addBlogForm.$submitted}" name="blogHeading" id="blogHeading">
+                                        </div>
+                                        <div class="form-field">
+                                            <div class="form-group ">
+                                                <label>Upload	</label>
+                                                <input type="file" class="form-control" name="blogHeaderImage" id="blogHeaderImage" required
+                                                       fileread="blog.blogHeaderImage" accept="image/*" data-ng-model="blog.blogHeaderImage"
+                                                       ng-class="{error : addBlogForm.blogHeaderImage.$invalid && addBlogForm.$submitted}" />
+                                            </div>
+                                            <div class="form-group ">
+                                                <label>Uploaded Image :</label>
+                                                <img src="{{blog.blogHeaderImage}}" width="100" height="50" alt="Image preview..." id="blogHeaderImage">
+                                            </div>
+                                        </div>
+                                        <div class="form-field">
+                                            <label>Blog Description : </label>
+                                            <textarea class="form-control blog-desc" data-ng-model="blog.blogDescription" required rows="10"
+                                                      ng-class="{error : addBlogForm.blogDescription.$invalid && addBlogForm.$submitted}" name="blogDescription" id="blogDescription"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="popup-button-group">
+                                        <input type="submit" value="add a blog" class="btn btn-primary btn-block" data-ng-click="addNewBlog()">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
