@@ -1616,6 +1616,24 @@ margin-top:30px;
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.input-group .form-control {
+    margin: 0 !important;
+}
+
+
+.find-button select.selectpicker {
+    background: #298992;
+    border: 0;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.find-button select.selectpicker:hover {
+    background: #0b7f74;
+}
 .col-sm-12.admin-btn {
     text-align: center;
     margin-top: 25px;
@@ -1629,4 +1647,116 @@ margin-top:30px;
     color: #fff;
     border-radius: 5px;
     font-size: 16px;
+}
+.col-sm-12.admin-btn {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.col-sm-12.admin-btn input {
+    background: #298992;
+    border: 0;
+    padding: 15px;
+    margin: 0px 15px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container.category-management h4 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+.category-management input[type="button"] {
+    background: #298992;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 16px;
+}
+.container.category-management ul {
+    width: 25%;
+    padding: 0;
+    margin-bottom: 0px;
+    padding: 15px;
+    display: inline-block;
+}
+.container.category-management b
+{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+.container.category-management ul  li 
+{
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+.container.category-management ul  li img {
+    display: block;
+    / float: left; /
+    width: auto;
+    clear: both;
+    text-align: center;
+   margin: 15px auto;
+}
+.container.category-management ul  li input
+{
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+    clear: both;
+}
+.category-management input[type="button"] {
+    float: right;
+}
+.container.category-management ul li input {
+    float: none !important;
+}
+.container.category-management h4 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #298992;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 10px;
+    background: #eee;
+    border-radius: 5px;
+}
+.browse-list ul li p {
+    color: #298992;
+}
+.find-button .glyphicon-calendar:before {
+    content: "\e109" !important;
+}
+
+.search-bar input::-webkit-input-placeholder { / Chrome/Opera/Safari /
+  color: #ccc;
+}
+.search-bar input::-moz-placeholder { / Firefox 19+ /
+  color: #ccc;
+}
+.search-bar input:-ms-input-placeholder { / IE 10+ /
+  color: #ccc;
+}
+.search-bar input:-moz-placeholder { / Firefox 18- /
+  color: #ccc;
+}
+.card-pop input[type="button"] {
+    background: #298992;
+    border: 0;
+    vertical-align: middle;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    float: right;
+    margin-right: 15px;
+    margin-top: 30px;
 }
