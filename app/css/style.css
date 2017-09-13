@@ -1775,3 +1775,12 @@ col-sm-12.admin-btn input:hover
 {
 background:#0b7f74;
 }
+.container.admin-blog input[type="button"] {
+    color: #fff;
+    border: 0;
+    background: #298992;
+    padding: 10px 15px;
+    border-radius: 5px;
+    float: right;
+    clear: both;
+}

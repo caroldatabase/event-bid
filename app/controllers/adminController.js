@@ -91,7 +91,6 @@
         $rootScope.loaderIndicator = true;
         httpService.getAllBlogs().then(function (response) {
             $scope.blogList = response.data.data;
-            console.log($scope.blogList);
             $rootScope.loaderIndicator = false;
         });
     }
