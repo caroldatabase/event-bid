@@ -54,7 +54,7 @@
     });
 
     $rootScope.$on("addedBlogs", function (event, args) {
-       // getCategory();
+        getAllBlogs();
     });
 
     $scope.openBlogSection = function()
@@ -91,6 +91,7 @@
         $rootScope.loaderIndicator = true;
         httpService.getAllBlogs().then(function (response) {
             $scope.blogList = response.data.data;
+            console.log($scope.blogList)
             $rootScope.loaderIndicator = false;
         });
     }

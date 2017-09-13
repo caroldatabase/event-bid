@@ -17,8 +17,16 @@
         deleteTask: deleteTask,
         getAllBlogs: getAllBlogs,
         createBlog: createBlog,
-        deleteBlog: deleteBlog
+        deleteBlog: deleteBlog,
+        addBlog: addBlog
     };
+
+    function addBlog(blog) {
+        return $http.post(serviceBase + 'api/v1/blog/create', blog, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
 
     function createAccount(user) {
         return $http.post(serviceBase + 'api/v1/user/signup', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {

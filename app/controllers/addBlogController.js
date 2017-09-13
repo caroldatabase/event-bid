@@ -19,8 +19,9 @@
                     $scope.message = "Blog added successfully.";
                     $scope.category = {};
                     $('#blogHeading').val("");
-                    $('#blogHeaderImage').val("");
-                    $('#blogDescription').val("");
+                    $('#blogcategory').val("");
+                    $('#blog_image').val("");
+                    $('#blog_description').val("");
                     $rootScope.$broadcast("addedBlogs", function () {
                     });
                 }
