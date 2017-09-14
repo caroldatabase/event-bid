@@ -6,9 +6,15 @@
         $scope.currentPage = 1;
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
-       
+        getAllCategoryFilters();
     }
    
+    function getAllCategoryFilters()
+    {
+        httpService.getCategory().then(function (data) {
+          $scope.categoryList = data.data.data;
+        });
+    }
    
 
     function browseAllTask()
