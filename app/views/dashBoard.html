@@ -128,81 +128,16 @@
                     <h1>The Event Bid Hub</h1>
                 </div>
             </div>
-            <div class="row hub-thumbnails">
+            <div class="row hub-thumbnails" data-ng-repeat="item in blogList | limitTo: 6">
                 <div class="col-sm-4">
                     <div class="hub-post">
                         <div class="post-hub-pic">
-                            <img src="app/images/banner-2.jpg">
+                            <img ng-src="{{item.blog_image}}">
                         </div>
                         <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="hub-post">
-                        <div class="post-hub-pic">
-                            <img src="app/images/banner-3.jpg">
-                        </div>
-                        <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="hub-post">
-                        <div class="post-hub-pic">
-                            <img src="app/images/banner-4.jpg">
-                        </div>
-                        <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="hub-post">
-                        <div class="post-hub-pic">
-                            <img src="app/images/banner-4.jpg">
-                        </div>
-                        <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="hub-post">
-                        <div class="post-hub-pic">
-                            <img src="app/images/banner-2.jpg">
-                        </div>
-                        <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="hub-post">
-                        <div class="post-hub-pic">
-                            <img src="app/images/banner-3.jpg">
-                        </div>
-                        <div class="post-hub-content">
-                            <p class="hub-tag">Kids Parties</p>
-                            <h3>BETTS KIDS SUMMER SHOE PARTY</h3>
-                            <p class="post-desc">Jump into summer with the latest Spring/Summer collection from betts kids..</p>
+                            <p class="hub-tag">{{item.blog_sub_title}}</p>
+                            <h3>{{item.blog_sub_title}}</h3>
+                            <p class="post-desc">{{item.blog_description}}</p>
                             <p class="post-read"><a href="#">Read More</a></p>
                         </div>
                     </div>

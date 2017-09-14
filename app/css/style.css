@@ -1784,3 +1784,18 @@ background:#0b7f74;
     float: right;
     clear: both;
 }
+.container.admin-blog b {
+    width: 100%;
+    float: left;
+    margin-top: -15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.browse-list {
+    padding: 0px !important;
+    margin-top: 50px;
+    float: left;
+    width: 100%;
+}

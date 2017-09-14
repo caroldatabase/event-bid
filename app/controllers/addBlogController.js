@@ -17,11 +17,12 @@
                     $scope.successMessageIndicator = true;
                     $scope.ErrorIndicator = false;
                     $scope.message = "Blog added successfully.";
-                    $scope.category = {};
+                    $scope.blog = {};
                     $('#blogHeading').val("");
                     $('#blogcategory').val("");
                     $('#blog_image').val("");
                     $('#blog_description').val("");
+                    $('#blogHeaderImage').val("");
                     $rootScope.$broadcast("addedBlogs", function () {
                     });
                 }

@@ -1,4 +1,4 @@
-﻿app.controller('dashBoardController', ['$scope', 'commonService','$rootScope',  function ($scope, commonService, $rootScope) {
+﻿app.controller('dashBoardController', ['$scope', 'commonService', '$rootScope', 'httpService', function ($scope, commonService, $rootScope, httpService) {
 
    
     init();
@@ -46,7 +46,7 @@
                 }
             })
         })
-
+        getAllBlogs();
         commonService.checkUserLoggedIn();
         
     }
@@ -73,6 +73,15 @@
     {
         $('#promptLoginPopup').modal('toggle');
        
+    }
+
+    function getAllBlogs() {
+        $rootScope.loaderIndicator = true;
+        httpService.getAllBlogs().then(function (response) {
+            $scope.blogList = response.data.data;
+            console.log($scope.blogList)
+            $rootScope.loaderIndicator = false;
+        });
     }
 }]);
 
