@@ -1799,3 +1799,18 @@ background:#0b7f74;
     float: left;
     width: 100%;
 }
+.container.admin-blog ul {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    padding: 15px;
+}
+.container.admin-blog ul li {
+    padding: 15px;
+    background: #eee;
+    text-align: center;
+}
+.container.admin-blog ul li img {
+    width: 100%;
+    margin-top: 15px;
+}
