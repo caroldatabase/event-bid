@@ -1833,3 +1833,15 @@ background:#0b7f74;
     font-weight: 700;
     margin-bottom: 15px;
 }
+.row.hub-thumbnails.ng-scope .col-sm-4 {
+    width: 100%;
+}
+.row.hub-thumbnails.ng-scope {
+    float: left;
+    width: 33.33%;
+    /* padding: 15px !important; */
+    margin: 0 !important;
+}
+.hub-head h1 {
+    margin-bottom: 30px;
+}
