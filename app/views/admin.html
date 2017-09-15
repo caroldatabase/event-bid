@@ -41,13 +41,16 @@
             <br />
             <b>All Blogs :</b>
             <ul data-ng-repeat="item in blogList">
-                <li>
-                    Blog title : {{item.blog_title}}
-                    Blog subtitle : {{item.blog_sub_title}}
-                    Blog Description : {{item.blog_description}}
-                    Blog Image : <img ng-src="{{item.blog_image}}" alt="" />
-                    <input type="button" value="delete Blog" data-ng-click="deleteBlog(item)" />
-                </li>
+                <div class="hub-post">
+                    <div class="post-hub-pic">
+                        <img ng-src="{{item.blog_image}}">
+                    </div>
+                    <div class="post-hub-content">
+                        <p class="hub-tag">{{item.blog_sub_title}}</p>
+                        <p class="post-desc">{{item.blog_description}}</p>
+                        <p class="post-read"><input type="button" value="delete Blog" data-ng-click="deleteBlog(item)" /></p>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>

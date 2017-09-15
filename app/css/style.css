@@ -1839,7 +1839,7 @@ background:#0b7f74;
 .row.hub-thumbnails.ng-scope {
     float: left;
     width: 33.33%;
-    /* padding: 15px !important; */
+    padding: 15px !important;
     margin: 0 !important;
 }
 .hub-head h1 {
