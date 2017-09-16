@@ -1628,7 +1628,7 @@ margin-top:30px;
     color: #fff;
     padding: 10px 25px;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 5px;    cursor: pointer;
 }
 
 .find-button select.selectpicker:hover {
@@ -1731,23 +1731,23 @@ margin-top:30px;
     border-radius: 5px;
 }
 .browse-list ul li p {
-    color: #298992;
+        color: #777777;
 }
 .find-button .glyphicon-calendar:before {
     content: "\e109" !important;
 }
 
-.search-bar input::-webkit-input-placeholder { / Chrome/Opera/Safari /
-  color: #ccc;
+.search-bar input::-webkit-input-placeholder {
+  color: #afafaf;
 }
-.search-bar input::-moz-placeholder { / Firefox 19+ /
-  color: #ccc;
+.search-bar input::-moz-placeholder { 
+  color: #afafaf;
 }
-.search-bar input:-ms-input-placeholder { / IE 10+ /
-  color: #ccc;
+.search-bar input:-ms-input-placeholder { 
+  color: #afafaf;
 }
-.search-bar input:-moz-placeholder { / Firefox 18- /
-  color: #ccc;
+.search-bar input:-moz-placeholder {
+  color: #afafaf;
 }
 .card-pop input[type="button"] {
     background: #298992;
@@ -1844,4 +1844,9 @@ background:#0b7f74;
 }
 .hub-head h1 {
     margin-bottom: 30px;
+}
+.container.admin-blog ul li input {
+    float: none !important;
+    margin-bottom: 0px !important;
+    margin-top: 15px;
 }
