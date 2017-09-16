@@ -138,7 +138,7 @@
                             <p class="hub-tag">{{item.blog_sub_title}}</p>
                             <h3>{{item.blog_sub_title}}</h3>
                             <p class="post-desc">{{item.blog_description}}</p>
-                            <p class="post-read"><a href="#">Read More</a></p>
+                            <p class="post-read"><a data-ng-click="openBlogDetailPopup(item)">Read More</a></p>
                         </div>
                     </div>
                 </div>
@@ -146,5 +146,32 @@
         </div>
     </div>
 </div>
+<!--Blog Detail Pop up-->
+<div class="modal fade" id="blogDetailPopup" tabindex="-1" ng-controller="dashBoardController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Eventbid Hub blog</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="hub-post">
+                        <div class="post-hub-pic">
+                            <img ng-src="{{item.blog_image}}">
+                        </div>
+                        <div class="post-hub-content">
+                            <p class="hub-tag">{{item.blog_sub_title}}</p>
+                            <h3>{{item.blog_sub_title}}</h3>
+                            <p class="post-desc">{{item.blog_description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 
