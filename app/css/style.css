@@ -80,14 +80,22 @@ img{
 	}
 button.close {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -12px;
+    right: -16px;
     color: #fff;
     text-shadow: 0 0px 0 #fff;
     filter: alpha(opacity=100);
     opacity: 1;
 	}
-.close:hover, .close:focus {
+
+.modal-content button.close {
+    background: #333 none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+.modal-content .close:hover, .modal-content .close:focus {
     color: #179a8d;
     text-decoration: none;
     cursor: pointer;
@@ -1572,10 +1580,13 @@ font-size:13px;
 .post-hub-content h3 {
     font-size: 18px;
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 5px;  overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	
 }
 p.hub-tag {
-    color: #ccc;
+    color: #bab9b9;
     font-size: 13px;
     margin-top: 0;
     margin-bottom: 10px;
@@ -1589,7 +1600,9 @@ p.post-read a{
 	color:##0b7f74;
 }
 p.post-desc {
-    color: #484848;
+    color: #484848; overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .hub-post {
     margin-bottom: 20px;

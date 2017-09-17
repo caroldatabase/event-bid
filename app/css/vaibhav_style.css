@@ -121,9 +121,11 @@ margin-bottom:20px;
 }
 .browse-list ul li h3
 {
-    color: #777777;
-    font-size: 16px;
+    color: #199a9d;
+        font-size: 15px;
+    font-weight: bold;
 }
+
 .category-img img
 {
 width:75px;

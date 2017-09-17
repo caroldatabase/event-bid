@@ -26,7 +26,7 @@
                 <div class="col-sm-3 text-center">
                     <select class="selectpicker" data-style="btn-primary" data-ng-model="eventTypeFilter" name="eventTypeFilter"
                             id="eventTypeFilter">
-                        <option>Filter By Event Type</option>
+                        <option value="">Filter By Event Type</option>
                         <option value="Wedding">Wedding</option>
                         <option value="Birthday">Birthday</option>
                         <option value="Graduation">Graduation</option>
@@ -39,16 +39,16 @@
                 </div>
                 <div class="col-sm-3 text-center">
                     <select class="selectpicker" data-ng-model="eventTypeCategory" data-style="btn-primary" name="category" id="category"
-                            ng-options="item.id as item.name for item in categoryList">
+                            ng-options="item.name as item.name for item in categoryList">
                         <option value="">Filter By Category</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
                     <select class="selectpicker" data-style="btn-primary" name="budgetFilter" id="budgetFilter" data-ng-model="budgetFilter">
-                        <option>Filter By Budget</option>
-                        <option>Per Person</option>
-                        <option>Per Piece</option>
-                        <option>Total</option>
+                        <option value="">Filter By Budget</option>
+                        <option value="Per Person">Per Person</option>
+                        <option value="Per Piece">Per Piece</option>
+                        <option value="Total">Total</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
