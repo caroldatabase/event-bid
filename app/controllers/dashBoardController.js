@@ -77,11 +77,12 @@
 
     function getAllBlogs() {
         $rootScope.loaderIndicator = true;
-        httpService.getAllBlogs().then(function (response) {
-            $scope.blogList = response.data.data;
-            console.log($scope.blogList)
-            $rootScope.loaderIndicator = false;
-        });
+        if (!$rootScope.blogList) {
+            httpService.getAllBlogs().then(function (response) {
+                $rootScope.blogList = response.data.data;
+                $rootScope.loaderIndicator = false;
+            });
+        }
     }
 
     $scope.openBlogDetailPopup = function(item)
