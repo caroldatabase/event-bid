@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="search-bar">
-                        <input type="text" placeholder="Search-task" class="search-input" data-ng-model="searchText" name="searchText"
+                        <input type="text" placeholder="Search task by event name" class="search-input" data-ng-model="searchText" name="searchText"
                                id="searchText">
                         <i class="fa fa-search"></i>
                     </div>
@@ -24,21 +24,22 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 text-center">
-                   <select class="selectpicker" data-style="btn-primary">
-                      <option>Filter By Event Type</option>
-                       <option value="Wedding">Wedding</option>
-                       <option value="Birthday">Birthday</option>
-                       <option value="Graduation">Graduation</option>
-                       <option value="High Tea">High Tea</option>
-                       <option value="Corporate">Corporate</option>
-                       <option value="Cocktail">Cocktail</option>
-                       <option value="Anniversary">Anniversary</option>
-                       <option value="Other">Other</option>
+                    <select class="selectpicker" data-style="btn-primary" data-ng-model="eventTypeFilter" name="eventTypeFilter"
+                            id="eventTypeFilter">
+                        <option>Filter By Event Type</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="High Tea">High Tea</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Cocktail">Cocktail</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-ng-model="task.category" data-style="btn-primary" name="category" id="category"
-                       ng-options="item.id as item.name for item in categoryList">
+                    <select class="selectpicker" data-ng-model="eventTypeCategory" data-style="btn-primary" name="category" id="category"
+                            ng-options="item.id as item.name for item in categoryList">
                         <option value="">Filter By Category</option>
                     </select>
                 </div>
@@ -101,14 +102,15 @@
 
     </div>
 </a>
+
 <div class="container">
  <div class="row">
 <div class="col-sm-12 text-right">
-<pagination ng-model="currentPage"
-            total-items="taskList.length"
-            max-size="maxSize"
-            boundary-links="true">
-</pagination>
+    <pagination ng-model="currentPage"
+                total-items="taskList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
 </div></div>
 </div>
 
@@ -124,7 +126,6 @@
         <h4 class="modal-title">{{taskDetail.event_title}}</h4>
       </div>
       <div class="modal-body">
-        <p>vaibhav lives in khandwa. It is a good place.</p>
             <p><b>Event Type </b> : {{taskDetail.event_type}}
           <br/>
             <b>Category Name</b> : {{taskDetail.category.name}} 
@@ -136,19 +137,20 @@
           <p><b>Time To</b> {{taskDetail.time_to}}</p>
           <div class="event-detail-pop">
               <ul>
-                  <li ng-repeat="(key, val) in taskDetail.category_question">
+                  <li ng-repeat="(key, val) in taskDetail.category_Detail">
                       {{key}}: {{val}}
                   </li>
               </ul>
           </div>
           <div>
               Task Posted by :
+              <br/>
                name :  {{taskDetail.post_user_detail.first_name}}
                rating :  {{taskDetail.post_user_detail.rating}}
           </div>
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal">Start Working</button>
+         <button type="button" class="btn btn-default" data-dismiss="modal">Show Interest</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>

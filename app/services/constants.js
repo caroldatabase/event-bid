@@ -23,4 +23,50 @@
         //    PATISSERIE : 29, 
         //    WAITING_SERVICE : 30
         //}
+        CATEGORY:
+        {
+            Catering: 'Catering',
+            Cleaning: 'Cleaning',
+            Patisserie: 'Patisserie',
+            Catering: 'Catering',
+            Catering: 'Catering',
+            Catering: 'Catering',
+        },
+        CATEGORY_QUESTIONS :
+        {
+            Catering:
+            {
+                cateringType: 'Catering Type',
+                mealType: 'Meal Type',
+                drinkType: 'Drink type served to guests',
+                menuRequests: 'Menu Request',
+                waitingRequire : 'Waiting Service required',
+                dietaryRequirement: 'Dietary requirement',
+                totalGuest: 'Total Guests',
+                totalCost: 'Cost(in $)',
+                costType: 'Type of Cost',
+                
+            },
+            Cleaning :
+            {
+                    cleanersNeeded: 'Number of cleaners needed',
+                    cleaningChecklist: 'Cleaning type',
+                    equipmentRequired: 'Equipments required for cleaning',
+                    timeRequired: 'Time Required(in hrs)',
+                    waitingRequire: 'Waiting Service required',
+                    totalCost: 'Cost(in $)',
+                    costType: 'Type of Cost',
+            },
+            Patisserie :
+            {
+
+            },
+            'Waiting Staff' :
+            {
+
+            },
+  
+
+
+        }
     })
