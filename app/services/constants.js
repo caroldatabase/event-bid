@@ -2,7 +2,7 @@
     {
         ENVIORNMENT :
             {
-                WEBUAT: 'http://139.59.63.136/eventbid',
+                WEBUAT: 'http://webpedialab.com/eventbid',
                 LOCAL: 'http://localhost/eventBid_webapi'
             },
         ERRORMESSAGE:

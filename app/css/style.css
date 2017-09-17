@@ -1604,6 +1604,9 @@ p.post-desc {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+p.post-desc-popup {
+    color: #484848; overflow: hidden;
+}
 .hub-post {
     margin-bottom: 20px;
 }
