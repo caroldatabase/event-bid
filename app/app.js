@@ -18,7 +18,7 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/views/dashBoard.html",
@@ -95,7 +95,7 @@ app.config(function ($routeProvider) {
     //    enabled: true,
     //    requireBase: true
     //});
-
+$locationProvider.hashPrefix('');
 });
 
 app.config(function ($httpProvider) {
