@@ -90,13 +90,18 @@ app.config(function ($routeProvider) {
     .otherwise({
         redirect: '/'
     });
+    //$locationProvider.html5Mode(true);
+
     //angular.element('head').append('<base href="/">');
     //$locationProvider.html5Mode({
     //    enabled: true,
     //    requireBase: true
     //});
 
+   
+
 });
+
 
 app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};
