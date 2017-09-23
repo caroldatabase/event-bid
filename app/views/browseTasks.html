@@ -88,13 +88,17 @@
                         </p>
                     </li>
                     <li>
-                        <h3> {{data.category_question.totalCost | currency}}  ({{data.category_question.costType}})</h3>
+                        <h3 data-ng-if="data.category_question.totalCost"> {{data.category_question.totalCost | currency}}  ({{data.category_question.costType}})</h3>
 
                     </li>
                     <li class="third-cont right-text">
                         <p>
                             <span>{{data.post_user_detail.first_name}}</span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        </p>
+                        <p>
+                            task posted date :
+                            {{ formatDate(data.created_at) | date:'MM/dd/yyyy'}}
                         </p>
                     </li>
                 </a>
@@ -128,30 +132,42 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">{{taskDetail.event_title}}</h4>
       </div>
-      <div class="modal-body">
-            <p><b>Event Type </b> : {{taskDetail.event_type}}
-          <br/>
-            <b>Category Name</b> : {{taskDetail.category.name}} 
-                <img ng-src="{{taskDetail.category.categoryImage}}" alt="category image">
-            
-          </p>
-           <p><b>Date Required</b> {{taskDetail.date_required }}</p>
-          <p><b>Time From</b> {{taskDetail.time_from}}</p>
-          <p><b>Time To</b> {{taskDetail.time_to}}</p>
-          <div class="event-detail-pop">
+      <div class="modal-body d-listing">
+          <div class="m-body-top">
+              <div class="d-left">
+                  <p><b>Event Type </b> : {{taskDetail.event_type}}</p>
+                  <p><b>Category Name</b> : {{taskDetail.category.name}}</p>
+                  <p><b>Date Required</b> : {{taskDetail.date_required }}</p>
+                  <p><b>Time From</b> : {{taskDetail.time_from}}</p>
+                  <p><b>Time To</b> : {{taskDetail.time_to}}</p>
+                  </div>
+              <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
+              </div>
+          <div class="event-detail-pop m-body-mid">
               <ul>
                   <li ng-repeat="(key, val) in taskDetail.category_Detail">
-                      {{key}}: {{val}}
+                      <div data-ng-if="key == 'Desert Images for reference' || key =='Graphic images' " >
+                          <div data-ng-if="val.length > 0" data-ng-repeat="data in val track by $index">
+                              <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                          </div>
+                      </div>
+
+                      <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
+                          <b> {{key}}</b> : <span> {{val}}</span>
+                      </div>
                   </li>
               </ul>
           </div>
-          <div>
-              Task Posted by :
-              <br/>
-               name :  {{taskDetail.post_user_detail.first_name}}
-               rating :  {{taskDetail.post_user_detail.rating}}
+          <div class="m-body-bottom"><p>
+                                         <b>Task Posted by :</b><br />
+                                         <b>name : </b>  {{taskDetail.post_user_detail.first_name}}</br>
+                                         <b> rating : </b>  {{taskDetail.post_user_detail.rating}} 
+                                         <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                        </br>
+                                         <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
+          </p>
           </div>
-      </div>
+          </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-default" data-dismiss="modal">Show Interest</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

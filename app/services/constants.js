@@ -28,9 +28,11 @@
             Catering: 'Catering',
             Cleaning: 'Cleaning',
             Patisserie: 'Patisserie',
-            Catering: 'Catering',
-            Catering: 'Catering',
-            Catering: 'Catering',
+            Waiting_Staff : 'Waiting Staff',
+            Graphic_Design: 'Graphic Design',
+            Supply_Hire: 'Supply Hire',
+            Hair_and_Beauty: 'Hair and Beauty',
+            Entertainment_and_talent : "Entertainment and talent"
         },
         CATEGORY_QUESTIONS :
         {
@@ -59,14 +61,54 @@
             },
             Patisserie :
             {
-
+                cakeTypes: "Type of cakes required",
+                describeReq: "Description of requirement",
+                desertType: "Type of desert",
+                dietaryRequirement: "Dietary requirement",
+                numberOfDesert: "number of desert",
+                costType: "Type of cost",
+                totalCost: "Total Cost",
+                desertImages : "Desert Images for reference"
             },
-            'Waiting Staff' :
+            Waiting_Staff:
             {
-
+                dressCode: "Dress code required for waiters",
+                dressCodeDescription: "Dress code description",
+                totalCost: "Total cost",
+                totalCostType: "Total cost type ",
+                totalWaiter: "Total waiters",
+                waitersTask:"Waiters Task"
             },
   
-
-
+            Graphic_Design: {
+                totalBudgetForbanners: "Total budget for banners",
+                numberOfBanners: "Number of banners",
+                additionalInformation: "Additional Information required",
+                designPrinted: "Design printed",
+                graphicBanners: "Graphic banners required",
+                graphicImages : "Graphic images"
+            },
+            Supply_Hire: {
+                decriptionInDetail: "Description for supplies",
+                returnSupplies: "Return description for supplies",
+                IscleaningPriceToBeIncluded: "Is cleaning price to be included",
+                supplyTypes : "Type of supplies"
+            },
+            Hair_and_Beauty: {
+                hairStyleRequired: "Hair style required",
+                location: "Location",
+                makeUpTypeRequired: "Make type required",
+                needToBring: "Do products need to bring",
+                specialRequestsForHairStyle: "Special request for hair style",
+                specialRequirement: "Special requirement",
+                serviceType: "Type of service",
+                hairType: "Hair type",
+                graphicImages : "graphic images"
+            },
+            Entertainment_and_talent: {
+                entertainerRequired: "Entertainer required",
+                equipmentReadyForTalent: "Equipment reqdy for talent",
+                thingsRequiredForTalent : "Things required for talent"
+            }
         }
     })
