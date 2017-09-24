@@ -1,6 +1,6 @@
 ﻿app.factory('httpService', ['$http', 'CONSTANTS', function ($http, CONSTANTS) {
 
-    var serviceBase = CONSTANTS.ENVIORNMENT.WEBUAT + '/';
+    var serviceBase = CONSTANTS.ENVIORNMENT.PRODUCTION + '/';
     //var serviceBase = CONSTANTS.ENVIORNMENT.LOCAL + '/';
     var httpService = {
         createAccount: createAccount,

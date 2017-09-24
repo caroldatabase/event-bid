@@ -3,7 +3,8 @@
         ENVIORNMENT :
             {
                 WEBUAT: 'http://139.59.63.136/eventbid',
-                LOCAL: 'http://localhost/eventBid_webapi'
+                LOCAL: 'http://localhost/eventBid_webapi',
+                PRODUCTION: 'http://api.eventbid.com.au'
             },
         ERRORMESSAGE:
             {
@@ -32,7 +33,9 @@
             Graphic_Design: 'Graphic Design',
             Supply_Hire: 'Supply Hire',
             Hair_and_Beauty: 'Hair and Beauty',
-            Entertainment_and_talent : "Entertainment and talent"
+            Entertainment_and_talent: "Entertainment and talent",
+            Car_and_Venue_Hire: "Car and Venue Hire",
+            Floristry: "Floristry"
         },
         CATEGORY_QUESTIONS :
         {
@@ -109,6 +112,23 @@
                 entertainerRequired: "Entertainer required",
                 equipmentReadyForTalent: "Equipment reqdy for talent",
                 thingsRequiredForTalent : "Things required for talent"
+            },
+            Car_and_Venue_Hire: {
+                carType: "Type of car",
+                hireType: "Type of hire",
+                totalCars: "Total Number of cars",
+                totalCost: "Total Cost",
+                totalCostType: "Total cost type",
+                totalGuest: "Total guest",
+                venueCleaning: "Venue Cleaning",
+                venueType : "Venue Type"
+            },
+            Floristry: {
+                arrangementPresentation: "Arrangement for presentation",
+                costType: "Type of cost",
+                flowersRequiredDescription: "Description for flowers required",
+                specialRequestDesc: "Special request for description",
+                totalCost : "Total cost"
             }
         }
     })
