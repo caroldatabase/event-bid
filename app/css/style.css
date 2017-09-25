@@ -1913,3 +1913,13 @@ background:#0b7f74;
     float: right;
 }
 .m-body-bottom p b{ font-style:normal}
+
+.m-body-mid li b {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+.m-body-mid li span {
+    float: left;
+    width: 50%;
+}

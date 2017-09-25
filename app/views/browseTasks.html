@@ -135,11 +135,11 @@
       <div class="modal-body d-listing">
           <div class="m-body-top">
               <div class="d-left">
-                  <p><b>Event Type </b> : {{taskDetail.event_type}}</p>
-                  <p><b>Category Name</b> : {{taskDetail.category.name}}</p>
-                  <p><b>Date Required</b> : {{taskDetail.date_required }}</p>
-                  <p><b>Time From</b> : {{taskDetail.time_from}}</p>
-                  <p><b>Time To</b> : {{taskDetail.time_to}}</p>
+                  <p><b>Event Type </b>  {{taskDetail.event_type}}</p>
+                  <p><b>Category Name</b>  {{taskDetail.category.name}}</p>
+                  <p><b>Date Required</b> {{taskDetail.date_required }}</p>
+                  <p><b>Time From</b>  {{taskDetail.time_from}}</p>
+                  <p><b>Time To</b> {{taskDetail.time_to}}</p>
                   </div>
               <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
               </div>
@@ -153,7 +153,7 @@
                       </div>
 
                       <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
-                          <b> {{key}}</b> : <span> {{val}}</span>
+                          <b> {{key}}</b> <span> {{val}}</span>
                       </div>
                   </li>
               </ul>
