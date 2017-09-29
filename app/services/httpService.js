@@ -18,8 +18,16 @@
         getAllBlogs: getAllBlogs,
         createBlog: createBlog,
         deleteBlog: deleteBlog,
-        addBlog: addBlog
+        addBlog: addBlog,
+        showInterest: showInterest
     };
+
+    function showInterest(interestedUser) {
+        return $http.post(serviceBase + 'api/v1/showInterestList', interestedUser, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
 
     function addBlog(blog) {
         return $http.post(serviceBase + 'api/v1/blog/create', blog, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {

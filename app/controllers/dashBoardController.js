@@ -83,6 +83,10 @@
                 $rootScope.loaderIndicator = false;
             });
         }
+        else
+        {
+            $rootScope.loaderIndicator = false;
+        }
     }
 
     $scope.openBlogDetailPopup = function(item)

@@ -35,7 +35,8 @@
             Hair_and_Beauty: 'Hair and Beauty',
             Entertainment_and_talent: "Entertainment and talent",
             Car_and_Venue_Hire: "Car and Venue Hire",
-            Floristry: "Floristry"
+            Floristry: "Floristry",
+            Photography_Videography: "Photography and Videography"
         },
         CATEGORY_QUESTIONS :
         {
@@ -129,6 +130,19 @@
                 flowersRequiredDescription: "Description for flowers required",
                 specialRequestDesc: "Special request for description",
                 totalCost : "Total cost"
+            },
+            Photography_Videography: {
+                eventRequirement : "Events required",
+                totalPhotographerRequired : "Total photographers required",
+                additionalComments: "Additional comments for photographers",
+                placesRequiredForPhotographers: "Places required for photographers",
+                servicesRequired : "Services required from photographers",
+                totalGuest : "Total guest to be covered",
+                servicesRequiredVideographer : "Service required from videographer",
+                totalvideographerRequired :"Total videographers required",
+                totalGuestVideography : "Total guest to be covered",
+                placesRequiredForVideographer : "Places required for videographers",
+                additionalCommentsVideographer : "Additional comments for videographers"
             }
         }
     })

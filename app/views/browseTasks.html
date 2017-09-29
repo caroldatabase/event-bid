@@ -166,10 +166,11 @@
                                         </br>
                                          <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
           </p>
+              <div data-ng-show="interested"> {{interestMsg}} </div>
           </div>
           </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal">Show Interest</button>
+         <button type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)">Show Interest</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
