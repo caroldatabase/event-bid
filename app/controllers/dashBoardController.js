@@ -46,7 +46,10 @@
                 }
             })
         })
-        getAllBlogs();
+       
+        $(window).scroll(function () {
+            getAllBlogs();
+        });
         commonService.checkUserLoggedIn();
         
     }
