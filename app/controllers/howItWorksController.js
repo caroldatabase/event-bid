@@ -1,8 +1,10 @@
-﻿app.controller('howItWorksCtrl', function ($scope, commonService) {
+﻿app.controller('howItWorksCtrl', function ($scope, commonService, $rootScope) {
     init();
 
     function init()
     {
+        if ($rootScope.isLogin)
+            $scope.loginIndicator = true;
         commonService.scrollToTop();
         $('#collapseOne').hide();
         $('#collapseTwo').hide();
