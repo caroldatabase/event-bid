@@ -35,6 +35,8 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
            $cookies.put("FirstName", data);
        if (dataType == "UserID")
            $cookies.put("UserID", data);
+       if (dataType == "UserType")
+           $cookies.put("UserType", data);
     }
     function deleteCookieValues(dataType) {
         if (dataType == "FirstName")
@@ -63,6 +65,7 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
             $rootScope.isLogin = true;
             $rootScope.userID = userID;
             $rootScope.firstName = $cookies.get("FirstName");
+            $rootScope.UserType = $cookies.get("UserType");
         }
         else {
             $rootScope.isLogin = false;

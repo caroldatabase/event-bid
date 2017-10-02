@@ -5,6 +5,7 @@
     $scope.postTask = postTask;
     $scope.promptModalClose = promptModalClose;
     $scope.seeMoreClick = seeMoreClick;
+    //var dashboardController = true;
 
     function init()
     {
@@ -47,9 +48,8 @@
             })
         })
        
-        $(window).scroll(function () {
-            getAllBlogs();
-        });
+        getAllBlogs();
+        
         commonService.checkUserLoggedIn();
         
     }

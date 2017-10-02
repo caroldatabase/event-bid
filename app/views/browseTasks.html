@@ -52,14 +52,14 @@
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" placeholder="Select date" data-ng-model="dateFilter"
-                               id="dateFilter" name="dateFilter" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                    <div class='input-group date'>
+                        <input type='text' class="form-control" placeholder="Filter by event date" data-ng-model="dateFilter"
+                               id="datetimepicker1" name="datetimepicker1" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
-</div>
                 </div>
             
             </div>
@@ -67,13 +67,11 @@
     
     <div class="browse-list">
         <div class="container">
-            <ul data-ng-repeat="data in filteredLists"> 
-              <!--  | filter : {event_title : player_id, event_type: player_name, category_question.costType :ageFilter,
-                date_required : date}">-->
+            <ul data-ng-repeat="data in taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}">
                 <a class="card-pop" data-ng-click="openSelectedtaskInDetail(data)">
                     <li>
                         <h3>{{data.event_title}}</h3>
-                        <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
                     </li>
                     <li class="text-center category-img">
                         <img ng-src="{{data.category.categoryImage}}" alt="category image">
@@ -113,11 +111,11 @@
 <div class="container">
  <div class="row">
 <div class="col-sm-12 text-right">
-    <pagination ng-model="currentPage"
+    <!--<pagination ng-model="currentPage"
                 total-items="taskList.length"
                 max-size="maxSize"
                 boundary-links="true">
-    </pagination>
+    </pagination>-->
 </div></div>
 </div>
 
@@ -166,9 +164,10 @@
                                         </br>
                                          <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
           </p>
-              <div data-ng-show="interested"> {{interestMsg}} </div>
+              
           </div>
           </div>
+        <div data-ng-show="interested" class="thank-u-msg"> {{interestMsg}} </div>
       <div class="modal-footer">
          <button type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)">Show Interest</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -177,9 +176,5 @@
 
   </div>
 </div>
-<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+
   

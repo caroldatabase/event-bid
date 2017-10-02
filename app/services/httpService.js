@@ -19,11 +19,33 @@
         createBlog: createBlog,
         deleteBlog: deleteBlog,
         addBlog: addBlog,
-        showInterest: showInterest
+        showInterest: showInterest,
+        getBuisnessTask: getBuisnessTask,
+        getInterestedUsersList: getInterestedUsersList,
+        assignTask: assignTask
     };
+
+    function getInterestedUsersList(taskid) {
+        return $http.get(serviceBase + 'api/v1/interestUsersList/' + taskid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getBuisnessTask(userid) {
+        return $http.get(serviceBase + 'api/v1/bussinessDashboard/' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
 
     function showInterest(interestedUser) {
         return $http.post(serviceBase + 'api/v1/showInterestList', interestedUser, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
+    function assignTask(details) {
+        return $http.post(serviceBase + 'api/v1/assignTask', details, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 

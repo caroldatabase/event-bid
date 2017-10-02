@@ -82,11 +82,11 @@ app.config(function ($routeProvider,$locationProvider) {
              controller: "adminCtrl"
          })
         .when("/customer-dashboard", {
-            templateUrl: "app/views/customer-dashboard.html",
+            templateUrl: "app/views/customerDashboard.html",
             controller: "customerDashboardCtrl"
         })
         .when("/buisness-dashboard", {
-            templateUrl: "app/views/business-dashboard.html",
+            templateUrl: "app/views/businessDashboard.html",
             controller: "buisnessDashboardCtrl"
         })
     .otherwise({

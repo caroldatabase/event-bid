@@ -1923,3 +1923,11 @@ background:#0b7f74;
     float: left;
     width: 50%;
 }
+.thank-u-msg {
+    background: #349d93;
+    text-align: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: -15px;
+}

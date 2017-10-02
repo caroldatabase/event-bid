@@ -109,8 +109,9 @@
                          var userRes = result.data.data;
                         commonService.setCookieValues('FirstName', userRes.firstName);
                         commonService.setCookieValues('UserID', userRes.userId);
-
+                        commonService.setCookieValues('UserType', userRes.userType);
                         $rootScope.isLogin = true;
+                        $rootScope.UserType = userRes.userType;
                         $rootScope.firstName = userRes.firstName;
                         
                             $('#signUpPopup').modal('toggle');
@@ -172,6 +173,8 @@
                     commonService.setCookieValues('UserID', userRes.userId);
                     $rootScope.isLogin = true;
                     $rootScope.firstName = userRes.firstName;
+                    commonService.setCookieValues('UserType', userRes.userType);
+                    $rootScope.UserType = userRes.userType;
                     
                         $('#loginPopup').modal('toggle');
                         if ($rootScope.postTaskClicked == true) {
@@ -216,6 +219,7 @@
     {
         commonService.deleteCookieValues('FirstName');
         commonService.deleteCookieValues('UserID');
+        commonService.deleteCookieValues('UserType');
         $rootScope.isLogin = false;
         commonService.reloadRoute();
         

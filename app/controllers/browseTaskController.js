@@ -1,14 +1,29 @@
 ﻿app.controller('browseTaskCtrl', function ($scope, httpService, $rootScope, commonService, CONSTANTS) {
 
     $scope.currentPage = 1;
-    $scope.numPerPage = 10;
+    $scope.numPerPage = 25;
     $scope.maxSize = 5;
     $scope.taskList = [];
     init();
 
+   
     function init() {
-        browseAllTask();
-        getAllCategoryFilters();
+        $(document).ready(function () {
+            var todayDate = new Date();
+            $('#datetimepicker1').datetimepicker({
+                pickDate: true,
+                pickTime: false,
+                format: 'MM-DD-YYYY',
+                changeMonth: true,
+                changeYear: true
+            }).on("dp.change", function () {
+                $(this).trigger('blur');
+
+            });
+            browseAllTask();
+        });
+       
+        //getAllCategoryFilters();
     }
    
     function getAllCategoryFilters()
@@ -32,11 +47,11 @@
             //getCategoryDetails();
             $rootScope.loaderIndicator = false;
             //$scope.numPages();
-            $scope.$watch("currentPage + numPerPage", function () {
-                var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-                , end = begin + $scope.numPerPage;
-                $scope.filteredLists = $scope.taskList.slice(begin, end);
-            });
+            //$scope.$watch("currentPage + numPerPage", function () {
+            //    var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+            //    , end = begin + $scope.numPerPage;
+            //    $scope.filteredLists = $scope.taskList.slice(begin, end);
+            //});
 
         });
     }
@@ -176,16 +191,19 @@
     {
         if ($rootScope.isLogin == true)
         {
-            $rootScope.loaderIndicator = true;
+            //$rootScope.loaderIndicator = true;
             var interestedUser = {};
             interestedUser.taskId = data.id;
             interestedUser.taskPostedUserID = data.post_user_id;
             interestedUser.showInterestedUserID = commonService.getUserid();
             interestedUser.taskStatus = "looking_user_offers";
             httpService.showInterest(interestedUser).then(function (response) {
-                $rootScope.loaderIndicator = false;
-                $scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
-                $scope.interested = true;
+                if(response.data.code == 200)
+                {
+                    //$rootScope.loaderIndicator = false;
+                    $scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
+                    $scope.interested = true;
+                }
             });
         }
         else {
