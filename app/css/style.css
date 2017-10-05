@@ -1956,3 +1956,8 @@ background:#0b7f74;
     height: 250px;
     overflow-y: scroll;
 }
+.jobs-list ul {
+    margin-top: 0;
+    float: left;
+    width: 50%;
+}

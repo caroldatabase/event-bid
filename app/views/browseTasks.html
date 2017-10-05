@@ -86,7 +86,8 @@
                         </p>
                     </li>
                     <li>
-                        <h3 data-ng-if="data.category_question.totalCost"> {{data.category_question.totalCost | currency}}  ({{data.category_question.costType}})</h3>
+                        <h3 data-ng-if="data.category_question.totalCost"> {{data.category_question.totalCost | currency}} 
+                        {{data.category_question.costType}})</h3>
 
                     </li>
                     <li class="third-cont right-text">
@@ -116,7 +117,11 @@
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>-->
-</div></div>
+    <div class="col-sm-12"><button class="btn btn-lg btn-primary" data-ng-click="seeMoreClick()">See More</button></div>
+    <br /><br />
+</div>
+ 
+ </div>
 </div>
 
 
