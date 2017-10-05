@@ -173,22 +173,17 @@
                 </div>
                 <div class="m-body-bottom">
                     <p>
-                        <b>Task Posted by :</b><br />
-                        <b>name : </b>  {{taskDetail.post_user_detail.first_name}}</br>
-                        <b> rating : </b>  {{taskDetail.post_user_detail.rating}}
-                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                        </br>
                         <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
                     </p>
 
                 </div>
                 <div>
                     People who are interest for doing this task :
-                    <ul>
+                    <ul data-ng-repeat="item in interestedUsersList">
                         <li>
-                             Kanika    
-                             <a href="">view profile</a>
-                            <button type="button" class="btn btn-default">assign</button>
+                            {{item.interested_user.first_name}} {{item.interested_user.last_name}}
+                            <a href="">view profile</a>
+                            <button type="button" class="btn btn-default" data-ng-click="assignUser(item)">assign</button>
                         </li>
                     </ul>
                 </div>

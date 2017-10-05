@@ -114,6 +114,12 @@
         });
     }
 
+    function assignUser(user) {
+        return $http.post(serviceBase + '/api/v1/assignTask', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
     function getCategory() {
         return $http.get(serviceBase + 'api/v1/post-task/getcategory', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
@@ -140,7 +146,7 @@
     
     //task section 
     function browseAllTask() {
-        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open&page_num=1&page_size=25', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
@@ -156,6 +162,8 @@
             return response;
         });
     }
+
+    
 
     return httpService;
 

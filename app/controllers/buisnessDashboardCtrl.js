@@ -136,6 +136,15 @@
         function getInterestedUsersList(taskid)
         {
             httpService.getInterestedUsersList(taskid).then(function (response) {
+                console.log(response);
+                $scope.interestedUsersList = response.data.data;
+            });
+        }
+        $scope.assignUser = function(item)
+        {
+            //var user = item.
+            httpService.assignUser(user).then(function (response) {
+                $scope.interestedUsersList = response.data.data;
             });
         }
         $scope.deleteTask = function(data)

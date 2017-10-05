@@ -1931,3 +1931,28 @@ background:#0b7f74;
     color: #fff;
     margin-bottom: -15px;
 }
+.jobs-list ul {
+    margin-top: 0;
+    float: left;
+    width: 100%;
+}
+.jobs-list h4 {
+    text-align: center;
+    background: #018479;
+    margin: -15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.jobs-list {
+    background: #eee;
+    float: left;
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    height: 250px;
+    overflow-y: scroll;
+}
