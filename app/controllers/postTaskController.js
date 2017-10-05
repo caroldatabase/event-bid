@@ -165,8 +165,6 @@
                     $scope.errorMessageIndicator = false;
                     $scope.message = "Task submitted successfully.";
                     $scope.task = {};
-                    //$('#eventType').val() = "";
-                    //$('#category').val() = "";
                 }
                 else {
                     $rootScope.loaderIndicator = false;

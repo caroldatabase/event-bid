@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="search-bar">
-                        <input type="text" placeholder="Search-task" class="search-input" data-ng-model="searchText" name="searchText"
+                        <input type="text" placeholder="Search task by event name" class="search-input" data-ng-model="searchText" name="searchText"
                                id="searchText">
                         <i class="fa fa-search"></i>
                     </div>
@@ -24,34 +24,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 text-center">
-                   <select class="selectpicker" data-style="btn-primary">
-                      <option>Filter By Event</option>
-                      <option>Ketchup</option>
-                      <option>Relish</option>
+                    <select class="selectpicker" data-style="btn-primary" data-ng-model="eventTypeFilter" name="eventTypeFilter"
+                            id="eventTypeFilter">
+                        <option value="">Filter By Event Type</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="High Tea">High Tea</option>
+                        <option value="Corporate">Corporate</option>
+                        <option value="Cocktail">Cocktail</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-style="btn-primary">
-                      <option>Filter By Event</option>
-                      <option>Ketchup</option>
-                      <option>Relish</option>
+                    <select class="selectpicker" data-ng-model="eventTypeCategory" data-style="btn-primary" name="category" id="category"
+                            ng-options="item.name as item.name for item in categoryList">
+                        <option value="">Filter By Category</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-style="btn-primary">
-                      <option>Filter By Event</option>
-                      <option>Ketchup</option>
-                      <option>Relish</option>
+                    <select class="selectpicker" data-style="btn-primary" name="budgetFilter" id="budgetFilter" data-ng-model="budgetFilter">
+                        <option value="">Filter By Budget</option>
+                        <option value="Per Person">Per Person</option>
+                        <option value="Per Piece">Per Piece</option>
+                        <option value="Total">Total</option>
                     </select>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" placeholder="09/13/2017 10:53 PM" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+                    <div class='input-group date'>
+                        <input type='text' class="form-control" placeholder="Filter by event date" data-ng-model="dateFilter"
+                               id="datetimepicker1" name="datetimepicker1" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </div>
-</div>
                 </div>
             
             </div>
@@ -59,11 +67,11 @@
     
     <div class="browse-list">
         <div class="container">
-            <ul data-ng-repeat="data in filteredLists | filter : searchText">
+            <ul data-ng-repeat="data in taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}">
                 <a class="card-pop" data-ng-click="openSelectedtaskInDetail(data)">
                     <li>
                         <h3>{{data.event_title}}</h3>
-                        <!--<p>Lorem ipsum dolor sit amet is the dummy text</p>-->
                     </li>
                     <li class="text-center category-img">
                         <img ng-src="{{data.category.categoryImage}}" alt="category image">
@@ -78,13 +86,18 @@
                         </p>
                     </li>
                     <li>
-                        <h3>${{data.category_question.totalCost}} ,{{data.category_question.totalCostType}}</h3>
+                        <h3 data-ng-if="data.category_question.totalCost"> {{data.category_question.totalCost | currency}} 
+                        {{data.category_question.costType}})</h3>
 
                     </li>
                     <li class="third-cont right-text">
                         <p>
                             <span>{{data.post_user_detail.first_name}}</span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        </p>
+                        <p>
+                            task posted date :
+                            {{ formatDate(data.created_at) | date:'MM/dd/yyyy'}}
                         </p>
                     </li>
                 </a>
@@ -95,15 +108,20 @@
 
     </div>
 </a>
+
 <div class="container">
  <div class="row">
 <div class="col-sm-12 text-right">
-<pagination ng-model="currentPage"
-            total-items="taskList.length"
-            max-size="maxSize"
-            boundary-links="true">
-</pagination>
-</div></div>
+    <!--<pagination ng-model="currentPage"
+                total-items="taskList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>-->
+    <div class="col-sm-12"><button class="btn btn-lg btn-primary" data-ng-click="seeMoreClick()">See More</button></div>
+    <br /><br />
+</div>
+ 
+ </div>
 </div>
 
 
@@ -117,41 +135,51 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">{{taskDetail.event_title}}</h4>
       </div>
-      <div class="modal-body">
-        <p>vaibhav lives in khandwa. It is a good place.</p>
-            <p><b>Event Type </b> : {{taskDetail.event_type}}
-          <br/>
-            <b>Category Name</b> : {{taskDetail.category.name}} 
-                <img ng-src="{{taskDetail.category.categoryImage}}" alt="category image">
-            
-          </p>
-           <p><b>Date Required</b> {{taskDetail.date_required }}</p>
-          <p><b>Time From</b> {{taskDetail.time_from}}</p>
-          <p><b>Time To</b> {{taskDetail.time_to}}</p>
-          <div class="event-detail-pop">
+      <div class="modal-body d-listing">
+          <div class="m-body-top">
+              <div class="d-left">
+                  <p><b>Event Type </b>  {{taskDetail.event_type}}</p>
+                  <p><b>Category Name</b>  {{taskDetail.category.name}}</p>
+                  <p><b>Date Required</b> {{taskDetail.date_required }}</p>
+                  <p><b>Time From</b>  {{taskDetail.time_from}}</p>
+                  <p><b>Time To</b> {{taskDetail.time_to}}</p>
+                  </div>
+              <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
+              </div>
+          <div class="event-detail-pop m-body-mid">
               <ul>
-                  <li ng-repeat="(key, val) in taskDetail.category_question">
-                      {{key}}: {{val}}
+                  <li ng-repeat="(key, val) in taskDetail.category_Detail">
+                      <div data-ng-if="key == 'Desert Images for reference' || key =='Graphic images' " >
+                          <div data-ng-if="val.length > 0" data-ng-repeat="data in val track by $index">
+                              <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                          </div>
+                      </div>
+
+                      <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
+                          <b> {{key}}</b> <span> {{val}}</span>
+                      </div>
                   </li>
               </ul>
           </div>
-          <div>
-              Task Posted by :
-               name :  {{taskDetail.post_user_detail.first_name}}
-               rating :  {{taskDetail.post_user_detail.rating}}
+          <div class="m-body-bottom"><p>
+                                         <b>Task Posted by :</b><br />
+                                         <b>name : </b>  {{taskDetail.post_user_detail.first_name}}</br>
+                                         <b> rating : </b>  {{taskDetail.post_user_detail.rating}} 
+                                         <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                        </br>
+                                         <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
+          </p>
+              
           </div>
-      </div>
+          </div>
+        <div data-ng-show="interested" class="thank-u-msg"> {{interestMsg}} </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-dismiss="modal">Start Working</button>
+         <button type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)">Show Interest</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
   </div>
 </div>
-<script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+
   

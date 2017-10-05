@@ -32,7 +32,8 @@
                         <li class="userAction" data-ng-show="isLogin">
                             <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> <i class="profilce_pic"></i> Welcome, {{firstName}}<span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li><a href="#/dashboard">my dashboard</a></li>
+                                <li><a data-ng-show="isLogin && (UserType == 'taskProvider' || UserType == 'taskHirer')" href="#/buisness-dashboard">My Dashboard</a></li>
+                                <li><a data-ng-show="isLogin && UserType == 'taskSeeker'" href="#/customer-dashboard">My Dashboard</a></li>
                                 <li><a data-ng-click="logout();">Logout</a></li>
                             </ul>
                         </li>
@@ -76,7 +77,10 @@
                         <a href="" class="forgot_btn" data-dismiss="modal" data-toggle="modal" data-target="#forgetPopup">Forgot Password?</a>
                         <div class="popup-button-group">
                             <input type="button" value="Login" class="btn btn-primary btn-block login_btn" data-ng-click="login()">
-                            <a class="fb_login_btn btn btn-block"> <img src="app/images/fb_icon.png" alt=""> Log in with Facebook </a>
+                            <a class="fb_login_btn btn btn-block" data-ng-click="fbLogin()"> <img src="app/images/fb_icon.png" alt=""> Log in with Facebook </a>
+                           <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                            </fb:login-button>-->
+
                         </div>
                         <div class="eb_bottom_btn"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signUpPopup">Sign Up On Event Bid</a> </div>
                     </form>

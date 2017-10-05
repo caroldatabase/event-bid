@@ -54,7 +54,7 @@
     });
 
     $rootScope.$on("addedBlogs", function (event, args) {
-       // getCategory();
+        getAllBlogs();
     });
 
     $scope.openBlogSection = function()
@@ -91,7 +91,7 @@
         $rootScope.loaderIndicator = true;
         httpService.getAllBlogs().then(function (response) {
             $scope.blogList = response.data.data;
-            console.log($scope.blogList);
+            console.log($scope.blogList)
             $rootScope.loaderIndicator = false;
         });
     }
@@ -111,7 +111,7 @@
         }
     }
 
-    $scope.deleteBlog = function()
+    $scope.deleteBlog = function(data)
     {
         var r = confirm("Are you sure you want to delete this Blog?");
         if (r == true) {

@@ -1,24 +1,26 @@
 ﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
 
-window.fbAsyncInit = function () {
-    FB.init({
-        appId: '791838100968348',
-        xfbml: true,
-        version: 'v2.8'
-    });
-    FB.AppEvents.logPageView();
-};
+//window.fbAsyncInit = function () {
+//    FB.init({
+//        appId: '791838100968348',
+//        xfbml: true,
+//        status: true,
+//        cookie: true,
+//        version: 'v2.8'
+//    });
+//    //FB.AppEvents.logPageView();
+//};
 
-(function (d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) { return; }
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+//(function (d, s, id) {
+//    var js, fjs = d.getElementsByTagName(s)[0];
+//    if (d.getElementById(id)) { return; }
+//    js = d.createElement(s); js.id = id;
+//    js.src = "//connect.facebook.net/en_US/sdk.js";
+//    fjs.parentNode.insertBefore(js, fjs);
+//}(document, 'script', 'facebook-jssdk'));
 
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider,$locationProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/views/dashBoard.html",
@@ -80,23 +82,27 @@ app.config(function ($routeProvider) {
              controller: "adminCtrl"
          })
         .when("/customer-dashboard", {
-            templateUrl: "app/views/customer-dashboard.html",
+            templateUrl: "app/views/customerDashboard.html",
             controller: "customerDashboardCtrl"
         })
         .when("/buisness-dashboard", {
-            templateUrl: "app/views/business-dashboard.html",
+            templateUrl: "app/views/businessDashboard.html",
             controller: "buisnessDashboardCtrl"
         })
     .otherwise({
         redirect: '/'
     });
+    //$locationProvider.html5Mode(true);
+
     //angular.element('head').append('<base href="/">');
     //$locationProvider.html5Mode({
     //    enabled: true,
     //    requireBase: true
     //});
 
+$locationProvider.hashPrefix('');
 });
+
 
 app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};

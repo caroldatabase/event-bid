@@ -109,8 +109,9 @@
                          var userRes = result.data.data;
                         commonService.setCookieValues('FirstName', userRes.firstName);
                         commonService.setCookieValues('UserID', userRes.userId);
-
+                        commonService.setCookieValues('UserType', userRes.userType);
                         $rootScope.isLogin = true;
+                        $rootScope.UserType = userRes.userType;
                         $rootScope.firstName = userRes.firstName;
                         
                             $('#signUpPopup').modal('toggle');
@@ -142,23 +143,18 @@
 
     function fbLogin()
     {
-        if (!$scope.user.userType) {
-            $scope.signUpForm.userType.$invalid = true;
-            $scope.errorIndicator = true;
-            $scope.message = "Please select user type."
-        }
-        else {
+        
             FB.login(function (response) {
                 if (response.authResponse) {
-                    console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function (response) {
+                    console.log('Authentication with facebook is successful.');
+                    FB.api('/me?fields=id,email,first_name,last_name', function (response) {
                         console.log('Good to see you, ' + response.name + '.');
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
             });
-        }
+        
 
         
     }
@@ -177,6 +173,8 @@
                     commonService.setCookieValues('UserID', userRes.userId);
                     $rootScope.isLogin = true;
                     $rootScope.firstName = userRes.firstName;
+                    commonService.setCookieValues('UserType', userRes.userType);
+                    $rootScope.UserType = userRes.userType;
                     
                         $('#loginPopup').modal('toggle');
                         if ($rootScope.postTaskClicked == true) {
@@ -221,6 +219,7 @@
     {
         commonService.deleteCookieValues('FirstName');
         commonService.deleteCookieValues('UserID');
+        commonService.deleteCookieValues('UserType');
         $rootScope.isLogin = false;
         commonService.reloadRoute();
         

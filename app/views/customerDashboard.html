@@ -1,0 +1,96 @@
+  	<div class="content-body">
+    <div class="sub-banner">
+       <img src="app/images/dashboard-banner.jpg">
+        <div class="banner-name-user text-center">
+            <h1>Hello, {{firstName}}</h1>
+        </div>
+    </div>
+    <div class="container customer-dashboard">
+		<div class="row">
+			<div class="col-sm-4 top-menu-btn">
+				<a href="#/"><img src="app/images/payment-btn.png" height="130px;">
+				<span>Payments</span></a>
+			</div>
+			<div class="col-sm-4 top-menu-btn">
+				<a href="#/profile"><img src="app/images/profile-btn.png" height="130px;">
+				<span>View Profile</span></a>
+			</div>
+			<div class="col-sm-4 top-menu-btn">
+               <a href="#/">
+                    <img src="app/images/change-btn.png" height="130px;">
+                    <span>Change Settings</span>
+               </a>
+            </div>
+		</div>
+	</div>
+	
+	<div class="container jobs-dasborad">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="jobs-list">
+					<h4>Potential Jobs For You</h4>
+                    <ul data-ng-if="potentialJobsIndicator">
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                    </ul>
+                    <p class="text-content-dash" data-ng-if="!potentialJobsIndicator">
+                        Unfortunately we can't find any jobs that need your skills. Have a look at all the tasks and hopefully we are wrong!
+                    </p>
+					<div class="dashborad-post-btn">
+                        <a href="#/browse-tasks">Browse Task</a>
+					</div>
+                    
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="jobs-list">
+					<h4>Jobs In Progress</h4>
+                    <ul data-ng-if="jobsInProgressIndicator">
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                        <li><a href="#">List content of jobs description will be goes here</a></li>
+                    </ul>
+                    <p class="text-content-dash" data-ng-if="!jobsInProgressIndicator">
+                        You're not working on anything right now, why not have a look and see what you can find.
+                    </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container jobs-dasborad">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="jobs-list">
+					<h4>Invoices Due</h4>
+                    <ul data-ng-if="invoicesIndicator">
+                        <li><a href="#">List content of invoices description will be goes here</a></li>
+                    </ul>
+                    <p class="text-content-dash" data-ng-if="!invoicesIndicator">
+                        You're up-to-date with all payments.You have no invoices due.
+                    </p>
+					<div class="dashborad-post-btn">
+						<a href="#">Request Payment</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="jobs-list">
+					<h4>Reviews</h4>
+                    <ul data-ng-if="reviewsIndicator">
+                        <li><a href="#">List content of reviews description will be goes here</a></li>
+                    </ul>
+                    <p class="text-content-dash" data-ng-if="!reviewsIndicator">
+                        You're up-to-date with all your reviews.
+                    </p>
+					<div class="dashborad-post-btn">
+						<a href="#">Submit Reviews</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

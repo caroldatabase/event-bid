@@ -108,7 +108,10 @@ border:1px solid #349d93;
 float:left;
 width:100%;
 border-radius:5px;
-margin-bottom:40px;	
+margin-bottom:20px;	
+}
+.browse-list ul:hover {
+    background: #f3f3f3;
 }
 .browse-list ul li {
     list-style: none;
@@ -118,15 +121,18 @@ margin-bottom:40px;
 }
 .browse-list ul li h3
 {
-color:#349d93;
+    color: #199a9d;
+        font-size: 15px;
+    font-weight: bold;
 }
+
 .category-img img
 {
 width:75px;
 margin-top:15px;
 }
 li.third-cont p {
-    margin-top: 20px;
+    margin-top: 16px;
 }
 li.third-cont p span
 {

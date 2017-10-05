@@ -1,10 +1,11 @@
-﻿app.controller('dashBoardController', ['$scope', 'commonService','$rootScope',  function ($scope, commonService, $rootScope) {
+﻿app.controller('dashBoardController', ['$scope', 'commonService', '$rootScope', 'httpService', function ($scope, commonService, $rootScope, httpService) {
 
    
     init();
     $scope.postTask = postTask;
     $scope.promptModalClose = promptModalClose;
     $scope.seeMoreClick = seeMoreClick;
+    //var dashboardController = true;
 
     function init()
     {
@@ -46,7 +47,9 @@
                 }
             })
         })
-
+       
+        getAllBlogs();
+        
         commonService.checkUserLoggedIn();
         
     }
@@ -73,6 +76,28 @@
     {
         $('#promptLoginPopup').modal('toggle');
        
+    }
+
+    function getAllBlogs() {
+        $rootScope.loaderIndicator = true;
+        if (!$rootScope.blogList) {
+            httpService.getAllBlogs().then(function (response) {
+                $rootScope.blogList = response.data.data;
+                $rootScope.loaderIndicator = false;
+            });
+        }
+        else
+        {
+            $rootScope.loaderIndicator = false;
+        }
+    }
+
+    $scope.openBlogDetailPopup = function(item)
+    {
+        $('#blogDetailPopup').modal('toggle');
+        $("#blogDetailPopup").modal({ backdrop: "static" });
+        $('#blogDetailPopup').modal('show');
+        $scope.item = item;
     }
 }]);
 
