@@ -177,11 +177,11 @@
                     </p>
 
                 </div>
-                <div>
-                    People who are interest for doing this task :
-                    <ul data-ng-repeat="item in interestedUsersList">
+                <div class="people-int">
+                    <p class="peo-head">People who are interest for doing this task</p>
+                   <ul data-ng-repeat="item in interestedUsersList">
                         <li>
-                            {{item.interested_user.first_name}} {{item.interested_user.last_name}}
+                            <span><b>{{item.interested_user.first_name}} {{item.interested_user.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a href="">view profile</a>
                             <button type="button" class="btn btn-default" data-ng-click="assignUser(item)">assign</button>
