@@ -6,9 +6,9 @@
                                         name="serviceType" id="serviceType"
                                         ng-class="{error : postTaskForm.serviceType.$invalid && postTaskForm.$submitted}" 
                                         data-ng-change="changeServiceType()">
-                                     <option value="Hair">Hair</option>
-                                    <option value="Make up">Make up</option>
-                                    <option value="Other beauty service">Other beauty service</option>
+                                     <option value="Hair">HAIR</option>
+                                    <option value="Make up">MAKE UP</option>
+                                    <option value="Other beauty service">OTHER BEAUTY SERVICE</option>
                                 </select>
                             </div>
                         </div>
@@ -17,9 +17,9 @@
                                 <label>Location</label>
                                 <select class="singleSelection" required data-ng-model="task.category_question.location" name="location"
                                         ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
-                                    <option value="">Please Select</option>
-                                    <option value="Come to Me">Come to Me</option>
-                                    <option value="I'll come to you">I'll come to you</option>
+                                    <option value="">PLEASE SELECT</option>
+                                    <option value="Come to Me">COME TO ME</option>
+                                    <option value="I'll come to you">I'LL COME TO YOU</option>
                                 </select>
                             </div>
                         </div>
@@ -28,9 +28,9 @@
                                 <label>What do you need to bring?</label>
                                 <select class="singleSelection" required data-ng-model="task.category_question.needToBring" name="needToBring"
                                         ng-class="{error : postTaskForm.needToBring.$invalid && postTaskForm.$submitted}">
-                                    <option value="Please Select">Please Select</option>
-                                    <option value="Bring your products">Bring your products</option>
-                                    <option value="Use my products">Use my products</option>
+                                    <option value="Please Select">PLEASE SELECT</option>
+                                    <option value="Bring your products">BRING YOUR PRODUCTS</option>
+                                    <option value="Use my products">USE MY PRODUCTS</option>
                                 </select>
                             </div>
                         </div>
@@ -82,15 +82,15 @@
             <label>What kind of hair do you have (tick up to three)?</label>
             <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.hairType" name="hairType"
                     ng-class="{error : postTaskForm.hairType.$invalid && postTaskForm.$submitted}">
-                <option value="">Please Select</option>
-                <option value="Long">Long</option>
-                <option value="Short">Short</option>
-                <option value="Medium length">Medium length</option>
-                <option value="Curly">Curly</option>
-                <option value="Straight">Straight</option>
-                <option value="Wavy">Wavy</option>
-                <option value="Thin">Thin</option>
-                <option value="Thick">Thick</option>
+                <option value="">PLEASE SELECT</option>
+                <option value="Long">LONG</option>
+                <option value="Short">SHORT</option>
+                <option value="Medium length">MEDIUM LENGTH</option>
+                <option value="Curly">CURLY</option>
+                <option value="Straight">STRAIGHT</option>
+                <option value="Wavy">WAVY</option>
+                <option value="Thin">THIN</option>
+                <option value="Thick">THICK</option>
             </select>
         </div>
     </div>
@@ -129,12 +129,12 @@
             <label>Other beauty services</label>
             <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.otherBeautyServiceType" name="otherBeautyServiceType"
                     ng-class="{error : postTaskForm.otherBeautyServiceType.$invalid && postTaskForm.$submitted}">
-                <option value="">Please Select </option>
-                <option value="Facial">Facial </option>
-                <option value="Spray tan">Spray tan</option>
-                <option value="Nails">Nails (manicure and/or pedicure)</option>
-                <option value="Waxing">Waxing</option>
-                <option value="Threading">Threading</option>
+                <option value="">PLEASE SELECT </option>
+                <option value="Facial">FACIAL </option>
+                <option value="Spray tan">SPRAY TAN</option>
+                <option value="Nails">NAILS (MANICURE AND/OR PEDICURE)</option>
+                <option value="Waxing">WAXING</option>
+                <option value="Threading">THREADING</option>
             </select>
          </div>
        </div>

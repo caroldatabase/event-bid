@@ -53,14 +53,14 @@ app.config(function ($routeProvider,$locationProvider) {
 
     })
     
-      .when("/about-us", {
-          templateUrl: "app/views/sitemap/about-us.html",
-          controller : "aboutusController"
-      })
-         .when("/categories", {
-             templateUrl: "app/views/Category.html",
+            .when("/about-us", {
+                templateUrl: "app/views/sitemap/about-us.html",
+                controller : "aboutusController"
+            })
+         //.when("/categories", {
+         //    templateUrl: "app/views/Category.html",
 
-         })
+         //})
          .when("/blog", {
              templateUrl: "app/views/Rewards.html",
 

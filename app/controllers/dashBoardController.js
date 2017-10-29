@@ -5,6 +5,7 @@
     $scope.postTask = postTask;
     $scope.promptModalClose = promptModalClose;
     $scope.seeMoreClick = seeMoreClick;
+    $scope.requestCategoryClick = requestCategoryClick;
     //var dashboardController = true;
 
     function init()
@@ -70,6 +71,10 @@
     function seeMoreClick()
     {
         commonService.updateLocationPath('/categories');
+    }
+
+    function requestCategoryClick() {
+        commonService.updateLocationPath('/add-category');
     }
 
     function promptModalClose()

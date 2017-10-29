@@ -70,7 +70,7 @@
                         </div>
                         <div class="popup-form-row last">
                             <div class="form-field">
-                                <input type="password" class="form-control" placeholder="password" name="password" required data-ng-model="user.password"
+                                <input type="password" class="form-control" placeholder="Password" name="password" required data-ng-model="user.password"
                                        ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
                             </div>
                         </div>
@@ -143,9 +143,10 @@
                         <div class="popup-form-row row">
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                    <img src="app/images/icon-post-task.png">
+                                    <!--<img src="app/images/icon-post-task.png">-->
                                     <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
                                            name="userType" />
+                                    I want to post a task
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -155,10 +156,10 @@
                             </div>
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
-                                    <img src="app/images/icon-do-task.png">
+                                    <!--<img src="app/images/icon-do-task.png">-->
                                     <input type="radio" class="option-input checkbox" data-ng-model="user.userType"
                                             value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> 
-                                    
+                                    <label class="control-label">I want to do a task </label>
                                 </div>
                             </div>
                         </div>
@@ -189,20 +190,21 @@
                                 <div class="col-sm-12">
                                     <div class="form-field">
                                         <!--<label>Email</label>-->
-                                        <input type="email" class="form-control" name="email" placeholder="Work email" required data-ng-model="user.email"
+                                        <input type="email" class="form-control" name="email" placeholder="Email Address" required data-ng-model="user.email"
                                                ng-pattern="emailFormat" data-ng-blur="checkEmail(signupform)"
                                                ng-class="{error : signUpForm.email.$invalid && signUpForm.$submitted }">
                                     </div>
                                 </div>
                             </div>
-                            <div class="popup-form-row row">
+                            <!--<div class="popup-form-row row">
                                 <div class="col-sm-12">
                                     <div class="form-field">
                                         <input type="text" class="form-control" name="companyURL" placeholder="Company URL (ex. www.yourcompany.com)"
                                                data-ng-model="user.companyURL">
                                     </div>
                                 </div>
-                            </div><div class="popup-form-row row" data-ng-show="categoriesIndicator">
+                            </div>-->
+                            <div class="popup-form-row row" data-ng-show="categoriesIndicator">
                                 <div class="col-sm-12">
                                     <label class="control-label">Categories <span data-ng-show="user.selectedCategories.length > 3" style="color: red">maximum three categories can be selected.</span></label>
                                     <div class="form-field" ng-class="{error : user.selectedCategories.length > 3 }">

@@ -5,8 +5,8 @@
                                 <select class="multipleSelection" required multiple="multiple" id="hireType"
                                         data-ng-model="task.category_question.hireType" name="hireType" data-ng-change="selectHireType()"
                                         ng-class="{error : postTaskForm.hireType.$invalid && postTaskForm.$submitted}">
-                                    <option value="Car Hire">Car Hire</option>
-                                    <option value="Venue Hire">Venue Hire</option>
+                                    <option value="Car Hire">CAR HIRE</option>
+                                    <option value="Venue Hire">VENUE HIRE</option>
                                 </select>
                             </div>
                         </div>
@@ -51,9 +51,9 @@
                 <select class="singleSelection" required data-ng-model="task.category_question.totalCostType"
                         name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
                     <option value="">Select Budget type</option>
-                    <option value="Per Person">Per hour</option>
-                    <option value="Per Piece">Per car</option>
-                    <option value="Total">Total</option>
+                    <option value="Per Person">PER HOUr</option>
+                    <option value="Per Piece">PER CAR</option>
+                    <option value="Total">TOTAL</option>
                 </select>
             </div>
          </div>
@@ -67,13 +67,13 @@
             <select class="singleSelection" required data-ng-model="task.category_question.venueType" name="venueType"
                     ng-class="{error : postTaskForm.venueType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select venue Type</option>
-                <option value="Small Hall">Small Hall</option>
-                <option value="Medium Hall">Medium Hall</option>
-                <option value="Large Hall">Large Hall</option>
-                <option value="Conference Room">Conference Room</option>
-                <option value="Garden/Outdoors">Garden/Outdoors</option>
-                <option value="Theatre">Theatre</option>
-                <option value="House">House</option>
+                <option value="Small Hall">SMALL HALL</option>
+                <option value="Medium Hall">MEDIUM HALL</option>
+                <option value="Large Hall">LARGE HALL</option>
+                <option value="Conference Room">CONFERENCE ROOM</option>
+                <option value="Garden/Outdoors">GARDEN/OUTDOORS</option>
+                <option value="Theatre">THEATRE</option>
+                <option value="House">HOUSE</option>
             </select>
         </div>
     </div>
@@ -91,8 +91,10 @@
             <select class="singleSelection" required data-ng-model="task.category_question.venueCleaning" name="venueCleaning"
                     ng-class="{error : postTaskForm.venueCleaning.$invalid && postTaskForm.$submitted}">
                 <option value="">Select Venue Cleaning Type </option>
-                <option value="I am happy to be responsible for cleaning after my event">I am happy to be responsible for cleaning after my event</option>
-                <option value="Can you please include cleaning in your proposal">Can you please include cleaning in your proposal</option>
+                <option value="I am happy to be responsible for cleaning after my event">
+                I AM HAPPY TO BE RESPONSIBLE FOR CLEANING AFTER MY EVENT</option>
+                <option value="Can you please include cleaning in your proposal">
+                CAN YOU PLEASE INCLUDE CLEANING IN YOUR PROPOSAL</option>
             </select>
         </div>
     </div>
