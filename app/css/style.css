@@ -391,7 +391,7 @@ button.close {
 .works-section a {
 	color:#000;
 	}
-.works-section a .works-item:after{    
+/*.works-section a .works-item:after{    
 	display: block;
     position: absolute;
     top: 0;
@@ -399,7 +399,7 @@ button.close {
     width: 148px;
     height: 148px;
     /*border: 2px solid #DEDEDE;*/
-	border:1px solid #8bc8ce;
+	/*border:1px solid #8bc8ce;
     border-radius: 50%;
     -webkit-transition: all .1s ease-out;
     transition: all .1s ease-out;
@@ -415,11 +415,11 @@ button.close {
     border: 2px solid #73d3ff;
      width: 90px;
     height: 90px;
-}
+}*/
 .works-section .works-item img{
 	display: inline-block;
-    width: 100%;
-    height: 100%;
+   width: 100px;
+    height: 100px;
     margin-top: 0px;
 	z-index: 1;
     position: relative;
@@ -2011,4 +2011,60 @@ p.peo-head {
 .modal-content {
     float: left;
     width: 100%;
+}
+.form-field.signup-redio p {
+    float: right;
+    text-align: left;
+    width: 70%;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.form-field.signup-redio input.option-input.checkbox {
+    margin: 0px !important;
+    float: left;
+}
+.works-section.text-center a:hover img {
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+   -webkit-transition: width 0.2s;  / Safari /
+
+    transition: width 0.2s; 
+}
+
+.category-section.text-center.gray-bg .col-sm-3 {
+    margin-bottom: 30px;
+}
+h1.heading {
+    background: #298992;
+    padding: 15px;
+    color: #fff;
+    /* border-radius: 5px; */
+    margin-bottom: 0px;
+    padding-bottom: 0px !important;
+    margin-bottom: 25px;
+}
+h1.heading p {
+    background: none !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 600;
+    margin-top: -15px;
+}
+.sub-banner h1.heading p {
+    background: none !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 600;
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+.sub-banner h1.heading {
+    background: #298992;
+    padding: 15px;
+    color: #fff;
+    /* border-radius: 5px; */
+    margin-bottom: 0px;
+    padding-bottom: 0px !important;
+    margin-bottom: 25px;
 }

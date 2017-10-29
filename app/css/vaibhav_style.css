@@ -78,6 +78,7 @@ top:0px;
     padding: 50px 0px;
     float: left;
     width: 100%;
+    padding-top:0px;
 }
 .find-button button
 {
@@ -108,10 +109,11 @@ border:1px solid #349d93;
 float:left;
 width:100%;
 border-radius:5px;
-margin-bottom:20px;	
+margin-bottom:20px;
+background:#f3f3f3;
 }
 .browse-list ul:hover {
-    background: #f3f3f3;
+    background: #fff;
 }
 .browse-list ul li {
     list-style: none;
@@ -300,7 +302,7 @@ span.input-letter {
 }
 .b-none.form-field.signup-redio {
     font-size: 24px;
-    margin-top: 100px;
+    margin-top: 15px;
 }   
 input.form-control {
     height: 45px;
@@ -327,6 +329,8 @@ i.fa.fa-star {
     color: #fff;
     /* border-radius: 5px; */
     margin-bottom: 0px;
+    padding-bottom: 0px !important;
+    margin-bottom: 25px;
 }
 .post-a-task .main-heading p {
     line-height: 24px;
@@ -394,4 +398,12 @@ button.btn.btn-lg.btn-primary
 }
 li.text-center.category-img img {
     margin-top: 0;
+}
+.works-section.text-center a:hover img {
+    width: 150px;
+    height: 150px;
+    margin-top: 0;
+    -webkit-transition: width 0.2s;  / Safari /
+
+    transition: width 0.2s; 
 }

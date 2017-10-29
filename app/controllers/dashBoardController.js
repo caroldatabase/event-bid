@@ -6,6 +6,7 @@
     $scope.promptModalClose = promptModalClose;
     $scope.seeMoreClick = seeMoreClick;
     $scope.requestCategoryClick = requestCategoryClick;
+    $scope.getAllCategoryFilters = getAllCategoryFilters;
     //var dashboardController = true;
 
     function init()
@@ -97,6 +98,12 @@
         }
     }
 
+    function getAllCategoryFilters() {
+        httpService.getCategory().then(function (data) {
+            $scope.categoryList = data.data.data;
+        });
+    }
+
     $scope.openBlogDetailPopup = function(item)
     {
         $('#blogDetailPopup').modal('toggle');
@@ -104,6 +111,7 @@
         $('#blogDetailPopup').modal('show');
         $scope.item = item;
     }
+
 }]);
 
 
