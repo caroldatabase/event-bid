@@ -1,0 +1,168 @@
+﻿<div class="content-body">
+    <div class="sub-banner">
+        <img src="app/images/dashboard-banner.jpg">
+        <div class="banner-name-user text-center">
+            <h1>Hello, {{firstName}}</h1>
+        </div>
+    </div>
+    <div class="container setting-pages">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="menubar-left">
+                    <ul>
+                        <li><a ng-class="{activeSide : accountIndicator}" data-ng-click="accountSettings()">Account</a></li>
+                        <li><a ng-class="{activeSide : categoryIndicator}" data-ng-click="categorySettings()">Categories</a></li>
+                        <li><a ng-class="{activeSide : mobileIndicator }" data-ng-click="mobileSettings()">Mobile</a></li>
+                        <li><a ng-class="{activeSide : portfolioIndicator }" data-ng-click="portfolioSettings()">Portfolio</a></li>
+                        <li><a ng-class="{activeSide : paymentIndicator }" data-ng-click="paymentSettings()">Payment Methods</a></li>
+                        <li><a ng-class="{activeSide : passwordIndicator }" data-ng-click="passwordSettings()">Password</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-9" data-ng-if="accountIndicator">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>First Name</label>
+                        <input type="text" width="100%">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Last Name</label>
+                        <input type="text" width="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Suburb</label>
+                        <input type="text" width="100%">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>State</label>
+                        <input type="text" width="100%">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Email</label>
+                        <input type="text" width="100%">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Birthday</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <input type="text" width="100%" placeholder="dd">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" width="100%" placeholder="mm">
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="text" width="100%" placeholder="yyyy">
+                    </div>
+                </div>
+                <!--<div class="row">
+                <div class="col-sm-12">
+                    <a class="btn btn-lg btn-primary">Post a Task</a>
+                </div>
+            </div>-->
+            </div>
+            <div class="col-sm-9" data-ng-if="categoryIndicator">
+                <div class="row">
+                    <h4>Categories</h4>
+                    <p>
+                        Let people know what categories you are a master of. That way people will be able to find you when 
+                        they are looking for some help with their event. Are you a great baker ? A great singer ? Have great 
+                        party supplies ?
+                    </p>
+                    You can pick up to 4 categories.
+                    <select class="form-control" name="selectedCategories" id="selectedCategories" ng-model="user.selectedCategories" multiple
+                            data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>
+                </div>
+            </div>
+            <div class="col-sm-9" data-ng-if="mobileIndicator">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label><b>Mobile Number</b></label>
+                        <p>We may like to keep in touch with you and give you notifications about your 
+                        projects.Your mobile number won't be available to the public. </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <label>Mobile Number</label>
+                        <input type="text" width="100%" placeholder="+61">
+                    </div>
+                </div>
+
+
+
+                <!--<div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-lg btn-primary">Post a Task</a>
+                    </div>
+                </div>-->
+            </div>
+            <div class="col-sm-9" data-ng-if="portfolioIndicator">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label><b>Your Portfolio</b></label>
+                        <p>Showcase your skills by uploading photos of your previous work. By showing potential customers what your abilities are , you may be more successful in winning a job.</p>
+                        <p>You can upload a maximum of 20 files. Each file can not be larger than 4mb.</p>
+                        <br />
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-lg btn-primary">Upload Files</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9" data-ng-if="paymentIndicator">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label><b>Your Credit Card Information</b></label>
+                        <p>When you are ready to start transacting on the website, you will be required to provide your credit or debit card details.</p>
+                        <br/>
+                        <p>Your card details will only be available for Event Bid admin.</p>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-lg btn-primary">Add cart</a> <a class="btn btn-lg btn-primary">Update Cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9" data-ng-if="passwordIndicator">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Current Password</label>
+                        <input type="text" width="100%">
+                    </div>
+                    <div class="col-sm-12">
+                        <label>New Password</label>
+                        <input type="text" width="100%">
+                    </div>
+                    <div class="col-sm-12">
+                        <label>Confirm Password</label>
+                        <input type="text" width="100%">
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-lg btn-primary">Update</a>
+                    </div>
+                </div>
+            </div>
+        </div>

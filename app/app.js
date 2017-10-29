@@ -47,11 +47,11 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/Rewards.html",
             controller: "rewardsCtrl"
         })
-    .when("/post-task", {
-        templateUrl: "app/views/post-task.html",
-        controller : "postTaskController"
+        .when("/post-task", {
+            templateUrl: "app/views/post-task.html",
+            controller : "postTaskController"
 
-    })
+        })
     
             .when("/about-us", {
                 templateUrl: "app/views/sitemap/about-us.html",
@@ -61,6 +61,10 @@ app.config(function ($routeProvider,$locationProvider) {
          //    templateUrl: "app/views/Category.html",
 
          //})
+         .when("/settings", {
+             templateUrl: "app/views/settings.html",
+             controller: "settingsCtrl"
+         })
          .when("/blog", {
              templateUrl: "app/views/Rewards.html",
 
