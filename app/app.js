@@ -67,7 +67,10 @@ app.config(function ($routeProvider,$locationProvider) {
          //})
          .when("/settings", {
              templateUrl: "app/views/settings.html",
-             controller: "settingsCtrl"
+             controller: "settingsCtrl",
+             resolve: {
+                 
+             }
          })
          .when("/blog", {
              templateUrl: "app/views/Rewards.html",
@@ -119,3 +122,15 @@ app.config(function ($httpProvider) {
     $httpProvider.defaults.headers.patch = {};
 });
 
+app.run( function($rootScope, $location) {
+
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+        if (next.templateUrl == "app/views/settings.html" || next.templateUrl == "app/views/businessDashboard.html" || next.templateUrl == "app/views/customerDashboard.html" || next.templateUrl == "app/views/post-task.html") {
+            if ($rootScope.isLogin == false) {
+                $('#promptLoginPopup').modal('show');
+                $location.path('/');
+            } 
+        }         
+    });
+})

@@ -2068,3 +2068,7 @@ h1.heading p {
     padding-bottom: 0px !important;
     margin-bottom: 25px;
 }
+.category-section.text-center.gray-bg .col-sm-3 {
+    float: none;
+    display: inline-block;
+}
