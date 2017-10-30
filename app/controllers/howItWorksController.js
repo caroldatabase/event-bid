@@ -48,4 +48,8 @@
     {
         $('#signUpPopup').modal('toggle');
     }
+
+    $scope.openLoginModal = function () {
+        $('#loginPopup').modal('toggle');
+    }
 });

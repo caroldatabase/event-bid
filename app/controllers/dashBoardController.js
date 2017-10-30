@@ -51,7 +51,7 @@
         })
        
         getAllBlogs();
-        
+        getAllCategoryFilters();
         commonService.checkUserLoggedIn();
         
     }
@@ -99,9 +99,17 @@
     }
 
     function getAllCategoryFilters() {
-        httpService.getCategory().then(function (data) {
-            $scope.categoryList = data.data.data;
-        });
+        $rootScope.loaderIndicator = true;
+        if (!$rootScope.categoryList)
+        {
+            httpService.getCategory().then(function (data) {
+                $rootScope.categoryList = data.data.data;
+                $rootScope.loaderIndicator = false;
+            });
+        }
+        else {
+            $rootScope.loaderIndicator = false;
+        }
     }
 
     $scope.openBlogDetailPopup = function(item)

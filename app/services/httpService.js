@@ -22,7 +22,8 @@
         showInterest: showInterest,
         getBuisnessTask: getBuisnessTask,
         getInterestedUsersList: getInterestedUsersList,
-        assignTask: assignTask
+        assignTask: assignTask,
+        browseTaskByCategory: browseTaskByCategory
     };
 
     function getInterestedUsersList(taskid) {
@@ -147,6 +148,12 @@
     //task section 
     function browseAllTask() {
         return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open&page_num=1&page_size=25', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function browseTaskByCategory(categoryId) {
+        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open&page_num=1&page_size=25&category_id=' + categoryId, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

@@ -39,6 +39,10 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/browseTasks.html",
             controller: "browseTaskCtrl"
         })
+        .when("/browse-tasks/:categoryName?/:categoryId?", {
+            templateUrl: "app/views/browseTasks.html",
+            controller: "browseTaskCtrl"
+        })
         .when("/EBManager", {
             templateUrl: "app/views/EBManager.html",
             controller: "EBManagerCtrl"

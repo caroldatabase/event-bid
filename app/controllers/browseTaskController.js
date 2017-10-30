@@ -1,4 +1,4 @@
-﻿app.controller('browseTaskCtrl', function ($scope, httpService, $rootScope, commonService, CONSTANTS) {
+﻿app.controller('browseTaskCtrl', function ($scope, httpService, $rootScope, commonService, CONSTANTS, $routeParams) {
 
     $scope.currentPage = 1;
     $scope.numPerPage = 25;
@@ -20,6 +20,12 @@
                 $(this).trigger('blur');
 
             });
+            var categoryId = $routeParams.categoryId;
+            if (categoryId)
+            {
+                browseByCategory(categoryId);
+            }
+            else
             browseAllTask();
         });
        
@@ -53,6 +59,17 @@
             //    $scope.filteredLists = $scope.taskList.slice(begin, end);
             //});
 
+        });
+    }
+
+    function browseByCategory(categoryId)
+    {
+        $rootScope.loaderIndicator = true;
+        httpService.browseTaskByCategory(categoryId).then(function (response) {
+            $scope.taskList = response.data.data;
+            $scope.taskList = $scope.taskList.map(getTaskDetails);
+            $rootScope.loaderIndicator = false;
+            commonService.scrollToTop();
         });
     }
 

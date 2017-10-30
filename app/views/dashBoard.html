@@ -84,29 +84,20 @@
     <div class="category-section text-center gray-bg">
         <h2 class="heading">Categories</h2>
         <div class="container">
-            <div class="row">
-                <div class="col-sm-3 text-center">
-                    <a href="#">
-                        <img src="app/images/Resized_category_images/Car_and_venue_hire.png" alt="">
+            <div class="row" >
+                <div class="col-sm-3 text-center" data-ng-repeat="item in categoryList">
+                    <a href="#/browse-tasks/{{item.name}}/{{item.id}}">
+                        <img src="{{item.categoryImage}}" alt="{{item.name}}">
                     </a>
                 </div>
                 <div class="col-sm-3 text-center">
-                    <a href="#">
-                        <img src="app/images/Resized_category_images/Catering.png" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <a href="#">
-                        <img src="app/images/Resized_category_images/Cleaning.png" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <a href="#">
-                        <img src="app/images/Resized_category_images/Entertainment_and_talent.png" alt="">
+                    <a href="#/add-category">
+                        <img src="app/images/request-cate.png" alt="">
+                        <p>Request a category</p>
                     </a>
                 </div>
             </div>
-            <div class="row">
+            <!--<div class="row">
                
                 <div class="col-sm-3 text-center">
                     <a href="#">
@@ -152,10 +143,7 @@
                         <p>Request a category</p>
                     </a>
                 </div>
-            </div>
-            <div class="row">
-                
-            </div>
+            </div>-->
         </div>
     </div>
 
