@@ -124,6 +124,11 @@
     {
         $('#sucessPostTaskPopup').modal('toggle');
     }
+
+    $scope.sucessShowInterestPopupClose = function()
+    {
+        $('#sucessShowInterestPopup').modal('toggle');
+    }
 }]);
 
 

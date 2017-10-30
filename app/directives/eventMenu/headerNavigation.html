@@ -253,19 +253,19 @@
 </div>
 
 <!--Prompt to login -->
-<div class="modal fade" id="promptLoginPopup" tabindex="-1" ng-controller="dashBoardController" >
+<div class="modal fade" id="promptLoginPopup" tabindex="-1" style="z-index: 100000" ng-controller="dashBoardController" >
     <div class="eb-vAlignment">
         <div class="modal-dialog eb-vAlignCenter">
             <div class="modal-content">
                 <div class="eb-modal-header">
                     <button type="button" class="close" data-dismiss="modal" data-ng-click="promptCloseWithoutAction()"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Get the most out of EventBid</h3>
+                    <h3 class="modal-title">Get most out of eventbid</h3>
                 </div>
                 <div class="modal-body">
                     <div class="extraSpace"></div>
                     <div class="popup-form-row">
                         <div class="form-field">
-                            <label>Easy one Time Sign In Process</label>
+                            <label>You need to login/signup to proceed further. Please login/signup to get the most out of EventBid</label>
                             
                         </div>
                     </div>
@@ -299,6 +299,32 @@
                     </div>
                     <div class="text-center">
                         <a class="btn btn-primary" data-ng-click="sucessPostTaskPopupClose()">OK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Confirmation pop up after post task  -->
+<div class="modal fade" id="sucessShowInterestPopup" tabindex="-1" ng-controller="dashBoardController">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Successfully showed interest in current task.</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="popup-form-row">
+                        <div class="form-field">
+                            <label>Thank you for showing interest in this task. Buisness will get back to you shortly.</label>
+
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" data-ng-click="sucessShowInterestPopupClose()">OK</a>
                     </div>
                 </div>
             </div>

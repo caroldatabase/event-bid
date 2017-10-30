@@ -57,6 +57,7 @@
                         <option value="Total">Total</option>
                     </select>
                 </div>
+               
                 <div class="col-sm-3 text-center">
                     <div class='input-group date'>
                         <input type='text' class="form-control" placeholder="Filter by event date" data-ng-model="dateFilter"
@@ -108,12 +109,13 @@
                     </li>
                 </a>
             </ul>
-
+            <div id="notFoundDiv" ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length==0" style="color: red; font-weight: bold">No Records Found</div>  
 
         </div>
 
     </div>
-</a>
+
 
 <div class="container">
  <div class="row">
@@ -123,8 +125,9 @@
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>-->
-    <div class="col-sm-12"><button class="btn btn-lg btn-primary" data-ng-click="seeMoreClick()">See More</button></div>
-    <br /><br />
+    <div class="col-sm-12" data-ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length > 0"><button class="btn btn-lg btn-primary" data-ng-click="seeMoreClick()">See More</button></div>
+    <br /><br /> 
 </div>
  
  </div>

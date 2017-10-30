@@ -3,7 +3,7 @@
     $scope.currentPage = 1;
     $scope.numPerPage = 25;
     $scope.maxSize = 5;
-    $scope.taskList = [];
+   // $scope.taskList = [];
     init();
 
    
@@ -217,13 +217,16 @@
             httpService.showInterest(interestedUser).then(function (response) {
                 if(response.data.code == 200)
                 {
-                    //$rootScope.loaderIndicator = false;
-                    $scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
-                    $scope.interested = true;
+                    ////$rootScope.loaderIndicator = false;
+                    //$scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
+                    //$scope.interested = true;
+                    $('#taskDetailModal').modal('toggle');
+                    $('#sucessShowInterestPopup').modal('show');
                 }
             });
         }
         else {
+            $('#taskDetailModal').modal('toggle');
             $('#promptLoginPopup').modal('show');
         }
         
