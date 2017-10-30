@@ -120,6 +120,10 @@
         $scope.item = item;
     }
 
+    $scope.sucessPostTaskPopupClose = function()
+    {
+        $('#sucessPostTaskPopup').modal('toggle');
+    }
 }]);
 
 

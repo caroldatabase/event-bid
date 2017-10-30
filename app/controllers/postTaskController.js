@@ -164,6 +164,7 @@
                     $scope.successMessageIndicator = true;
                     $scope.errorMessageIndicator = false;
                     $scope.message = "Task submitted successfully.";
+                    $('#sucessPostTaskPopup').modal('show');
                     $scope.task = {};
                 }
                 else {
