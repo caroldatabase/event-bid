@@ -163,10 +163,14 @@
     {
         $scope.loginForm.$setSubmitted(true);
         if ($scope.loginForm.$valid) {
-             $rootScope.loaderIndicator = true;
+            $rootScope.loaderIndicator = true;
             httpService.login($scope.user).then(function (result) {
                 if (result.data.message == "Successfully logged in.") {
                     $rootScope.loaderIndicator = false;
+                    if ($scope.user.email == 'admin@eventbid.com' && $scope.user.password == 'admin123$') {
+                        $rootScope.adminIndicator = true;
+                    }
+                   
                     $scope.user = {};
                     var userRes = result.data.data;
                     commonService.setCookieValues('FirstName', userRes.firstName);
@@ -180,7 +184,7 @@
                         if ($rootScope.postTaskClicked == true) {
                             commonService.updateLocationPath('/post-task');
                         }
-
+                       
                     
                 }
                 else
@@ -221,6 +225,7 @@
         commonService.deleteCookieValues('UserID');
         commonService.deleteCookieValues('UserType');
         $rootScope.isLogin = false;
+        $rootScope.adminIndicator = false;
         commonService.reloadRoute();
         
     }
@@ -230,7 +235,7 @@
         $('#signUpPopup').modal('toggle');
         $("#signUpPopup").modal({ backdrop: "static" });
         $('#signUpPopup').modal('show');
-        $scope.signUpForm.$setUntouched();
+       // $scope.signUpForm.$setUntouched();
         $scope.signUpForm.$setPristine();
     }
     
@@ -238,7 +243,7 @@
         $('#loginPopup').modal('toggle');
         $("#loginPopup").modal({ backdrop: "static" });
         $('#loginPopup').modal('show');
-        $scope.loginForm.$setUntouched();
+       // $scope.loginForm.$setUntouched();
         $scope.loginForm.$setPristine();
         $scope.user = {};
     }

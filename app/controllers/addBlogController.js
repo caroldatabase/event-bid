@@ -23,8 +23,7 @@
                     $('#blog_image').val("");
                     $('#blog_description').val("");
                     $('#blogHeaderImage').val("");
-                    $rootScope.$broadcast("addedBlogs", function () {
-                    });
+                    window.location.reload(true);
                 }
                 else {
                     if (data.data.message == "Request URL not available") {

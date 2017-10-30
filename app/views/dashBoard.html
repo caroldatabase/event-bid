@@ -87,7 +87,7 @@
             <div class="row" >
                 <div class="col-sm-3 text-center" data-ng-repeat="item in categoryList">
                     <a href="#/browse-tasks/{{item.name}}/{{item.id}}">
-                        <img src="{{item.categoryImage}}" alt="{{item.name}}">
+                        <img ng-src="{{item.categoryImage}}" alt="{{item.name}}">
                     </a>
                 </div>
                 <div class="col-sm-3 text-center">
