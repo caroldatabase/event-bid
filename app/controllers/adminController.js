@@ -42,11 +42,12 @@
     function getCategory()
     {
         $rootScope.loaderIndicator = true;
-        httpService.getCategory().then(function (response) {
-            $scope.categories = response.data.data;
-            console.log($scope.categories);
-            $rootScope.loaderIndicator = false;
-        });
+      
+            httpService.getCategory().then(function (response) {
+                $scope.categories = response.data.data;
+                $rootScope.loaderIndicator = false;
+            });
+        
     }
 
     $rootScope.$on("addedCategory", function (event, args) {

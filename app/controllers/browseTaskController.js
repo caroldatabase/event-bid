@@ -45,8 +45,9 @@
 
     function browseAllTask()
     {
+        $scope.pageNum = 1;
         $rootScope.loaderIndicator = true;
-        httpService.browseAllTask().then(function (response) {
+        httpService.browseAllTask($scope.pageNum).then(function (response) {
             $scope.taskList = response.data.data;
             $scope.taskList = $scope.taskList.map(getTaskDetails);
             console.log($scope.taskList);
@@ -65,7 +66,8 @@
     function browseByCategory(categoryId)
     {
         $rootScope.loaderIndicator = true;
-        httpService.browseTaskByCategory(categoryId).then(function (response) {
+        $scope.pageNum = 1;
+        httpService.browseTaskByCategory(categoryId, $scope.pageNum).then(function (response) {
             $scope.taskList = response.data.data;
             $scope.taskList = $scope.taskList.map(getTaskDetails);
             $rootScope.loaderIndicator = false;
@@ -230,5 +232,18 @@
             $('#promptLoginPopup').modal('show');
         }
         
+    }
+
+    $scope.seeMoreClick = function()
+    {
+        $scope.pageNum = $scope.pageNum + 1;
+        httpService.browseAllTask($scope.pageNum).then(function (response) {
+            var temptaskList = response.data.data;
+            temptaskList = temptaskList.map(getTaskDetails);
+            if (temptaskList.length > 0)
+                $.merge($scope.taskList, temptaskList);  
+            console.log($scope.taskList);
+            $rootScope.loaderIndicator = false;
+        });
     }
 });
