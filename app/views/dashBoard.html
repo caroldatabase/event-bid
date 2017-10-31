@@ -85,12 +85,12 @@
         <h2 class="heading">Categories</h2>
         <div class="container">
             <div class="row" >
-                <div class="col-sm-2 text-center" data-ng-repeat="item in categoryList">
+                <div class="category-icons-li text-center" data-ng-repeat="item in categoryList">
                     <a href="#/browse-tasks/{{item.name}}/{{item.id}}">
                         <img ng-src="{{item.categoryImage}}" alt="{{item.name}}">
                     </a>
                 </div>
-                <div class="col-sm-2 text-center">
+                <div class="category-icons-li text-center">
                     <a href="#/add-category">
                         <img src="app/images/request-cate.png" alt="">
                         <p>Request a category</p>

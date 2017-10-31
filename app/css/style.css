@@ -2072,3 +2072,8 @@ h1.heading p {
     float: none;
     display: inline-block;
 }
+.category-icons-li.text-center {
+    display: inline-block;
+    width: 20%;
+    margin-bottom: 30px;
+}
