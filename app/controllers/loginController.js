@@ -236,7 +236,7 @@
         $("#signUpPopup").modal({ backdrop: "static" });
         $('#signUpPopup').modal('show');
        // $scope.signUpForm.$setUntouched();
-        $scope.signUpForm.$setPristine();
+        //$scope.signUpForm.$setPristine();
     }
     
     $scope.openLoginModal = function () {
@@ -244,7 +244,7 @@
         $("#loginPopup").modal({ backdrop: "static" });
         $('#loginPopup').modal('show');
        // $scope.loginForm.$setUntouched();
-        $scope.loginForm.$setPristine();
+        //$scope.loginForm.$setPristine();
         $scope.user = {};
     }
 }]);

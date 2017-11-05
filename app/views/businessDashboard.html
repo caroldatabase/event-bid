@@ -38,7 +38,7 @@
                         You have no open tasks.Post a task today for free and let the freelancers come to you.
                     </p>
 					<div class="dashborad-post-btn">
-						<a href="#">Post A Task</a>
+                        <a href="#/post-task">Post A Task</a>
 					</div>
 				</div>
 			</div>
@@ -61,45 +61,7 @@
 			</div>
 		</div>
 	</div>
-    <!--<div class="container jobs-dasborad">
-              <div class="row">
-                  <div class="col-sm-6">
-                      <div class="jobs-list">
-                          <h4>Jobs need action</h4>
-                          <ul data-ng-if="jobsNeedActionIndicator">
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                          </ul>
-                          <p class="text-content-dash" data-ng-if="!jobsNeedActionIndicator">
-                              You have no tasks that need action. Lets wait for users to show interest in your task. You can then 
-                              chose appropriate user and assign task.
-                          </p>
-                          <div class="dashborad-post-btn">
-                              <a href="#">Post A Task</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-6">
-                      <div class="jobs-list">
-                          <h4>Jobs completed</h4>
-                          <ul data-ng-if="jobsCompletedIndicator">
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                              <li><a href="#">List content of jobs description will be goes here</a></li>
-                          </ul>
-                          <p class="text-content-dash" data-ng-if="!jobsCompletedIndicator">
-                             No jobs have been completed yet. 
-                          </p>
-                          <div class="dashborad-post-btn">
-                              <a href="#">Post A Task</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>-->
+    
 	
 	<div class="container jobs-dasborad">
 		<div class="row">
@@ -173,24 +135,23 @@
                 </div>
                 <div class="m-body-bottom">
                     <p>
-                        <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
+                        <b>  Task posted date : </b>  {{ taskDetail.created_at | date}}
                     </p>
 
                 </div>
-                <div class="people-int">
+                <div class="people-int" data-ng-if="interestedUsersListCount > 0">
                     <p class="peo-head">People who are interest for doing this task</p>
-                   <ul data-ng-repeat="item in interestedUsersList">
+                    <ul data-ng-repeat="item in interestedUsersList">
                         <li>
                             <span><b>{{item.interested_user.first_name}} {{item.interested_user.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a href="">view profile</a>
-                            <button type="button" class="btn btn-default" data-ng-click="assignUser(item)">assign</button>
+                            <button type="button" class="btn btn-default" data-ng-click="assignTaskToUser(item)">assign</button>
                         </li>
                     </ul>
                 </div>
             </div>
             <div data-ng-show="assignMsg" class="thank-u-msg"> Task assigned successfully. </div>
-            <div data-ng-show="deleteMsg" class="thank-u-msg"> Task deleted successfully. </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-ng-click="deleteTask(taskDetail)">Delete Task</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

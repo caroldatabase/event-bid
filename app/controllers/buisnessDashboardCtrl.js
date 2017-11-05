@@ -135,16 +135,31 @@
         }
         function getInterestedUsersList(taskid)
         {
+            $rootScope.loaderIndicator = true;
             httpService.getInterestedUsersList(taskid).then(function (response) {
-                console.log(response);
-                $scope.interestedUsersList = response.data.data;
+                $rootScope.loaderIndicator = false;
+                if(response.data.code == 200)
+                {
+                    $scope.interestedUsersList = response.data.data;
+                    $scope.interestedUsersListCount = $scope.interestedUsersList.length;
+                }
+                else
+                {
+                    $scope.interestedUsersListCount = 0;
+                }
             });
         }
-        $scope.assignUser = function(item)
+        $scope.assignTaskToUser = function (item)
         {
-            //var user = item.
-            httpService.assignUser(user).then(function (response) {
+            $rootScope.loaderIndicator = true;
+            $scope.assignTask = {};
+            $scope.assignTask.taskId = item.taskId;
+            $scope.assignTask.taskPostedUserID = item.taskPostedUserID;
+            $scope.assignTask.assignUserID = item.showInterestedUserID;
+            $scope.assignTask.taskStatus = "assigned";
+            httpService.assignUser($scope.assignTask).then(function (response) {
                 $scope.interestedUsersList = response.data.data;
+                $rootScope.loaderIndicator = false;
             });
         }
         $scope.deleteTask = function(data)
@@ -152,18 +167,27 @@
             var r = confirm("Are you sure you want to delete this task ?");
             if (r == true) {
                 httpService.deleteTask(data.id).then(function (response) {
-                    $scope.deleteMsg = true;
+                    $('#OpenTaskModal').modal('hide');
+                    getBuisnessTask();
                 });
             }
 
         }
         function getBuisnessTask()
         {
+            $rootScope.loaderIndicator = true;
             httpService.getBuisnessTask($rootScope.userID).then(function (response) {
                 console.log(response);
                 if (response.data.code == 200) {
                     $scope.potentialJobsIndicator = true;
+                    $rootScope.loaderIndicator = false;
+                    $scope.openTask = [];
                     $scope.openTask = response.data.data.openTask;
+                }
+                else if (response.data.code == 404) {
+                    $rootScope.loaderIndicator = false;
+                    $scope.jobsInProgressIndicator = false;
+                    $scope.openTask = [];
                 }
             });
         }

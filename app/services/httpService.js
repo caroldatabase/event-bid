@@ -22,8 +22,10 @@
         showInterest: showInterest,
         getBuisnessTask: getBuisnessTask,
         getInterestedUsersList: getInterestedUsersList,
-        assignTask: assignTask,
-        browseTaskByCategory: browseTaskByCategory
+        assignUser: assignUser,
+        browseTaskByCategory: browseTaskByCategory,
+        getUserDetails: getUserDetails,
+        updateProfile: updateProfile
     };
 
     function getInterestedUsersList(taskid) {
@@ -66,6 +68,12 @@
        
     }
 
+    function updateProfile(userid, user) {
+        return $http.post(serviceBase + 'api/v1/user/update-profile/'+ userid, user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
     function contactus(user) {
         return $http.post(serviceBase + 'api/v1/user/contactus', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
@@ -116,7 +124,13 @@
     }
 
     function assignUser(user) {
-        return $http.post(serviceBase + '/api/v1/assignTask', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.post(serviceBase + 'api/v1/assignTask', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getUserDetails(userid) {
+        return $http.get(serviceBase + '/api/v1/user/details/' + userid,  { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
@@ -147,7 +161,7 @@
     
     //task section 
     function browseAllTask(pageNum) {
-        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open&page_size=1&page_num=' + pageNum, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.get(serviceBase + 'api/v1/post-task/getPostTask?task_status=open&page_num=' + pageNum, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
