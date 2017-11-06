@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What do you need designed for your event?</label>
+            <select class="multipleSelection" required multiple="multiple"
+                    data-ng-model="task.category_question.graphicBanners" name="graphicBanners"
+                    ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
+                <option value="Invitations">INVITATIONS</option>
+                <option value="Banners or Posters">BANNERS OR POSTERS</option>
+                <option value="Flyers">FLYERS</option>
+                <option value="Place Setting names">PLACE SETTING NAMES</option>
+                <option value="Templates for presentations">TEMPLATES FOR PRESENTATIONS</option>
+                <option value="Other">OTHER</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you need to have your design printed?</label>
+            <select class="singleSelection" required
+                    data-ng-model="task.category_question.designPrinted" name="designPrinted"
+                    ng-class="{error : postTaskForm.designPrinted.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Yes">YES</option>
+                <option value="No">NO</option>
+
+            </select>
+        </div>
+    </div>
+    
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>If you need it printed, how many do you require?</label>
+            <select class="singleSelection" required
+                    data-ng-model="task.category_question.numberOfBanners" name="numberOfBanners"
+                    ng-class="{error : postTaskForm.numberOfBanners.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Not applicable">NOT APPLICABLE</option>
+                <option value="1 to 50">1 TO 50</option>
+                <option value="50 to 100">50 TO 100</option>
+                <option value="100 to 150">100 TO 150</option>
+                <option value="150+">150+</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-12">
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What is your total budget for your design job? </label>
+            <span class="other-iocn-d">$</span>
+            <input type="number" class="form-control" ng-model="task.category_question.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
+                   required
+                   ng-class="{error : postTaskForm.totalBudgetForbanners.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Show us some designs that have inspired what your design should look like?
+            (Allow up to three photo uploads)
+            </label>
+            <input type="file" class="form-control" name="graphicImage" id="graphicImage"
+                   fileread="graphicImage" image-type="graphicImage" accept="image/*" data-ng-model="graphicImage">
+                <label>Uploaded Image :</label>
+            <div data-ng-if="task.category_question.graphicImages.length > 0" data-ng-repeat="data in task.category_question.graphicImages track by $index">
+                <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="graphicPhoto">
+            </div>
+            <div data-ng-if="task.category_question.graphicImages.length == 0">
+                <img width="100" height="50" alt="Image preview..." id="graphicPhoto">
+            </div>
+         
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any other information that you would like to share with the designer?</label>
+            <input type="text" class="form-control" ng-model="task.category_question.additionalInformation" name="additionalInformation" min="1" max="5000"
+                   required
+                   ng-class="{error : postTaskForm.additionalInformation.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+</div>

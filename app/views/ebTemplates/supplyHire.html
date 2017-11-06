@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What supplies do you need?</label>
+            <select class="multipleSelection" required multiple="multiple"
+                    data-ng-model="task.category_question.supplyTypes" name="supplyTypes"
+                    ng-class="{error : postTaskForm.supplyTypes.$invalid && postTaskForm.$submitted}">
+                <option value="BBQ">BBQ</option>
+                <option value="Spit">SPIT</option>
+                <option value="Outdoor Heating">OUTDOOR HEATING</option>
+                <option value="Chair, table and other outdoor furniture">CHAIR, TABLE AND OTHER OUTDOOR FURNITURE</option>
+                <option value="Chair and Table coverings">CHAIR AND TABLE COVERINGS</option>
+                <option value="Outdoor lighting">OUTDOOR LIGHTING</option>
+                <option value="Indoor lighting">INDOOR LIGHTING</option>
+                <option value="Balloons">BALLOONS</option>
+                <option value="Amplifier">AMPLIFIER</option>
+                <option value="Other">OTHER</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Describe what you need in a little more detail so we make sure we get you think the right thing.</label>
+            <textarea class="form-control" data-ng-model="task.category_question.decriptionInDetail" name="decriptionInDetail" 
+                      required
+                      ng-class="{error : postTaskForm.decriptionInDetail.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label style="width:100%; margin-left:5px;">Would you like the supplier to include cleaning in the cost? </label>
+            <select class="singleSelection" required data-ng-model="task.category_question.IscleaningPriceToBeIncluded"
+                    name="IscleaningPriceToBeIncluded"
+                    ng-class="{error : postTaskForm.IscleaningPriceToBeIncluded.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Yes">YES</option>
+                <option value="No">NO</option>
+                <option value="Not applicable">NOT APPLICABLE</option>
+            </select>
+            </div>
+        </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label style="width:100%; margin-left:5px;">Will you expect to return or discard what you are supplied? </label>
+            <select class="singleSelection" required data-ng-model="task.category_question.returnSupplies" name="returnSupplies"
+                    ng-class="{error : postTaskForm.returnSupplies.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Return i.e. BBQ, furniture">RETURN I.E. BBQ, FURNITURE</option>
+                <option value="Discard i.e. table covers, balloons">DISCARD I.E. TABLE COVERS, BALLOONS</option>
+            </select>
+        </div>
+    </div>
+</div>

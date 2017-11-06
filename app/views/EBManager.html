@@ -39,13 +39,14 @@
                   <h4>Event Type</h4>
                   <select data-ng-model="event.eventType" name="eventType" id="eventType"
                           ng-class="{error : EBManagerFunctionalForm.eventType.$invalid && EBManagerFunctionalForm.$submitted}">
+                      <option value="">Please Select</option>
                       <option value="wedding">wedding</option>
                       <option value="Engagement">Engagement</option>
                       <option value="kitchen tea or high tea">kitchen tea or high tea</option>
                       <option value="hens night">hens night</option>
                       <option value="bucks night">bucks night</option>
                       <option value="birthday">birthday</option>
-                      <option value="children’s birthday">children’s birthday</option>
+                      <option value="children’s birthday">children birthday</option>
                       <option value="corporate event">corporate event</option>
                       <option value="other celebration">other celebration</option>
                       <option value="cocktail">cocktail</option>
@@ -53,40 +54,62 @@
                   </select>
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Date" required>
+                  <h4>Event Date</h4>
+                  <input type="text" class="form-control datepicker cal_icon" required readonly data-ng-model="task.dateRequired"
+                         name="dateRequired" ng-class="{error : EBManagerFunctionalForm.dateRequired.$invalid && EBManagerFunctionalForm.$submitted}">
               </div>
               <div class="form-group">
-                  <h3>Time</h3>
-                  <select>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                  </select>
-              </div>
+                          <div class="form-field">
+                              <label>Time From</label>
+                              <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeFrom" required id="timeFrom"
+                                     name="timeFrom" ng-class="{error : EBManagerFunctionalForm.timeFrom.$invalid && EBManagerFunctionalForm.$submitted}" readonly>
+                          </div>
+                          <div class="form-field">
+                              <label>Time To </label>
+                              <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeTo" required id="timeTo"
+                                     name="timeTo" ng-class="{error : EBManagerFunctionalForm.timeTo.$invalid && EBManagerFunctionalForm.$submitted}" readonly>
+                          </div>
+               </div>     
               <div class="form-group">
                   <h3>Total Event Budget</h3>
-                  <select>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                      <option value="lorem">lorem</option>
-                  </select>
+                  <div class="form-field">
+                      <label>$</label>
+                      <input type="number" class="form-control" data-ng-model="task.timeFrom" required id="timeFrom"
+                             name="timeFrom" ng-class="{error : EBManagerFunctionalForm.timeFrom.$invalid && EBManagerFunctionalForm.$submitted}">
+                  </div>
+                  <div class="form-field">
+                      <label>To </label>
+                      <input type="number" class="form-control" data-ng-model="task.timeTo" required id="timeTo"
+                             name="timeTo" ng-class="{error : EBManagerFunctionalForm.timeTo.$invalid && EBManagerFunctionalForm.$submitted}">
+                  </div>
               </div>
               <div class="form-group">
                   <h3>How many guests at your event?</h3>
                   <select>
+                      <option value="">Please Select</option>
                       <option value="10">10</option>
                       <option value="10-20">10-20</option>
                       <option value="20-30">20-30</option>
-                      <option value="30-40">30-40</option>
+                      <option value="40-50">40-50</option>
+                      <option value="50-60">50-60</option>
+                      <option value="60-70">60-70</option>
+                      <option value="70-80">70-80</option>
+                      <option value="80-90">80-90</option>
+                      <option value="90-100">90-100</option>
+                      <option value="100-120">100-120</option>
+                      <option value="120-140">120-140</option>
+                      <option value="140-160">140-160</option>
+                      <option value="160-180">160-180</option>
+                      <option value="180-200">180-200</option>
+                      <option value="More than 200">More than 200</option>
                   </select>
               </div>
               <div class="form-group">
-                  <h3>What You Need</h3>
-                  <select>
+                  <h3>Select what you need</h3>
+                  <select name="selectedCategories" id="selectedCategories" ng-model="user.selectedCategories" multiple data-ng-change="onSelectCategory()">
+                      <option value="">Please Select</option>
                       <option value="Catering">Catering</option>
-                      <option value="Patisserie">Patisserie</option>
+                      <option value="Patisserie">Patisserie(baked goods, specilaty cakes)</option>
                       <option value="Cleaning">Cleaning</option>
                       <option value="Entertainment">Entertainment</option>
                       <option value="Hair Styling">Hair Styling</option>
@@ -98,10 +121,68 @@
                       <option value="Car hire">Car hire</option>
                       <option value="Venue Hire">Venue Hire</option>
                       <option value="Supply Hire">Supply Hire</option>
-                      <option value="Graphic Design">Graphic Design</option>
+                      <option value="Graphic Design">Graphic Design(for invitations, posters and boards )</option>
                       <option value="Other">Other</option>
                   </select>
               </div>
+             
+              <!--Catering-->
+              <div data-ng-if="user.selectedCategories.includes('Catering')">
+                  <div ng-include src="'app/views/ebTemplates/catering.html'"></div>
+              </div>
+              <!--Patisserie-->
+              <div data-ng-if="user.selectedCategories.includes('Patisserie')">
+                  <div ng-include src="'app/views/ebTemplates/patisserie.html'"></div>
+              </div>
+              <!--Cleaning-->
+              <div data-ng-if="user.selectedCategories.includes('Cleaning')">
+                  <div ng-include src="'app/views/ebTemplates/cleaning.html'"></div>
+              </div>
+              <!--Entertainment & Talent-->
+              <div data-ng-if="user.selectedCategories.includes('Entertainment')">
+                  <div ng-include src="'app/views/ebTemplates/entertainmentTalent.html'"></div>
+              </div>
+              <!-- make Up , Hair and Beauty -->
+              <div data-ng-if="user.selectedCategories.includes('Hair Styling')">
+                  <div ng-include src="'app/views/ebTemplates/makeupHairBeauty.html'"></div>
+              </div>
+              <!-- make Up , Hair and Beauty -->
+              <div data-ng-if="user.selectedCategories.includes('Make Up')">
+                  <div ng-include src="'app/views/ebTemplates/makeupHairBeauty.html'"></div>
+              </div>
+              <!--Floristry-->
+              <div data-ng-if="user.selectedCategories.includes('Flower arrangements')">
+
+                  <div ng-include src="'app/views/ebTemplates/floristry.html'"></div>
+              </div>
+              <!--waiting & service-->
+              <div data-ng-if="user.selectedCategories.includes('Waiting/Waitressing')">
+
+                  <div ng-include src="'app/views/ebTemplates/waiterWaitress.html'"></div>
+              </div>
+             
+              
+
+              <!--Photography and Videography-->
+              <div data-ng-if="user.selectedCategories.includes('Photography') || user.selectedCategories.includes('Videography')">
+                  <div ng-include src="'app/views/ebTemplates/photographyVideography.html'"></div>
+              </div>
+              <!--Car & Venue Hire-->
+              <div data-ng-if="user.selectedCategories.includes('Car hire') || user.selectedCategories.includes('Venue hire')">
+                  <div ng-include src="'app/views/ebTemplates/carVenue.html'"></div>
+              </div>
+              <!--Graphic Design-->
+              <div data-ng-if="user.selectedCategories.includes('Graphic Design')">
+                  <div ng-include src="'app/views/ebTemplates/graphicDesign.html'"></div>
+              </div>
+
+              <!--Supply Hire-->
+              <div data-ng-if="user.selectedCategories.includes('Supply Hire')">
+
+                  <div ng-include src="'app/views/ebTemplates/supplyHire.html'"></div>
+              </div>
+             
+             
           </form>
       </div>
       <div role="tabpanel" class="tab-pane" id="contact" data-ng-show="contactusIndicator" ng-class="{active: contactusIndicator }">

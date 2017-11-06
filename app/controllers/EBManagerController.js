@@ -8,6 +8,29 @@
         $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
         $scope.errorMessageIndicator = false;
         commonService.scrollToTop();
+        $('.datepicker').datetimepicker({
+            pickDate: true,
+            pickTime: false,
+            format: 'MM-DD-YYYY',
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date()
+        }).on("dp.change", function () {
+            $(this).trigger('blur');
+
+        });
+        $('.timepicker').timepicker({
+            timeFormat: 'h:mm p',
+            interval: 30,
+            minTime: '07',
+            maxTime: '11:30pm',
+            defaultTime: '11',
+            startTime: '07:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+        setTimeout(function () { $('#selectedCategories').multiselect(); }, 000);
     }
 
 
@@ -21,6 +44,17 @@
         
         $scope.functionIndicator = true;
         $scope.contactusIndicator = false;
+        $('.datepicker').datetimepicker({
+            pickDate: true,
+            pickTime: false,
+            format: 'MM-DD-YYYY',
+            changeMonth: true,
+            changeYear: true,
+            minDate: new Date()
+        }).on("dp.change", function () {
+            $(this).trigger('blur');
+
+        });
     }
     $scope.countChar = function () {
         if ($scope.user.comments) {
@@ -61,5 +95,8 @@
         }
 
     }
-
+    $scope.onSelectCategory = function()
+    {
+        console.log($scope.user.selectedCategories);
+    }
 });
