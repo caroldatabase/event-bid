@@ -106,30 +106,45 @@
       </div>
       <div role="tabpanel" class="tab-pane" id="contact" data-ng-show="contactusIndicator" ng-class="{active: contactusIndicator }">
           <h2>Contact Us</h2>
-          <form role="form">
+          <form role="form" name="EBContactusForm" novalidate>
               <br style="clear:both">
-
+              <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                  {{ message}}
+              </div>
+              <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                  {{message}}
+              </div>
               <div class="form-group">
-                  <input type="text" class="form-control" id="name" name="name" placeholder="First Name" required>
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required
+                         ng-class="{error : EBContactusForm.firstname.$invalid && EBContactusForm.$submitted}" data-ng-model="user.firstName">
               </div>
               <div class="form-group">
 
-                  <input type="text" class="form-control" id="name" name="name" placeholder="Last Name" required>
+                  <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required
+                         ng-class="{error : EBContactusForm.lastname.$invalid && EBContactusForm.$submitted}" data-ng-model="user.lastName">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" id="email" name="email" placeholder="Username/Event Bid mail" required>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Username/Event Bid mail"
+                         ng-pattern="emailFormat" required ng-class="{error : EBContactusForm.email.$invalid && EBContactusForm.$submitted}" data-ng-model="user.mailId">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Phone Number" required>
+                  <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Mobile"
+                         ng-class="{error : EBContactusForm.mobile.$invalid && EBContactusForm.$submitted}" required data-ng-model="user.phoneNumber">
               </div>
 
               <div class="form-group">
                   <p>Tell us a little more about how we can help you?</p>
-                  <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-                  <span class="help-block"><p id="characterLeft" class="help-block ">(Allow 1000 characters)</p></span>
+                  <textarea class="form-control" type="textarea" id="message" name="message" rows="7" ng-keyup="countChar();"
+                            ng-class="{error : EBContactusForm.message.$invalid && EBContactusForm.$submitted}"
+                            required data-ng-model="user.message"></textarea>
+                  <span class="help-block"><p id="characterLeft" class="help-block ">
+                                               <div style="font-size: 12px; float: right; color: #666">
+                                                   <span id="charNum">1000</span>
+                                                   <span>Words Remaining</span>
+                                               </div></p></span>
               </div>
-
-              <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+              <br/>
+              <button type="button" data-ng-click="contactUs()"  id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
           </form>
       </div>
      

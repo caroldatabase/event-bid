@@ -25,7 +25,8 @@
         assignUser: assignUser,
         browseTaskByCategory: browseTaskByCategory,
         getUserDetails: getUserDetails,
-        updateProfile: updateProfile
+        updateProfile: updateProfile,
+        contactEBManager: contactEBManager
     };
 
     function getInterestedUsersList(taskid) {
@@ -46,6 +47,14 @@
         });
 
     }
+
+    function contactEBManager(user) {
+        return $http.post(serviceBase + 'api/v1/EBManagerContactEnquiry', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
 
     function assignTask(details) {
         return $http.post(serviceBase + 'api/v1/assignTask', details, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
