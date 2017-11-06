@@ -12,7 +12,9 @@
             $scope.deleteMsg = false;
             $scope.assignMsg = false;
             $scope.reviewsIndicator = false;
-            getBuisnessTask();
+            $scope.buisnessDashboardIndicator = true;
+            getBuisnessTaskOpen();
+            
         }
 
         $scope.openSelectedtaskInDetail = function (data) {
@@ -24,7 +26,10 @@
             $scope.taskDetail.category_Detail = {};
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             getInterestedUsersList(data.id);
-            console.log($scope.taskDetail.category_question);
+            getTaskDetail();
+        }
+        function getTaskDetail()
+        {
             switch ($scope.taskDetail.category.name) {
                 case CONSTANTS.CATEGORY.Catering:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.cateringType] = $scope.taskDetail.category_question['cateringType'];
@@ -41,7 +46,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.cleanersNeeded] = $scope.taskDetail.category_question['cleanersNeeded'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.cleaningChecklist] = $scope.taskDetail.category_question['cleaningChecklist'];
                     //JSON.stringify($scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.cleaningChecklist]);
-                   
+
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.equipmentRequired] = $scope.taskDetail.category_question['equipmentRequired'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.timeRequired] = $scope.taskDetail.category_question['timeRequired'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.totalCost] = $scope.taskDetail.category_question['totalCost'];
@@ -133,6 +138,17 @@
                 default:
             }
         }
+        $scope.openProgresstaskInDetail = function(data)
+        {
+            $('#progressTaskModal').modal('toggle');
+            $("#progressTaskModal").modal({ backdrop: "static" });
+            $('#progressTaskModal').modal('show');
+            $scope.taskDetail = {};
+            $scope.taskDetail = data;
+            $scope.taskDetail.category_Detail = {};
+            $scope.taskDetail.category_question = angular.fromJson(data.category_question);
+            getTaskDetail();
+        }
         function getInterestedUsersList(taskid)
         {
             $rootScope.loaderIndicator = true;
@@ -158,7 +174,7 @@
             $scope.assignTask.assignUserID = item.showInterestedUserID;
             $scope.assignTask.taskStatus = "assigned";
             httpService.assignUser($scope.assignTask).then(function (response) {
-                $scope.interestedUsersList = response.data.data;
+                getBuisnessTaskOpen();
                 $rootScope.loaderIndicator = false;
             });
         }
@@ -173,28 +189,57 @@
             }
 
         }
-        function getBuisnessTask()
+        function getBuisnessTaskOpen()
         {
             $rootScope.loaderIndicator = true;
             httpService.getBuisnessTask($rootScope.userID).then(function (response) {
                 console.log(response);
                 if (response.data.code == 200) {
-                    $scope.potentialJobsIndicator = true;
-                    $rootScope.loaderIndicator = false;
-                    $scope.openTask = [];
-                    $scope.openTask = response.data.data.openTask;
+                    if(response.data.data.openTask)
+                    {
+                        $scope.potentialJobsIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.openTask = [];
+                        $scope.openTask = response.data.data.openTask;
+                    }
+                    if (response.data.data.progressTask) {
+                        $scope.jobsInProgressIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.progressTask = [];
+                        $scope.progressTask = response.data.data.progressTask;
+                    }
+                    
                 }
                 else if (response.data.code == 404) {
                     $rootScope.loaderIndicator = false;
+                    $scope.potentialJobsIndicator = false;
                     $scope.jobsInProgressIndicator = false;
                     $scope.openTask = [];
                 }
             });
         }
 
-        $scope.assignTask = function()
+       
+       
+        $scope.showBuisnessTab = function()
         {
-            httpService.assignTask(task).then(function (response) {
+            $scope.buisnessDashboardIndicator = true;
+            $scope.customerDashboardIndicator = false;
+        }
+        $scope.showCustomerTab = function () {
+            $scope.buisnessDashboardIndicator = false;
+            $scope.customerDashboardIndicator = true;
+        }
+        $scope.completeTask = function (data) {
+            
+            $rootScope.loaderIndicator = true;
+            var task = {};
+            var id = data.id;
+            task.task_status = "completed";
+            httpService.updateTask(id, task).then(function (response) {
+                $('#progressTaskModal').modal('hide');
+                getBuisnessTaskOpen();
+                $rootScope.loaderIndicator = false;
             });
         }
 }])

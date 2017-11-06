@@ -155,6 +155,17 @@
     <Content Include="app\views\contact-us.html" />
     <Content Include="app\views\businessDashboard.html" />
     <Content Include="app\views\customerDashboard.html" />
+    <Content Include="app\views\ebTemplates\carVenue.html" />
+    <Content Include="app\views\ebTemplates\catering.html" />
+    <Content Include="app\views\ebTemplates\cleaning.html" />
+    <Content Include="app\views\ebTemplates\entertainmentTalent.html" />
+    <Content Include="app\views\ebTemplates\floristry.html" />
+    <Content Include="app\views\ebTemplates\graphicDesign.html" />
+    <Content Include="app\views\ebTemplates\makeupHairBeauty.html" />
+    <Content Include="app\views\ebTemplates\patisserie.html" />
+    <Content Include="app\views\ebTemplates\photographyVideography.html" />
+    <Content Include="app\views\ebTemplates\supplyHire.html" />
+    <Content Include="app\views\ebTemplates\waiterWaitress.html" />
     <Content Include="app\views\postTaskTemplates\photographyVideography.html" />
     <Content Include="app\css\bootstrap-theme.css.map" />
     <Content Include="app\css\bootstrap-theme.min.css.map" />

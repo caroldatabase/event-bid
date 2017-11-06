@@ -26,8 +26,17 @@
         browseTaskByCategory: browseTaskByCategory,
         getUserDetails: getUserDetails,
         updateProfile: updateProfile,
-        contactEBManager: contactEBManager
+        contactEBManager: contactEBManager,
+        updateTask: updateTask
+        
     };
+
+    function updateTask(id, task) {
+        return $http.post(serviceBase + 'api/v1/post-task/update/'+ id, task, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
 
     function getInterestedUsersList(taskid) {
         return $http.get(serviceBase + 'api/v1/interestUsersList/' + taskid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
