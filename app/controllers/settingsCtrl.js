@@ -9,7 +9,7 @@
             $scope.categoryList =  data.data.data;
         });
         getDateList();
-        $(".singleSelection").select2();
+       
     }
 
     function getDateList()
@@ -35,6 +35,8 @@
             if(response.data.message == "Record found successfully.")
             {
                 $scope.userDetails = response.data.data;
+                if (response.data.data.mobile)
+                $scope.userDetails.mobile = parseInt(response.data.data.mobile);
             }
         })
     }
@@ -47,6 +49,7 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
         $(".singleSelection").select2();
+        $scope.successMobileIndicator = false;
     }
 
     $scope.categorySettings = function()
@@ -57,6 +60,7 @@
         $scope.portfolioIndicator = false;
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
+        $scope.successMobileIndicator = false;
         setTimeout(function () { $('#selectedCategories').multiselect(); }, 000);
     }
 
@@ -68,6 +72,7 @@
         $scope.portfolioIndicator = false;
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
+        $scope.successMobileIndicator = false;
     }
     $scope.portfolioSettings = function () {
         $scope.accountIndicator = false;
@@ -76,6 +81,7 @@
         $scope.portfolioIndicator = true;
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
+        $scope.successMobileIndicator = false;
     }
     $scope.paymentSettings = function () {
         $scope.accountIndicator = false;
@@ -84,6 +90,7 @@
         $scope.portfolioIndicator = false;
         $scope.paymentIndicator = true;
         $scope.passwordIndicator = false;
+        $scope.successMobileIndicator = false;
     }
     $scope.passwordSettings = function () {
         $scope.accountIndicator = false;
@@ -92,11 +99,45 @@
         $scope.portfolioIndicator = false;
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = true;
+        $scope.successMobileIndicator = false;
     }
     $scope.updateAccountDetails = function()
     {
         var userId = commonService.getUserid();
-        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+        $scope.user = {};
+        $scope.user.firstName = $scope.userDetails.first_name;
+        $scope.user.lastName = $scope.userDetails.last_name;
+        $scope.user.email = $scope.userDetails.email;
+        $scope.user.suburb = $scope.userDetails.suburb;
+        $scope.user.state = $scope.userDetails.state;
+        $scope.dateErrorIndicator = false;
+        if ($scope.day != undefined || $scope.day != null)
+        {
+            if (!$scope.month || !$scope.year) {
+                $scope.dateErrorIndicator = true;
+            }
+        }
+        if ($scope.month != undefined || $scope.month != null) {
+            if (!$scope.day || !$scope.year) {
+                $scope.dateErrorIndicator = true;
+            }
+        }
+        if ($scope.year != undefined || $scope.year != null) {
+            if (!$scope.month || !$scope.day) {
+                $scope.dateErrorIndicator = true;
+            }
+        }
+        if ($scope.day && $scope.month && $scope.year) {
+            $scope.dateErrorIndicator = false;
+            $scope.user.birthday = $scope.day + "/" + $scope.month + "/" + $scope.year;
+        }
+        httpService.updateProfile(userId, $scope.user).then(function (response) {
+            if (response.data.message == "Profile updated successfully")
+            {
+                 $scope.successMessageIndicator = true;
+                $scope.userDetails.first_name = response.data.data.first_name;
+                $scope.userDetails.last_name = response.data.data.last_name;
+            }
         });
     }
 
@@ -109,6 +150,17 @@
     $scope.updateMobileDetails = function () {
         var userId = commonService.getUserid();
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            if (response.data.message == "Profile updated successfully") {
+                $scope.successMobileIndicator = true;
+            }
+        });
+    }
+    $scope.updatePassword = function () {
+        var userId = commonService.getUserid();
+        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            if (response.data.message == "Profile updated successfully") {
+                $scope.successPasswordIndicator = true;
+            }
         });
     }
 
