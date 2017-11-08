@@ -5,16 +5,9 @@
 					<h1>Hello, {{firstName}}</h1>
 				</div>
     </div>
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-
-              <li role="presentation" ng-class="{active: buisnessDashboardIndicator }"><a aria-controls="function" data-ng-click="showBuisnessTab()" role="tab" data-toggle="tab"> 
-                  Buisness Dashboard</a></li>
-              <li role="presentation" ng-class="{active: customerDashboardIndicator }"><a aria-controls="contact" role="tab" data-ng-click="showCustomerTab()" data-toggle="tab">
-                  Customer Dashboard </a></li>
-
-          </ul>
-          <div data-ng-if="buisnessDashboardIndicator" style="border: groove">
+          
+          
+              
               <div class="container customer-dashboard">
                   <div class="row">
                       <div class="col-sm-4 top-menu-btn">
@@ -37,7 +30,22 @@
                       </div>
                   </div>
               </div>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
 
+              <li role="presentation" ng-class="{active: buisnessDashboardIndicator }">
+                  <a aria-controls="function" data-ng-click="showBuisnessTab()" role="tab" data-toggle="tab">
+                      Buisness Dashboard
+                  </a>
+              </li>
+              <li role="presentation" ng-class="{active: customerDashboardIndicator }">
+                  <a aria-controls="contact" role="tab" data-ng-click="showCustomerTab()" data-toggle="tab">
+                      Customer Dashboard
+                  </a>
+              </li>
+
+          </ul>
+          <div data-ng-if="buisnessDashboardIndicator">
               <div class="container jobs-dasborad">
                   <div class="row">
                       <div class="col-sm-6">
@@ -57,11 +65,11 @@
                       <div class="col-sm-6">
                           <div class="jobs-list">
                               <h4>Jobs In Progress</h4>
-                              <ul data-ng-if="jobsInProgressIndicator">
+                            
                                   <ul data-ng-if="jobsInProgressIndicator" data-ng-repeat="item in progressTask">
                                       <li><a data-ng-click="openProgresstaskInDetail(item)">{{item.event_title}}</a></li>
                                   </ul>
-                              </ul>
+                            
                               <p class="text-content-dash" data-ng-if="!jobsInProgressIndicator">
                                   No jobs in progress, post a task and save yourself the hassle. Let our professionals come to you.
                               </p>
@@ -95,6 +103,73 @@
                               <h4>Reviews</h4>
                               <ul data-ng-if="reviewsIndicator">
                                   <li><a href="#">List content of jobs description will be goes here</a></li>
+                              </ul>
+                              <p class="text-content-dash" data-ng-if="!reviewsIndicator">
+                                  You're up-to-date with all your reviews.
+                              </p>
+                              <div class="dashborad-post-btn">
+                                  <a href="#">Submit Reviews</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div data-ng-if="customerDashboardIndicator">
+              <div class="container jobs-dasborad">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>Potential Jobs For You</h4>
+                              <ul data-ng-if="potentialJobsCustomerIndicator" data-ng-repeat="item in openTaskCustomer">
+                                  <li><a data-ng-click="openSelectedtaskInDetail(item)">{{item.event_title}}</a></li>
+                              </ul>
+                              <p class="text-content-dash" data-ng-if="!potentialJobsCustomerIndicator">
+                                  Unfortunately we can't find any jobs that need your skills. Have a look at all the tasks and hopefully we are wrong!
+                              </p>
+                              <div class="dashborad-post-btn">
+                                  <a href="#/browse-tasks">Browse Task</a>
+                              </div>
+
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>Jobs In Progress</h4>
+                             
+                                  <ul data-ng-if="jobsInProgressCustomerIndicator" data-ng-repeat="item in progressTaskCustomer">
+                                      <li><a data-ng-click="openProgresstaskInDetail(item)">{{item.event_title}}</a></li>
+                                  </ul>
+                             
+                              <p class="text-content-dash" data-ng-if="!jobsInProgressCustomerIndicator">
+                                  You're not working on anything right now, why not have a look and see what you can find.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="container jobs-dasborad">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>Invoices Due</h4>
+                              <ul data-ng-if="invoicesIndicator">
+                                  <li><a href="#">List content of invoices description will be goes here</a></li>
+                              </ul>
+                              <p class="text-content-dash" data-ng-if="!invoicesIndicator">
+                                  You're up-to-date with all payments.You have no invoices due.
+                              </p>
+                              <div class="dashborad-post-btn">
+                                  <a href="#">Request Payment</a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>Reviews</h4>
+                              <ul data-ng-if="reviewsIndicator">
+                                  <li><a href="#">List content of reviews description will be goes here</a></li>
                               </ul>
                               <p class="text-content-dash" data-ng-if="!reviewsIndicator">
                                   You're up-to-date with all your reviews.
@@ -152,7 +227,7 @@
 
                 </div>
                 <div class="people-int" data-ng-if="interestedUsersListCount > 0">
-                    <p class="peo-head">People who are interest for doing this task</p>
+                    <p class="peo-head">People who are interested for doing this task</p>
                     <ul data-ng-repeat="item in interestedUsersList | unique : item.interested_user.id">
                         <li>
                             <span><b>{{item.interested_user.first_name}} {{item.interested_user.last_name}}</b></span>
@@ -161,6 +236,10 @@
                             <button type="button" class="btn btn-default" data-ng-click="assignTaskToUser(item)">assign</button>
                         </li>
                     </ul>
+                   
+                </div>
+                <div class="people-int" data-ng-if="interestedUsersListCount == 0">
+                    <p class="peo-head">Currently no user has showed interest in your task. Please wait for some more time.</p>
                 </div>
             </div>
             <div data-ng-show="assignMsg" class="thank-u-msg"> Task assigned successfully. </div>

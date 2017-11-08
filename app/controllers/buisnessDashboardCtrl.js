@@ -174,6 +174,8 @@
             $scope.assignTask.assignUserID = item.showInterestedUserID;
             $scope.assignTask.taskStatus = "assigned";
             httpService.assignUser($scope.assignTask).then(function (response) {
+                $('#OpenTaskModal').modal('hide');
+                alert("task assigned successfully");
                 getBuisnessTaskOpen();
                 $rootScope.loaderIndicator = false;
             });
@@ -220,7 +222,33 @@
         }
 
        
-       
+        function getCustomerTask() {
+            $rootScope.loaderIndicator = true;
+            httpService.getCustomerTask($rootScope.userID).then(function (response) {
+                console.log(response);
+                if (response.data.code == 200) {
+                    if (response.data.data.openTask) {
+                        $scope.potentialJobsCustomerIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.openTaskCustomer = [];
+                        $scope.openTaskCustomer = response.data.data.openTask;
+                    }
+                    if (response.data.data.progressTask) {
+                        $scope.jobsInProgressCustomerIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.progressTaskCustomer = [];
+                        $scope.progressTaskCustomer = response.data.data.progressTask;
+                    }
+
+                }
+                else if (response.data.code == 404) {
+                    $rootScope.loaderIndicator = false;
+                    $scope.potentialJobsCustomerIndicator = false;
+                    $scope.jobsInProgressCustomerIndicator = false;
+                    $scope.openTaskCustomer = [];
+                }
+            });
+        }
         $scope.showBuisnessTab = function()
         {
             $scope.buisnessDashboardIndicator = true;
@@ -229,6 +257,7 @@
         $scope.showCustomerTab = function () {
             $scope.buisnessDashboardIndicator = false;
             $scope.customerDashboardIndicator = true;
+            getCustomerTask()
         }
         $scope.completeTask = function (data) {
             

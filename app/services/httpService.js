@@ -27,7 +27,8 @@
         getUserDetails: getUserDetails,
         updateProfile: updateProfile,
         contactEBManager: contactEBManager,
-        updateTask: updateTask
+        updateTask: updateTask,
+        getCustomerTask: getCustomerTask
         
     };
 
@@ -46,6 +47,12 @@
 
     function getBuisnessTask(userid) {
         return $http.get(serviceBase + 'api/v1/bussinessDashboard/' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getCustomerTask(userid) {
+        return $http.get(serviceBase + 'api/v1/customerBusinessTask/' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
