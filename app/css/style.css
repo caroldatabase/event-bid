@@ -2104,3 +2104,6 @@ h1.heading p {
     float: left;
     width: 100%;
 }
+i.fa.fa-pencil {
+    float: right;
+}

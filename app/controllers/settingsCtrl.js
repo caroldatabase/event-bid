@@ -107,6 +107,7 @@
         $scope.user = {};
         $scope.user.firstName = $scope.userDetails.first_name;
         $scope.user.lastName = $scope.userDetails.last_name;
+        $scope.user.aboutMe = $scope.userDetails.about_me;
         $scope.user.email = $scope.userDetails.email;
         $scope.user.suburb = $scope.userDetails.suburb;
         $scope.user.state = $scope.userDetails.state;

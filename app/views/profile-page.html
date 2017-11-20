@@ -9,22 +9,21 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="side-bar-profile">
+                        <a href="#/settings"><i class="fa fa-pencil"></i></a>
 						<div class="user-pic">
                             <img src="app/images/sample-img.png">
-							
 						</div>
 						<p class="user-name">{{user.first_name}} {{user.last_name}}</p>
 						<p class="pro-ratting"><img src="app/images/4-stars.png"></p>
-						<p class="location-text"><span class="from-pro">From:</span><span class="loc-pro">Rosanna, VIC</span></p>
+						<p class="location-text"><span class="from-pro">From:</span><span class="loc-pro">{{user.suburb}}, {{user.state}}</span></p>
 						<p class="location-text"><span class="from-pro">Tier:</span><span class="loc-pro">New User</span></p>
 						<p class="pro-contact-me"><a href="#/contact-us">Contact Me</a></p>
 					</div>
 					
 					<div class="side-bar-profile">
-						
+                        <a href="#/settings"><i class="fa fa-pencil"></i></a>
 						<p class="user-name">About Me</p>
-						<p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						<p class="text-center">{{user.about_me}}</p>
 						<p class="skill-pro">Skills</p>
 						<ul class="skill-list">
 							<li>Drawing</li>
