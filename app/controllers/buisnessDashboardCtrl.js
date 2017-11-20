@@ -197,18 +197,19 @@
             httpService.getBuisnessTask($rootScope.userID).then(function (response) {
                 console.log(response);
                 if (response.data.code == 200) {
-                    if(response.data.data.openTask)
+                    $rootScope.loaderIndicator = false;
+                    $scope.openTask = [];
+                    $scope.progressTask = [];
+                    if(response.data.data.open)
                     {
                         $scope.potentialJobsIndicator = true;
                         $rootScope.loaderIndicator = false;
-                        $scope.openTask = [];
-                        $scope.openTask = response.data.data.openTask;
+                        $scope.openTask = response.data.data.open;
                     }
-                    if (response.data.data.progressTask) {
+                    if (response.data.data.assigned) {
                         $scope.jobsInProgressIndicator = true;
                         $rootScope.loaderIndicator = false;
-                        $scope.progressTask = [];
-                        $scope.progressTask = response.data.data.progressTask;
+                        $scope.progressTask = response.data.data.assigned;
                     }
                     
                 }
@@ -227,17 +228,18 @@
             httpService.getCustomerTask($rootScope.userID).then(function (response) {
                 console.log(response);
                 if (response.data.code == 200) {
-                    if (response.data.data.openTask) {
+                    $scope.openTaskCustomer = [];
+                    $scope.progressTaskCustomer = [];
+                    $rootScope.loaderIndicator = false;
+                    if (response.data.data.open) {
                         $scope.potentialJobsCustomerIndicator = true;
                         $rootScope.loaderIndicator = false;
-                        $scope.openTaskCustomer = [];
-                        $scope.openTaskCustomer = response.data.data.openTask;
+                        $scope.openTaskCustomer = response.data.data.open;
                     }
-                    if (response.data.data.progressTask) {
+                    if (response.data.data.assigned) {
                         $scope.jobsInProgressCustomerIndicator = true;
                         $rootScope.loaderIndicator = false;
-                        $scope.progressTaskCustomer = [];
-                        $scope.progressTaskCustomer = response.data.data.progressTask;
+                        $scope.progressTaskCustomer = response.data.data.assigned;
                     }
 
                 }
@@ -268,6 +270,7 @@
             httpService.updateTask(id, task).then(function (response) {
                 $('#progressTaskModal').modal('hide');
                 getBuisnessTaskOpen();
+                alert("task completed");
                 $rootScope.loaderIndicator = false;
             });
         }
