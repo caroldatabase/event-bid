@@ -93,9 +93,13 @@ app.config(function ($routeProvider,$locationProvider) {
              controller: "adminCtrl"
          })
        
-        .when("/buisness-dashboard", {
+        .when("/my-dashboard", {
             templateUrl: "app/views/businessDashboard.html",
             controller: "buisnessDashboardCtrl"
+        })
+        .when("/change-password", {
+            templateUrl: "app/views/changePassword.html",
+            controller: "changePasswordCtrl"
         })
     .otherwise({
         redirect: '/'

@@ -28,7 +28,9 @@
         updateProfile: updateProfile,
         contactEBManager: contactEBManager,
         updateTask: updateTask,
-        getCustomerTask: getCustomerTask
+        getCustomerTask: getCustomerTask,
+        changePassword: changePassword,
+        getRecommendationTask: getRecommendationTask
         
     };
 
@@ -50,7 +52,13 @@
             return response;
         });
     }
-
+     
+    function getRecommendationTask(userid)
+    {
+        return $http.get(serviceBase + 'api/v1/getRecommendTask/' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
     function getCustomerTask(userid) {
         return $http.get(serviceBase + 'api/v1/customerBusinessTask/' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
@@ -136,6 +144,14 @@
     {
         console.log(serviceBase + 'api/v1/user/forget-password?email=' + emailID );
         return $http.post(serviceBase + 'api/v1/user/forget-password?email=' + emailID  , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function changePassword(userId, oldPass, newPass) {
+       // console.log(serviceBase + 'api/v1/user/changePassword?email=' + emailID);
+        return $http.post(serviceBase + 'api/v1/user/changePassword/' +  userId + '?' + 'newPassword='+ newPass + '&oldPassword=' + oldPass
+            , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

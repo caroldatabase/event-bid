@@ -255,12 +255,14 @@ app.controller('ForgetPassController', ['$scope', 'httpService', function ($scop
     function init()
     {
         $scope.user = {};
+        $scope.successIndicator = false;
     }
     function forgetPassword() {
         $scope.forgotPassForm.$setSubmitted(true);
         if ($scope.forgotPassForm.$valid) {
             httpService.forgetPassword($scope.emailID).then(function (data) {
-
+                $scope.successMessage = "Reset password link has sent. Please check your email.";
+                $scope.successIndicator = true;
             });
         }
         else {

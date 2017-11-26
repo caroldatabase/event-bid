@@ -236,6 +236,19 @@
                         $rootScope.loaderIndicator = false;
                         $scope.openTaskCustomer = response.data.data.open;
                     }
+                    else {
+                        var userId = commonService.getUserid();
+                        $rootScope.loaderIndicator = true;
+                        httpService.getRecommendationTask(userId).then(function (res) {
+                            if(res.data.code == 200 && res.data.message == "Recommended Task")
+                            {
+                                $scope.potentialJobsCustomerIndicator = true;
+                                $rootScope.loaderIndicator = false;
+                                $scope.openTaskCustomer = response.data.data.completed
+                            ;
+                            }
+                        });
+                    }
                     if (response.data.data.assigned) {
                         $scope.jobsInProgressCustomerIndicator = true;
                         $rootScope.loaderIndicator = false;
@@ -250,6 +263,8 @@
                     $scope.openTaskCustomer = [];
                 }
             });
+
+            
         }
         $scope.showBuisnessTab = function()
         {

@@ -67,6 +67,7 @@
     <Content Include="app\controllers\adminController.js" />
     <Content Include="app\controllers\browseTaskController.js" />
     <Content Include="app\controllers\buisnessDashboardCtrl.js" />
+    <Content Include="app\controllers\changePassword.js" />
     <Content Include="app\controllers\contactUsController.js" />
     <Content Include="app\controllers\customerDashboardCtrl.js" />
     <Content Include="app\controllers\EBManagerController.js" />
@@ -153,6 +154,7 @@
     <Content Include="app\js\uniquefilter.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\Category.html" />
+    <Content Include="app\views\changePassword.html" />
     <Content Include="app\views\contact-us.html" />
     <Content Include="app\views\businessDashboard.html" />
     <Content Include="app\views\customerDashboard.html" />
