@@ -74,7 +74,7 @@
                                   No jobs in progress, post a task and save yourself the hassle. Let our professionals come to you.
                               </p>
                               <div class="dashborad-post-btn">
-                                  <a href="#">Post A Task</a>
+                                  <a href="#/post-task">Post A Task</a>
                               </div>
                           </div>
                       </div>
@@ -102,13 +102,13 @@
                           <div class="jobs-list">
                               <h4>Reviews</h4>
                               <ul data-ng-if="reviewsIndicator">
-                                  <li><a href="#">List content of jobs description will be goes here</a></li>
+                                  <li><a >List content of jobs description will be goes here</a></li>
                               </ul>
                               <p class="text-content-dash" data-ng-if="!reviewsIndicator">
                                   You're up-to-date with all your reviews.
                               </p>
                               <div class="dashborad-post-btn">
-                                  <a href="#">Submit Reviews</a>
+                                  <a>Submit Reviews</a>
                               </div>
                           </div>
                       </div>
@@ -301,6 +301,10 @@
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
                             <button type="button" class="btn btn-default" data-ng-click="completeTask(taskDetail)">Complete</button>
+                        </li>
+                        <li>
+                            How was your experience ? Submit review before completing a task.
+                            <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
                         </li>
                     </ul>
                 </div>
