@@ -30,10 +30,16 @@
                             </ul>
                         </li>
                         <li class="userAction" data-ng-show="isLogin">
-                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> <i class="profilce_pic"></i> Welcome, {{firstName}}<span class="caret"></span></a>
+                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> 
+                                <i class="profilce_pic" data-ng-if="!photo"></i> 
+                                <div data-ng-if="photo">
+                                    <img ng-src="{{photo}}" widt width="50" height="50" alt="Image preview..." id="profilePhoto">
+                                </div>
+                            Welcome, {{firstName}}<span class="caret"></span></a>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <li><a data-ng-show="isLogin" href="#/my-dashboard">My Dashboard</a></li>
                                 <li><a data-ng-show="isLogin" href="#/change-password">Change Password</a></li>
+                                <li><a data-ng-show="isLogin" href="#/message">Message</a></li>
                                <!--<li><a data-ng-show="isLogin && UserType == 'taskSeeker'" href="#/customer-dashboard">My Dashboard</a></li>-->
                                 <li><a data-ng-click="logout();">Logout</a></li>
                             </ul>

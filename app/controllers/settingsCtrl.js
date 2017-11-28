@@ -111,6 +111,7 @@
         $scope.user.email = $scope.userDetails.email;
         $scope.user.suburb = $scope.userDetails.suburb;
         $scope.user.state = $scope.userDetails.state;
+        $scope.user.photo = $scope.userDetails.photo;
         $scope.dateErrorIndicator = false;
         if ($scope.day != undefined || $scope.day != null)
         {

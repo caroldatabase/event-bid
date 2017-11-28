@@ -72,6 +72,7 @@
     <Content Include="app\controllers\customerDashboardCtrl.js" />
     <Content Include="app\controllers\EBManagerController.js" />
     <Content Include="app\controllers\howItWorksController.js" />
+    <Content Include="app\controllers\messagingCtrl.js" />
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\controllers\requestCategoryController.js" />
     <Content Include="app\controllers\settingsCtrl.js" />
@@ -82,6 +83,10 @@
     <Content Include="app\css\vaibhav_style.css" />
     <Content Include="app\directives\eventMenu\eventMenu.js" />
     <Content Include="app\directives\fileReadDirective.js" />
+    <Content Include="app\directives\message-form.html" />
+    <Content Include="app\directives\message-item.html" />
+    <Content Include="app\directives\message-list.js" />
+    <Content Include="app\directives\user-avatar.directive.js" />
     <Content Include="app\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="app\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="app\fonts\glyphicons-halflings-regular.ttf" />
@@ -152,6 +157,7 @@
     <Content Include="app\js\jquery_timepicker.min.css" />
     <Content Include="app\js\jquery_timepicker.min.js" />
     <Content Include="app\js\uniquefilter.js" />
+    <Content Include="app\services\messageService.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\Category.html" />
     <Content Include="app\views\changePassword.html" />
@@ -169,6 +175,7 @@
     <Content Include="app\views\ebTemplates\photographyVideography.html" />
     <Content Include="app\views\ebTemplates\supplyHire.html" />
     <Content Include="app\views\ebTemplates\waiterWaitress.html" />
+    <Content Include="app\views\messaging.html" />
     <Content Include="app\views\postTaskTemplates\photographyVideography.html" />
     <Content Include="app\css\bootstrap-theme.css.map" />
     <Content Include="app\css\bootstrap-theme.min.css.map" />
@@ -176,6 +183,8 @@
     <Content Include="app\css\bootstrap.min.css.map" />
     <Content Include="app\css\distth_-webfont.woff" />
     <Content Include="app\css\distth_-webfont.woff2" />
+    <Content Include="app\directives\message-form.directive.js" />
+    <Content Include="app\directives\message-item.directive.js" />
     <None Include="Properties\PublishProfiles\eventBid.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

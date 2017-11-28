@@ -232,7 +232,7 @@
                         <li>
                             <span><b>{{item.interested_user.first_name}} {{item.interested_user.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                            <a href="">view profile</a>
+                            <a href="#/profile/{{item.interested_user.id}}">view profile</a>
                             <button type="button" class="btn btn-default" data-ng-click="assignTaskToUser(item)">assign</button>
                         </li>
                     </ul>
@@ -299,7 +299,7 @@
                         <li>
                             <span><b>{{taskDetail.seeker_user_detail.first_name}} {{taskDetail.seeker_user_detail.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                            <a href="">view profile</a>
+                            <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
                             <button type="button" class="btn btn-default" data-ng-click="completeTask(taskDetail)">Complete</button>
                         </li>
                     </ul>

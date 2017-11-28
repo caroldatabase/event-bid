@@ -166,7 +166,7 @@
             $rootScope.loaderIndicator = true;
             httpService.login($scope.user).then(function (result) {
                 if (result.data.message == "Successfully logged in.") {
-                    $rootScope.loaderIndicator = false;
+                   
                     if ($scope.user.email == 'admin@eventbid.com' && $scope.user.password == 'admin123$') {
                         $rootScope.adminIndicator = true;
                     }
@@ -179,7 +179,14 @@
                     $rootScope.firstName = userRes.firstName;
                     commonService.setCookieValues('UserType', userRes.userType);
                     $rootScope.UserType = userRes.userType;
-                    
+                    httpService.getUserDetails(userRes.userId).then(function (response) {
+                        if (response.data.message == "Record found successfully.") {
+                            var userDetails = response.data.data;
+                            $rootScope.photo = userDetails.photo;
+                            $rootScope.loaderIndicator = false;
+                            commonService.setCookieValues('Photo', $rootScope.photo);
+                        }
+                    })
                         $('#loginPopup').modal('toggle');
                         if ($rootScope.postTaskClicked == true) {
                             commonService.updateLocationPath('/post-task');
@@ -224,6 +231,7 @@
         commonService.deleteCookieValues('FirstName');
         commonService.deleteCookieValues('UserID');
         commonService.deleteCookieValues('UserType');
+        commonService.deleteCookieValues('Photo');
         $rootScope.isLogin = false;
         $rootScope.adminIndicator = false;
         commonService.reloadRoute();

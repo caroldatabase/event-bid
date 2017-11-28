@@ -1,0 +1,19 @@
+﻿<div class="message-form">
+    <form  class="container">
+        <div class="row">
+            <div class="input-field col s10">
+                <i class="prefix mdi-communication-chat"></i>
+                <input ng-model="messageContent" type="text" placeholder="Type your message">
+                <span class="chip left">
+                    <user-avatar uuid="{{uuid}}" />
+                    Anonymous robot #{{uuid}}
+                </span>
+            </div>
+            <div class="input-field col s2">
+                <input type="button" ng-click="sendMessage()"  class="waves-effect waves-light btn-floating btn-large" value="send" />
+                    <i class="mdi-content-send"></i>
+             
+            </div>
+        </div>
+    </form>
+</div>

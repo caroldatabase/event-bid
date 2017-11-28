@@ -34,64 +34,77 @@
                     </div>
                 </div>
                 <div class="row">
+                    <label>Upload Profile Image :</label>
                     <div class="col-sm-6">
-                        <label>Suburb</label>
-                        <input type="text" width="100%" data-ng-model="userDetails.suburb" name="suburb" maxlength="20">
-                    </div>
-                    <div class="col-sm-6">
-                        <label>State</label>
-                        <input type="text" width="100%" data-ng-model="userDetails.state" name="state" maxlength="20">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>Email</label>
-                        <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
-                    </div>
+                        <input type="file" class="form-control" name="userDetails.photo" id="userDetails.user_image"
+                               fileread="userDetails.photo" image-type="categoryImage" accept="image/*" data-ng-model="userDetails.photo">
 
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>About me</label>
-                        <textarea width="100%" rows="4" data-ng-model="userDetails.about_me" name="aboutme"></textarea>
+                    </div>
+                    <div class="col-sm-6">
+                        <div>
+                            <img ng-src="{{userDetails.photo}}" widt width="100" height="50" alt="Image preview..." id="profilePhoto">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label>Suburb</label>
+                            <input type="text" width="100%" data-ng-model="userDetails.suburb" name="suburb" maxlength="20">
+                        </div>
+                        <div class="col-sm-6">
+                            <label>State</label>
+                            <input type="text" width="100%" data-ng-model="userDetails.state" name="state" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Email</label>
+                            <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>About me</label>
+                            <textarea width="100%" rows="4" data-ng-model="userDetails.about_me" name="aboutme"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label>Birthday</label>
+                        </div>
+                        <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
+                            Please select valid date(dd, mm, yyyy)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <select class="singleSelection" ng-model="day"
+                                    ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
+                                <option value="">dd</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="singleSelection" ng-model="month"
+                                    ng-options="item1 as item1 for item1 in monthArray" width="100%"
+                                    ng-class="{error : dateErrorIndicator}">
+                                <option value="">mm</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            <select class="singleSelection" ng-model="year"
+                                    ng-options="item2 as item2 for item2 in yearArray" width="100%"
+                                    ng-class="{error : dateErrorIndicator}">
+                                <option value="">yyyy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <a class="btn btn-lg btn-primary" data-ng-click="updateAccountDetails()">Update</a>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <label>Birthday</label>
-                    </div>
-                    <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
-                       Please select valid date(dd, mm, yyyy)
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-2">
-                        <select class="singleSelection" ng-model="day"
-                                ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
-                            <option value="">dd</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-2">
-                        <select class="singleSelection" ng-model="month"
-                                ng-options="item1 as item1 for item1 in monthArray" width="100%"
-                                ng-class="{error : dateErrorIndicator}">
-                            <option value="">mm</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4">
-                        <select class="singleSelection"  ng-model="year"
-                                ng-options="item2 as item2 for item2 in yearArray" width="100%"
-                                ng-class="{error : dateErrorIndicator}">
-                            <option value="">yyyy</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                <div class="col-sm-12">
-                    <a class="btn btn-lg btn-primary" data-ng-click="updateAccountDetails()">Update</a>
-                </div>
-            </div>
-            </div>
             <div class="col-sm-9" data-ng-if="categoryIndicator">
                 <div class="row">
                     <h4>Categories</h4>

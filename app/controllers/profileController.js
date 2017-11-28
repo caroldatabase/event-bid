@@ -1,23 +1,34 @@
-﻿app.controller('profileController', ['$scope', 'commonService', '$rootScope', 'httpService', 'CONSTANTS', function ($scope, commonService, $rootScope, httpService, CONSTANTS) {
+﻿app.controller('profileController', ['$scope', 'commonService', '$rootScope', 'httpService', 'CONSTANTS', '$routeParams',
+    function ($scope, commonService, $rootScope, httpService, CONSTANTS, $routeParams) {
 
     init();
     function init()
     {
+        $rootScope.loaderIndicator = true;
         commonService.checkUserLoggedIn();
         var userid = commonService.getUserid();
-        httpService.getUserDetails(userid).then(function (response) {
-            $scope.user = response.data.data;
-            if($scope.user.user_type == 'taskHirer')
-            {
+        $scope.isEdit = true;
+        var publicProfileId = $routeParams.userId;
+        if (publicProfileId) {
+            httpService.getUserDetails(publicProfileId).then(function (response) {
+                $scope.user = response.data.data;
+                getCustomerTask(publicProfileId);
+                $scope.isEdit = false;
+            });
+        }
+        else {
+            httpService.getUserDetails(userid).then(function (response) {
+                $scope.user = response.data.data;
                 getCustomerTask(userid);
-            }
-        });
+            });
+        }
     }
     
     function getCustomerTask(userid) {
-        $rootScope.loaderIndicator = true;
+      
         httpService.getCustomerTask(userid).then(function (response) {
             console.log(response);
+            getBuisnessTaskOpen(userid);
             if (response.data.code == 200) {
                 $scope.openTaskCustomer = [];
                 $scope.progressTaskCustomer = [];
@@ -27,16 +38,6 @@
                     $rootScope.loaderIndicator = false;
                     $scope.completedTaskCustomer = response.data.data.completed;
                 }
-                if (response.data.data.open) {
-                    $rootScope.loaderIndicator = false;
-                    $scope.openTaskCustomer = response.data.data.open;
-                }
-                if (response.data.data.assigned) {
-                    
-                    $rootScope.loaderIndicator = false;
-                    $scope.progressTaskCustomer = response.data.data.assigned;
-                }
-
             }
             else if (response.data.code == 404) {
                 $rootScope.loaderIndicator = false;
@@ -55,6 +56,29 @@
         getTaskDetail();
     }
 
+    function getBuisnessTaskOpen(userid) {
+        $rootScope.loaderIndicator = true;
+        httpService.getBuisnessTask(userid).then(function (response) {
+            console.log(response);
+            if (response.data.code == 200) {
+                $rootScope.loaderIndicator = false;
+                $scope.openTask = [];
+                $scope.progressTask = [];
+                if (response.data.data.completed) {
+                    $scope.jobsInProgressIndicator = true;
+                    $rootScope.loaderIndicator = false;
+                    $.merge( $scope.completedTaskCustomer , response.data.data.completed);
+                }
+
+            }
+            else if (response.data.code == 404) {
+                $rootScope.loaderIndicator = false;
+                $scope.potentialJobsIndicator = false;
+                $scope.jobsInProgressIndicator = false;
+                $scope.openTask = [];
+            }
+        });
+    }
     function getTaskDetail() {
         switch ($scope.taskDetail.category.name) {
             case CONSTANTS.CATEGORY.Catering:

@@ -1,5 +1,5 @@
-﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
-
+﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies', "pubnub.angular.service", "ngNotify"]);
+app.value('currentUser', _.random(1000000).toString());
 //window.fbAsyncInit = function () {
 //    FB.init({
 //        appId: '791838100968348',
@@ -88,6 +88,10 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/profile-page.html",
             controller : "profileController"
         })
+          .when("/profile/:userId?", {
+              templateUrl: "app/views/profile-page.html",
+              controller: "profileController"
+          })
          .when("/admin", {
              templateUrl: "app/views/admin.html",
              controller: "adminCtrl"
@@ -100,6 +104,10 @@ app.config(function ($routeProvider,$locationProvider) {
         .when("/change-password", {
             templateUrl: "app/views/changePassword.html",
             controller: "changePasswordCtrl"
+        })
+        .when("/message", {
+            templateUrl: "app/views/messaging.html",
+            controller: "messagingCtrl"
         })
     .otherwise({
         redirect: '/'
@@ -135,3 +143,11 @@ app.run( function($rootScope, $location) {
         }         
     });
 })
+
+app.run(['Pubnub', 'currentUser',  function (Pubnub, currentUser) {
+    Pubnub.init({
+        publish_key: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
+        subscribe_key: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179',
+        uuid: currentUser
+    });
+}]);
