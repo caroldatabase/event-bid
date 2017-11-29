@@ -7,9 +7,12 @@
             
         </div>
     </div>
-    <div class="message-container">
-        <message-list></message-list>
-        <message-form></message-form>
+    <div ng-repeat="message in messages">
+        <strong>{{message.user.name}}:</strong>
+        <span>{{message.data}}</span>
     </div>
-    
+    <form >
+        <input ng-model="textbox">
+        <input type="button" value="send" data-ng-click=" send()"/>
+    </form>
 </div>

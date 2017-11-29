@@ -1,5 +1,30 @@
-﻿var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies', "pubnub.angular.service", "ngNotify"]);
-app.value('currentUser', _.random(1000000).toString());
+﻿
+
+
+var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'chat']);
+angular.module('chat').constant('config', {
+    rltm: {
+        service: "pubnub",
+        config: {
+            publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
+            subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179'
+        }
+
+    }
+});
+/*angular.module('chat').constant('config', {
+    rltm: {
+        service: "pubnub",
+        config: {
+           // publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
+           // subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179',
+            publishKey: "demo",
+            subscribeKey: "demo"
+        }
+        // or use socket.io!
+        // https://github.com/pubnub/rltm.js#socketio
+    }
+});*/
 //window.fbAsyncInit = function () {
 //    FB.init({
 //        appId: '791838100968348',
@@ -107,7 +132,7 @@ app.config(function ($routeProvider,$locationProvider) {
         })
         .when("/message", {
             templateUrl: "app/views/messaging.html",
-            controller: "messagingCtrl"
+            controller: "chat"
         })
     .otherwise({
         redirect: '/'
@@ -144,10 +169,11 @@ app.run( function($rootScope, $location) {
     });
 })
 
-app.run(['Pubnub', 'currentUser',  function (Pubnub, currentUser) {
+/*app.run(['Pubnub', 'currentUser',  function (Pubnub, currentUser) {
     Pubnub.init({
         publish_key: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
         subscribe_key: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179',
         uuid: currentUser
     });
 }]);
+*/

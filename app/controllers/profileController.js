@@ -1,5 +1,5 @@
-﻿app.controller('profileController', ['$scope', 'commonService', '$rootScope', 'httpService', 'CONSTANTS', '$routeParams',
-    function ($scope, commonService, $rootScope, httpService, CONSTANTS, $routeParams) {
+﻿app.controller('profileController', ['$scope', 'commonService', '$rootScope', 'httpService', 'CONSTANTS', '$routeParams','$route', 
+    function ($scope, commonService, $rootScope, httpService, CONSTANTS, $routeParams, $route) {
 
     init();
     function init()
@@ -14,6 +14,7 @@
                 $scope.user = response.data.data;
                 getCustomerTask(publicProfileId);
                 $scope.isEdit = false;
+                $route.reload();
             });
         }
         else {

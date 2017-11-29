@@ -2107,3 +2107,41 @@ h1.heading p {
 i.fa.fa-pencil {
     float: right;
 }
+form#resetForm {
+    width: 50%;
+    margin: 50px auto;
+}
+form#resetForm input#login-button {
+    background: #0b7f74;
+    border: 0;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #fff;
+}
+li.userAction div {
+    float: left;
+    width: auto;
+    margin-right: 10px;
+}
+.setting-pages textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+label.checkbox {
+    padding-left: 68px !important;
+}
+ul.multiselect-container.dropdown-menu .checkbox input {
+    float: left !important;
+    left: -30%;
+}
+ul.multiselect-container.dropdown-menu {
+    padding: 15px 0px 30px;
+}
+ul.multiselect-container.dropdown-menu li {
+    float: left;
+    margin-bottom: 22px;
+    vertical-align: middle;
+}
