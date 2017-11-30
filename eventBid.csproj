@@ -143,11 +143,13 @@
     <Content Include="app\images\Resized_category_images\Photography_and_videography.png" />
     <Content Include="app\images\Resized_category_images\Supply_hire.png" />
     <Content Include="app\images\Resized_category_images\Waiting_staff.png" />
+    <Content Include="app\images\send-icon.png" />
     <Content Include="app\images\submit-btn.png" />
     <Content Include="app\images\Thumbnail_img.jpg" />
     <Content Include="app\images\Thumbnail_img_2.jpg" />
     <Content Include="app\images\Thumbnail_img_3.jpg" />
     <Content Include="app\images\_logo.png" />
+    <Content Include="app\js\angular-chat.js" />
     <Content Include="app\js\bootstrap-multiselect.css" />
     <Content Include="app\js\bootstrap-multiselect.js" />
     <Content Include="app\js\bootstrap.tpls.js" />
@@ -207,6 +209,7 @@
     <Content Include="bower_components\rltm\guides\socketio.md" />
     <Content Include="bower_components\rltm\package.json" />
     <Content Include="bower_components\rltm\README.md" />
+    <Content Include="bower.json" />
     <None Include="Properties\PublishProfiles\eventBid.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

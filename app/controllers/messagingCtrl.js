@@ -7,10 +7,11 @@
     });
     //// Send Messages
     $scope.send = function () {
+        Messages.user({ name: "Kanika Sethi" });
         Messages.send({
             data: $scope.textbox
         });
-        Messages.user({ name: "Kanika Sethi" });
+        
     };
 
 });

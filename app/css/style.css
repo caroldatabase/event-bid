@@ -2145,3 +2145,79 @@ ul.multiselect-container.dropdown-menu li {
     margin-bottom: 22px;
     vertical-align: middle;
 }
+.comment-box-browse {
+    float: left;
+    width: 100%;
+}
+.comment-head {
+    float: left;
+    width: 100%;
+}
+.header-comment {
+    text-align: center;
+    margin: 14px 0 4px 0;
+}
+.header-comment .line {
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background: #f1f1f1;
+    top: 16px;
+    display: block;
+}
+.header-comment .title.interactive {
+    position: relative;
+    color: #ccc;
+    text-transform: uppercase;
+    margin: 0 auto;
+    display: inline-block;
+    background: #fff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 0 15px;
+    margin: 8px 0;
+}
+p.comment-para {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.commenter {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.commenter-pic {
+    float: left;
+    width: 14%;
+    padding-right: 15px;
+}
+.commenter-text {
+    width: 86%;
+    float: left;
+    position: relative;
+}
+.commenter-text textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 90px;
+}
+.commenter-text textarea {
+    padding: 10px;
+    font-size: 13px;
+}
+p.comment-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 5px;
+}
+p.comment-footer span:nth-child(1) {
+    float: left;
+    padding-left: 15px;
+    font-size: 16px;
+}
+p.comment-footer span:last-child {
+    float: right;
+    padding-right: 15px;
+    font-size: 16px;
+}
