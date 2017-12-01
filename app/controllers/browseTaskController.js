@@ -7,6 +7,7 @@
     $scope.anchorDisable = true;
     $scope.anchorReplyDisable = true;;
     // $scope.taskList = [];
+
     init();
 
 
@@ -91,7 +92,6 @@
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};
             $scope.getAllComments($scope.taskDetail.id);
-            console.log($scope.taskDetail.category_question);
             switch ($scope.taskDetail.category.name) {
                 case CONSTANTS.CATEGORY.Catering:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.cateringType] = $scope.taskDetail.category_question['cateringType'];

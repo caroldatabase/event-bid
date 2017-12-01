@@ -155,6 +155,7 @@
     <Content Include="app\js\bootstrap.tpls.js" />
     <Content Include="app\js\jquery_timepicker.min.css" />
     <Content Include="app\js\jquery_timepicker.min.js" />
+    <Content Include="app\js\timeago.filter.js" />
     <Content Include="app\js\uniquefilter.js" />
     <Content Include="app\views\admin.html" />
     <Content Include="app\views\Category.html" />
