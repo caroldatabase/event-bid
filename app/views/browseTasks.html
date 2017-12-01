@@ -1,4 +1,8 @@
-
+<style>
+    .disabled {
+          cursor: not-allowed;
+        }
+</style>
 
 
     <div class="category-page text-center">
@@ -180,61 +184,92 @@
           </p>
               <div class="comment-box-browse">
                   <div class="comment-head">
-                      <div class="header-comment"><div class="line"></div><div class="title interactive">5 comments about this Task</div></div>
+                      <div class="header-comment"><div class="line"></div><div class="title interactive">{{countIndicator}} comments about this Task</div></div>
                       <p class="comment-para">
                           Comment below for more details and remember that for your safety, not to share personal information e.g. email and phone numbers.
                       </p>
                   </div>
                   <div class="commenter">
                       <div class="commenter-pic">
-                          <a href="#"><img src="img/poster-big.png" alt="yellotasker"></a>
+                          <a href="#"><img src="app/images/profile-btn.png" alt="user"></a>
                       </div>
                       <div class="commenter-text">
-                          <textarea value="Ask a question"></textarea>
+                          <textarea value="Ask a question" data-ng-model="commentDescription" name="description" data-ng-change="addCommentChange()"></textarea>
                           <p class="comment-footer">
-                              <span><a href="#"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>
-                              <span><a href="#">Send</a></span>
+                              <!--<span><a href="#"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>-->
+                              <span><a data-ng-click="addComment()" ng-class="{disabled : anchorDisable}"
+                            ng-style="{'color': anchorDisable  ? 'grey' : 'black' }">Send</a></span>
                           </p>
                       </div>
                   </div>
-                  <div class="commenter">
-                      <div class="commenter-pic">
-                          <a href="#"><img src="img/poster-big.png" alt="yellotasker"></a>
+                  <div class="commenter" data-ng-repeat="item in commentList">
+                      <div id="commentItem" data-ng-if="item.commentId == 0">
+                          <div class="commenter-pic">
+                              <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                          </div>
+                          <div class="commenter-text">
+                              <h4><a href="#">{{item.user_detail.first_name}} {{item.user_detail.last_name}}</a></h4>
+                              <p class="commenter-desc">
+                                  {{item.commentDescription}}
+                              </p>
+                              <p class="timing-reply"><span>{{item.created_at | timeago }}</span> <span><a data-ng-click="onReply(item)"><i class="fa fa-reply"></i> Reply</a></span></p>
+                          </div>
                       </div>
-                      <div class="commenter-text">
-                          <h4><a href="#">vaibhav kasar</a></h4>
-                          <p class="commenter-desc">
-                              I am in parramatta would there in 10 minuets
-                              Offer includes 15% Airtasker fees and a man with van
-                          </p>
-                          <p class="timing-reply"><span>1 mins ago</span> <span><a href="#"><i class="fa fa-reply"></i> Reply</a></span></p>
+
+                      <div style="display: none" id="item_{{item.id}}">
+                          <div class="commenter-pic">
+                              <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                          </div>
+                          <div class="commenter-text">
+                              <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                        name="replyDescription" data-ng-change="addCommentReplyChange()"></textarea>
+                              <p class="comment-footer">
+                                  <span>
+                                      <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                         ng-class="{disabled : anchorReplyDisable}"
+                                         ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                  </span>
+                              </p>
+                          </div>
                       </div>
-                  </div>
-                  <div class="commenter">
-                      <div class="commenter-pic">
-                          <a href="#"><img src="img/poster-big.png" alt="yellotasker"></a>
-                      </div>
-                      <div class="commenter-text">
-                          <h4><a href="#">vaibhav kasar</a></h4>
-                          <p class="commenter-desc">
-                              I am in parramatta would there in 10 minuets
-                              Offer includes 15% Airtasker fees and a man with van
-                          </p>
-                          <p class="timing-reply"><span>1 mins ago</span> <span><a href="#"><i class="fa fa-reply"></i> Reply</a></span></p>
-                      </div>
-                  </div>
-                  <div class="commenter">
-                      <div class="commenter-pic">
-                          <a href="#"><img src="img/poster-big.png" alt="yellotasker"></a>
-                      </div>
-                      <div class="commenter-text">
-                          <h4><a href="#">vaibhav kasar</a></h4>
-                          <p class="commenter-desc">
-                              I am in parramatta would there in 10 minuets
-                              Offer includes 15% Airtasker fees and a man with van
-                          </p>
-                          <p class="timing-reply"><span>1 mins ago</span> <span><a href="#"><i class="fa fa-reply"></i> Reply</a></span></p>
-                      </div>
+                      <div>
+                          <!--reply list div starts-->
+                          <div data-ng-if="checkIfReplyExists(item.id, commentList)">
+                              <!--reply list div starts-->
+                              <div data-ng-repeat="data in repliedObjectList">
+                                
+                                  <div class="commenter sub-reply">
+                                      <div class="commenter-pic">
+                                          <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                      </div>
+                                      <div class="commenter-text">
+                                          <h4><a href="#">{{data.user_detail.first_name}} {{data.user_detail.last_name}}</a></h4>
+                                          <p class="commenter-desc">{{data.commentDescription}}</p>
+                                          <p class="timing-reply">
+                                              <span>{{data.created_at | timeago }}</span> <span>
+                                                  <a data-ng-click="onReply(data)"><i class="fa fa-reply"></i> Reply</a>
+                                              </span>
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div style="display: none" id="item_{{data.id}}">
+                                      <div class="commenter-pic">
+                                          <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                      </div>
+                                      <div class="commenter-text">
+                                          <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                                    name="replyDescription" data-ng-change="addCommentReplyChange(replyCommentDesc)"></textarea>
+                                          <p class="comment-footer">
+                                              <span>
+                                                  <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                                     ng-class="{disabled : anchorReplyDisable}"
+                                                     ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                              </span>
+                                          </p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div><!--reply list div ends-->
                   </div>
               </div>
           </div>

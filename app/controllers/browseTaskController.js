@@ -3,10 +3,13 @@
     $scope.currentPage = 1;
     $scope.numPerPage = 25;
     $scope.maxSize = 5;
-   // $scope.taskList = [];
+    $scope.countIndicator = 0;
+    $scope.anchorDisable = true;
+    $scope.anchorReplyDisable = true;;
+    // $scope.taskList = [];
     init();
 
-   
+
     function init() {
         $(document).ready(function () {
             var todayDate = new Date();
@@ -21,30 +24,27 @@
 
             });
             var categoryId = $routeParams.categoryId;
-            if (categoryId)
-            {
+            if (categoryId) {
                 browseByCategory(categoryId);
             }
             else
-            browseAllTask();
+                browseAllTask();
         });
-       
+
         //getAllCategoryFilters();
     }
-   
-    function getAllCategoryFilters()
-    {
+
+    function getAllCategoryFilters() {
         httpService.getCategory().then(function (data) {
-          $scope.categoryList = data.data.data;
+            $scope.categoryList = data.data.data;
         });
     }
-   
+
     $scope.numPages = function () {
         return Math.ceil($scope.taskList.length / $scope.numPerPage);
     };
 
-    function browseAllTask()
-    {
+    function browseAllTask() {
         $scope.pageNum = 1;
         $rootScope.loaderIndicator = true;
         httpService.browseAllTask($scope.pageNum).then(function (response) {
@@ -63,8 +63,7 @@
         });
     }
 
-    function browseByCategory(categoryId)
-    {
+    function browseByCategory(categoryId) {
         $rootScope.loaderIndicator = true;
         $scope.pageNum = 1;
         httpService.browseTaskByCategory(categoryId, $scope.pageNum).then(function (response) {
@@ -75,33 +74,35 @@
         });
     }
 
-    function getTaskDetails(item)
-    {
+    function getTaskDetails(item) {
         item.category_question = angular.fromJson(item.category_question);
         return item;
     }
 
-    $scope.openSelectedtaskInDetail = function(data)
-    {
-            $scope.interested = false; 
+    $scope.openSelectedtaskInDetail = function (data) {
+        if ($rootScope.isLogin) {
+            $scope.interested = false;
+            $scope.anchorDisable = true;
+            $scope.anchorReplyDisable = true;
             $('#taskDetailModal').modal('toggle');
             $("#taskDetailModal").modal({ backdrop: "static" });
             $('#taskDetailModal').modal('show');
             $scope.taskDetail = {};
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};
+            $scope.getAllComments($scope.taskDetail.id);
             console.log($scope.taskDetail.category_question);
             switch ($scope.taskDetail.category.name) {
-                case CONSTANTS.CATEGORY.Catering :
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.cateringType] = $scope.taskDetail.category_question['cateringType'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.mealType] = $scope.taskDetail.category_question['mealType'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.drinkType] = $scope.taskDetail.category_question['drinkType'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.menuRequests] = $scope.taskDetail.category_question['menuRequests'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.waitingRequire] = $scope.taskDetail.category_question['waitingRequire'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.dietaryRequirement] = $scope.taskDetail.category_question['dietaryRequirement'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalGuest] = $scope.taskDetail.category_question['totalGuest'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalCost] = $scope.taskDetail.category_question['totalCost'];
-                        $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.costType] = $scope.taskDetail.category_question['costType'];
+                case CONSTANTS.CATEGORY.Catering:
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.cateringType] = $scope.taskDetail.category_question['cateringType'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.mealType] = $scope.taskDetail.category_question['mealType'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.drinkType] = $scope.taskDetail.category_question['drinkType'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.menuRequests] = $scope.taskDetail.category_question['menuRequests'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.waitingRequire] = $scope.taskDetail.category_question['waitingRequire'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.dietaryRequirement] = $scope.taskDetail.category_question['dietaryRequirement'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalGuest] = $scope.taskDetail.category_question['totalGuest'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalCost] = $scope.taskDetail.category_question['totalCost'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.costType] = $scope.taskDetail.category_question['costType'];
                     break;
                 case CONSTANTS.CATEGORY.Cleaning:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.cleanersNeeded] = $scope.taskDetail.category_question['cleanersNeeded'];
@@ -122,7 +123,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.costType] = $scope.taskDetail.category_question['costType'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.totalCost] = $scope.taskDetail.category_question['totalCost'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.desertImages] = $scope.taskDetail.category_question['desertImages'];
-                   
+
                     break;
                 case CONSTANTS.CATEGORY.Waiting_Staff:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.dressCode] = $scope.taskDetail.category_question['dressCode'];
@@ -156,7 +157,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.specialRequirement] = $scope.taskDetail.category_question['specialRequirement'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.serviceType] = $scope.taskDetail.category_question['serviceType'].join([separator = ',']);
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.hairType] = $scope.taskDetail.category_question['hairType'].join([separator = ',']);;;
-                 
+
                     break;
                 case CONSTANTS.CATEGORY.Entertainment_and_talent:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Entertainment_and_talent.entertainerRequired] = $scope.taskDetail.category_question['entertainerRequired'].join([separator = ',']);
@@ -173,7 +174,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.venueCleaning] = $scope.taskDetail.category_question['venueCleaning'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.venueType] = $scope.taskDetail.category_question['venueType'];
                     break;
-                case  CONSTANTS.CATEGORY.Floristry:
+                case CONSTANTS.CATEGORY.Floristry:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.arrangementPresentation] = $scope.taskDetail.category_question['arrangementPresentation'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.costType] = $scope.taskDetail.category_question['costType'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.flowersRequiredDescription] = $scope.taskDetail.category_question['flowersRequiredDescription'];
@@ -192,13 +193,18 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.totalGuestVideography] = $scope.taskDetail.category_question['totalGuestVideography'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.placesRequiredForVideographer] = $scope.taskDetail.category_question['placesRequiredForVideographer'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.additionalCommentsVideographer] = $scope.taskDetail.category_question['additionalCommentsVideographer'];
-                   
+
                     break;
                 default:
 
             }
             //$scope.taskDetail.category_question = angular.fromJson($scope.taskDetail.category_question);
-            
+        }
+        else {
+
+            $('#promptLoginPopup').modal('show');
+
+        }
     }
 
     $scope.formatDate = function (date) {
@@ -206,10 +212,8 @@
         return dateOut;
     };
 
-    $scope.showInterest = function(data)
-    {
-        if ($rootScope.isLogin == true)
-        {
+    $scope.showInterest = function (data) {
+        if ($rootScope.isLogin == true) {
             //$rootScope.loaderIndicator = true;
             var interestedUser = {};
             interestedUser.taskId = data.id;
@@ -217,8 +221,7 @@
             interestedUser.showInterestedUserID = commonService.getUserid();
             interestedUser.taskStatus = "looking_user_offers";
             httpService.showInterest(interestedUser).then(function (response) {
-                if(response.data.code == 200)
-                {
+                if (response.data.code == 200) {
                     ////$rootScope.loaderIndicator = false;
                     //$scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
                     //$scope.interested = true;
@@ -231,19 +234,122 @@
             $('#taskDetailModal').modal('toggle');
             $('#promptLoginPopup').modal('show');
         }
-        
+
     }
 
-    $scope.seeMoreClick = function()
-    {
+    $scope.seeMoreClick = function () {
         $scope.pageNum = $scope.pageNum + 1;
         httpService.browseAllTask($scope.pageNum).then(function (response) {
             var temptaskList = response.data.data;
             temptaskList = temptaskList.map(getTaskDetails);
             if (temptaskList.length > 0)
-                $.merge($scope.taskList, temptaskList);  
+                $.merge($scope.taskList, temptaskList);
             console.log($scope.taskList);
             $rootScope.loaderIndicator = false;
         });
     }
+
+    $scope.addComment = function () {
+        if ($scope.commentDescription) {
+            var comment = {};
+            comment.commentDescription = $scope.commentDescription;
+            comment.taskId = $scope.taskDetail.id;
+            comment.userId = commonService.getUserid();
+            $rootScope.loaderIndicator = true;
+            httpService.postComment(comment).then(function (data) {
+                if (data.data.message == "comment posted successfully.") {
+                    //get comment list
+                    $scope.commentDescription = "";
+                    $scope.getAllComments($scope.taskDetail.id);
+                    $rootScope.loaderIndicator = false;
+                }
+            });
+        }
+    }
+
+    $scope.addCommentChange = function()
+    {
+        if ($scope.commentDescription && $scope.commentDescription != "") {
+           $scope.anchorDisable = false;
+        }
+        else {
+            $scope.anchorDisable = true;
+        }
+    }
+
+    $scope.getAllComments = function(taskId)
+    {
+        $scope.commentList = {};
+        httpService.getAllComment(taskId).then(function (data) {
+            $rootScope.loaderIndicator = true;
+            if (data.data.message == 'Comments list') {
+                //get comment list
+                $scope.commentList = data.data.data;
+                $scope.countIndicator = $scope.commentList.length;
+                $rootScope.loaderIndicator = false;
+            }
+            else {
+                this.commentIndicator = false;
+                $rootScope.loaderIndicator = false;
+            }
+        });
+    }
+
+    $scope.replyComment = function (replyCommentDesc, commentId)
+    {
+        var comment = {};
+        comment.commentDescription = replyCommentDesc;
+        comment.taskId = $scope.taskDetail.id;
+        comment.userId =  commonService.getUserid();
+        comment.commentId = commentId;
+        $rootScope.loaderIndicator = true;;
+        httpService.replyComment(comment).then(function(data)
+        {
+            if(data.data.message == 'Comment replied!')
+            {
+                $scope.replyCommentDesc = "";
+                $scope.getAllComments($scope.taskDetail.id);
+                comment = {};
+            }
+        });
+    }
+
+    $scope.onReply = function(item)
+    {
+        $('#item_' + item.id).show();
+        $scope.anchorDisable = true;
+    }
+
+    $scope.addCommentReplyChange = function (replyCommentDesc)
+    {
+        if (replyCommentDesc && replyCommentDesc != "") {
+            $scope.anchorReplyDisable = false;
+        }
+        else {
+            $scope.anchorReplyDisable = true;;
+        }
+    }
+
+    $scope.checkIfReplyExists = function(id, List)
+    {
+        $scope.repliedObjectList = {};
+        $scope.repliedObjectList = $.grep(List, function (x) {
+            return x.commentId === id;
+        });
+        if($scope.repliedObjectList.length > 0 )
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+   
 });
+
+
+        
+       
+    
+

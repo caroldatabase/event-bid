@@ -30,9 +30,31 @@
         updateTask: updateTask,
         getCustomerTask: getCustomerTask,
         changePassword: changePassword,
-        getRecommendationTask: getRecommendationTask
-        
+        getRecommendationTask: getRecommendationTask,
+        postComment: postComment,
+        getAllComment: getAllComment,
+        replyComment: replyComment
     };
+
+    function postComment(comment) {
+        return $http.post(serviceBase + 'api/v1/comment/post', comment, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
+    function getAllComment(taskid) {
+        return $http.get(serviceBase + 'api/v1/comment/post?getCommentBy=task&taskId=' + taskid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function replyComment(comment) {
+        return $http.post(serviceBase + 'api/v1/comment/post?commentReply=yes', comment, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
 
     function updateTask(id, task) {
         return $http.post(serviceBase + 'api/v1/post-task/update/'+ id, task, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
