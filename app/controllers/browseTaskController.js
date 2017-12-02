@@ -41,6 +41,37 @@
         });
     }
 
+    $scope.showInterestPopup = function()
+    {
+        $('#taskDetailModal').modal('hide');
+        $('#showInterestPopup').modal('toggle');
+        $("#showInterestPopup").modal({ backdrop: "static" });
+        $('#showInterestPopup').modal('show');
+        $scope.interestedUser = {};
+        $scope.errorMessageIndicator = false;
+        $scope.interestedUser.offerImages = [];
+        $scope.interestedUser.showInterestCostType = $scope.showInterestCostType;
+        $scope.errorMessage = false;
+    }
+
+    $rootScope.$on("imageAdded", function (event, fileUploaded, imageType) {
+        if (fileUploaded) {
+            $scope.errorMessageIndicator = false;
+            if (imageType == "offerImages" && $scope.interestedUser.offerImages) { //push into array case and check if it exists.
+                if ($scope.interestedUser.offerImages.length < 3) {
+                    $scope.interestedUser.offerImages.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#offerImages').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.message = "Only three images are allowed for uploading.";
+                    commonService.scrollToTop();
+                }
+            }
+        }
+    });
     $scope.numPages = function () {
         return Math.ceil($scope.taskList.length / $scope.numPerPage);
     };
@@ -103,6 +134,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalGuest] = $scope.taskDetail.category_question['totalGuest'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.totalCost] = $scope.taskDetail.category_question['totalCost'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.costType] = $scope.taskDetail.category_question['costType'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Catering.costType];
                     break;
                 case CONSTANTS.CATEGORY.Cleaning:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.cleanersNeeded] = $scope.taskDetail.category_question['cleanersNeeded'];
@@ -113,6 +145,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.timeRequired] = $scope.taskDetail.category_question['timeRequired'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.totalCost] = $scope.taskDetail.category_question['totalCost'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.costType] = $scope.taskDetail.category_question['costType'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Cleaning.costType];
                     break;
                 case CONSTANTS.CATEGORY.Patisserie:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.cakeTypes] = $scope.taskDetail.category_question['cakeTypes'].join([separator = ',']);
@@ -123,6 +156,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.costType] = $scope.taskDetail.category_question['costType'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.totalCost] = $scope.taskDetail.category_question['totalCost'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.desertImages] = $scope.taskDetail.category_question['desertImages'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Patisserie.costType];
 
                     break;
                 case CONSTANTS.CATEGORY.Waiting_Staff:
@@ -132,7 +166,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalCostType] = $scope.taskDetail.category_question['totalCostType'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalWaiter] = $scope.taskDetail.category_question['totalWaiter'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.waitersTask] = $scope.taskDetail.category_question['waitersTask'];
-
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalCostType];
                     break;
                 case CONSTANTS.CATEGORY.Graphic_Design:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Graphic_Design.totalBudgetForbanners] = $scope.taskDetail.category_question['totalBudgetForbanners'];
@@ -141,12 +175,14 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Graphic_Design.additionalInformation] = $scope.taskDetail.category_question['additionalInformation'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Graphic_Design.graphicBanners] = $scope.taskDetail.category_question['graphicBanners'].join([separator = ',']);
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Graphic_Design.graphicImages] = $scope.taskDetail.category_question['graphicImages'];
+                    $scope.showInterestCostType = "Total Cost";
                     break;
                 case CONSTANTS.CATEGORY.Supply_Hire:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Supply_Hire.decriptionInDetail] = $scope.taskDetail.category_question['decriptionInDetail'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Supply_Hire.returnSupplies] = $scope.taskDetail.category_question['returnSupplies'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Supply_Hire.IscleaningPriceToBeIncluded] = $scope.taskDetail.category_question['IscleaningPriceToBeIncluded'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Supply_Hire.supplyTypes] = $scope.taskDetail.category_question['supplyTypes'].join([separator = ',']);;
+                    $scope.showInterestCostType = "Total Cost";
                     break;
                 case CONSTANTS.CATEGORY.Hair_and_Beauty:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.hairStyleRequired] = $scope.taskDetail.category_question['hairStyleRequired'];
@@ -157,12 +193,13 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.specialRequirement] = $scope.taskDetail.category_question['specialRequirement'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.serviceType] = $scope.taskDetail.category_question['serviceType'].join([separator = ',']);
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.hairType] = $scope.taskDetail.category_question['hairType'].join([separator = ',']);;;
-
+                    $scope.showInterestCostType = "Total Cost";
                     break;
                 case CONSTANTS.CATEGORY.Entertainment_and_talent:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Entertainment_and_talent.entertainerRequired] = $scope.taskDetail.category_question['entertainerRequired'].join([separator = ',']);
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Entertainment_and_talent.equipmentReadyForTalent] = $scope.taskDetail.category_question['equipmentReadyForTalent'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Entertainment_and_talent.thingsRequiredForTalent] = $scope.taskDetail.category_question['thingsRequiredForTalent'];
+                    $scope.showInterestCostType = "Total Cost";
                     break;
                 case CONSTANTS.CATEGORY.Car_and_Venue_Hire:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.carType] = $scope.taskDetail.category_question['carType'];
@@ -170,16 +207,20 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalCars] = $scope.taskDetail.category_question['totalCars'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalCost] = $scope.taskDetail.category_question['totalCost'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalCostType] = $scope.taskDetail.category_question['totalCostType'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalCostType];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalGuest] = $scope.taskDetail.category_question['totalGuest'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.venueCleaning] = $scope.taskDetail.category_question['venueCleaning'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.venueType] = $scope.taskDetail.category_question['venueType'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Car_and_Venue_Hire.totalCostType];
                     break;
                 case CONSTANTS.CATEGORY.Floristry:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.arrangementPresentation] = $scope.taskDetail.category_question['arrangementPresentation'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.costType] = $scope.taskDetail.category_question['costType'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.costType];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.flowersRequiredDescription] = $scope.taskDetail.category_question['flowersRequiredDescription'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.specialRequestDesc] = $scope.taskDetail.category_question['specialRequestDesc'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.totalCost] = $scope.taskDetail.category_question['totalCost'];
+                    $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Floristry.costType];
                     break;
                 case CONSTANTS.CATEGORY.Photography_Videography:
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.eventRequirement] = $scope.taskDetail.category_question['eventRequirement'].join([separator = ',']);;;
@@ -193,10 +234,10 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.totalGuestVideography] = $scope.taskDetail.category_question['totalGuestVideography'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.placesRequiredForVideographer] = $scope.taskDetail.category_question['placesRequiredForVideographer'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Photography_Videography.additionalCommentsVideographer] = $scope.taskDetail.category_question['additionalCommentsVideographer'];
-
+                    $scope.showInterestCostType = "Total cost";
                     break;
                 default:
-
+               
             }
             //$scope.taskDetail.category_question = angular.fromJson($scope.taskDetail.category_question);
         }
@@ -215,26 +256,32 @@
     $scope.showInterest = function (data) {
         if ($rootScope.isLogin == true) {
             //$rootScope.loaderIndicator = true;
-            var interestedUser = {};
-            interestedUser.taskId = data.id;
-            interestedUser.taskPostedUserID = data.post_user_id;
-            interestedUser.showInterestedUserID = commonService.getUserid();
-            interestedUser.taskStatus = "looking_user_offers";
-            httpService.showInterest(interestedUser).then(function (response) {
-                if (response.data.code == 200) {
-                    ////$rootScope.loaderIndicator = false;
-                    //$scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
-                    //$scope.interested = true;
-                    $('#taskDetailModal').modal('toggle');
-                    $('#sucessShowInterestPopup').modal('show');
-                }
-            });
+
+            $scope.showInterestForm.$setSubmitted(true);
+            if ($scope.showInterestForm.$valid) {
+                var interestedUser = {};
+                interestedUser.taskId = data.id;
+                interestedUser.taskPostedUserID = data.post_user_id;
+                interestedUser.showInterestedUserID = commonService.getUserid();
+                interestedUser.taskStatus = "looking_user_offers";
+                httpService.showInterest(interestedUser).then(function (response) {
+                    if (response.data.code == 200) {
+                        ////$rootScope.loaderIndicator = false;
+                        //$scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";
+                        //$scope.interested = true;
+                        $('#showInterestPopup').modal('hide');
+                        $('#sucessShowInterestPopup').modal('show');
+                    }
+                });
+            }
+            else {
+                $scope.errorMessage = true;
+            }
         }
         else {
             $('#taskDetailModal').modal('toggle');
             $('#promptLoginPopup').modal('show');
         }
-
     }
 
     $scope.seeMoreClick = function () {

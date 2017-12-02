@@ -2221,3 +2221,10 @@ p.comment-footer span:last-child {
     padding-right: 15px;
     font-size: 16px;
 }
+.commenter.sub-reply {
+    padding-left: 50px;
+}
+p.commenter-desc.thanks-posting {
+    margin-left: 0;
+    float: left;
+}

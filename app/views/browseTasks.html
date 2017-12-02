@@ -140,148 +140,207 @@
 
 <!-- Modal -->
 <div id="taskDetailModal" class="modal browse-task-detail-pop fade" role="dialog">
-  <div class="modal-dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">{{taskDetail.event_title}}</h4>
-      </div>
-      <div class="modal-body d-listing">
-          <div class="m-body-top">
-              <div class="d-left">
-                  <p><b>Event Type </b>  {{taskDetail.event_type}}</p>
-                  <p><b>Category Name</b>  {{taskDetail.category.name}}</p>
-                  <p><b>Date Required</b> {{taskDetail.date_required }}</p>
-                  <p><b>Time From</b>  {{taskDetail.time_from}}</p>
-                  <p><b>Time To</b> {{taskDetail.time_to}}</p>
-                  </div>
-              <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
-              </div>
-          <div class="event-detail-pop m-body-mid">
-              <ul>
-                  <li ng-repeat="(key, val) in taskDetail.category_Detail">
-                      <div data-ng-if="key == 'Desert Images for reference' || key =='Graphic images' " >
-                          <div data-ng-if="val.length > 0" data-ng-repeat="data in val track by $index">
-                              <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                          </div>
-                      </div>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{taskDetail.event_title}}</h4>
+            </div>
+            <div class="modal-body d-listing">
+                <div class="m-body-top">
+                    <div class="d-left">
+                        <p><b>Event Type </b>  {{taskDetail.event_type}}</p>
+                        <p><b>Category Name</b>  {{taskDetail.category.name}}</p>
+                        <p><b>Date Required</b> {{taskDetail.date_required }}</p>
+                        <p><b>Time From</b>  {{taskDetail.time_from}}</p>
+                        <p><b>Time To</b> {{taskDetail.time_to}}</p>
+                    </div>
+                    <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
+                </div>
+                <div class="event-detail-pop m-body-mid">
+                    <ul>
+                        <li ng-repeat="(key, val) in taskDetail.category_Detail">
+                            <div data-ng-if="key == 'Desert Images for reference' || key =='Graphic images' ">
+                                <div data-ng-if="val.length > 0" data-ng-repeat="data in val track by $index">
+                                    <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                                </div>
+                            </div>
 
-                      <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
-                          <b> {{key}}</b> <span> {{val}}</span>
-                      </div>
-                  </li>
-              </ul>
-          </div>
-          <div class="m-body-bottom"><p>
-                                         <b>Task Posted by :</b><br />
-                                         <b>name : </b>  {{taskDetail.post_user_detail.first_name}}</br>
-                                         <b> rating : </b>  {{taskDetail.post_user_detail.rating}} 
-                                         <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                                        </br>
-                                         <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
-          </p>
-              <div class="comment-box-browse">
-                  <div class="comment-head">
-                      <div class="header-comment"><div class="line"></div><div class="title interactive">{{countIndicator}} comments about this Task</div></div>
-                      <p class="comment-para">
-                          Comment below for more details and remember that for your safety, not to share personal information e.g. email and phone numbers.
-                      </p>
-                  </div>
-                  <div class="commenter">
-                      <div class="commenter-pic">
-                          <a href="#"><img src="app/images/profile-btn.png" alt="user"></a>
-                      </div>
-                      <div class="commenter-text">
-                          <textarea value="Ask a question" data-ng-model="commentDescription" name="description" data-ng-change="addCommentChange()"></textarea>
-                          <p class="comment-footer">
-                              <!--<span><a href="#"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>-->
-                              <span><a data-ng-click="addComment()" ng-class="{disabled : anchorDisable}"
-                            ng-style="{'color': anchorDisable  ? 'grey' : 'black' }">Send</a></span>
-                          </p>
-                      </div>
-                  </div>
-                  <div class="commenter" data-ng-repeat="item in commentList">
-                      <div id="commentItem" data-ng-if="item.commentId == 0">
-                          <div class="commenter-pic">
-                              <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
-                          </div>
-                          <div class="commenter-text">
-                              <h4><a href="#">{{item.user_detail.first_name}} {{item.user_detail.last_name}}</a></h4>
-                              <p class="commenter-desc">
-                                  {{item.commentDescription}}
-                              </p>
-                              <p class="timing-reply"><span>{{item.created_at | timeago }}</span> <span><a data-ng-click="onReply(item)"><i class="fa fa-reply"></i> Reply</a></span></p>
-                          </div>
-                      </div>
+                            <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
+                                <b> {{key}}</b> <span> {{val}}</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="m-body-bottom">
+                    <p>
+                        <b>Task Posted by :</b><br />
+                        <b>name : </b>  {{taskDetail.post_user_detail.first_name}}</br>
+                        <b> rating : </b>  {{taskDetail.post_user_detail.rating}}
+                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                        </br>
+                        <b>  Task posted date : </b>  {{ formatDate(taskDetail.created_at) | date:'MM/dd/yyyy'}}
+                    </p>
+                    <div class="comment-box-browse">
+                        <div class="comment-head">
+                            <div class="header-comment"><div class="line"></div><div class="title interactive">{{countIndicator}} comments about this Task</div></div>
+                            <p class="comment-para">
+                                Comment below for more details and remember that for your safety, not to share personal information e.g. email and phone numbers.
+                            </p>
+                        </div>
+                        <div class="commenter">
+                            <div class="commenter-pic">
+                                <a href="#"><img src="app/images/profile-btn.png" alt="user"></a>
+                            </div>
+                            <div class="commenter-text">
+                                <textarea value="Ask a question" data-ng-model="commentDescription" name="description" data-ng-change="addCommentChange()"></textarea>
+                                <p class="comment-footer">
+                                    <!--<span><a href="#"><i class="fa fa-cloud-upload" aria-hidden="true"></i></a></span>-->
+                                    <span>
+                                        <a data-ng-click="addComment()" ng-class="{disabled : anchorDisable}"
+                                           ng-style="{'color': anchorDisable  ? 'grey' : 'black' }">Send</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="commenter" data-ng-repeat="item in commentList">
+                            <div id="commentItem" data-ng-if="item.commentId == 0">
+                                <div class="commenter-pic">
+                                    <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                </div>
+                                <div class="commenter-text">
+                                    <h4><a href="#">{{item.user_detail.first_name}} {{item.user_detail.last_name}}</a></h4>
+                                    <p class="commenter-desc">
+                                        {{item.commentDescription}}
+                                    </p>
+                                    <p class="timing-reply"><span>{{item.created_at | timeago }}</span> <span><a data-ng-click="onReply(item)"><i class="fa fa-reply"></i> Reply</a></span></p>
+                                </div>
+                            </div>
 
-                      <div style="display: none" id="item_{{item.id}}">
-                          <div class="commenter-pic">
-                              <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
-                          </div>
-                          <div class="commenter-text">
-                              <textarea value="Ask a question" data-ng-model="replyCommentDesc"
-                                        name="replyDescription" data-ng-change="addCommentReplyChange()"></textarea>
-                              <p class="comment-footer">
-                                  <span>
-                                      <a data-ng-click="replyComment(replyCommentDesc, item.id)"
-                                         ng-class="{disabled : anchorReplyDisable}"
-                                         ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
-                                  </span>
-                              </p>
-                          </div>
-                      </div>
-                      <div>
-                          <!--reply list div starts-->
-                          <div data-ng-if="checkIfReplyExists(item.id, commentList)">
-                              <!--reply list div starts-->
-                              <div data-ng-repeat="data in repliedObjectList">
-                                
-                                  <div class="commenter sub-reply">
-                                      <div class="commenter-pic">
-                                          <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
-                                      </div>
-                                      <div class="commenter-text">
-                                          <h4><a href="#">{{data.user_detail.first_name}} {{data.user_detail.last_name}}</a></h4>
-                                          <p class="commenter-desc">{{data.commentDescription}}</p>
-                                          <p class="timing-reply">
-                                              <span>{{data.created_at | timeago }}</span> <span>
-                                                  <a data-ng-click="onReply(data)"><i class="fa fa-reply"></i> Reply</a>
-                                              </span>
-                                          </p>
-                                      </div>
-                                  </div>
-                                  <div style="display: none" id="item_{{data.id}}">
-                                      <div class="commenter-pic">
-                                          <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
-                                      </div>
-                                      <div class="commenter-text">
-                                          <textarea value="Ask a question" data-ng-model="replyCommentDesc"
-                                                    name="replyDescription" data-ng-change="addCommentReplyChange(replyCommentDesc)"></textarea>
-                                          <p class="comment-footer">
-                                              <span>
-                                                  <a data-ng-click="replyComment(replyCommentDesc, item.id)"
-                                                     ng-class="{disabled : anchorReplyDisable}"
-                                                     ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
-                                              </span>
-                                          </p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div><!--reply list div ends-->
-                  </div>
-              </div>
-          </div>
-          </div>
-        <div data-ng-show="interested" class="thank-u-msg"> {{interestMsg}} </div>
-      <div class="modal-footer">
-         <button type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)">Show Interest</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+                            <div style="display: none" id="item_{{item.id}}">
+                                <div class="commenter-pic">
+                                    <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                </div>
+                                <div class="commenter-text">
+                                    <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                              name="replyDescription" data-ng-change="addCommentReplyChange()"></textarea>
+                                    <p class="comment-footer">
+                                        <span>
+                                            <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                               ng-class="{disabled : anchorReplyDisable}"
+                                               ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                        </span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <!--reply list div starts-->
+                                <div data-ng-if="checkIfReplyExists(item.id, commentList)">
+                                    <!--reply list div starts-->
+                                    <div data-ng-repeat="data in repliedObjectList">
+
+                                        <div class="commenter sub-reply">
+                                            <div class="commenter-pic">
+                                                <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                            </div>
+                                            <div class="commenter-text">
+                                                <h4><a href="#">{{data.user_detail.first_name}} {{data.user_detail.last_name}}</a></h4>
+                                                <p class="commenter-desc thanks-posting">{{data.commentDescription}}</p>
+                                                <p class="timing-reply">
+                                                    <span>{{data.created_at | timeago }}</span> <span>
+                                                        <a data-ng-click="onReply(data)"><i class="fa fa-reply"></i> Reply</a>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div style="display: none" id="item_{{data.id}}">
+                                            <div class="commenter-pic">
+                                                <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                            </div>
+                                            <div class="commenter-text">
+                                                <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                                          name="replyDescription" data-ng-change="addCommentReplyChange(replyCommentDesc)"></textarea>
+                                                <p class="comment-footer">
+                                                    <span>
+                                                        <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                                           ng-class="{disabled : anchorReplyDisable}"
+                                                           ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                                    </span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!--reply list div ends-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-ng-click="showInterestPopup()">Show Interest</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
+    </div>
+    <div class="modal fade" id="showInterestPopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">{{taskDetail.event_title}}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form name="showInterestForm" id="showInterestForm" novalidate class="signupform">
+                            <div data-ng-if="errorMessage" class="alert alert-danger">
+                               Please enter required details
+                            </div>
+                            <div>
+                                <b> Offer cost</b>
+                               
+                                <input type="text" class="form-control" ng-model="interestedUser.offerCost" name="offerCost" required
+                                       ng-class="{error : showInterestForm.offerCost.$invalid && showInterestForm.$submitted}">
+                            </div>
+                            <div>
+                                <b>Offer type</b>
+                                <input type="text" data-ng-model="interestedUser.showInterestCostType" disabled class="form-control" name="offerType" required
+                                       ng-class="{error : offerType.$invalid}">
+                            </div>
+                            <div class="comment-box-browse">
+                                <div class="commenter">
+                                    <b>Please comment on your offer : </b>
+                                    <div class="commenter-text">
+                                        <textarea value="Ask a question" data-ng-model="interestedUser.commentDescription" name="description"
+                                                  required ng-class="{error : showInterestForm.description.$invalid && showInterestForm.$submitted}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <label>Upload photos (upto 3 photos )</label>
+                            <input type="file" class="form-control" name="offerImages" id="offerImages"
+                                   fileread="offerImages" image-type="offerImages" accept="image/*" data-ng-model="offerImages" />
+                            <div data-ng-if="interestedUser.offerImages.length > 0" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                            </div>
+                            <div data-ng-if="interestedUser.offerImages.length == 0">
+                                <img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">
+                            </div>
+                            <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
+                                {{message}}
+                            </div>
 
-  </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)" value="Show Interest">
+                                    </div></div>
+                        </form>
 </div>
+            </div>
+        </div>
 
-  
+    </div>
+        </div>
