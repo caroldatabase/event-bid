@@ -487,17 +487,17 @@
       var now = $( "#rerun-img" ).attr( "src" );
       var status, label;
 
-      if ( id == "user-status-online" && now != "images/button_online.png" ) {
+      if (id == "user-status-online" && now != "app/chat_view/images/button_online.png") {
         status = "online";
         label  = i18n.connected;
       }
 
-      else if ( id == "user-status-busy" && now != "images/busy.png" ) {
+      else if (id == "user-status-busy" && now != "app/chat_view/images/busy.png") {
         status = "busy";
         label  = i18n.busy;
       }
 
-      else if ( id == "user-status-offline" && now != "images/button_offline.png" ) {
+      else if ( id == "user-status-offline" && now != "app/chat_view/images/button_offline.png" ) {
         status = "offline";
         label  = i18n.offline;
       }
@@ -1238,7 +1238,7 @@
 
     //Change theme function
     function main_set_theme( theme ) {
-      var theme_css = "themes/" + theme + "/jquery-ui.min.css";    
+      var theme_css = "app/chat_view/themes/" + theme + "/jquery-ui.min.css";    
       $( "#theme" ).attr( "href" , theme_css );
       return false;
     }
