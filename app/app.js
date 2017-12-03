@@ -130,10 +130,6 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/changePassword.html",
             controller: "changePasswordCtrl"
         })
-        .when("/message", {
-            templateUrl: "app/views/messaging.html",
-            controller: "chat"
-        })
     .otherwise({
         redirect: '/'
     });
