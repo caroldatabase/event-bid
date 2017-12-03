@@ -121,23 +121,23 @@ body {
 }
 
 .online {
-	background-image: url("../images/button_online.png");
+	background-image: url("app/chat_view/images/button_online.png");
 }
 
 .busy {
-	background-image: url("../images/busy.png");
+	background-image: url("app/chat_view/images/busy.png");
 }
 
 .away {
-	background-image: url("../images/status-away.png");
+	background-image: url("app/chat_view/images/status-away.png");
 }
 
 .offline {
-	background-image: url("../images/button_offline.png");
+	background-image: url("app/chat_view/images/button_offline.png");
 }
 
 .logout {
-	background-image: url("../images/button_offline.png");
+	background-image: url("app/chat_view/images/button_offline.png");
 }
 
 .online, .busy, .away, .offline, .logout {
@@ -201,7 +201,7 @@ body {
 	font-size: 9px;
 	width: 66%;
 	text-align: left;
-	background-image: url("../images/mini-comment.png");
+	background-image: url("app/chat_view/images/mini-comment.png");
 	background-repeat: no-repeat;
 	display: inline;
 	background-position: 2px 5px;
