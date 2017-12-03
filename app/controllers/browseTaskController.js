@@ -264,6 +264,10 @@
                 interestedUser.taskPostedUserID = data.post_user_id;
                 interestedUser.showInterestedUserID = commonService.getUserid();
                 interestedUser.taskStatus = "looking_user_offers";
+                interestedUser.offerCost = $scope.interestedUser.offerCost;
+                interestedUser.showInterestCostType = $scope.interestedUser.showInterestCostType;
+                interestedUser.commentDescription = $scope.interestedUser.commentDescription;
+                interestedUser.interestedUser.offerImages = $scope.interestedUser.offerImages;
                 httpService.showInterest(interestedUser).then(function (response) {
                     if (response.data.code == 200) {
                         ////$rootScope.loaderIndicator = false;

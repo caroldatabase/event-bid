@@ -1,17 +1,17 @@
 ﻿
 
 
-var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies', 'chat']);
-angular.module('chat').constant('config', {
-    rltm: {
-        service: "pubnub",
-        config: {
-            publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
-            subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179'
-        }
+var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
+//angular.module('chat').constant('config', {
+//    rltm: {
+//        service: "pubnub",
+//        config: {
+//            publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
+//            subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179'
+//        }
 
-    }
-});
+//    }
+//});
 /*angular.module('chat').constant('config', {
     rltm: {
         service: "pubnub",
