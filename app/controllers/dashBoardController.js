@@ -90,7 +90,7 @@
             httpService.getAllBlogs().then(function (response) {
                 $rootScope.blogList = response.data.data;
                 $rootScope.loaderIndicator = false;
-                alert("hello");
+                //alert("hello");
             });
         }
         else
