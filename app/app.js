@@ -164,12 +164,3 @@ app.run( function($rootScope, $location) {
         }         
     });
 })
-
-/*app.run(['Pubnub', 'currentUser',  function (Pubnub, currentUser) {
-    Pubnub.init({
-        publish_key: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
-        subscribe_key: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179',
-        uuid: currentUser
-    });
-}]);
-*/
