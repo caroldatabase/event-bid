@@ -14,7 +14,7 @@
                 $scope.user = response.data.data;
                 getCustomerTask(publicProfileId);
                 $scope.isEdit = false;
-                $route.reload();
+                //$route.reload();
             });
         }
         else {

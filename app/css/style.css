@@ -1416,6 +1416,13 @@ color:#fff;
     text-shadow: 3px 1px 7px #018479;
     color:#fff;
 }
+ul.multiselect-container.dropdown-menu.checkbox-fix input[type="checkbox"] {
+    left: 30px;
+    top: 7px;
+}
+ul.multiselect-container.dropdown-menu.checkbox-fix li {
+    margin-bottom: 5px;
+}
 .user-pic {
     height: 110px;
     border-radius: 100%;
