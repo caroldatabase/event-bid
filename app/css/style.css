@@ -246,6 +246,13 @@ span.assign-rating {
 .content-body{
 	padding-top:55px;
 	}
+a.assign-view {
+    margin-top: 50px;
+    display: block;
+}
+button.btn.btn-default.ng-binding.manage-assign {
+    margin-top: -67px;
+}
 .eb-homeSlider{
 	position:relative;
 	margin-bottom:50px;
