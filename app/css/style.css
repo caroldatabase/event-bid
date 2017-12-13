@@ -338,7 +338,7 @@ button.btn.btn-default.ng-binding.manage-assign {
     background: #0b7f74;
 	}
 
-textarea.ng-pristine.ng-valid.ng-empty.ng-touched {
+textarea.people-int {
     display: block;
     float: left;
     width: 100%;
