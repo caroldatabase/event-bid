@@ -219,7 +219,7 @@
                                     <label class="control-label">Categories <span data-ng-show="user.selectedCategories.length > 3" style="color: red">maximum three categories can be selected.</span></label>
                                     <div class="form-field" ng-class="{error : user.selectedCategories.length > 3 }">
 
-                                        <select class="form-control" name="selectedCategories" id="selectedCategories" ng-model="user.selectedCategories" multiple
+                                        <select class="form-control checkbox-fix" name="selectedCategories" id="selectedCategories" ng-model="user.selectedCategories" multiple
                                                 data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>
 
                                     </div>
