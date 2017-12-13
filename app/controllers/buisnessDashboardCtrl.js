@@ -15,6 +15,7 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getBuisnessTaskOpen();
+            alert("hello");
             
         }
 
