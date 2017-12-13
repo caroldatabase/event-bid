@@ -103,6 +103,12 @@ button.close {
     opacity: .8;
 	text-shadow: 0 0px 0 #fff;
 	}
+.people-int ul li {
+    background: #eee;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
 .heading{
 	font-size: 40px;
 	line-height: 1.1;
