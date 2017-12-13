@@ -102,7 +102,7 @@ app.config(function ($routeProvider,$locationProvider) {
        
         .when("/my-dashboard", {
             templateUrl: "app/views/businessDashboard.html",
-            controller: "buisnessDashboardctrl"
+            controller: "buisnessDashboardCtrl"
         })
         .when("/change-password", {
             templateUrl: "app/views/changePassword.html",
