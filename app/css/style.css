@@ -338,6 +338,13 @@ button.btn.btn-default.ng-binding.manage-assign {
     background: #0b7f74;
 	}
 
+textarea.ng-pristine.ng-valid.ng-empty.ng-touched {
+    display: block;
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+
 .owl-nav .owl-prev, .owl-nav .owl-next{
 	position:absolute;
 	top:50%;
