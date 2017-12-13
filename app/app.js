@@ -2,29 +2,7 @@
 
 
 var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
-//angular.module('chat').constant('config', {
-//    rltm: {
-//        service: "pubnub",
-//        config: {
-//            publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
-//            subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179'
-//        }
 
-//    }
-//});
-/*angular.module('chat').constant('config', {
-    rltm: {
-        service: "pubnub",
-        config: {
-           // publishKey: 'pub-c-c67e90d8-d2be-4dcf-9d47-1779b018b0da',
-           // subscribeKey: 'sub-c-b96af96e-d32a-11e7-b83f-86d028961179',
-            publishKey: "demo",
-            subscribeKey: "demo"
-        }
-        // or use socket.io!
-        // https://github.com/pubnub/rltm.js#socketio
-    }
-});*/
 //window.fbAsyncInit = function () {
 //    FB.init({
 //        appId: '791838100968348',
@@ -130,6 +108,10 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/changePassword.html",
             controller: "changePasswordCtrl"
         })
+         .when("/message", {
+             templateUrl: "app/views/messaging.html",
+             controller: "messagingCtrl"
+         })
     .otherwise({
         redirect: '/'
     });

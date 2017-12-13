@@ -300,10 +300,102 @@
                             <span><b>{{taskDetail.seeker_user_detail.first_name}} {{taskDetail.seeker_user_detail.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
-                            <button type="button" class="btn btn-default" data-ng-click="completeTask(taskDetail)">Complete</button>
+                            <button type="button" class="btn btn-default" data-ng-click="messageView()">Message {{taskDetail.seeker_user_detail.first_name}} </button>
+                            
                         </li>
+                        <li data-ng-show="messageUser">
+                            <div class="commenter-pic">
+                                <a href="#"><img src="app/images/profile-btn.png" alt="user"></a>
+                            </div>
+                            <div class="commenter-text">
+                                <textarea value="Ask a question" data-ng-model="commentDescription" name="description" data-ng-change="addCommentChange()"></textarea>
+                                <p class="comment-footer">
+                                    <span>
+                                        <a data-ng-click="addComment()" ng-class="{disabled : anchorDisable}"
+                                           ng-style="{'color': anchorDisable  ? 'grey' : 'black' }">Send</a>
+                                    </span>
+                                </p>
+                            </div>
+                        </li>
+                            View chat history : 
                         <li>
-                            How was your experience ? Submit review before completing a task.
+                            <div class="commenter" data-ng-repeat="item in commentList" data-ng-if="CommentRecordIndicator">
+                                <div id="commentItem" data-ng-if="item.commentId == 0">
+                                    <div class="commenter-pic">
+                                        <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                    </div>
+                                    <div class="commenter-text">
+                                        <h4><a href="#">{{item.user_detail.first_name}} {{item.user_detail.last_name}}</a></h4>
+                                        <p class="commenter-desc">
+                                            {{item.commentDescription}}
+                                        </p>
+                                        <p class="timing-reply"><span>{{item.created_at | timeago }}</span> <span><a data-ng-click="onReply(item)"><i class="fa fa-reply"></i> Reply</a></span></p>
+                                    </div>
+                                </div>
+
+                                <div style="display: none" id="item_{{item.id}}">
+                                    <div class="commenter-pic">
+                                        <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                    </div>
+                                    <div class="commenter-text">
+                                        <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                                  name="replyDescription" data-ng-change="addCommentReplyChange(replyCommentDesc)"></textarea>
+                                        <p class="comment-footer">
+                                            <span>
+                                                <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                                   ng-class="{disabled : anchorReplyDisable}"
+                                                   ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <!--reply list div starts-->
+                                    <div data-ng-if="checkIfReplyExists(item.id, commentList)">
+                                        <!--reply list div starts-->
+                                        <div data-ng-repeat="data in repliedObjectList">
+
+                                            <div class="commenter sub-reply">
+                                                <div class="commenter-pic">
+                                                    <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                                </div>
+                                                <div class="commenter-text">
+                                                    <h4><a href="#">{{data.user_detail.first_name}} {{data.user_detail.last_name}}</a></h4>
+                                                    <p class="commenter-desc thanks-posting">{{data.commentDescription}}</p>
+                                                    <p class="timing-reply">
+                                                        <span>{{data.created_at | timeago }}</span> <span>
+                                                            <a data-ng-click="onReply(data)"><i class="fa fa-reply"></i> Reply</a>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div style="display: none" id="item_{{data.id}}">
+                                                <div class="commenter-pic">
+                                                    <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                                </div>
+                                                <div class="commenter-text">
+                                                    <textarea value="Ask a question" data-ng-model="replyCommentDesc"
+                                                              name="replyDescription" data-ng-change="addCommentReplyChange(replyCommentDesc)"></textarea>
+                                                    <p class="comment-footer">
+                                                        <span>
+                                                            <a data-ng-click="replyComment(replyCommentDesc, item.id)"
+                                                               ng-class="{disabled : anchorReplyDisable}"
+                                                               ng-style="{'color': anchorReplyDisable  ? 'grey' : 'black' }">Send</a>
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!--reply list div ends-->
+                                </div>
+                            </div>
+                            <div data-ng-if="!CommentRecordIndicator">
+                                No chat history found.
+                            </div>
+                        </li>
+                        <li>Task completed : <button type="button" class="btn btn-default" data-ng-click="completeTask(taskDetail)">Complete</button></li>
+                        <li>
+                            How was your experience ? Submit reviews how was your experience with this user. 
                             <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
                         </li>
                     </ul>

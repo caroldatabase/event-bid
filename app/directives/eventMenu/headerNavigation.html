@@ -39,7 +39,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <li><a data-ng-show="isLogin" href="#/my-dashboard">My Dashboard</a></li>
                                 <li><a data-ng-show="isLogin" href="#/change-password">Change Password</a></li>
-                               
+                                <li><a data-ng-show="isLogin" href="#/message">Message</a></li>
                                <!--<li><a data-ng-show="isLogin && UserType == 'taskSeeker'" href="#/customer-dashboard">My Dashboard</a></li>-->
                                 <li><a data-ng-click="logout();">Logout</a></li>
                             </ul>
@@ -119,7 +119,7 @@
                             <div class="form-field">
                                 <label>Your email address:</label>
                                 <input type="email" class="form-control" data-ng-model="emailID" required autofocus data-ng-blur="checkEmail(forgotPassForm)" ng-pattern="emailFormat"
-                                       ng-class="{error : forgotPassForm.email.$invalid && forgotPassForm.$submitted}" name="email" id="email">
+                                       ng-class="{error : forgotPassForm.email.$invalid && forgotPassForm.$submitted}" name="email1" id="email1">
                             </div>
                         </div>
                         <p class="eb-note">

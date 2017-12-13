@@ -12,6 +12,7 @@
             $scope.deleteMsg = false;
             $scope.assignMsg = false;
             $scope.reviewsIndicator = false;
+            $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getBuisnessTaskOpen();
             
@@ -27,6 +28,7 @@
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             getInterestedUsersList(data.id);
             getTaskDetail();
+           
         }
         function getTaskDetail()
         {
@@ -148,6 +150,8 @@
             $scope.taskDetail.category_Detail = {};
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             getTaskDetail();
+            $scope.messageUser = false;
+            $scope.getAllComments(data.id);
         }
         function getInterestedUsersList(taskid)
         {
@@ -222,7 +226,60 @@
             });
         }
 
-       
+        $scope.addCommentChange = function () {
+            if ($scope.commentDescription && $scope.commentDescription != "") {
+                $scope.anchorDisable = false;
+            }
+            else {
+                $scope.anchorDisable = true;
+            }
+        }
+
+        $scope.addComment = function () {
+            if ($scope.commentDescription) {
+                var comment = {};
+                comment.commentDescription = $scope.commentDescription;
+                comment.taskId = $scope.taskDetail.id;
+                comment.userId = commonService.getUserid();
+                $rootScope.loaderIndicator = true;
+                httpService.postComment(comment).then(function (data) {
+                    if (data.data.message == "comment posted successfully.") {
+                        //get comment list
+                        $scope.commentDescription = "";
+                        $scope.getAllComments($scope.taskDetail.id);
+                        $rootScope.loaderIndicator = false;
+                        $scope.messageUser = false;
+                    }
+                });
+            }
+        }
+        $scope.getAllComments = function (taskId) {
+            $scope.commentList = {};
+            httpService.getAllComment(taskId).then(function (data) {
+                $rootScope.loaderIndicator = true;  
+                if (data.data.message == 'Comments list') {
+                    //get comment list
+                    $scope.commentList = data.data.data;
+                    $scope.countIndicator = $scope.commentList.length;
+                    $rootScope.loaderIndicator = false;
+                    $scope.CommentRecordIndicator = true;
+                }
+                if (data.data.message == 'Record not found!') {
+                    this.commentIndicator = false;
+                    $rootScope.loaderIndicator = false;
+                    $scope.CommentRecordIndicator = false;
+                }
+                else {
+                    this.commentIndicator = false;
+                    $rootScope.loaderIndicator = false;
+                }
+            });
+        }
+        $scope.messageView = function()
+        {
+            $scope.messageUser = true;
+            $scope.commentDescription = "";
+        }
         function getCustomerTask() {
             $rootScope.loaderIndicator = true;
             httpService.getCustomerTask($rootScope.userID).then(function (response) {
@@ -289,4 +346,47 @@
                 $rootScope.loaderIndicator = false;
             });
         }
+        $scope.onReply = function (item) {
+            $('#item_' + item.id).show();
+            $scope.anchorDisable = true;
+        }
+
+        $scope.addCommentReplyChange = function (replyCommentDesc) {
+            if (replyCommentDesc && replyCommentDesc != "") {
+                $scope.anchorReplyDisable = false;
+            }
+            else {
+                $scope.anchorReplyDisable = true;;
+            }
+        }
+
+        $scope.checkIfReplyExists = function (id, List) {
+            $scope.repliedObjectList = {};
+            $scope.repliedObjectList = $.grep(List, function (x) {
+                return x.commentId === id;
+            });
+            if ($scope.repliedObjectList.length > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        $scope.replyComment = function (replyCommentDesc, commentId) {
+            var comment = {};
+            comment.commentDescription = replyCommentDesc;
+            comment.taskId = $scope.taskDetail.id;
+            comment.userId = commonService.getUserid();
+            comment.commentId = commentId;
+            $rootScope.loaderIndicator = true;;
+            httpService.replyComment(comment).then(function (data) {
+                if (data.data.message == 'Comment replied!') {
+                    $scope.replyCommentDesc = "";
+                    $scope.getAllComments($scope.taskDetail.id);
+                    comment = {};
+                }
+            });
+        }
+
 }])
