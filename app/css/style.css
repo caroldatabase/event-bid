@@ -95,6 +95,11 @@ button.close {
     cursor: pointer;
     padding: 5px 10px;
 }
+span.assign-rating {
+    display: block;
+    margin-top: 25px;
+    margin-left: -50px;
+}
 .modal-content .close:hover, .modal-content .close:focus {
     color: #179a8d;
     text-decoration: none;
