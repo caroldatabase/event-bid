@@ -88,6 +88,9 @@ button.close {
     opacity: 1;
 	}
 
+p.commenter-desc {
+    float: left;
+}
 .modal-content button.close {
     background: #333 none repeat scroll 0 0;
     border: 0 none;

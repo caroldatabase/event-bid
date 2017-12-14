@@ -112,6 +112,10 @@ app.config(function ($routeProvider,$locationProvider) {
              templateUrl: "app/views/messaging.html",
              controller: "messagingCtrl"
          })
+         .when("/payment", {
+             templateUrl: "app/views/payment.html",
+             controller: "paymentCtrl"
+         })
     .otherwise({
         redirect: '/'
     });
