@@ -15,7 +15,7 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getBuisnessTaskOpen();
-            alert("hello");
+           
             
         }
 
@@ -99,6 +99,7 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.specialRequestsForHairStyle] = $scope.taskDetail.category_question['specialRequestsForHairStyle'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.specialRequirement] = $scope.taskDetail.category_question['specialRequirement'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.serviceType] = $scope.taskDetail.category_question['serviceType'].join([separator = ',']);
+                    if($scope.taskDetail.category_question['hairType'])
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Hair_and_Beauty.hairType] = $scope.taskDetail.category_question['hairType'].join([separator = ',']);;;
 
                     break;
@@ -150,9 +151,10 @@
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
-            getTaskDetail();
             $scope.messageUser = false;
             $scope.getAllComments(data.id);
+            getTaskDetail();
+           
         }
         function getInterestedUsersList(taskid)
         {
