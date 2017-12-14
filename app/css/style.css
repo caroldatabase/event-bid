@@ -91,6 +91,13 @@ button.close {
 p.commenter-desc {
     float: left;
 }
+.form-container.payment-form {
+    width: 75%;
+    margin: 30px auto;
+}
+.payment-form select.form-control {
+    height: 45px;
+}
 .modal-content button.close {
     background: #333 none repeat scroll 0 0;
     border: 0 none;
