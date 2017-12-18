@@ -33,11 +33,19 @@
         getRecommendationTask: getRecommendationTask,
         postComment: postComment,
         getAllComment: getAllComment,
-        replyComment: replyComment
+        replyComment: replyComment,
+        makePayment : makePayment 
     };
 
     function postComment(comment) {
         return $http.post(serviceBase + 'api/v1/comment/post', comment, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
+    function makePayment(user) {
+        return $http.post(serviceBase + 'api/v1/makePayment', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 
