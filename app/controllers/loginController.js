@@ -113,7 +113,7 @@
                         $rootScope.isLogin = true;
                         $rootScope.UserType = userRes.userType;
                         $rootScope.firstName = userRes.firstName;
-                        
+                        commonService.reloadRoute();
                             $('#signUpPopup').modal('toggle');
                             if($rootScope.postTaskClicked == true)
                             {

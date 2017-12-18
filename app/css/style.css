@@ -2280,3 +2280,30 @@ p.commenter-desc.thanks-posting {
     margin-left: 0;
     float: left;
 }
+.button-group {
+    text-align: left;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+.form-container.payment-form {
+    width: 70%;
+    margin: 30px auto;
+}
+.form-container.payment-form {
+    width: 70%;
+    margin: 30px auto;
+    border: 1px solid #ccc;
+    padding: 25px;
+    border-radius: 5px;
+    background: #eee;
+}
+.paymentOption.form-field input[type="radio"] {
+    height: 25px;
+    width: 25px;
+    margin-top: -2px;
+    margin-right: 0px;
+    float: left;
+}
+span.payment-radio-text {
+    margin-left: 15px;
+}

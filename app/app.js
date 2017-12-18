@@ -64,6 +64,14 @@ app.config(function ($routeProvider,$locationProvider) {
                 templateUrl: "app/views/sitemap/about-us.html",
                 controller : "aboutusController"
             })
+         .when("/terms-and-conditions", {
+             templateUrl: "app/views/sitemap/terms-and-conditions.html",
+             controller: "aboutusController"
+         })
+         .when("/privacy-policy", {
+             templateUrl: "app/views/sitemap/privacy-policy.html",
+             controller: "aboutusController"
+         })
          //.when("/categories", {
          //    templateUrl: "app/views/Category.html",
 
