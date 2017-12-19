@@ -39,12 +39,15 @@
         if ($scope.paymentForm.$valid) {
             $rootScope.loaderIndicator = true;
             $scope.user = {
-                first_name : "k",
-                last_name : "roy",
-                credit_card_number : 4111111111111111,
-                cvv : 123,
-                month : 12,
-                year : 2021
+                userId : "5",
+                taskId : "10",
+                amount : "20.00",
+                firstName: "k",
+                lastName : "roy",
+                cardNumber : "4111111111111111",
+                cvvCode : "123",
+                expiryMonth : "12",
+                expiryDate : "2021"
             };
             httpService.makePayment($scope.user).then(function (result) {
                 $rootScope.loaderIndicator = false;
