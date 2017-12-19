@@ -83,16 +83,17 @@ app.config(function ($routeProvider,$locationProvider) {
                  
              }
          })
-         .when("/blog", {
-             templateUrl: "app/views/Rewards.html",
-
+         .when("/blogs", {
+             templateUrl: "app/views/blogDetail.html",
+             controller: "blogDetailCtrl",
          })
+
         .when("/contact-us", {
             templateUrl: "app/views/contact-us.html",
             controller: "contactUsCtrl"
         })
         .when("/FAQ's", {
-            templateUrl: "app/views/Rewards.html",
+            templateUrl: "app/views/sitemap/FAQ.html",
 
         })
         .when("/profile", {
