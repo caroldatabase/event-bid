@@ -153,7 +153,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 hub-head text-center">
-                    <h1>The Event Bid Hub</h1>
+                    <h1>Event Bid Blog</h1>
                 </div>
             </div>
             <div class="row hub-thumbnails" data-ng-repeat="item in blogList | limitTo: 6">
@@ -166,7 +166,9 @@
                             <p class="hub-tag">{{item.blog_sub_title}}</p>
                             <h3>{{item.blog_title}}</h3>
                             <p class="post-desc">{{item.blog_description}}</p>
-                            <p class="post-read"><a data-ng-click="openBlogDetailPopup(item)">Read More</a></p>
+                           <!-- <p class="post-read"><a data-ng-click="openBlogDetailPopup(item)">Read More</a></p>-->
+                            <p class="post-read"><a href="#/blogs">Read More</a></p>
+
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,51 @@
-﻿app.controller('paymentCtrl', function ($scope, $rootScope, httpService) {
+﻿app.controller('paymentCtrl', function ($scope, $rootScope, httpService, commonService) {
+    init();
+    function init() {
+        $scope.user = {};
+        $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+        $scope.errorMessageIndicator = false;
+        commonService.scrollToTop();
+        getMonth();
+        getYear();
+    }
+
+    function getMonth()
+    {
+        $scope.montharray = [];
+        for (var i = 1; i <= 12; i++)
+        {
+            var month = '';
+            if (i >= 1 && i <= 9)
+                month = "0" + i;
+            else
+                month = i;
+            $scope.montharray.push(month);
+            
+        }
+    }
+
+    function getYear() {
+        $scope.yeararray = [];
+        for (var i = 2018; i <= 2035; i++) {
+               
+            $scope.yeararray.push(i);
+
+        }
+    }
+
     $scope.makePayment = function()
     {
         $scope.paymentForm.$setSubmitted(true);
         if ($scope.paymentForm.$valid) {
             $rootScope.loaderIndicator = true;
+            $scope.user = {
+                first_name : "k",
+                last_name : "roy",
+                credit_card_number : 4111111111111111,
+                cvv : 123,
+                month : 12,
+                year : 2021
+            };
             httpService.makePayment($scope.user).then(function (result) {
                 $rootScope.loaderIndicator = false;
                 commonService.scrollToTop();
@@ -22,7 +64,7 @@
             }
             else {
                 $scope.errorMessageIndicator = true;
-                $scope.message = "Your card number is wrong.";
+                $scope.message = "Something went wrong !!";
             }
         }
     }

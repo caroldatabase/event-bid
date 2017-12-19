@@ -107,12 +107,12 @@
                          $rootScope.loaderIndicator = false;
                          $scope.user = {};
                          var userRes = result.data.data;
-                        commonService.setCookieValues('FirstName', userRes.firstName);
-                        commonService.setCookieValues('UserID', userRes.userId);
-                        commonService.setCookieValues('UserType', userRes.userType);
+                         commonService.setCookieValues('FirstName', userRes.first_name);
+                        commonService.setCookieValues('UserID', userRes.id);
+                        commonService.setCookieValues('UserType', userRes.user_type);
                         $rootScope.isLogin = true;
-                        $rootScope.UserType = userRes.userType;
-                        $rootScope.firstName = userRes.firstName;
+                        $rootScope.UserType = userRes.user_type;
+                        $rootScope.firstName = userRes.first_name;
                         commonService.reloadRoute();
                             $('#signUpPopup').modal('toggle');
                             if($rootScope.postTaskClicked == true)

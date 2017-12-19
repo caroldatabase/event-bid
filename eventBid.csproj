@@ -662,6 +662,7 @@
     <Content Include="app\views\ebTemplates\supplyHire.html" />
     <Content Include="app\views\ebTemplates\waiterWaitress.html" />
     <Content Include="app\views\messaging.html" />
+    <Content Include="app\views\payment.html" />
     <Content Include="app\views\postTaskTemplates\photographyVideography.html" />
     <Content Include="app\css\bootstrap-theme.css.map" />
     <Content Include="app\css\bootstrap-theme.min.css.map" />
@@ -669,6 +670,8 @@
     <Content Include="app\css\bootstrap.min.css.map" />
     <Content Include="app\css\distth_-webfont.woff" />
     <Content Include="app\css\distth_-webfont.woff2" />
+    <Content Include="app\views\sitemap\privacy-policy.html" />
+    <Content Include="app\views\sitemap\terms-and-conditions.html" />
     <Content Include="bower.json" />
     <Content Include="app\chat_view\chat.jquery.json" />
     <Content Include="app\chat_view\jquery-ui-themes-1.10.4\MANIFEST" />
