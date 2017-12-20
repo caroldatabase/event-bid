@@ -552,6 +552,7 @@
     <Content Include="app\controllers\addBlogController.js" />
     <Content Include="app\controllers\addCategoryController.js" />
     <Content Include="app\controllers\adminController.js" />
+    <Content Include="app\controllers\blogDetailCtrl.js" />
     <Content Include="app\controllers\browseTaskController.js" />
     <Content Include="app\controllers\buisnessDashboardController.js" />
     <Content Include="app\controllers\changePassword.js" />
@@ -560,6 +561,7 @@
     <Content Include="app\controllers\EBManagerController.js" />
     <Content Include="app\controllers\howItWorksController.js" />
     <Content Include="app\controllers\messagingCtrl.js" />
+    <Content Include="app\controllers\paymentCtrl.js" />
     <Content Include="app\controllers\profileController.js" />
     <Content Include="app\controllers\requestCategoryController.js" />
     <Content Include="app\controllers\settingsCtrl.js" />
@@ -645,6 +647,7 @@
     <Content Include="app\js\timeago.filter.js" />
     <Content Include="app\js\uniquefilter.js" />
     <Content Include="app\views\admin.html" />
+    <Content Include="app\views\blogDetail.html" />
     <Content Include="app\views\Category.html" />
     <Content Include="app\views\changePassword.html" />
     <Content Include="app\views\contact-us.html" />
@@ -670,6 +673,7 @@
     <Content Include="app\css\bootstrap.min.css.map" />
     <Content Include="app\css\distth_-webfont.woff" />
     <Content Include="app\css\distth_-webfont.woff2" />
+    <Content Include="app\views\sitemap\FAQ.html" />
     <Content Include="app\views\sitemap\privacy-policy.html" />
     <Content Include="app\views\sitemap\terms-and-conditions.html" />
     <Content Include="bower.json" />
@@ -764,7 +768,6 @@
     <Content Include="app\views\Rewards.html" />
     <Content Include="app\views\settings.html" />
     <Content Include="app\views\sitemap\about-us.html" />
-    <Content Include="app\views\sitemap\blog.html" />
     <Content Include="app\views\sitemap\category.html" />
     <Content Include="index.html" />
     <Content Include="Web.config" />

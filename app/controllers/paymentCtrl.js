@@ -38,7 +38,7 @@
         $scope.paymentForm.$setSubmitted(true);
         if ($scope.paymentForm.$valid) {
             $rootScope.loaderIndicator = true;
-            $scope.user = {
+           /* $scope.user = {
                 userId : "5",
                 taskId : "10",
                 amount : "20.00",
@@ -48,7 +48,9 @@
                 cvv : "123",
                 month : "12",
                 year : "2021"
-            };
+            };*/
+            $scope.user.userId = "5";
+            $scope.user.taskId = "10";
             httpService.makePayment($scope.user).then(function (result) {
                 $rootScope.loaderIndicator = false;
                 commonService.scrollToTop();
