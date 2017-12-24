@@ -1,4 +1,4 @@
-﻿<div class="container admin-blog">
+﻿<!--<div class="container admin-blog">
     <div>
         <div class="row">
             <h4>Blog Management</h4>
@@ -16,6 +16,27 @@
                     </div>
                 </div>
             </ul>
+        </div>
+    </div>
+</div>-->
+
+<div class="new-blog">
+    <div class="container">
+        <div class="row" data-ng-repeat="item in blogList">
+            <div class="col-sm-1">
+                <div class="blog-date text-center">
+                    <p class="blog-month"><b>APR</b></p>
+                    <p class="blog-year"><b>2017</b></p>
+                    <p class="blog-digit"><b>20</b></p>
+                </div>
+            </div>
+            <div class="col-sm-7">
+                <img ng-src="{{item.blog_image}}" alt="">
+            </div>
+            <div class="col-sm-4">
+                <h3 style="margin-top:0px;">{{item.blog_sub_title}}</h3>
+                <p>{{item.blog_description}}</p>
+            </div>
         </div>
     </div>
 </div>

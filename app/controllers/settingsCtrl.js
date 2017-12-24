@@ -2,9 +2,13 @@
     init();
     function init() {
         $scope.accountIndicator = true;
+        commonService.scrollToTop();
         getUserDetails();
         $scope.selectedCategories;
         $scope.categoryList = [];
+        $scope.cardDetailIndicator = false;
+        $scope.updateCardDetailIndicator = false;
+        $scope.buttonIndicator = true;
         httpService.getCategory().then(function (data) {
             $scope.categoryList =  data.data.data;
         });
@@ -12,6 +16,27 @@
        
     }
 
+    $scope.removecard = function()
+    {
+        $scope.updateCardDetailIndicator = true;
+        $scope.cardDetailIndicator = false;
+    }
+    $scope.showCardDetails = function()
+    {
+        $scope.cardDetailIndicator = true;
+        $scope.buttonIndicator = false;
+    }
+    $scope.updateCardDetails = function()
+    {
+        $scope.updateCardDetailIndicator = true;
+        $scope.buttonIndicator = false;
+    }
+    $scope.cancelAddingCard = function()
+    {
+        $scope.buttonIndicator = true;
+        $scope.cardDetailIndicator = false;
+        $scope.updateCardDetailIndicator = false;
+    }
     function getDateList()
     {
         $scope.dayArray = [];

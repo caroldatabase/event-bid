@@ -2291,7 +2291,7 @@ p.commenter-desc.thanks-posting {
     margin: 30px auto;
 }
 .form-container.payment-form {
-    width: 70%;
+    width: 100%;
     margin: 30px auto;
     border: 1px solid #ccc;
     padding: 25px;
@@ -2389,6 +2389,10 @@ label.checkbox {
 #integration-list ul:last-child {
     border-bottom: 1px solid #ddd;
 }
+.paymentOption.form-field {
+    float: left;
+    width: 100%;
+}
 #integration-list ul > li:hover {
     background: #efefef;
 }
@@ -2468,3 +2472,62 @@ span {
     width: 34px;
 }
 
+
+input.payment-checkbox {
+    float: left;
+    width: 50px;
+    margin-top: -7px;
+}
+.event-card-detail {
+    padding: 15px;
+    background: #eee;
+    margin-top: 20px;
+    border-radius: 5px;
+    border:1px solid #ccc;
+}
+.event-card-detail
+{
+    float:left;
+    width:100%;
+}
+.event-card-detail p {
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    float: left;
+}
+.event-card-detail p span{
+    float:left;
+    width:50%;
+}
+.container.main-blogs {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.blog-date.text-center {
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+}
+p.blog-year {
+        padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+.new-blog.ng-scope {
+    float: left;
+    width: 100%;
+    margin-top: 130px;
+}
+.new-blog .row {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+}
+.form-field.expireDate select {
+    float: left;
+    width: 46%;
+    margin-right: 4%;
+    margin-top: 10px;
+}

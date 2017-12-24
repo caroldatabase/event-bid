@@ -1,8 +1,9 @@
-﻿app.controller("blogDetailCtrl", function ($scope, $rootScope, httpService) {
+﻿app.controller("blogDetailCtrl", function ($scope, $rootScope, httpService, commonService) {
     init();
 
     function init() {
         getAllBlogs();
+        commonService.scrollToTop();
     }
 
     function getAllBlogs() {
