@@ -2241,8 +2241,12 @@ p.comment-para {
 }
 .commenter-pic {
     float: left;
-    width: 14%;
+    width: 12%;
     padding-right: 15px;
+}
+.commenter.sub-reply
+{
+    width:10%;
 }
 .commenter-text {
     width: 86%;
@@ -2291,8 +2295,8 @@ p.commenter-desc.thanks-posting {
     margin: 30px auto;
 }
 .form-container.payment-form {
-    width: 100%;
-    margin: 30px auto;
+    width: 60%;
+    margin: 30px 0;
     border: 1px solid #ccc;
     padding: 25px;
     border-radius: 5px;
@@ -2488,7 +2492,8 @@ input.payment-checkbox {
 .event-card-detail
 {
     float:left;
-    width:100%;
+    width:60%;
+    margin-bottom : 30px;
 }
 .event-card-detail p {
     font-size: 16px;
@@ -2539,7 +2544,36 @@ p.blog-year {
 .col-sm-12.message-box-dev .jobs-list {
 text-align:center;
 }
-
-
-
-
+.spans-div {
+    float: left;
+    width: 50%;
+}
+.spans-div span {
+    width: 100%;
+    margin-bottom: 5px;
+}
+.remove-card{
+    float : right;
+}
+.card-holder-name label
+{
+    width:100;
+}
+.card-holder-name input {
+    width: 46%;
+    float: left;
+    margin: 2%;
+}
+.card-pay-button input {
+    width: 46%;
+    float: left;
+    margin: 2%;
+}
+.card-holder-input input:nth-child(1) {
+    margin-left: 0px;
+    width: 48%;
+}
+.card-holder-input input:nth-child(2) {
+    margin-left: 0px;
+    width: 48%;
+}

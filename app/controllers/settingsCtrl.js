@@ -75,6 +75,7 @@
         $scope.passwordIndicator = false;
         $(".singleSelection").select2();
         $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = false;
     }
 
     $scope.categorySettings = function()
@@ -86,7 +87,8 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
-        setTimeout(function () { $('#selectedCategories').multiselect(); }, 000);
+        $scope.insuranceIndicator = false;
+        setTimeout(function () { $('#selectedCategories').multiselect(); }, 1000);
     }
 
     $scope.mobileSettings = function () {
@@ -98,6 +100,7 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = false; 
     }
     $scope.portfolioSettings = function () {
         $scope.accountIndicator = false;
@@ -107,6 +110,7 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = false;
     }
     $scope.paymentSettings = function () {
         $scope.accountIndicator = false;
@@ -116,6 +120,7 @@
         $scope.paymentIndicator = true;
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = false;
     }
     $scope.passwordSettings = function () {
         $scope.accountIndicator = false;
@@ -125,6 +130,17 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = true;
         $scope.successMobileIndicator = false;
+    }
+    $scope.insuranceSettings = function()
+    {
+        $scope.accountIndicator = false;
+        $scope.categoryIndicator = false;
+        $scope.mobileIndicator = false;
+        $scope.portfolioIndicator = false;
+        $scope.paymentIndicator = false;
+        $scope.passwordIndicator = false;
+        $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = true;
     }
     $scope.updateAccountDetails = function()
     {

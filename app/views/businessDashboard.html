@@ -305,16 +305,20 @@
                 </div>
                 <div class="people-int">
                     <p class="peo-head">Details of User whom task has assigned : </p>
-                    <ul>
+                    <ul class="task-chat-assign">
                         <li>
                             <div class="commenter-pic">
                                 <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
                             </div>
+                            <div class="spans-div">
                             <span><b>{{taskDetail.seeker_user_detail.first_name}} {{taskDetail.seeker_user_detail.last_name}}</b></span>
                             <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
+                                </div>
+                            <div class="message-button">
                             <button type="button" class="btn btn-default" data-ng-click="messageView()">Message {{taskDetail.seeker_user_detail.first_name}} </button>
-                            
+                                </div>
+
                         </li>
                         <li data-ng-show="messageUser">
                             <div class="commenter-pic">
@@ -409,10 +413,25 @@
                         <li><p class="v-c-h">Mark status as Completed if done :</p><button type="button" class="btn btn-default comp-btn" data-ng-click="completeTask(taskDetail)">Complete</button></li>
                         <li>
                             <p class="v-c-h">
+                                
                                 How was your experience ? Submit reviews how was your experience with this user.
-                             </p>
-                                <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
-                            </li>
+                            </p>
+                            <p>
+                            <p class="rating-experience">
+                                 <span>Rating</span> 
+                                <span>
+                                    <select>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </span>
+                                <span>
+                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                </span>
+                            </p>
+                            <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
+                        </li>
                     </ul>
                 </div>
             </div>

@@ -16,6 +16,8 @@
                         <li><a ng-class="{activeSide : portfolioIndicator }" data-ng-click="portfolioSettings()">Portfolio</a></li>
                         <li><a ng-class="{activeSide : paymentIndicator }" data-ng-click="paymentSettings()">Payment Methods</a></li>
                         <li><a ng-class="{activeSide : passwordIndicator }" data-ng-click="passwordSettings()">Password</a></li>
+                        <li><a ng-class="{activeSide : insuranceIndicator }" data-ng-click="insuranceSettings()">
+                                Qualifications & Insurance</a></li>
                     </ul>
                 </div>
             </div>
@@ -190,11 +192,12 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="event-card-detail" ng-show="!updateCardDetailIndicator">
+                            <a class="remove-card" ng-click="removecard()">remove card</a>
                             <p><span>Card Type</span> <span>Mastercard</span></p>
                             <p><span>Card#</span> <span>5*******45652</span></p>
                             <p><span>Expiry Date</span> <span>01/01/2020</span></p>
                             <p><span>Name on card</span> <span>vaibhav kasar</span></p>
-                            <a ng-click="removecard()">remove card</a>
+                            
                         </div>
                     </div>
                 </div>
@@ -262,13 +265,15 @@
                                     </div>
                                 </div>-->
                                 <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-field">
+                                    <div class="col-sm-12">
+                                        <div class="form-field card-holder-name">
                                             <label>Card Holder's  Name</label>
+                                            <div class="card-holder-input">
                                             <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
                                                    ng-class="{error : paymentForm.first_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.firstName">
                                             <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
                                                    ng-class="{error : paymentForm.last_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.lastName">
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +291,7 @@
 
 
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
                                     <input data-ng-click="makePayment()" type="submit" value="Add card" class="btn btn-primary btn-lg">
                                     <input type="button" data-ng-click="cancelAddingCard()"  value="Cancel" class="btn btn-primary btn-lg">
@@ -332,4 +337,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="col-sm-9" data-ng-if="insuranceIndicator">
+                insurance page
+            </div>
+</div>
+</div>
