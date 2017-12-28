@@ -2531,3 +2531,12 @@ p.blog-year {
     margin-right: 4%;
     margin-top: 10px;
 }
+.col-sm-12.message-box-dev .jobs-list {
+    width: 50%;
+    margin: 30px 25%;
+    height: auto;
+}
+
+
+
+
