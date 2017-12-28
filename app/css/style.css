@@ -2536,6 +2536,9 @@ p.blog-year {
     margin: 30px 25%;
     height: auto;
 }
+.col-sm-12.message-box-dev .jobs-list {
+text-align:center;
+}
 
 
 
