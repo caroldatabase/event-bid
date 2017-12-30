@@ -81,7 +81,9 @@
                 totalCost: "Total cost",
                 totalCostType: "Total cost type ",
                 totalWaiter: "Total waiters",
-                waitersTask:"Waiters Task"
+                waitersTask: "Waiters Task",
+                is_bartender_req: "Is bartenders required for alcoholic service",
+                bartender_count : "Number of bartender required"
             },
   
             Graphic_Design: {

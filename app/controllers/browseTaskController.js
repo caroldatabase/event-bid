@@ -64,6 +64,17 @@
         $scope.errorMessage = false;
     }
 
+    $scope.showOfferImagesPreview = function()
+    {
+        $('#showInterestPopup').modal('hide');
+        $('#offerImagesPopup').modal('show');
+    }
+
+    $scope.offerImagesPopupClose = function()
+    {
+        $('#offerImagesPopup').modal('hide');
+        $('#showInterestPopup').modal('show');
+    }
     $scope.getDataByDate = function()
     {
         $scope.fromDate = $('#datetimepicker1').val();
@@ -208,6 +219,8 @@
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalCostType] = $scope.taskDetail.category_question['totalCostType'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalWaiter] = $scope.taskDetail.category_question['totalWaiter'];
                     $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.waitersTask] = $scope.taskDetail.category_question['waitersTask'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.bartender_count] = $scope.taskDetail.category_question['bartender_count'];
+                    $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.is_bartender_req] = $scope.taskDetail.category_question['is_bartender_req'];
                     $scope.showInterestCostType = $scope.taskDetail.category_Detail[CONSTANTS.CATEGORY_QUESTIONS.Waiting_Staff.totalCostType];
                     break;
                 case CONSTANTS.CATEGORY.Graphic_Design:
@@ -310,7 +323,7 @@
                 interestedUser.showInterestCostType = $scope.interestedUser.showInterestCostType;
                 interestedUser.commentDescription = $scope.interestedUser.commentDescription;
                 if ($scope.interestedUser.offerImages.length > 0 ) {
-                    interestedUser.interestedUser.offerImages = $scope.interestedUser.offerImages;
+                    interestedUser.offerImages = $scope.interestedUser.offerImages;
                 }
                 httpService.showInterest(interestedUser).then(function (response) {
                     if (response.data.code == 200) {
@@ -319,6 +332,7 @@
                         //$scope.interested = true;
                         $('#showInterestPopup').modal('hide');
                         $('#sucessShowInterestPopup').modal('show');
+                        $scope.interestedUser = {};
                     }
                 });
             }

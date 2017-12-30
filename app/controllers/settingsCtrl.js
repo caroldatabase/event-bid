@@ -67,7 +67,8 @@
             if(response.data.message == "Record found successfully.")
             {
                 $scope.userDetails = response.data.data;
-                if($scope.userDetails.portfolio)
+                $scope.portfolioImageArray = [];
+                if ($scope.userDetails && $scope.userDetails.portfolio && $scope.userDetails.portfolio != "Array")
                 $scope.portfolioImageArray = $scope.userDetails.portfolio;
                 if (response.data.data.mobile)
                 $scope.userDetails.mobile = parseInt(response.data.data.mobile);

@@ -25,7 +25,7 @@
             $('.datepicker').datetimepicker({
                 pickDate: true,
                 pickTime: false,
-                format: 'MM-DD-YYYY',
+                format: 'DD-MM-YYYY',
                 changeMonth: true,
                 changeYear: true,
                 minDate: todayDate

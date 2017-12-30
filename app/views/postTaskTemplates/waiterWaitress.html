@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>Do you have a dress code for your event?</label>
+            <label>Do you have a dress code for wait staff ? </label>
             <select class="singleSelection" required
                     data-ng-model="task.category_question.dressCode" name="dressCode"
                     ng-class="{error : postTaskForm.dressCode.$invalid && postTaskForm.$submitted}">
@@ -52,13 +52,33 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="form-field" data-ng-if="task.category_question.dressCode === 'Yes'">
+        <div class="col-sm-4" data-ng-if="task.category_question.dressCode === 'Yes'">
+            <div class="form-field">
                 <label>Please describe your dress code.</label>
                 <input type="text" class="form-control" ng-model="task.category_question.dressCodeDescription"
                        name="dressCodeDescription"
                        required
                        ng-class="{error : postTaskForm.dressCodeDescription.$invalid && postTaskForm.$submitted}">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-field">
+                <label>Do you need a bartender or alcohol service</label>
+                <select class="singleSelection" required data-ng-model="task.category_question.is_bartender_req" name="is_bartender_req"
+                        ng-class="{error : postTaskForm.is_bartender_req.$invalid && postTaskForm.$submitted}">
+                    <option value="">PLEASE SELECT</option>
+                    <option value="yes">YES</option>
+                    <option value="no">NO</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-4" data-ng-if="task.category_question.is_bartender_req === 'yes'">
+            <div class="form-field">
+                <label>How many bartenders do you require ?</label>
+                <input type="number" class="form-control" ng-model="task.category_question.bartender_count"
+                       name="is_bartender_count"
+                       required
+                       ng-class="{error : postTaskForm.is_bartender_count.$invalid && postTaskForm.$submitted}">
             </div>
         </div>
     </div>

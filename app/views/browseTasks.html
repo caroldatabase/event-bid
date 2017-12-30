@@ -293,7 +293,7 @@
                 </div>
                 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-ng-click="showInterestPopup()">Show Interest</button>
+                    <button type="button" class="btn btn-default" data-ng-click="showInterestPopup()">Place your bid</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -318,6 +318,7 @@
                                 <b> Offer cost</b>
                                
                                 <input type="number" class="form-control" ng-model="interestedUser.offerCost" name="offerCost" required
+                                       placeholder="In $"
                                        ng-class="{error : showInterestForm.offerCost.$invalid && showInterestForm.$submitted}">
                             </div>
                             <div>
@@ -339,29 +340,67 @@
                                     </div>
                                 </div>
                             </div>
-                            <label>Upload photos (upto 3 photos )</label>
-                            <input type="file" class="form-control" name="offerImages" id="offerImages"
-                                   fileread="offerImages" image-type="offerImages" accept="image/*" data-ng-model="offerImages" />
-                            <div data-ng-if="interestedUser.offerImages.length > 0" data-ng-repeat="data in interestedUser.offerImages track by $index">
-                                <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                                <a data-ng-click="deletePhoto(data)">X</a>
-                            </div>
-                            <div data-ng-if="interestedUser.offerImages.length == 0">
-                                <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
-                                no images uploaded yet. 
-                            </div>
-                            <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
-                                {{message}}
-                            </div>
-
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <input type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)" value="Show Interest">
-                                    </div></div>
-                        </form>
+                                <label>Upload photos (upto 3 photos )</label>
+                                <input type="file" class="form-control" name="offerImages" id="offerImages"
+                                       fileread="offerImages" image-type="offerImages" accept="image/*" data-ng-model="offerImages" />
+                            </div>
+                            <div class="row">
+                                <div data-ng-if="interestedUser.offerImages.length > 0">
+                                <div data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                    <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                                    <a data-ng-click="deletePhoto(data)">X</a>
+                                </div>
+                                    <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
+                              </div>
+                                <div data-ng-if="interestedUser.offerImages.length == 0">
+                                    <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
+                                    no images uploaded yet.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
+                                    {{message}}
+                                </div>
+                            </div>
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <input type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)" value="Place your bid">
+                                    </div>
+                                </div>
+</form>
 </div>
             </div>
         </div>
 
     </div>
         </div>
+
+<!--Offer images pop up  -->
+<div class="modal fade" id="offerImagesPopup" tabindex="-1">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Offer Images preview</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="popup-form-row">
+                        <div class="row">
+                            <div data-ng-if="interestedUser.offerImages.length > 0" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                <img class="uploaded-image" ng-src="{{data}}"  alt="Image preview..." id="inspirationPhoto">
+                                <a data-ng-click="deletePhoto(data)">X</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" data-ng-click="offerImagesPopupClose()">Close</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
