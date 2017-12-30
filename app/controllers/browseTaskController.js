@@ -17,7 +17,17 @@
             $('#datetimepicker1').datetimepicker({
                 pickDate: true,
                 pickTime: false,
-                format: 'MM-DD-YYYY',
+                format: 'DD-MM-YYYY',
+                changeMonth: true,
+                changeYear: true
+            }).on("dp.change", function () {
+                $(this).trigger('blur');
+
+            });
+            $('#datetimepicker2').datetimepicker({
+                pickDate: true,
+                pickTime: false,
+                format: 'DD-MM-YYYY',
                 changeMonth: true,
                 changeYear: true
             }).on("dp.change", function () {
@@ -54,6 +64,37 @@
         $scope.errorMessage = false;
     }
 
+    $scope.getDataByDate = function()
+    {
+        $scope.fromDate = $('#datetimepicker1').val();
+        $scope.toDate = $('#datetimepicker2').val();
+        if ($scope.fromDate && $scope.toDate) {
+            var df = parseDate($scope.fromDate);
+            var dt = parseDate($scope.toDate);
+            var result = [];
+            for (var i = 0; i < $scope.originalTaskList.length; i++) {
+                var tf = new Date($scope.originalTaskList[i].date_required),
+                    tt = new Date($scope.originalTaskList[i].date_required);
+                if (tf >= df && tt <= dt) {
+                    result.push($scope.originalTaskList[i]);
+                }
+            }
+            $scope.taskList = result;
+           // return $scope.taskList;
+        }
+    }
+
+    $scope.deletePhoto = function (data)
+    {
+        var index = $scope.interestedUser.offerImages.indexOf(data);
+        $scope.interestedUser.offerImages.splice(index, 1);
+    }
+
+    $scope.resetFilters = function()
+    {
+        commonService.reloadRoute();
+        commonService.scrollToTop();
+    }
     $rootScope.$on("imageAdded", function (event, fileUploaded, imageType) {
         if (fileUploaded) {
             $scope.errorMessageIndicator = false;
@@ -83,6 +124,7 @@
             $scope.taskList = response.data.data;
             $scope.taskList = $scope.taskList.map(getTaskDetails);
             console.log($scope.taskList);
+            $scope.originalTaskList = $scope.taskList;
             //getCategoryDetails();
             $rootScope.loaderIndicator = false;
             //$scope.numPages();
@@ -397,6 +439,17 @@
             return false;
         }
     }
+
+    function parseDate(input) {
+        var parts = input.split('-');
+        return new Date(parts[2], parts[1] - 1, parts[0]);
+    }
+
+    app.filter("dateFilter", function () {
+        return function (items) {
+           
+        };
+    });
 
    
 });
