@@ -16,8 +16,11 @@
                         <li><a ng-class="{activeSide : portfolioIndicator }" data-ng-click="portfolioSettings()">Portfolio</a></li>
                         <li><a ng-class="{activeSide : paymentIndicator }" data-ng-click="paymentSettings()">Payment Methods</a></li>
                         <li><a ng-class="{activeSide : passwordIndicator }" data-ng-click="passwordSettings()">Password</a></li>
-                        <li><a ng-class="{activeSide : insuranceIndicator }" data-ng-click="insuranceSettings()">
-                                Qualifications & Insurance</a></li>
+                        <li>
+                            <a ng-class="{activeSide : insuranceIndicator }" data-ng-click="insuranceSettings()">
+                                Qualifications & Insurance
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -43,93 +46,97 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <div>
+                        <div ng-if="userDetails.photo">
                             <img ng-src="{{userDetails.photo}}" widt width="100" height="50" alt="Image preview..." id="profilePhoto">
+                            <input type="button" value="view picture" data-ng-click="getProfilePicture(userDetails.photo)" />
                         </div>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label>Suburb</label>
-                            <input type="text" width="100%" data-ng-model="userDetails.suburb" name="suburb" maxlength="20">
-                        </div>
-                        <div class="col-sm-6">
-                            <label>State</label>
-                            <input type="text" width="100%" data-ng-model="userDetails.state" name="state" maxlength="20">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label>Email</label>
-                            <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label>About me</label>
-                            <textarea width="100%" rows="4" data-ng-model="userDetails.about_me" name="aboutme"></textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <label>Birthday</label>
-                        </div>
-                        <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
-                            Please select valid date(dd, mm, yyyy)
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <select class="singleSelection" ng-model="day"
-                                    ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
-                                <option value="">dd</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-2">
-                            <select class="singleSelection" ng-model="month"
-                                    ng-options="item1 as item1 for item1 in monthArray" width="100%"
-                                    ng-class="{error : dateErrorIndicator}">
-                                <option value="">mm</option>
-                            </select>
-                        </div>
-                        <div class="col-sm-4">
-                            <select class="singleSelection" ng-model="year"
-                                    ng-options="item2 as item2 for item2 in yearArray" width="100%"
-                                    ng-class="{error : dateErrorIndicator}">
-                                <option value="">yyyy</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <a class="btn btn-lg btn-primary" data-ng-click="updateAccountDetails()">Update</a>
+                        <div ng-if="!userDetails.photo">
+                            no pic uploaded.
                         </div>
                     </div>
                 </div>
-            <div class="col-sm-9" data-ng-if="categoryIndicator">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label>Suburb</label>
+                        <input type="text" width="100%" data-ng-model="userDetails.suburb" name="suburb" maxlength="20">
+                    </div>
+                    <div class="col-sm-6">
+                        <label>State</label>
+                        <input type="text" width="100%" data-ng-model="userDetails.state" name="state" maxlength="20">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Email</label>
+                        <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>About me</label>
+                        <textarea width="100%" rows="4" data-ng-model="userDetails.about_me" name="aboutme"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Birthday</label>
+                    </div>
+                    <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
+                        Please select valid date(dd, mm, yyyy)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <select class="singleSelection" ng-model="day"
+                                ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
+                            <option value="">dd</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <select class="singleSelection" ng-model="month"
+                                ng-options="item1 as item1 for item1 in monthArray" width="100%"
+                                ng-class="{error : dateErrorIndicator}">
+                            <option value="">mm</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="singleSelection" ng-model="year"
+                                ng-options="item2 as item2 for item2 in yearArray" width="100%"
+                                ng-class="{error : dateErrorIndicator}">
+                            <option value="">yyyy</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a class="btn btn-lg btn-primary" data-ng-click="updateAccountDetails()">Update</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9" data-ng-show="categoryIndicator">
                 <div class="row">
                     <h4>Categories</h4>
                     <p>
-                        Let people know what categories you are a master of. That way people will be able to find you when 
-                        they are looking for some help with their event. Are you a great baker ? A great singer ? Have great 
+                        Let people know what categories you are a master of. That way people will be able to find you when
+                        they are looking for some help with their event. Are you a great baker ? A great singer ? Have great
                         party supplies ?
                     </p>
                     You can pick up to 4 categories.
-                            <div class="form-field">
-                              
-                                <select name="selectedCategories" id="selectedCategories" ng-model="selectedCategories" multiple
-                                        ng-options="item.id as item.name for item in categoryList"></select>
-                            </div>
-                   
-                        </div>
-               
+                    <div class="form-field">
+
+                        <select name="selectedCategories" id="selectedCategories" ng-model="selectedCategories" multiple
+                                class="multipleSelection" ng-options="item.id as item.name for item in categoryList"></select>
+                    </div>
+
+                </div>
+                 
                 <div class="row">
                     <div class="col-sm-12">
-                        <a class="btn btn-lg btn-primary" data-ng-click="updateCategoryDetails()">Update</a>
+                        <a class="btn btn-lg btn-primary" data-ng-click="updateCategoryDetails(selectedCategories)">Update</a>
                     </div>
                 </div>
-                   
+
             </div>
             <div class="col-sm-9" data-ng-if="mobileIndicator">
                 <div class="alert alert-success" data-ng-if="successMobileIndicator">
@@ -138,15 +145,18 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label><b>Mobile Number</b></label>
-                        <p>We may like to keep in touch with you and give you notifications about your 
-                        projects.Your mobile number won't be available to the public. </p>
+                        <p>
+                            We may like to keep in touch with you and give you notifications about your
+                            projects.Your mobile number won't be available to the public.
+                        </p>
                     </div>
                     <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
                         Please select valid date(dd, mm, yyyy)
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 enter-mobile">
                         <label>Mobile Number</label>
-                        <input type="number" width="100%" placeholder="+61" data-ng-model="userDetails.mobile"
+                        <span class="country-mobile-code">+61</span>
+                        <input type="number" width="100%" data-ng-model="userDetails.mobile"
                                name="mobile">
                     </div>
                 </div>
@@ -164,31 +174,48 @@
                     <div class="col-sm-12">
                         <label><b>Your Portfolio</b></label>
                         <p>Showcase your skills by uploading photos of your previous work. By showing potential customers what your abilities are , you may be more successful in winning a job.</p>
-                        <p>You can upload a maximum of 20 files. Each file can not be larger than 4mb.</p>
+                        <p>You can upload a maximum of 5 files. Each file can not be larger than 4mb.</p>
                         <br />
                     </div>
 
                 </div>
+                <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
+                    {{messagePortfolio}}
+                </div>
+                <div class="row">
+                    <label>Upload Portfolio Image :</label>
+                    <div class="col-sm-6">
+                        <input type="file" class="form-control" name="portFolioImage" id="portFolioImage"
+                               fileread="portFolioImage" image-type="portFolioImage" accept="image/*" data-ng-model="portFolioImage">
 
-
-
+                    </div>
+                    
+                </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <a class="btn btn-lg btn-primary">Upload Files</a>
+                        <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
+                            <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="portPhoto">
+                        </div>
+
                     </div>
+                 </div>
+                 <div class="row">
+                        <div class="col-sm-12">
+                            <a class="btn btn-lg btn-primary" data-ng-click="uploadPortfolioFiles()">Upload Files</a>
+                        </div>
+                  </div>
                 </div>
-            </div>
             <div class="col-sm-9" data-ng-if="paymentIndicator">
                 <div class="row">
                     <div class="col-sm-12">
                         <label><b>Your Credit Card Information</b></label>
                         <p>When you are ready to start transacting on the website, you will be required to provide your credit or debit card details.</p>
-                        <br/>
+                        <br />
                         <p>Your card details will only be available for Event Bid admin.</p>
                     </div>
                 </div>
 
-                
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="event-card-detail" ng-show="!updateCardDetailIndicator">
@@ -197,7 +224,7 @@
                             <p><span>Card#</span> <span>5*******45652</span></p>
                             <p><span>Expiry Date</span> <span>01/01/2020</span></p>
                             <p><span>Name on card</span> <span>vaibhav kasar</span></p>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -255,46 +282,44 @@
                                     </div>
 
                                 </div>
-                               <!-- <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="form-field">
-                                            <label>Amount</label>
-                                            <input type="number" class="form-control" id="amount" name="amount"
-                                                   required ng-class="{error : paymentForm.amount.$invalid && paymentForm.$submitted}" data-ng-model="user.amount">
-                                        </div>
-                                    </div>
-                                </div>-->
+                                <!-- <div class="row">
+                                     <div class="col-sm-12">
+                                         <div class="form-field">
+                                             <label>Amount</label>
+                                             <input type="number" class="form-control" id="amount" name="amount"
+                                                    required ng-class="{error : paymentForm.amount.$invalid && paymentForm.$submitted}" data-ng-model="user.amount">
+                                         </div>
+                                     </div>
+                                 </div>-->
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="form-field card-holder-name">
                                             <label>Card Holder's  Name</label>
                                             <div class="card-holder-input">
-                                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
-                                                   ng-class="{error : paymentForm.first_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.firstName">
-                                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
-                                                   ng-class="{error : paymentForm.last_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.lastName">
-                                                </div>
+                                                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
+                                                       ng-class="{error : paymentForm.first_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.firstName">
+                                                <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
+                                                       ng-class="{error : paymentForm.last_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.lastName">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                       <!-- <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-field">
-                                    <input type="checkbox" class="payment-checkbox"> Save this card for faster checkout
-                                </div>
-                            </div>
-                        </div>-->
-
-
+                        <!-- <div class="row">
+                             <div class="col-sm-12">
+                                 <div class="form-field">
+                                     <input type="checkbox" class="payment-checkbox"> Save this card for faster checkout
+                                 </div>
+                             </div>
+                         </div>-->
 
                         <div class="row">
                             <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
                                     <input data-ng-click="makePayment()" type="submit" value="Add card" class="btn btn-primary btn-lg">
-                                    <input type="button" data-ng-click="cancelAddingCard()"  value="Cancel" class="btn btn-primary btn-lg">
+                                    <input type="button" data-ng-click="cancelAddingCard()" value="Cancel" class="btn btn-primary btn-lg">
                                 </div>
                             </div>
                         </div>
@@ -306,8 +331,8 @@
                         <a class="btn btn-lg btn-primary" ng-click="updateCardDetails()">Update Card</a>
                     </div>
                 </div>
-                
-                
+
+
             </div>
             <div class="col-sm-9" data-ng-if="passwordIndicator">
                 <div class="alert alert-success" data-ng-if="successPasswordIndicator">
@@ -338,7 +363,122 @@
                 </div>
             </div>
             <div class="col-sm-9" data-ng-if="insuranceIndicator">
-                insurance page
+                <div class="insurance-page">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3>INSURANCE</h3>
+                            <p>Insurance Type:</p>
+                            <input type="text" placeholder="i.e. public liability insurance">
+                            <p>Insurer:</p>
+                            <input type="text" placeholder="">
+                            <p>Certificate Of Currency</p>
+                            <a href="#">Upload File</a>
+                            <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3>QUALIFICATION</h3>
+                            <p>Insurance Type:</p>
+                            <input type="text" placeholder="i.e. public liability insurance">
+                            <p>Insurer:</p>
+                            <input type="text" placeholder="">
+                            <p>Certificate Of Currency</p>
+                            <a href="#">Upload File</a>
+                            <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
+                        </div>
+                    </div>
+                </div>  
             </div>
-</div>
+        </div>
+    </div>
+
+    <!--Profile picture pop up  -->
+    <div class="modal fade" id="profilePopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Profile pic review</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="extraSpace"></div>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                    <img ng-src="{{userDetails.photo}}" alt="Image preview..." id="profilePhoto">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="btn btn-primary" data-ng-click="profilePopupClose()">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--category update pop up  -->
+    <div class="modal fade" id="categoryPopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        
+                    </div>
+                    <div class="modal-body">
+                         <p>
+                             Category updated successfully.
+                         </p>
+                        <div class="text-center">
+                            <a class="btn btn-primary" data-ng-click="categoryPopupClose()">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--mobile update pop up  -->
+    <div class="modal fade" id="mobilePopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Success Message</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Mobile number updated successfully.
+                        </p>
+                        <div class="text-center">
+                            <a class="btn btn-primary" data-ng-click="mobilePopupClose()">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--portfolio update pop up  -->
+    <div class="modal fade" id="portfolioPopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Success Message</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Portfolio updated successfully.
+                        </p>
+                        <div class="text-center">
+                            <a class="btn btn-primary" data-ng-click="portfolioPopupClose()">OK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

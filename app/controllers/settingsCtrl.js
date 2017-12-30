@@ -1,4 +1,4 @@
-﻿app.controller('settingsCtrl', function ($scope, httpService, commonService) {
+﻿app.controller('settingsCtrl', function ($scope, httpService, commonService, $rootScope) {
     init();
     function init() {
         $scope.accountIndicator = true;
@@ -6,6 +6,7 @@
         getUserDetails();
         $scope.selectedCategories;
         $scope.categoryList = [];
+        $scope.portfolioImageArray = [];
         $scope.cardDetailIndicator = false;
         $scope.updateCardDetailIndicator = false;
         $scope.buttonIndicator = true;
@@ -13,7 +14,6 @@
             $scope.categoryList =  data.data.data;
         });
         getDateList();
-       
     }
 
     $scope.removecard = function()
@@ -52,7 +52,14 @@
             $scope.yearArray.push(i);
         }
     }
-
+    $scope.getProfilePicture = function()
+    {
+        $('#profilePopup').modal('show');
+    }
+    $scope.profilePopupClose = function()
+    {
+        $('#profilePopup').modal('hide');
+    }
     function getUserDetails()
     {
         var userId = commonService.getUserid();
@@ -60,6 +67,8 @@
             if(response.data.message == "Record found successfully.")
             {
                 $scope.userDetails = response.data.data;
+                if($scope.userDetails.portfolio)
+                $scope.portfolioImageArray = $scope.userDetails.portfolio;
                 if (response.data.data.mobile)
                 $scope.userDetails.mobile = parseInt(response.data.data.mobile);
             }
@@ -88,7 +97,13 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
-        setTimeout(function () { $('#selectedCategories').multiselect(); }, 1000);
+        setTimeout(function () {
+            //$('#selectedCategories').multiselect();
+            $(".multipleSelection").select2({
+                maximumSelectionLength: 4
+            });
+        }, 000);
+       
     }
 
     $scope.mobileSettings = function () {
@@ -184,20 +199,70 @@
         });
     }
 
-    $scope.updateCategoryDetails = function () {
+    $scope.updateCategoryDetails = function (selectedCategories) {
         var userId = commonService.getUserid();
+        $scope.userDetails.category_id = selectedCategories;
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            $('#categoryPopup').modal('show');
         });
     }
+
+    $scope.mobilePopupClose = function()
+    {
+        $('#mobilePopup').modal('hide');
+    }
+
+    $scope.categoryPopupClose = function()
+    {
+        $('#categoryPopup').modal('hide');
+    }
+    
+    $scope.uploadPortfolioFiles = function()
+    {
+        var userId = commonService.getUserid();
+        $scope.userDetails.portfolio = $scope.portfolioImageArray;
+        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            $('#portfolioPopup').modal('show');
+        });
+    }
+
+    $scope.portfolioPopupClose = function()
+    {
+        $('#portfolioPopup').modal('hide');
+    }
+
+    $rootScope.$on("imageAdded", function (event, fileUploaded, imageType) {
+        if (fileUploaded) {
+            if (imageType == "portFolioImage" && $scope.portfolioImageArray) { //push into array case and check if it exists.
+                if ($scope.portfolioImageArray.length < 5) {
+                    $scope.portfolioImageArray.push(fileUploaded);
+                    setTimeout(function () {
+                        $('#portFolioImage').val("");
+                    }, 2000);
+                }
+                else {
+                    $scope.errorMessageIndicator = true;
+                    $scope.messagePortfolio = "Only five images are allowed for uploading.";
+                    //commonService.scrollToTop();
+                }
+            }
+           
+            
+            
+            
+        }
+    });
 
     $scope.updateMobileDetails = function () {
         var userId = commonService.getUserid();
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
             if (response.data.message == "Profile updated successfully") {
                 $scope.successMobileIndicator = true;
+                $('#mobilePopup').modal('show');
             }
         });
     }
+
     $scope.updatePassword = function () {
         var userId = commonService.getUserid();
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
