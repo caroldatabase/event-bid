@@ -3,10 +3,11 @@
     function init() {
         $scope.accountIndicator = true;
         commonService.scrollToTop();
+        $scope.portfolioImageArray = [];
         getUserDetails();
         $scope.selectedCategories;
         $scope.categoryList = [];
-        $scope.portfolioImageArray = [];
+        
         $scope.cardDetailIndicator = false;
         $scope.updateCardDetailIndicator = false;
         $scope.buttonIndicator = true;
@@ -14,6 +15,7 @@
             $scope.categoryList =  data.data.data;
         });
         getDateList();
+        getCardDetails();
     }
 
     $scope.removecard = function()
@@ -25,6 +27,7 @@
     {
         $scope.cardDetailIndicator = true;
         $scope.buttonIndicator = false;
+        $scope.cardDetails = {};
     }
     $scope.updateCardDetails = function()
     {
@@ -68,13 +71,31 @@
             {
                 $scope.userDetails = response.data.data;
                 $scope.portfolioImageArray = [];
-                if ($scope.userDetails && $scope.userDetails.portfolio && $scope.userDetails.portfolio != "Array")
-                $scope.portfolioImageArray = $scope.userDetails.portfolio;
+                if ($scope.userDetails && $scope.userDetails.portfolio && ($scope.userDetails.portfolio != "Array" && $scope.userDetails.portfolio != "NULL"))
+                {
+                    $scope.userDetails.portfolio = $scope.userDetails.portfolio.replace(/\\\//g, "/");
+                    $scope.userDetails.portfolio = $scope.userDetails.portfolio.replace(/^\[(.+)\]$/, '$1');
+                    $scope.userDetails.portfolio = $scope.userDetails.portfolio.replace(/['"]+/g, '');
+                    $scope.portfolioImageArray = $scope.userDetails.portfolio.split(",");
+                }
                 if (response.data.data.mobile)
                 $scope.userDetails.mobile = parseInt(response.data.data.mobile);
             }
         })
     }
+
+    function getCardDetails()
+    {
+        var userId = commonService.getUserid();
+        var user = {
+            "userId": userId
+        }
+        httpService.getCardDetails(user).then(function (response) {
+            if (response.data.message == "Record found successfully.") {
+            }
+        });
+    }
+
     $scope.accountSettings = function()
     {
         $scope.accountIndicator = true;
@@ -137,6 +158,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
+        
     }
     $scope.passwordSettings = function () {
         $scope.accountIndicator = false;
@@ -221,6 +243,7 @@
     $scope.uploadPortfolioFiles = function()
     {
         var userId = commonService.getUserid();
+        $scope.userDetails.portfolio = [];
         $scope.userDetails.portfolio = $scope.portfolioImageArray;
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
             $('#portfolioPopup').modal('show');
@@ -271,6 +294,19 @@
                 $scope.successPasswordIndicator = true;
             }
         });
+    }
+
+    $scope.insuranceFileUpload = function()
+    {
+        var f = document.getElementById('insFileUpload').files[0],
+        reader = new FileReader();
+        reader.readAsDataURL(f);
+        reader.onload = function () {
+            console.log(reader.result);
+        };
+        reader.onerror = function (error) {
+            console.log('Error: ', error);
+        };
     }
 
 });

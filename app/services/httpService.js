@@ -34,8 +34,46 @@
         postComment: postComment,
         getAllComment: getAllComment,
         replyComment: replyComment,
-        makePayment : makePayment 
+        makePayment: makePayment,
+        addCard: addCard,
+        updateCard: updateCard,
+        getCardDetails: getCardDetails,
+        deleteCardDetails: deleteCardDetails,
+        paymentByCard: paymentByCard
     };
+    /************************************Card Details ***********************************************************/
+    function addCard(cardDetails) {
+        return $http.post(serviceBase + 'api/v1/addCard', cardDetails, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function updateCard(cardDetails) {
+        return $http.post(serviceBase + 'api/v1/updateCard', cardDetails, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getCardDetails(user) {
+        return $http.post(serviceBase + 'api/v1/getCard', user , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function deleteCardDetails(card) {
+        return $http.post(serviceBase + 'api/v1/deleteCard', card, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function paymentByCard(cardDetails) {
+        return $http.post(serviceBase + 'api/v1/paymentByCard', cardDetails, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+
+    /****************** ****************/
 
     function postComment(comment) {
         return $http.post(serviceBase + 'api/v1/comment/post', comment, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
