@@ -2244,10 +2244,7 @@ p.comment-para {
     width: 12%;
     padding-right: 15px;
 }
-.commenter.sub-reply
-{
-    width:10%;
-}
+
 .commenter-text {
     width: 86%;
     float: left;
@@ -2476,6 +2473,15 @@ span {
     width: 34px;
 }
 
+button.btn.btn-lg.btn-primary.see-more-browse {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+p.commenter-desc {
+    float: left !important;
+}
 
 input.payment-checkbox {
     float: left;
@@ -2633,4 +2639,70 @@ p.add-more-isurance {
     position:absolute;
     left:0px;
     
+}
+p.timing-reply {
+    float: left;
+    width: 100%;
+}
+p.timing-reply span:nth-child(1) {
+    color: #666;
+}
+.uploadedImage {
+    float: left;
+    margin-right: 15px;
+    position:relative;
+    
+}
+.uploadedImage a {
+    position: absolute;
+    right: 3px;
+    top: -5px;
+}
+.show-more-btn {
+    float:left;
+    width:100%;
+}
+.show-more-btn input {
+    background:#298992;
+    border:0;
+    padding:5px 15px;
+    color:#fff;
+    border-radius:5px;
+}
+.place-yr-bid
+{
+    background:#298992 !important;
+    border:0;
+    padding:5px 15px;
+    color:#fff;
+    border-radius:5px;
+    float:right;
+    color:#fff !important;
+}
+
+.enter-mobile span {
+    position: absolute;
+    left: 30px;
+    top: 46px;
+    font-size: 16px;
+}
+.col-sm-6.enter-mobile input {
+    padding-left: 45px;
+}
+.pop-upload-image img
+{
+    width:24%;
+    float:left;
+    margin-top:13px;
+}
+.pop-upload-image input {
+    float: left;
+    width: 30%;
+    margin-left:10%;
+    background:#298992 !important;
+    color:#fff !important;
+    padding:7px 15px;
+}
+input {
+    color: #666 !important;
 }

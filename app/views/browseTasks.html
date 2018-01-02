@@ -62,7 +62,7 @@
                     </select>
                 </div>-->
                
-                <div class="col-sm-3 text-center">
+                <div class="col-sm-2 text-center">
                     <div class='input-group date'>
                         <input type='text' class="form-control" placeholder="Filter from event date" data-ng-model="fromDate"
                                id="datetimepicker1" name="datetimepicker1" />
@@ -71,7 +71,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-sm-2 text-center">
                     <div class='input-group date'>
                         <input type='text' class="form-control" placeholder="to this date" data-ng-model="toDate"
                                id="datetimepicker2" name="datetimepicker2" />
@@ -80,7 +80,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3 text-center">
+                <div class="col-sm-2 text-center">
                     <a data-ng-click="resetFilters()" class="btn btn-lg btn-primary">Reset Filters</a>
                 </div>
               </div>
@@ -341,21 +341,27 @@
                                 </div>
                             </div>
                             <div class="row">
+                                 <div class="col-sm-12">
                                 <label>Upload photos (upto 3 photos )</label>
                                 <input type="file" class="form-control" name="offerImages" id="offerImages"
                                        fileread="offerImages" image-type="offerImages" accept="image/*" data-ng-model="offerImages" />
                             </div>
+                                 </div>
                             <div class="row">
-                                <div data-ng-if="interestedUser.offerImages.length > 0">
-                                <div data-ng-repeat="data in interestedUser.offerImages track by $index">
-                                    <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                                    <a data-ng-click="deletePhoto(data)">X</a>
-                                </div>
-                                    <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
-                              </div>
-                                <div data-ng-if="interestedUser.offerImages.length == 0">
-                                    <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
-                                    no images uploaded yet.
+                                <div class="col-sm-12">
+                                    <div data-ng-if="interestedUser.offerImages.length > 0">
+                                        <div class="uploadedImage" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                            <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                                            <a data-ng-click="deletePhoto(data)">X</a>
+                                        </div>
+                                        <div class="show-more-btn">
+                                            <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
+                                        </div>
+                                    </div>
+                                    <div data-ng-if="interestedUser.offerImages.length == 0">
+                                        <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
+                                        no images uploaded yet.
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
@@ -364,8 +370,9 @@
                                 </div>
                             </div>
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <input type="button" class="btn btn-default" data-ng-click="showInterest(taskDetail)" value="Place your bid">
+                                    <div class="col-sm-12">
+                                        <input type="button" class="btn btn-default place-yr-bid" 
+                                               data-ng-click="showInterest(taskDetail)" value="Place your bid" >
                                     </div>
                                 </div>
 </form>

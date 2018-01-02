@@ -46,7 +46,7 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <div ng-if="userDetails.photo">
+                        <div ng-if="userDetails.photo" class="pop-upload-image">
                             <img ng-src="{{userDetails.photo}}" widt width="100" height="50" alt="Image preview..." id="profilePhoto">
                             <input type="button" value="view picture" data-ng-click="getProfilePicture(userDetails.photo)" />
                         </div>
