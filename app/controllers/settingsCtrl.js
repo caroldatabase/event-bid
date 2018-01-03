@@ -84,7 +84,14 @@
                     $scope.userDetails.portfolio = $scope.userDetails.portfolio.replace(/^\[(.+)\]$/, '$1');
                     $scope.userDetails.portfolio = $scope.userDetails.portfolio.replace(/['"]+/g, '');
                     $scope.portfolioImageArray = $scope.userDetails.portfolio.split(",");
+
                 }
+                $scope.selectedCategories = $scope.userDetails.category_id.split(",")
+                for (var i = 0; i < $scope.selectedCategories.length; i++)
+                {
+                    $scope.selectedCategories[i] = +$scope.selectedCategories[i];
+                }
+                
                 if (response.data.data.mobile)
                 $scope.userDetails.mobile = parseInt(response.data.data.mobile);
             }
