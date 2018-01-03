@@ -7,7 +7,6 @@
         getUserDetails();
         $scope.selectedCategories;
         $scope.categoryList = [];
-        
         $scope.cardDetailIndicator = false;
         $scope.updateCardDetailIndicator = false;
         $scope.buttonIndicator = true;
@@ -18,10 +17,18 @@
         getCardDetails();
     }
 
-    $scope.removecard = function()
+    $scope.removecard = function(card)
     {
-        $scope.updateCardDetailIndicator = true;
+        $scope.updateCardDetailIndicator = false;
         $scope.cardDetailIndicator = false;
+        $scope.creditCardDetailsIndicator = false;
+        $rootScope.loaderIndicator = true;
+        httpService.deleteCardDetails(card).then(function (response) {
+            if (response.data.message == "Card removed successfully!") {
+                $scope.buttonIndicator = true;
+                $rootScope.loaderIndicator = false;
+            }
+        });
     }
     $scope.showCardDetails = function()
     {
@@ -91,7 +98,13 @@
             "userId": userId
         }
         httpService.getCardDetails(user).then(function (response) {
-            if (response.data.message == "Record found successfully.") {
+            if (response.data.message == "No card added yet!") {
+                $scope.creditCardDetailsIndicator = false;
+            }
+            else {
+                $scope.creditCardDetailsIndicator = true;
+                $scope.card = {};
+                $scope.card = response.data.result[0];
             }
         });
     }
@@ -309,4 +322,40 @@
         };
     }
 
+    $scope.addCardDetails = function (cardDetails, paymentForm)
+    {
+        if (paymentForm)
+        {
+            paymentForm.$setSubmitted(true);
+            if (paymentForm.$valid) {
+                $rootScope.loaderIndicator = true;
+                var userId = commonService.getUserid();
+                cardDetails.userId = userId;
+                httpService.addCard(cardDetails).then(function (response) {
+                    $rootScope.loaderIndicator = false;
+                    if (response.data.message == "Card inserted successfully!") {
+                        $scope.successMessageIndicator = true;
+                        $scope.message = "Card added successfully.";
+                        $scope.cardDetails = {};
+                        $scope.errorMessageIndicator = false;
+                        $scope.cardDetailIndicator = false;
+                        $scope.updateCardDetailIndicator = false;
+                        getCardDetails();
+                    }
+                    else {
+                        if (response.data.message == "This card already added!")
+                        {
+                            $scope.message = "This card already added!";
+                            $scope.errorMessageIndicator = false;
+                        }
+                    }
+                });
+            }
+            else {
+                $scope.errorMessageIndicator = true;
+                $scope.message = "Please enter required details."
+            }
+        }
+        
+    }
 });
