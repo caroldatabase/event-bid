@@ -58,7 +58,7 @@
         $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         var year = (new Date()).getFullYear()
         $scope.yearArray = [];
-        for (var i = 1940; i <= year; i++) {
+        for (var i = year ; i <= 2067; i++) {
             $scope.yearArray.push(i);
         }
     }
@@ -106,9 +106,12 @@
         }
         httpService.getCardDetails(user).then(function (response) {
             if (response.data.message == "No card added yet!") {
+                getDateList();
+                $scope.cardDetails = {};
                 $scope.creditCardDetailsIndicator = false;
             }
             else {
+
                 $scope.creditCardDetailsIndicator = true;
                 $scope.card = {};
                 $scope.card = response.data.result[0];
@@ -259,6 +262,10 @@
     {
         $('#categoryPopup').modal('hide');
     }
+
+    $scope.portfolioPicturePopupClose = function () {
+        $('#portfolioPicturePopup').modal('hide');
+    }
     
     $scope.uploadPortfolioFiles = function()
     {
@@ -365,4 +372,10 @@
         }
         
     }
+
+    $scope.getPortfolioPicture = function()
+    {
+        $('#portfolioPicturePopup').modal('show');
+    }
+
 });
