@@ -15,21 +15,25 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getBuisnessTaskOpen();
-           
+            getDateList();
             
         }
 
         $scope.openSelectedtaskInDetail = function (data) {
+            
             $('#OpenTaskModal').modal('toggle');
             $("#OpenTaskModal").modal({ backdrop: "static" });
             $('#OpenTaskModal').modal('show');
+            $scope.cardDetails = {};
             $scope.taskDetail = {};
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             getInterestedUsersList(data.id);
             getTaskDetail();
-           
+            //get card details if exists. 
+            getCardDetails();
+            getDateList();
         }
         function getTaskDetail()
         {
@@ -161,6 +165,7 @@
         function getInterestedUsersList(taskid)
         {
             $rootScope.loaderIndicator = true;
+            $scope.taskid = taskid;
             httpService.getInterestedUsersList(taskid).then(function (response) {
                 $rootScope.loaderIndicator = false;
                 if(response.data.code == 200)
@@ -174,20 +179,128 @@
                 }
             });
         }
+        function getCardDetails() {
+            var userId = commonService.getUserid();
+            var user = {
+                "userId": userId
+            }
+            $rootScope.loaderIndicator = true;
+            httpService.getCardDetails(user).then(function (response) {
+                $rootScope.loaderIndicator = false;
+                if (response.data.message == "No card added yet!") {
+                    $scope.cardDetailsAlreadySaved = false;
+                    $scope.NoCardDetailsFound = true;
+                    
+                }
+                else {
+                    $scope.card = {};
+                    $scope.card = response.data.result[0];
+                    $scope.cardDetailsAlreadySaved = true;
+                    $scope.NoCardDetailsFound = false;
+                    
+                }
+            });
+        }
+        function getDateList() {
+            $scope.dayArray = [];
+            for (var i = 1; i <= 9; i++) {
+                $scope.dayArray.push('0' + i);
+            }
+
+            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var year = (new Date()).getFullYear()
+            $scope.yearArray = [];
+            for (var i = year; i <= 2067; i++) {
+                $scope.yearArray.push(i);
+            }
+            
+        }
+        $scope.calculateCharges = function(amount)
+        {
+            $scope.serviceCharges = amount * 0.1;
+            $scope.totalPaymentMade = amount + $scope.serviceCharges;
+        }
+        $scope.makePaymentByAddingCard = function (cardDetails, paymentForm)
+        {
+            
+            if (paymentForm) {
+                paymentForm.$setSubmitted(true);
+                if (true) {
+                    $rootScope.loaderIndicator = true;
+                    $scope.cardDetails.userId = commonService.getUserid();
+                    $scope.cardDetails.taskId = $scope.taskid;
+                    $scope.cardDetails = {
+                        firstName :"sd",
+                        lastName : "sdsa",
+                        cardNumber : 5555555555554444,
+                        cvv : 123,
+                        month :21,
+                        year : 2022,
+                        userId : 1,
+                        taskId : 112,
+                        amount : 10.00
+
+                   };
+                    httpService.makePayment($scope.cardDetails).then(function (result) {
+                        $rootScope.loaderIndicator = false;
+                        $scope.paymentForm.$setPristine();
+                        $scope.paymentForm.$setUntouched();
+                        $scope.successMessageIndicator = true;
+                        $scope.errorMessageIndicator = false;
+                        $scope.message = "Payment done successfully.";
+                        $scope.cardDetails = {};
+                    });
+                }
+                else
+                {
+                    $scope.errorMessageIndicator = false;
+                    $scope.message = "Please enter required details.";
+                }
+            }
+        }
         $scope.assignTaskToUser = function (item)
         {
-            $rootScope.loaderIndicator = true;
-            $scope.assignTask = {};
-            $scope.assignTask.taskId = item.taskId;
-            $scope.assignTask.taskPostedUserID = item.taskPostedUserID;
-            $scope.assignTask.assignUserID = item.showInterestedUserID;
-            $scope.assignTask.taskStatus = "assigned";
-            httpService.assignUser($scope.assignTask).then(function (response) {
-                $('#OpenTaskModal').modal('hide');
-                alert("task assigned successfully");
-                getBuisnessTaskOpen();
-                $rootScope.loaderIndicator = false;
-            });
+            if($scope.paymentMadeBeforeAssignment)
+            {
+                $rootScope.loaderIndicator = true;
+                $scope.assignTask = {};
+                $scope.assignTask.taskId = item.taskId;
+                $scope.assignTask.taskPostedUserID = item.taskPostedUserID;
+                $scope.assignTask.assignUserID = item.showInterestedUserID;
+                $scope.assignTask.taskStatus = "assigned";
+                httpService.assignUser($scope.assignTask).then(function (response) {
+                    $('#OpenTaskModal').modal('hide');
+                    alert("task assigned successfully");
+                    getBuisnessTaskOpen();
+                    $rootScope.loaderIndicator = false;
+                });
+            }
+        }
+
+        $scope.makePayment = function(amount)
+        {
+            if (amount)
+            {
+                var paymentDetail = {};
+                paymentDetail.card_id = $scope.card.card_id;
+                paymentDetail.amount = amount;
+                paymentDetail.userId = commonService.getUserid();
+                $rootScope.loaderIndicator = true;
+                httpService.paymentByCard(paymentDetail).then(function (response) {
+                    $rootScope.loaderIndicator = false;
+                    if (response.data.message == "Payment Failed!Credit card was refused." || response.data.message == "Payment Failed!Invalid request. See details.")
+                    {
+                        $scope.paymentMadeBeforeAssignment = false;
+                        $scope.paymentSuccessMessage = "Payment failed ! Credit card was refused."
+                    }
+                    else
+                    {
+                        $scope.paymentMadeBeforeAssignment = true;
+                        $scope.paymentSuccessMessage = "Payment successfull. Please proceed to assign task."
+                    }
+                });
+            }
+            
         }
         $scope.deleteTask = function(data)
         {
