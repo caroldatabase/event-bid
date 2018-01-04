@@ -1,5 +1,12 @@
-﻿app.controller('EBManagerCtrl', function ($scope, commonService, $rootScope, httpService) {
+﻿app.controller('EBManagerCtrl', function ($scope, commonService, $rootScope, httpService, $routeParams) {
+    $scope.showContactSettingsTab = showContactSettingsTab;
     init();
+    function showContactSettingsTab() {
+
+        //alert("hi");
+        $scope.functionIndicator = false;
+        $scope.contactusIndicator = true;
+    }
     function init() {
       
         $scope.functionIndicator = true;
@@ -30,16 +37,17 @@
             dropdown: true,
             scrollbar: true
         });
+        var contactUs = $routeParams.contactUs;
+        if (contactUs)
+        {
+            showContactSettingsTab();
+        }
         setTimeout(function () { $('#selectedCategories').multiselect(); }, 000);
     }
 
 
 
-    $scope.showContactSettingsTab = function () {
-
-        $scope.functionIndicator = false;
-        $scope.contactusIndicator = true;
-    }
+    
     $scope.showFunctionSettingsTab = function () {
         
         $scope.functionIndicator = true;

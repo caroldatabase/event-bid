@@ -2711,3 +2711,45 @@ img#profilePhoto {
     height: 50px !important;
     width: 50px !important;
 }
+.img-full-size {
+    height: 300px !important;
+    width: 300px !important;
+    border-radius: 100%;
+    margin: 0 auto !important;
+    text-align: center;
+}
+.popup-form-row.vicky {
+    text-align: center;
+}
+input.btn.btn-primary.btn-lg.payment-btn {
+    color: #fff !important;
+}
+form.padding-other {
+    padding: 15px;
+}
+form.padding-other {
+    padding: 15px;
+    background: #e9e9e9 !important;
+}
+span.assign-rating {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-left: 0px;
+}
+form.padding-other {
+    padding: 15px;
+    background: #e9e9e9 !important;
+    margin: 0px 20px !important;
+    margin: 0 auto;
+}
+input#payment {
+    background: #298992;
+    border: 0px;
+    color: #fff !important;
+    border-radius: 5PX;
+    padding: 15px;
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+}

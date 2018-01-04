@@ -13,6 +13,7 @@
 
     function init() {
         $(document).ready(function () {
+            commonService.scrollToTop();
             var todayDate = new Date();
             $('#datetimepicker1').datetimepicker({
                 pickDate: true,

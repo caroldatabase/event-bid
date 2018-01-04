@@ -50,6 +50,12 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/EBManager.html",
             controller: "EBManagerCtrl"
         })
+        .when("/EBManager/:contactUs?", {
+            templateUrl: "app/views/EBManager.html",
+            controller: "EBManagerCtrl"
+        })
+
+
         .when("/Rewards", {
             templateUrl: "app/views/Rewards.html",
             controller: "rewardsCtrl"
@@ -94,7 +100,7 @@ app.config(function ($routeProvider,$locationProvider) {
         })
         .when("/FAQ's", {
             templateUrl: "app/views/sitemap/FAQ.html",
-
+            controller : "FAQCtrl"
         })
         .when("/profile", {
             templateUrl: "app/views/profile-page.html",
@@ -159,3 +165,7 @@ app.run( function($rootScope, $location) {
         }         
     });
 })
+
+app.controller("FAQCtrl", function (commonService) {
+    commonService.scrollToTop();
+});

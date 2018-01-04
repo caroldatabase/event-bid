@@ -265,7 +265,7 @@
                 <div data-ng-if="NoCardDetailsFound">
                     <p class="peo-head">
                         Card details was not saved.Please add card details and make payment. </p>
-                        <form name="paymentForm" novalidate>
+                        <form name="paymentForm" novalidate class="padding-other">
                             <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
                                 {{ message}}
                             </div>
@@ -345,8 +345,10 @@
                             <div class="row">
                                 <div class="col-sm-12 card-pay-button">
                                     <div class="button-group">
-                                        <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm)" type="submit" value="Add card" class="btn btn-primary btn-lg">
-                                        <input type="button" data-ng-click="cancelPaymentByAddingCard()" value="Cancel" class="btn btn-primary btn-lg">
+                                        <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm)"
+                                                type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn ">
+                                        <input type="button" data-ng-click="cancelPaymentByAddingCard()" value="Cancel"
+                                                class="btn btn-primary btn-lg payment-btn">
                                     </div>
                                 </div>
                             </div>

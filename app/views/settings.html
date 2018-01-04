@@ -320,8 +320,8 @@
                         <div class="row">
                             <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
-                                    <input data-ng-click="addCardDetails(cardDetails, paymentForm)" type="submit" value="Add card" class="btn btn-primary btn-lg">
-                                    <input type="button" data-ng-click="cancelAddingCard()" value="Cancel" class="btn btn-primary btn-lg">
+                                    <input data-ng-click="addCardDetails(cardDetails, paymentForm)" type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn">
+                                    <input type="button" data-ng-click="cancelAddingCard()" value="Cancel" class="btn btn-primary btn-lg payment-btn">
                                 </div>
                             </div>
                         </div>
@@ -406,9 +406,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="extraSpace"></div>
-                        <div class="popup-form-row">
+                        <div class="popup-form-row vicky">
                             <div class="form-field">
-                                    <img class="img-full-size" ng-src="{{userDetails.photo}}" alt="Image preview..." id="profilePhoto">
+                                    <img class="img-full-size" ng-src="{{userDetails.photo}}" alt="Image preview..."
+                                          id="profilePhoto1">
                             </div>
                         </div>
                         <div class="text-center">
