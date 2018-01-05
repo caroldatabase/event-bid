@@ -277,7 +277,7 @@
                                     <div class="form-field">
                                         <label>Enter Card Number</label>
                                         <input type="number" class="form-control" id="debitNumber" name="debitNumber" maxlength="16" min="16"
-                                               ng-class="{error : paymentForm.debitNumber.$invalid && paymentForm.$submitted}" required data-ng-model="cardDetails.cardNumber">
+                                               ng-class="{error : paymentForm.debitNumber.$invalid && paymentForm.$submitted}" required data-ng-model="cardDetails.card_number">
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +319,7 @@
                                             <div class="form-field">
                                                 <label>CVV</label>
                                                 <input type="number" class="form-control" id="cvv" name="cvv" maxlength="3" min="3"
-                                                       required ng-class="{error : paymentForm.cvv.$invalid && paymentForm.$submitted}" data-ng-model="cardDetails.cvvCode">
+                                                       required ng-class="{error : paymentForm.cvv.$invalid && paymentForm.$submitted}" data-ng-model="cardDetails.cvv">
                                             </div>
                                         </div>
 
@@ -340,10 +340,10 @@
                                                 <div class="card-holder-input">
                                                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
                                                            ng-class="{error : paymentForm.first_name.$invalid && paymentForm.$submitted}" required
-                                                           data-ng-model="cardDetails.firstName">
+                                                           data-ng-model="cardDetails.first_name">
                                                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
                                                            ng-class="{error : paymentForm.last_name.$invalid && paymentForm.$submitted}" required
-                                                           data-ng-model="cardDetails.lastName">
+                                                           data-ng-model="cardDetails.last_name">
                                                 </div>
                                             </div>
                                         </div>

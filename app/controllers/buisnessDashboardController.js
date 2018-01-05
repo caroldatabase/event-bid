@@ -25,7 +25,7 @@
             $scope.dayArray.push('0' + i);
         }
 
-        $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        $scope.monthArray = [01,02,03,04,05,06,07,08,09,10,11,12];
         var year = (new Date()).getFullYear()
         $scope.yearArray = [];
         for (var i = year ; i <= 2067; i++) {
@@ -239,20 +239,21 @@
                        paymentForm.$setSubmitted(true);
             if (paymentForm.$valid) {
                 if (true) {
+                    console.log(cardDetails);
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
                     $scope.cardDetails.taskId = $scope.taskid;
                     $scope.cardDetails = {
-                        firstName :"sd",
-                        lastName : "sdsa",
-                        cardNumber : 5555555555554444,
-                        cvv : 123,
-                        month :21,
-                        year : 2022,
-                        userId : 1,
-                        taskId : 112,
-                        amount : 10.00
-
+//                        firstName :"sd",
+//                        lastName : "sdsa",
+//                        cardNumber : 5555555555554444,
+//                        cvv : 123,
+//                        month :21,
+//                        year : 2022,
+//                        userId : 1,
+//                        taskId : 112,
+//                        amount : 10.00
+//
                    };
                     httpService.makePayment($scope.cardDetails).then(function (result) {
                         $rootScope.loaderIndicator = false;
