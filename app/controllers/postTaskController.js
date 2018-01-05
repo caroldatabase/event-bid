@@ -128,7 +128,13 @@
             if(value == "Make up")
                 $scope.makeUpIndicator = true;
             if (value == "Other beauty service")
-                $scope.otherBeautyServicesIndicator= true;
+                $scope.otherBeautyServicesIndicator = true;
+            $(".singleSelection").select2();
+            setTimeout(function () {
+                $(".multipleSelection").select2({
+
+                });
+            }, 000);
         });
 
     }

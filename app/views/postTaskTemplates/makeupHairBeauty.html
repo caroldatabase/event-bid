@@ -59,13 +59,14 @@
                                     </label>
                                     <input type="file" class="form-control" name="makeuplookImage" id="makeuplookImage"
                                            fileread="makeuplookImage" image-type="makeuplookImage" accept="image/*" data-ng-model="makeuplookImage">
-                                    <label>Uploaded Image :</label>
+                                    
+                                    <label data-ng-if="task.category_question.makeuplookImages.length > 0">Uploaded Image :</label>
                                     <div data-ng-if="task.category_question.makeuplookImages.length > 0" data-ng-repeat="data in task.category_question.makeuplookImages track by $index">
                                         <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="makeuplookImages">
                                     </div>
-                                    <div data-ng-if="task.category_question.makeuplookImages.length == 0">
+                                    <!--<div data-ng-if="task.category_question.makeuplookImages.length == 0">
                                         <img width="100" height="50" alt="Image preview..." id="makeuplookImages">
-                                    </div>
+                                    </div>-->
                                 </div>
                         </div>
                       </div>
@@ -112,13 +113,13 @@
                        fileread="hairStyleImage" image-type="hairStyleImage" accept="image/*" data-ng-model="hairStyleImage">
             </div>
             <div class="form-field ">
-                <label>Uploaded Image :</label>
+                <label data-ng-if="task.category_question.hairStyleImages.length > 0">Uploaded Image :</label>
                 <div data-ng-if="task.category_question.hairStyleImages.length > 0" data-ng-repeat="data in task.category_question.hairStyleImages track by $index">
                     <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="hairStyleImages">
                 </div>
-                <div data-ng-if="task.category_question.hairStyleImages.length == 0">
+                <!--<div data-ng-if="task.category_question.hairStyleImages.length == 0">
                     <img width="100" height="50" alt="Image preview..." id="hairStyleImages">
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
