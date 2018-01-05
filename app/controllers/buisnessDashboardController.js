@@ -15,9 +15,7 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getDateList();
-            getBuisnessTaskOpen();
-            getDateList();
-            
+            getBuisnessTaskOpen();           
         }
           function getDateList()
     {
@@ -49,7 +47,7 @@
             getTaskDetail();
             //get card details if exists. 
             getCardDetails();
-            getDateList();
+            
         }
         function getTaskDetail()
         {
@@ -217,20 +215,20 @@
                 }
             });
         }
-        function getDateList() {
-            $scope.dayArray = [];
-            for (var i = 1; i <= 9; i++) {
-                $scope.dayArray.push('0' + i);
-            }
-
-            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            var year = (new Date()).getFullYear()
-            $scope.yearArray = [];
-            for (var i = year; i <= 2067; i++) {
-                $scope.yearArray.push(i);
-            }
-            
-        }
+//        function getDateList() {
+//            $scope.dayArray = [];
+//            for (var i = 1; i <= 9; i++) {
+//                $scope.dayArray.push('0' + i);
+//            }
+//
+//            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+//            var year = (new Date()).getFullYear()
+//            $scope.yearArray = [];
+//            for (var i = year; i <= 2067; i++) {
+//                $scope.yearArray.push(i);
+//            }
+//            
+//        }
         $scope.calculateCharges = function(amount)
         {
             $scope.serviceCharges = amount * 0.1;
@@ -239,7 +237,7 @@
         $scope.makePaymentByAddingCard = function (cardDetails, paymentForm)
         {
                        paymentForm.$setSubmitted(true);
-            if ($scope.paymentForm.$valid) {
+            if (paymentForm.$valid) {
                 if (true) {
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
@@ -272,7 +270,7 @@
                     $scope.message = "Please enter required details.";
                 }
             } else {
-                  $scope.errorMessageIndicator = false;
+                  $scope.errorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
             }
         }
