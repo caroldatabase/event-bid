@@ -298,13 +298,21 @@
                                         <div class="col-sm-8">
                                             <div class="form-field expireDate">
                                                 <label class="btn-block">Expiry Date</label>
+                                                         <select required class="form-control" data-ng-model="cardDetails.expire_month" ng-options="item for item in montharray">
+                                                <option value="" selected>MM</option>
+                                            </select>
+                                            <select required class="form-control" data-ng-model="cardDetails.expire_year" ng-options="item for item in yeararray">
+                                                <option value="" selected>YYYY</option>
+                                            </select>
                                                
+<!--
                                                 <select required class="form-control" data-ng-model="cardDetails.expiryMonth">
                                                     <option value="12" selected>12</option>
                                                 </select>
                                                 <select required class="form-control" data-ng-model="cardDetails.expiryDate">
                                                     <option value="2021" selected>2021</option>
                                                 </select>
+-->
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
