@@ -243,26 +243,38 @@
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
                     $scope.cardDetails.taskId = $scope.taskid;
-                    $scope.cardDetails = {
-//                        firstName :"sd",
-//                        lastName : "sdsa",
-//                        cardNumber : 5555555555554444,
-//                        cvv : 123,
-//                        month :21,
-//                        year : 2022,
-//                        userId : 1,
-//                        taskId : 112,
-//                        amount : 10.00
-//
-                   };
+//                    $scope.cardDetails = {
+//                      "card_number":"4111111111111111",
+//                      "card_type":"visa",
+//                      "expire_month":11,
+//                      "expire_year":2018,
+//                      "cvv":"011",
+//                      "first_name":"kandy",
+//                      "last_name":"roy",
+//                      "userId":5,
+//                      "taskId":3,
+//                       "amount":10
+                    //
+                //   };
                     httpService.makePayment($scope.cardDetails).then(function (result) {
+                        if(result.message=='Success'){
                         $rootScope.loaderIndicator = false;
-                        $scope.paymentForm.$setPristine();
-                        $scope.paymentForm.$setUntouched();
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
                         $scope.successMessageIndicator = true;
                         $scope.errorMessageIndicator = false;
                         $scope.message = "Payment done successfully.";
+                        $scope.cardDetails = {}; 
+                        } else {
+                        $rootScope.loaderIndicator = false;
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
+                        $scope.successMessageIndicator = false;
+                        $scope.errorMessageIndicator = true;
+                        $scope.message = result.message;
                         $scope.cardDetails = {};
+                        }
+                      
                     });
                 }
                 else
