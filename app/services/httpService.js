@@ -39,7 +39,15 @@
         updateCard: updateCard,
         getCardDetails: getCardDetails,
         deleteCardDetails: deleteCardDetails,
-        paymentByCard: paymentByCard
+        paymentByCard: paymentByCard,
+        getQualification:getQualification,
+        getInsurance:getInsurance,
+        approveQualification:approveQualification,
+        approveInsurance:approveInsurance,
+        getPersonalMessage:getPersonalMessage,
+        addPersonalMessage:addPersonalMessage,
+        deactivate:deactivate,
+        addInsurance:addInsurance
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -293,8 +301,59 @@
         });
     }
 
-    
+    function getQualification(pageNum,pageSize) {
+        return $http.get(serviceBase + 'api/v1/blog/getQualification?page_num=' + pageNum +  '&page_size=' + pageSize, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
 
+     function getInsurance(pageNum,pageSize) {
+        return $http.get(serviceBase + 'api/v1/blog/getInsurance?page_num=' + pageNum +  '&page_size=' + pageSize, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+   
+     function approveQualification(userid, user) {
+        return $http.post(serviceBase + 'api/v1/approveQualification/'+ userid, user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
+    function approveInsurance(userid, user) {
+        return $http.post(serviceBase + 'api/v1/approveInsurance/'+ userid, user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+   
+    function getPersonalMessage(user) {
+        return $http.post(serviceBase + 'api/v1/getPersonalMessage/', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+    
+     function addPersonalMessage(user) {
+        return $http.post(serviceBase + 'api/v1/addPersonalMessage/', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+
+      function deactivate(userid) {
+        return $http.get(serviceBase + 'api/v1/user/deactivate'+ userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+ 
+    function addInsurance(user) {
+        return $http.post(serviceBase + 'api/v1/addInsurance/', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+    
     return httpService;
 
 
