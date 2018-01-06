@@ -91,7 +91,7 @@
     }
 
     function makePayment(user) {
-        return $http.post(serviceBase + 'api/v1/makePayment', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.post(serviceBase + 'api/v1/makePayment?saveCard=yes', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 

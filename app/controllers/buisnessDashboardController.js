@@ -173,6 +173,7 @@
             $scope.messageUser = false;
             $scope.getAllComments(data.id);
             getTaskDetail();
+            $("#assignBtn").attr('disabled', 'disabled');
            
         }
         function getInterestedUsersList(taskid)
@@ -235,7 +236,7 @@
         }
         $scope.makePaymentByAddingCard = function (cardDetails, paymentForm)
         {
-                       paymentForm.$setSubmitted(true);
+            paymentForm.$setSubmitted(true);
             if (paymentForm.$valid) {
                 if (true) {
                     console.log(cardDetails);
@@ -256,14 +257,15 @@
                     //
                 //   };
                     httpService.makePayment($scope.cardDetails).then(function (result) {
-                        if(result.message=='Success'){
+                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
                         $rootScope.loaderIndicator = false;
                         paymentForm.$setPristine();
                         paymentForm.$setUntouched();
                         $scope.successMessageIndicator = true;
                         $scope.errorMessageIndicator = false;
-                        $scope.message = "Payment done successfully.";
-                        $scope.cardDetails = {}; 
+                        $scope.message = "Payment done successfully.Please assign task.";
+                        $scope.cardDetails = {};
+                        $("#assignBtn").removeAttr('disabled');
                         } else {
                         $rootScope.loaderIndicator = false;
                         paymentForm.$setPristine();
@@ -307,12 +309,18 @@
 
         $scope.makePayment = function(amount)
         {
-            if (amount)
+            if (amount > 0 )
             {
                 var paymentDetail = {};
-                paymentDetail.card_id = $scope.card.card_id;
+                $scope.amountMessage = "";
+                $scope.amountIndicator = false;
+                //paymentDetail.card_id = $scope.card.card_id;
+                paymentDetail.card_id = "CARD-2KA98699N6290702ULJH2SYQ";
                 paymentDetail.amount = amount;
                 paymentDetail.userId = commonService.getUserid();
+                paymentDetail.taskId = $scope.taskid;
+                paymentDetail.first_name = $scope.card.first_name;
+                paymentDetail.last_name = $scope.card.last_name;
                 $rootScope.loaderIndicator = true;
                 httpService.paymentByCard(paymentDetail).then(function (response) {
                     $rootScope.loaderIndicator = false;
@@ -324,12 +332,17 @@
                     else
                     {
                         $scope.paymentMadeBeforeAssignment = true;
-                        $scope.paymentSuccessMessage = "Payment successfull. Please proceed to assign task."
+                        $scope.paymentSuccessMessage = "Payment successfull. Please proceed to assign task.";
+                        $("#assignBtn").removeAttr('disabled');
                     }
                 });
             }
-            
+            else {
+                $scope.amountIndicator = true;
+                $scope.amountMessage = "Please enter valid amount";
+            }
         }
+
         $scope.deleteTask = function(data)
         {
             var r = confirm("Are you sure you want to delete this task ?");
