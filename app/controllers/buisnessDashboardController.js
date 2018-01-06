@@ -16,24 +16,24 @@
             $scope.buisnessDashboardIndicator = true;
             getDateList();
             getBuisnessTaskOpen();
-            getDateList();
+            //getDateList();
             
         }
           function getDateList()
-    {
-        $scope.dayArray = [];
-        for (var i = 1; i <= 9; i++)
         {
-            $scope.dayArray.push('0' + i);
-        }
+            $scope.dayArray = [];
+            for (var i = 1; i <= 9; i++)
+            {
+                $scope.dayArray.push('0' + i);
+            }
 
-        $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        var year = (new Date()).getFullYear()
-        $scope.yearArray = [];
-        for (var i = year ; i <= 2067; i++) {
-            $scope.yearArray.push(i);
+            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var year = (new Date()).getFullYear()
+            $scope.yearArray = [];
+            for (var i = year ; i <= 2067; i++) {
+                $scope.yearArray.push(i);
+            }
         }
-    }
 
         $scope.openSelectedtaskInDetail = function (data) {
             
