@@ -340,30 +340,46 @@
                 <div class="alert alert-success" data-ng-if="successPasswordIndicator">
                     Details updated successfully.
                 </div>
+                <form class="reset-form" name="resetForm" id="resetForm" novalidate>
+                    <label class="error-text">
+                        {{message}}
+                    </label>
+                    <label class="error-text" ng-if="successIndicator" style="color:green;">
+                        Password reset successfully. Please login to continue.
+                    </label>
                 <div class="row">
                     <div class="col-sm-12">
                         <label>Current Password</label>
-                        <input type="password" width="100%" name="currentPassword">
+                        <input type="password" class="form-control" placeholder="Old Password" name="oldPassword" required data-ng-model="oldPassword"
+                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
                     </div>
                     <div class="col-sm-12">
                         <label>New Password</label>
-                        <input type="password" width="100%" name="newPass">
+                        <input  type="password" class="form-control" placeholder="New Password" name="newPassword" required data-ng-model="newPassword"
+                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
                     </div>
                     <div class="col-sm-12">
                         <label>Confirm Password</label>
-                        <input type="password" width="100%" name="cnfrmPass">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="cnfNewPassword" required data-ng-model="cnfNewPassword"
+                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
                     </div>
 
                 </div>
 
 
+<!--
 
                 <div class="row">
                     <div class="col-sm-12">
                         <a class="btn btn-lg btn-primary" data-ng-click="updatePassword()">Update</a>
                     </div>
                 </div>
+-->
+                                        <input id="login-button" class="reset-btn"
+                           type="button" value="Change Password" data-ng-click="updatePassword(resetForm)" />
+                       </form>
             </div>
+             
             <div class="col-sm-9" data-ng-if="insuranceIndicator">
                 <div class="insurance-page">
                     <div class="row">
