@@ -385,25 +385,24 @@
                     $rootScope.loaderIndicator = true;
                     $scope.insuranceDetails.userId = commonService.getUserid();
                     $scope.insuranceDetails.doc = reader.result;
-                   
+                    $scope.insuranceDetails.status ="pending from admin";
                     httpService.addInsurance($scope.insuranceDetails).then(function (result) {
-                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
+                        if (result.data.message == 'Insurance added!') {
                         $rootScope.loaderIndicator = false;
-                        paymentForm.$setPristine();
-                        paymentForm.$setUntouched();
+                        insuranceForm.$setPristine();
+                        insuranceForm.$setUntouched();
                         $scope.successMessageIndicator = true;
                         $scope.errorMessageIndicator = false;
-                        $scope.message = "Payment done successfully.Please assign task.";
-                        $scope.cardDetails = {};
-                        $("#assignBtn").removeAttr('disabled');
+                        $scope.message = "This details will be saved to your profile after verification from our admin team.";
+                        $scope.insuranceDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;
-                        paymentForm.$setPristine();
-                        paymentForm.$setUntouched();
+                        insuranceForm.$setPristine();
+                        insuranceForm.$setUntouched();
                         $scope.successMessageIndicator = false;
                         $scope.errorMessageIndicator = true;
                         $scope.message = result.message;
-                        $scope.cardDetails = {};
+                        $scope.insuranceDetails = {};
                         }
                       
                     });
