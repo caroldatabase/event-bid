@@ -412,6 +412,7 @@
                   $scope.errorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
             }
+
     }
 
     $scope.addCardDetails = function (cardDetails, paymentForm)
