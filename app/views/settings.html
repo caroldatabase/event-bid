@@ -403,6 +403,7 @@
                             <p>Certificate Of Currency</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
                                    ng-class="{error : insuranceForm.doc .$invalid && insuranceForm.$submitted}" />
+                                   
                             <input type="button" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add" />
 
                             <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
@@ -410,14 +411,26 @@
                         </div>
                     
                         <div class="col-sm-6">
+                              <form name="qualificationForm" novalidate class="padding-other">
+                                   <div class="alert alert-danger" data-ng-show="quaErrorMessageIndicator">
+                                {{ message}}
+                            </div>
+                            <div class="alert alert-success" data-ng-if="quaSuccessMessageIndicator">
+                                {{message}}
+                            </div>
                             <h3>QUALIFICATION</h3>
                             <p>Insurance Type:</p>
-                            <input type="text" placeholder="i.e. public liability insurance">
+                           <input type="text" id="insuranceType" name="qualificationType" required data-ng-model="qualificationDetails.qualificationType" 
+                                   ng-class="{error : qualificationForm.qualificationType.$invalid && qualificationForm.$submitted}" placeholder="i.e. public liability insurance">
                             <p>Insurer:</p>
-                            <input type="text" placeholder="">
+                                         <input type="text" id="qualification" name="qualification" required data-ng-model="qualificationDetails.qualification" 
+                                   ng-class="{error : qualificationForm.qualification.$invalid && qualificationForm.$submitted}" placeholder="">
                             <p>Certificate Of Currency</p>
-                            <a href="#">Upload File</a>
+                             <input type="file" value="Upload File" id="quaDoc" name="doc "  data-ng-model="qualificationDetails.doc " 
+                                   ng-class="{error : qualificationForm.doc .$invalid && qualificationForm.$submitted}" />
+                                   <input type="button" ng-click="saveQualification(qualificationDetails,qualificationForm)" value="add" />
                             <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
+                            </form>
                         </div>
                     </div>
                 </div>  
