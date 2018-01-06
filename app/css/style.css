@@ -2756,3 +2756,14 @@ input#payment {
 input.btn.btn-primary.btn-block.login_btn {
     color: #fff !important;
 }
+input#totalGuest {
+    margin-top: 0px;
+}
+.select2-container--default .select2-selection--multiple {
+    border: 1px solid #ccc !important;
+    outline: 0;
+    border-radius: 5px;
+}
+div#thingsRequiredForTalent {
+    margin-top: -30px;
+}
