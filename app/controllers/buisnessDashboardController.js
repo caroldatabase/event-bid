@@ -15,19 +15,16 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getDateList();
-            getBuisnessTaskOpen();
-            //getDateList();
-            
+            getBuisnessTaskOpen();   
         }
-          function getDateList()
-        {
+        function getDateList() {
             $scope.dayArray = [];
-            for (var i = 1; i <= 9; i++)
-            {
+            for (var i = 1; i <= 9; i++) {
                 $scope.dayArray.push('0' + i);
             }
 
-            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            $scope.monthArray = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12];
             var year = (new Date()).getFullYear()
             $scope.yearArray = [];
             for (var i = year ; i <= 2067; i++) {
@@ -49,7 +46,7 @@
             getTaskDetail();
             //get card details if exists. 
             getCardDetails();
-            getDateList();
+            
         }
         function getTaskDetail()
         {
@@ -217,20 +214,20 @@
                 }
             });
         }
-        function getDateList() {
-            $scope.dayArray = [];
-            for (var i = 1; i <= 9; i++) {
-                $scope.dayArray.push('0' + i);
-            }
-
-            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            var year = (new Date()).getFullYear()
-            $scope.yearArray = [];
-            for (var i = year; i <= 2067; i++) {
-                $scope.yearArray.push(i);
-            }
-            
-        }
+//        function getDateList() {
+//            $scope.dayArray = [];
+//            for (var i = 1; i <= 9; i++) {
+//                $scope.dayArray.push('0' + i);
+//            }
+//
+//            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+//            var year = (new Date()).getFullYear()
+//            $scope.yearArray = [];
+//            for (var i = year; i <= 2067; i++) {
+//                $scope.yearArray.push(i);
+//            }
+//            
+//        }
         $scope.calculateCharges = function(amount)
         {
             $scope.serviceCharges = amount * 0.1;
@@ -239,31 +236,44 @@
         $scope.makePaymentByAddingCard = function (cardDetails, paymentForm)
         {
                        paymentForm.$setSubmitted(true);
-            if ($scope.paymentForm.$valid) {
+            if (paymentForm.$valid) {
                 if (true) {
+                    console.log(cardDetails);
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
                     $scope.cardDetails.taskId = $scope.taskid;
-                    $scope.cardDetails = {
-                        firstName :"sd",
-                        lastName : "sdsa",
-                        cardNumber : 5555555555554444,
-                        cvv : 123,
-                        month :21,
-                        year : 2022,
-                        userId : 1,
-                        taskId : 112,
-                        amount : 10.00
-
-                   };
+//                    $scope.cardDetails = {
+//                      "card_number":"4111111111111111",
+//                      "card_type":"visa",
+//                      "expire_month":11,
+//                      "expire_year":2018,
+//                      "cvv":"011",
+//                      "first_name":"kandy",
+//                      "last_name":"roy",
+//                      "userId":5,
+//                      "taskId":3,
+//                       "amount":10
+                    //
+                //   };
                     httpService.makePayment($scope.cardDetails).then(function (result) {
+                        if(result.message=='Success'){
                         $rootScope.loaderIndicator = false;
-                        $scope.paymentForm.$setPristine();
-                        $scope.paymentForm.$setUntouched();
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
                         $scope.successMessageIndicator = true;
                         $scope.errorMessageIndicator = false;
                         $scope.message = "Payment done successfully.";
+                        $scope.cardDetails = {}; 
+                        } else {
+                        $rootScope.loaderIndicator = false;
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
+                        $scope.successMessageIndicator = false;
+                        $scope.errorMessageIndicator = true;
+                        $scope.message = result.message;
                         $scope.cardDetails = {};
+                        }
+                      
                     });
                 }
                 else
@@ -272,7 +282,7 @@
                     $scope.message = "Please enter required details.";
                 }
             } else {
-                  $scope.errorMessageIndicator = false;
+                  $scope.errorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
             }
         }
