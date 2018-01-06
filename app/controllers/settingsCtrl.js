@@ -314,13 +314,58 @@
         });
     }
 
-    $scope.updatePassword = function () {
-        var userId = commonService.getUserid();
-        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
-            if (response.data.message == "Profile updated successfully") {
-                $scope.successPasswordIndicator = true;
+    $scope.updatePassword = function (resetForm) {
+       // var userId = commonService.getUserid();
+//        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+//            if (response.data.message == "Profile updated successfully") {
+//                $scope.successPasswordIndicator = true;
+//            }
+//        });
+        resetForm.$setSubmitted(true);
+        if (resetForm.$valid) {
+              console.log("here");
+            $scope.passwordIndicator = false;
+         
+            if ($scope.cnfNewPassword === $scope.newPassword) {
+                $rootScope.loaderIndicator = true;
+                var userId = commonService.getUserid();
+                httpService.changePassword(userId, $scope.oldPassword, $scope.newPassword).then(function (result) {
+                    if (result.data.code != 500 || result.data.message == "Password changed successfully.") {
+                        $rootScope.loaderIndicator = false;
+                        $scope.oldPassword = "";
+                        $scope.newPassword = "";
+                        $scope.cnfNewPassword = "";
+                        $scope.successIndicator = true;
+                        commonService.deleteCookieValues('FirstName');
+                        commonService.deleteCookieValues('UserID');
+                        commonService.deleteCookieValues('UserType');
+                        $rootScope.isLogin = false;
+                        $rootScope.adminIndicator = false;
+                        commonService.reloadRoute();
+                       // $location.path('/');
+                       // $('#promptLoginPopup').modal('toggle');
+                      //  $("#promptLoginPopup").modal({ backdrop: "static" });
+                      //  $('#promptLoginPopup').modal('show');
+                    }
+                    else {
+                        $rootScope.loaderIndicator = false;
+                        $scope.errorIndicator = true;
+                        $scope.message = "Something went wrong. Please try again after some time. "
+                    }
+                });
             }
-        });
+            else {
+                $scope.message = "New Password and Confirm new Password are not same.";
+                $scope.errorIndicator = true;
+                $scope.passwordIndicator = true;
+            }
+        }
+        else {
+            $scope.message = "Please enter required details";
+            $scope.errorIndicator = true;
+            
+        }
+
     }
 
     $scope.insuranceFileUpload = function()
