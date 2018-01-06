@@ -2753,3 +2753,6 @@ input#payment {
     margin-top: 15px;
     font-size: 16px;
 }
+input.btn.btn-primary.btn-block.login_btn {
+    color: #fff !important;
+}
