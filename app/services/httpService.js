@@ -347,8 +347,8 @@
         });
     }
  
-    function addInsurance(user) {
-        return $http.post(serviceBase + 'api/v1/addInsurance/', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+    function addInsurance(insurance) {
+        return $http.post(serviceBase + 'api/v1/addInsurance', insurance, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 

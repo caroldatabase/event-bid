@@ -381,20 +381,33 @@
             </div>
              
             <div class="col-sm-9" data-ng-if="insuranceIndicator">
+              
                 <div class="insurance-page">
                     <div class="row">
                         <div class="col-sm-6">
+                               <form name="insuranceForm" novalidate class="padding-other">
+                            <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                                {{ message}}
+                            </div>
+                            <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                                {{message}}
+                            </div>
                             <h3>INSURANCE</h3>
                             <p>Insurance Type:</p>
-                            <input type="text" data-ng-model="" placeholder="i.e. public liability insurance">
+                            <input type="text" id="insuranceType" name="insuranceType" required data-ng-model="insuranceDetails.insuranceType" 
+                                   ng-class="{error : insuranceForm.insuranceType.$invalid && insuranceForm.$submitted}" placeholder="i.e. public liability insurance">
                             <p>Insurer:</p>
-                            <input type="text" placeholder="">
+                               <input type="text" id="insurer " name="insurer " required data-ng-model="insuranceDetails.insurer " 
+                                   ng-class="{error : insuranceForm.insurer .$invalid && paymentForm.$submitted}" placeholder="">
                             <p>Certificate Of Currency</p>
-                            <input type="file" value="Upload File" id="insFileUpload"/>
-                            <input type="button" ng-click="insuranceFileUpload()" value="add" />
+                            <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
+                                   ng-class="{error : insuranceForm.doc .$invalid && insuranceForm.$submitted}" />
+                            <input type="button" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add" />
 
                             <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
+                                       </form>
                         </div>
+                    
                         <div class="col-sm-6">
                             <h3>QUALIFICATION</h3>
                             <p>Insurance Type:</p>
@@ -407,6 +420,7 @@
                         </div>
                     </div>
                 </div>  
+                
             </div>
         </div>
     </div>

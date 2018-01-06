@@ -7,6 +7,7 @@
         getUserDetails();
         $scope.selectedCategories;
         $scope.categoryList = [];
+        $scope.insuranceDetails={};
         $scope.cardDetailIndicator = false;
         $scope.updateCardDetailIndicator = false;
         $scope.buttonIndicator = true;
@@ -368,17 +369,49 @@
 
     }
 
-    $scope.insuranceFileUpload = function()
+    $scope.insuranceFileUpload = function(insuranceDetails,insuranceForm)
     {
-        var f = document.getElementById('insFileUpload').files[0],
-        reader = new FileReader();
-        reader.readAsDataURL(f);
-        reader.onload = function () {
-            console.log(reader.result);
-        };
-        reader.onerror = function (error) {
-            console.log('Error: ', error);
-        };
+        var imageFile = document.getElementById('doc').files[0];
+        insuranceForm.$setSubmitted(true);
+            if (insuranceForm.$valid&&imageFile) {
+                    reader = new FileReader();
+                    reader.readAsDataURL(imageFile);
+                    reader.onload = function () {
+                        console.log(reader.result);
+                    };
+                    reader.onerror = function (error) {
+                        console.log('Error: ', error);
+                    };
+                    $rootScope.loaderIndicator = true;
+                    $scope.insuranceDetails.userId = commonService.getUserid();
+                    $scope.insuranceDetails.doc = reader.result;
+                   
+                    httpService.addInsurance($scope.insuranceDetails).then(function (result) {
+                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
+                        $rootScope.loaderIndicator = false;
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
+                        $scope.successMessageIndicator = true;
+                        $scope.errorMessageIndicator = false;
+                        $scope.message = "Payment done successfully.Please assign task.";
+                        $scope.cardDetails = {};
+                        $("#assignBtn").removeAttr('disabled');
+                        } else {
+                        $rootScope.loaderIndicator = false;
+                        paymentForm.$setPristine();
+                        paymentForm.$setUntouched();
+                        $scope.successMessageIndicator = false;
+                        $scope.errorMessageIndicator = true;
+                        $scope.message = result.message;
+                        $scope.cardDetails = {};
+                        }
+                      
+                    });
+            
+            } else {
+                  $scope.errorMessageIndicator = true;
+                  $scope.message = "Please enter required details.";
+            }
     }
 
     $scope.addCardDetails = function (cardDetails, paymentForm)
