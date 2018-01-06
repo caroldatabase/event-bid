@@ -325,6 +325,8 @@
 
     $scope.insuranceFileUpload = function()
     {
+        var insurance = {};
+        
         var f = document.getElementById('insFileUpload').files[0],
         reader = new FileReader();
         reader.readAsDataURL(f);

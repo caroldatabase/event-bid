@@ -93,6 +93,10 @@ app.config(function ($routeProvider,$locationProvider) {
              templateUrl: "app/views/blogDetail.html",
              controller: "blogDetailCtrl",
          })
+         .when("/blog-detail", {
+             templateUrl: "app/views/blogDetail2.html",
+             controller: "blogDetailCtrl",
+         })
 
         .when("/contact-us", {
             templateUrl: "app/views/contact-us.html",
