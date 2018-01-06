@@ -215,20 +215,7 @@
                 }
             });
         }
-//        function getDateList() {
-//            $scope.dayArray = [];
-//            for (var i = 1; i <= 9; i++) {
-//                $scope.dayArray.push('0' + i);
-//            }
-//
-//            $scope.monthArray = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-//            var year = (new Date()).getFullYear()
-//            $scope.yearArray = [];
-//            for (var i = year; i <= 2067; i++) {
-//                $scope.yearArray.push(i);
-//            }
-//            
-//        }
+
         $scope.calculateCharges = function(amount)
         {
             $scope.serviceCharges = amount * 0.1;
@@ -243,19 +230,6 @@
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
                     $scope.cardDetails.taskId = $scope.taskid;
-//                    $scope.cardDetails = {
-//                      "card_number":"4111111111111111",
-//                      "card_type":"visa",
-//                      "expire_month":11,
-//                      "expire_year":2018,
-//                      "cvv":"011",
-//                      "first_name":"kandy",
-//                      "last_name":"roy",
-//                      "userId":5,
-//                      "taskId":3,
-//                       "amount":10
-                    //
-                //   };
                     httpService.makePayment($scope.cardDetails).then(function (result) {
                         if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
                         $rootScope.loaderIndicator = false;
@@ -290,8 +264,8 @@
         }
         $scope.assignTaskToUser = function (item)
         {
-            if($scope.paymentMadeBeforeAssignment)
-            {
+           // if($scope.paymentMadeBeforeAssignment)
+            //{
                 $rootScope.loaderIndicator = true;
                 $scope.assignTask = {};
                 $scope.assignTask.taskId = item.taskId;
@@ -304,7 +278,7 @@
                     getBuisnessTaskOpen();
                     $rootScope.loaderIndicator = false;
                 });
-            }
+           // }
         }
 
         $scope.makePayment = function(amount)

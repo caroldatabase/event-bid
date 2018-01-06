@@ -235,7 +235,7 @@
                 </div>
                 <div class="m-body-bottom">
                     <p>
-                        <b>  Task posted date : </b>  {{ taskDetail.created_at | date}}
+                        <b>  Task posted date : </b>  {{ taskDetail.created_at | date :'dd-MM-yyyy'}}
                     </p>
 
                 </div>
@@ -246,8 +246,8 @@
                             <span><b>{{item.interested_user.first_name}} {{item.interested_user.last_name}}</b></span>
                             <span class="assign-rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a class="assign-view" href="#/profile/{{item.interested_user.id}}">view profile</a>
-                            <button type="button" class="btn btn-default manage-assign" id="assignBtn"
-                                    data-ng-click="assignTaskToUser(item)">assign</button>
+                            <input type="button" class="btn btn-default manage-assign" id="assignBtn"
+                                   data-ng-click="assignTaskToUser(item)" value="assign" disabled="disabled">
                         </li>
                     </ul>
                    
