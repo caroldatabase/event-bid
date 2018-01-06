@@ -340,28 +340,29 @@
                 <div class="alert alert-success" data-ng-if="successPasswordIndicator">
                     Details updated successfully.
                 </div>
-                <form class="reset-form" name="resetForm" id="resetForm" novalidate>
-                    <label class="error-text">
-                        {{message}}
-                    </label>
+                <form class="reset-form" name="passForm" id="passForm" novalidate>
+                    <div class="alert alert-danger" data-ng-if="errorIndicator">
+                            {{ message}}
+                        </div>
                     <label class="error-text" ng-if="successIndicator" style="color:green;">
                         Password reset successfully. Please login to continue.
                     </label>
                 <div class="row">
                     <div class="col-sm-12">
                         <label>Current Password</label>
-                        <input type="password" class="form-control" placeholder="Old Password" name="oldPassword" required data-ng-model="oldPassword"
-                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                        <input type="password" class="form-control" placeholder="Old Password" id="oldPassword" name="oldPassword" ng-class="{error : passForm.oldPassword.$invalid && passForm.$submitted}" required data-ng-model="passwordDetails.oldPassword"
+                        >
+
                     </div>
                     <div class="col-sm-12">
                         <label>New Password</label>
-                        <input  type="password" class="form-control" placeholder="New Password" name="newPassword" required data-ng-model="newPassword"
-                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                        <input  type="password" class="form-control" placeholder="New Password" id="newPassword" name="newPassword" required data-ng-model="passwordDetails.newPassword"
+                               ng-class="{error : passForm.newPassword.$invalid && passForm.$submitted }">
                     </div>
                     <div class="col-sm-12">
                         <label>Confirm Password</label>
-                        <input type="password" class="form-control" placeholder="Confirm Password" name="cnfNewPassword" required data-ng-model="cnfNewPassword"
-                               ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                        <input type="password" class="form-control" placeholder="Confirm Password" name="cnfNewPassword" required data-ng-model="passwordDetails.cnfNewPassword"
+                               ng-class="{error : passForm.cnfNewPassword.$invalid && passForm.$submitted }">
                     </div>
 
                 </div>
@@ -376,7 +377,7 @@
                 </div>
 -->
                                         <input id="login-button" class="reset-btn"
-                           type="button" value="Change Password" data-ng-click="updatePassword(resetForm)" />
+                           type="button" value="Change Password" data-ng-click="updatePassword(passwordDetails,passForm)" />
                        </form>
             </div>
              
