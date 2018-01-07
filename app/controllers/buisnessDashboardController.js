@@ -371,15 +371,15 @@
         $scope.addComment = function () {
             if ($scope.commentDescription) {
                 var comment = {};
-                comment.commentDescription = $scope.commentDescription;
+                comment.comments = $scope.commentDescription;
                 comment.taskId = $scope.taskDetail.id;
                 comment.userId = commonService.getUserid();
                 $rootScope.loaderIndicator = true;
-                httpService.postComment(comment).then(function (data) {
-                    if (data.data.message == "comment posted successfully.") {
+                httpService.addPersonalMessage(comment).then(function (data) {
+                    if (data.data.message == "Message added successfully.") {
                         //get comment list
                         $scope.commentDescription = "";
-                        $scope.getAllComments($scope.taskDetail.id);
+                       // $scope.getAllComments($scope.taskDetail.id);
                         $rootScope.loaderIndicator = false;
                         $scope.messageUser = false;
                     }
