@@ -242,11 +242,14 @@
                 <!--if card details was saved-->
                 <div class="people-int" data-ng-if="cardDetailsAlreadySaved">
                     <p class="peo-head">You need to make payment before assigning this task. Can we make payment by card saved with us ending with {{card.card_number}} ?</p>
+<!--
                     <input type="number" class="form-control" ng-model="taskAmount" name="taskAmount" required min="1" max="1500000000"
-                           placeholder="re-enter task amount (in $)" ng-class="{error : taskAmount.$invalid }" data-ng-blur="calculateCharges(taskAmount)">
+                           placeholder="{{taskDetail.category_question['totalCost']}}" ng-class="{error : taskAmount.$invalid }" data-ng-blur="calculateCharges(taskAmount)">
+-->
+                    {{taskDetail.category_question['totalCost']}}$
                     <span data-ng-if="serviceCharges"><b>Eventbid Services charges- </b>{{ serviceCharges }} </span> <br />
                     <span data-ng-if="totalPaymentMade"><b>Total Payment -</b> {{ totalPaymentMade }}</span> <br />
-                    <input type="button" id="payment" name="payment" value="make payment" ng-click="makePayment(totalPaymentMade)" /><br />
+                    <input type="button" id="payment" name="payment" value="make payment" ng-click="makePayment(taskDetail.category_question['totalCost'])" /><br />
                     <span style="color : red;">{{paymentSuccessMessage}}</span>
                     <span style="color : red;" data-ng-if="amountIndicator">{{amountMessage}}</span>
                 </div>
@@ -458,7 +461,7 @@
                             <div class="commenter" data-ng-repeat="item in commentList" data-ng-if="CommentRecordIndicator">
                                 <div id="commentItem" >
                                     <div class="commenter-pic">
-                                        <a href="#"><img src={{item.user.photo?item.user.photo:'app/images/profile-btn.png'}} alt="yellotasker"></a>
+                                        <a href="#"><img src="{{item.user.photo?item.user.photo:'app/images/profile-btn.png'}}" alt="yellotasker"></a>
                                     </div>
                                     <div class="commenter-text">
                                         <h4><a href="#">{{item.user.first_name}} {{item.user.last_name}}</a></h4>
