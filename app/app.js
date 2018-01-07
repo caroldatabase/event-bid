@@ -127,6 +127,10 @@ app.config(function ($routeProvider,$locationProvider) {
              templateUrl: "app/views/messaging.html",
              controller: "messagingCtrl"
          })
+         .when("/blog-detail", {
+             templateUrl: "app/views/addBlogDetail2.html",
+             controller: "blogDetailCtrl"
+         })
         /* .when("/payment", {
              templateUrl: "app/views/payment.html",
              controller: "paymentCtrl"

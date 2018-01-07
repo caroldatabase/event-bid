@@ -1,24 +1,4 @@
-﻿<!--<div class="container admin-blog">
-    <div>
-        <div class="row">
-            <h4>Blog Management</h4>
-            
-            <br />
-            <b>All Blogs :</b>
-            <ul data-ng-repeat="item in blogList">
-                <div class="hub-post">
-                    <div class="post-hub-pic">
-                        <img ng-src="{{item.blog_image}}">
-                    </div>
-                    <div class="post-hub-content">
-                        <p class="hub-tag">{{item.blog_sub_title}}</p>
-                        <p class="post-desc">{{item.blog_description}}</p>
-                    </div>
-                </div>
-            </ul>
-        </div>
-    </div>
-</div>-->
+﻿
 
 <div class="new-blog">
     <div class="container">
@@ -35,7 +15,7 @@
                 <img ng-src="{{item.blog_image}}" alt="">
             </div>
             <div class="col-sm-4">
-                <h3 style="margin-top:0px;">{{item.blog_sub_title}}</h3>
+                <a href="#/blog-detail"><h3 style="margin-top:0px;">{{item.blog_sub_title}}</h3></a>
                 <p>{{item.blog_description}}</p>
             </div>
         </div>
