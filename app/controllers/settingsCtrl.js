@@ -321,15 +321,13 @@
 
         passForm.$setSubmitted(true);
         if (passForm.$valid) {
-              console.log("here");
-            $scope.passwordIndicator = false;
-          console.log('scope',$scope.passwordDetails);
             if ($scope.passwordDetails.cnfNewPassword === $scope.passwordDetails.newPassword) {
                 $rootScope.loaderIndicator = true;
                 var userId = commonService.getUserid();
                 httpService.changePassword(userId, $scope.passwordDetails.oldPassword, $scope.passwordDetails.newPassword).then(function (result) {
                     if (result.data.code != 500 && result.data.message == "Password changed successfully.") {
                         $rootScope.loaderIndicator = false;
+                        $scope.passwordIndicator = false;
                         $scope.passwordDetails.oldPassword = "";
                         $scope.passwordDetails.newPassword = "";
                         $scope.passwordDetails.cnfNewPassword = "";
@@ -346,9 +344,10 @@
                         $('#promptLoginPopup').modal('show');
                     }
                     else {
+                        $scope.passwordIndicator = true;
                         $rootScope.loaderIndicator = false;
                         $scope.errorIndicator = true;
-                        $scope.message = "Something went wrong. Please try again after some time. "
+                        $scope.message = result.data.message;
                     }
                 });
             }
