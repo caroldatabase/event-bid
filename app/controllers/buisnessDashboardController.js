@@ -203,9 +203,14 @@
                     if (data.data.message == "Success") {
                         //get comment list
                         $scope.commentDescription = "";
-                       // $scope.getAllComments($scope.taskDetail.id);
+                        $scope.commentList = data.data.data;
+                        $scope.countIndicator = $scope.commentList.length;
+                        $rootScope.loaderIndicator = false;
+                        $scope.CommentRecordIndicator = true;
                         $rootScope.loaderIndicator = false;
                         $scope.messageUser = false;
+                    } else {
+                        $rootScope.loaderIndicator = false;
                     }
                 });
             
