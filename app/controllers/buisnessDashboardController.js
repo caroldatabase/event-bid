@@ -171,7 +171,7 @@
             $scope.taskDetail.category_Detail = {};
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             $scope.messageUser = false;
-            $scope.getAllComments(data.id);
+            getMessages(data.id);
             getTaskDetail();
             $("#assignBtn").attr('disabled', 'disabled');
            
@@ -192,6 +192,28 @@
                     $scope.interestedUsersListCount = 0;
                 }
             });
+        }
+        function getMessages(taskId){
+            var userId = commonService.getUserid();
+            var messages = {};
+                messages.taskId = taskId;
+                messages.poster_userid = userId;
+                $rootScope.loaderIndicator = true;
+                httpService.getPersonalMessage(messages).then(function (data) {
+                    if (data.data.message == "Success") {
+                        //get comment list
+                        $scope.commentDescription = "";
+                        $scope.commentList = data.data.data;
+                        $scope.countIndicator = $scope.commentList.length;
+                        $rootScope.loaderIndicator = false;
+                        $scope.CommentRecordIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.messageUser = false;
+                    } else {
+                        $rootScope.loaderIndicator = false;
+                    }
+                });
+            
         }
         function getCardDetails() {
             var userId = commonService.getUserid();
@@ -379,7 +401,7 @@
                     if (data.data.message == "Message added successfully.") {
                         //get comment list
                         $scope.commentDescription = "";
-                       // $scope.getAllComments($scope.taskDetail.id);
+                        getMessages($scope.taskDetail.id);
                         $rootScope.loaderIndicator = false;
                         $scope.messageUser = false;
                     }

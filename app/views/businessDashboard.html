@@ -456,16 +456,16 @@
                         <p class="v-c-h">View chat history : </p>
                         <li>
                             <div class="commenter" data-ng-repeat="item in commentList" data-ng-if="CommentRecordIndicator">
-                                <div id="commentItem" data-ng-if="item.commentId == 0">
+                                <div id="commentItem" >
                                     <div class="commenter-pic">
-                                        <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
+                                        <a href="#"><img src={{item.user.photo?item.user.photo:'app/images/profile-btn.png'}} alt="yellotasker"></a>
                                     </div>
                                     <div class="commenter-text">
-                                        <h4><a href="#">{{item.user_detail.first_name}} {{item.user_detail.last_name}}</a></h4>
+                                        <h4><a href="#">{{item.user.first_name}} {{item.user.last_name}}</a></h4>
                                         <p class="commenter-desc">
-                                            {{item.commentDescription}}
+                                            {{item.comments}}
                                         </p>
-                                        <p class="timing-reply"><span>{{item.created_at | timeago }}</span> <span><a data-ng-click="onReply(item)"><i class="fa fa-reply"></i> Reply</a></span></p>
+                                        <p class="timing-reply"><span>{{item.created_at | timeago }}</span></p>
                                     </div>
                                 </div>
 
@@ -489,6 +489,7 @@
                                     <!--reply list div starts-->
                                     <div data-ng-if="checkIfReplyExists(item.id, commentList)">
                                         <!--reply list div starts-->
+<!--
                                         <div data-ng-repeat="data in repliedObjectList">
 
                                             <div class="commenter sub-reply">
@@ -522,7 +523,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div><!--reply list div ends-->
+                                    </div>
+-->
+                                    <!--reply list div ends-->
                                 </div>
                             </div>
                             <div data-ng-if="!CommentRecordIndicator">

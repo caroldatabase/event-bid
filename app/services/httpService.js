@@ -327,8 +327,8 @@
 
     }
    
-    function getPersonalMessage(user) {
-        return $http.post(serviceBase + 'api/v1/getPersonalMessage/', user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+    function getPersonalMessage(message) {
+        return $http.post(serviceBase + 'api/v1/getPersonalMessage', message, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 
