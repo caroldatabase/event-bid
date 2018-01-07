@@ -351,11 +351,17 @@
         $scope.pageNum = $scope.pageNum + 1;
         httpService.browseAllTask($scope.pageNum).then(function (response) {
             var temptaskList = response.data.data;
+            if(temptaskList.length > 0){
             temptaskList = temptaskList.map(getTaskDetails);
             if (temptaskList.length > 0)
-                $.merge($scope.taskList, temptaskList);
-            console.log($scope.taskList);
-            $rootScope.loaderIndicator = false;
+            $.merge($scope.taskList, temptaskList);
+            $rootScope.loaderIndicator = false;    
+            } else {
+                $('#seeMore').hide();
+                $('#noRecord').show();
+
+            }
+          
         });
     }
 
