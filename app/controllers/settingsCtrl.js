@@ -327,21 +327,24 @@
                 httpService.changePassword(userId, $scope.passwordDetails.oldPassword, $scope.passwordDetails.newPassword).then(function (result) {
                     if (result.data.code != 500 && result.data.message == "Password changed successfully.") {
                         $rootScope.loaderIndicator = false;
-                        $scope.passwordIndicator = false;
+                       
                         $scope.passwordDetails.oldPassword = "";
                         $scope.passwordDetails.newPassword = "";
                         $scope.passwordDetails.cnfNewPassword = "";
                         $scope.successIndicator = true;
-                        commonService.deleteCookieValues('FirstName');
-                        commonService.deleteCookieValues('UserID');
-                        commonService.deleteCookieValues('UserType');
-                        $rootScope.isLogin = false;
-                        $rootScope.adminIndicator = false;
-                        commonService.reloadRoute();
-                        $location.path('/');
-                        $('#promptLoginPopup').modal('toggle');
-                        $("#promptLoginPopup").modal({ backdrop: "static" });
-                        $('#promptLoginPopup').modal('show');
+                        setTimeout(function () {
+                            $scope.passwordIndicator = false;
+                            $rootScope.isLogin = false;
+                            $rootScope.adminIndicator = false;
+                            commonService.deleteCookieValues('FirstName');
+                            commonService.deleteCookieValues('UserID');
+                            commonService.deleteCookieValues('UserType');
+                            commonService.reloadRoute();
+                            $location.path('/');
+                            $('#promptLoginPopup').modal('toggle');
+                            $("#promptLoginPopup").modal({ backdrop: "static" });
+                            $('#promptLoginPopup').modal('show');
+                        }, 3000);
                     }
                     else {
                         $scope.passwordIndicator = true;
