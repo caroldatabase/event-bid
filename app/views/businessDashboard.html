@@ -81,7 +81,6 @@
                   </div>
               </div>
 
-
               <div class="container jobs-dasborad">
                   <div class="row">
                       <div class="col-sm-6">
@@ -536,20 +535,21 @@
                             </div>
                                 </div>
                         </li>
-                        <li><p class="v-c-h">Mark status as Completed if done :</p><button type="button" class="btn btn-default comp-btn" data-ng-click="completeTask(taskDetail)">Complete</button></li>
                         <li>
                             <p class="v-c-h">
-                                
+
                                 How was your experience ? Submit reviews how was your experience with this user.
                             </p>
                             <p>
                             <p class="rating-experience">
-                                 <span>Rating</span> 
+                                <span>Rating</span>
                                 <span>
-                                    <select>
+                                    <select name="doersRating">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </span>
                                 <span>
@@ -558,6 +558,12 @@
                             </p>
                             <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
                         </li>
+                        <li><p class="v-c-h">
+                            Mark status as Completed if done :</p>
+                        <button type="button" class="btn btn-default comp-btn" data-ng-click="completeTask(taskDetail)">
+                            Complete</button>
+                        </li>
+                       
                     </ul>
                 </div>
             </div>
