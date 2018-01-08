@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What do you need designed for your event?</label>
+            <label >What do you need designed for your event?</label>
             <select class="multipleSelection" required multiple="multiple"
                     data-ng-model="task.category_question.graphicBanners" name="graphicBanners"
                     ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What is your total budget for your design job? </label>
+            <label class="desk-hair">What is your total budget for your design job? </label>
             <span class="other-iocn-d">$</span>
             <input type="number" class="form-control" ng-model="task.category_question.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
                    required
