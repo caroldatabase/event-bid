@@ -15,7 +15,11 @@
                 <img ng-src="{{item.blog_image}}" alt="">
             </div>
             <div class="col-sm-4">
-                <a href="#/blog-detail"><h3 style="margin-top:0px;">{{item.blog_sub_title}}</h3></a>
+                <a href="#/blog-detail/{{item.blog_title}}"><h3>
+                    <h3 style="margin-top:0px;">
+                        {{item.blog_title}}
+                    </h3>
+                </a>
                 <p>{{item.blog_description}}</p>
             </div>
         </div>

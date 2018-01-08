@@ -9,15 +9,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 blog-detail-thumb">
-                    <h3 style="margin-top:0px;" class="ng-binding">Kid' s Parties at my Home</h3>
-                    <p>20 April 2017</p>
+                    <h3 style="margin-top:0px;" class="ng-binding">{{blog.blog_title}}</h3>
+                    <p>{{formatDate(blog.updated_at) | date :'dd-MMM-yyyy'}}</p>
                     <p>
                         <i class="fa fa-facebook"></i><i class="fa fa-twitter"></i><i class="fa fa-yelp"></i><i class="fa fa-google-plus"></i>
                      </p>
-                    <img ng-src="http://api.eventbid.com.au/public/images/1509352304.png" alt="" src="http://api.eventbid.com.au/public/images/1509352304.png">
+                    <img ng-src="{{blog.blog_image}}" alt=" alt="blog detail image">
                 </div>
                 <div class="col-sm-12">
-                    <p style="margin-top:15px;">A iridescent and holographic themed party photoshoot , straight from Russia Lorem ipsum dolor sit amet is the dummy lorem Lorem ipsum dolor sit amet is the dummy lorem ipsum sit amet Lorem ipsum dolor sit amet is the dummy lorem Lorem ipsum dolor sit amet is the dummy lorem ipsum sit amet Lorem ipsum dolor sit amet is the dummy lorem Lorem ipsum dolor sit amet is the dummy lorem ipsum sit amet Lorem ipsum dolor sit amet is the dummy lorem Lorem ipsum dolor sit amet is the dummy lorem ipsum sit amet</p>
+                    <p style="margin-top:15px;">
+                        {{blog.blog_description}}
+
+                    </p>
                 </div>
             </div>
             
