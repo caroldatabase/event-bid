@@ -243,7 +243,7 @@
             $scope.serviceCharges = amount * 0.1;
             $scope.totalPaymentMade = amount + $scope.serviceCharges;
         }
-        $scope.makePaymentByAddingCard = function (cardDetails, paymentForm)
+        $scope.makePaymentByAddingCard = function (cardDetails, paymentForm,amount)
         {
             paymentForm.$setSubmitted(true);
             if (paymentForm.$valid) {
@@ -252,6 +252,7 @@
                     $rootScope.loaderIndicator = true;
                     $scope.cardDetails.userId = commonService.getUserid();
                     $scope.cardDetails.taskId = $scope.taskid;
+					$scope.cardDetails.amount = amount;
                     httpService.makePayment($scope.cardDetails).then(function (result) {
                         if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
                         $rootScope.loaderIndicator = false;

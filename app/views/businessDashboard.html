@@ -347,7 +347,7 @@
                         <div class="row">
                             <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
-                                    <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm)"
+                                    <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm,taskDetail.category_question['totalCost'])"
                                            type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn ">
                                     <input type="button" data-ng-click="cancelPaymentByAddingCard()" value="Cancel"
                                            class="btn btn-primary btn-lg payment-btn">
