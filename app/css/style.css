@@ -3033,3 +3033,12 @@ span#cspio-privacy-policy-txt {
     width: 100%;
     margin-top: 60px;
 }
+span.select2-selection.select2-selection--multiple {
+    height: 40px;
+}
+span.select2.select2-container.select2-container--default {
+    height: 40px !important;
+}
+textarea.form-control {
+    height: 63px;
+}
