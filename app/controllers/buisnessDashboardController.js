@@ -13,6 +13,7 @@
             $scope.assignMsg = false;
             $scope.reviewsIndicator = false;
             $scope.anchorDisable = true;
+            $scope.reviewDetail={};
             $scope.buisnessDashboardIndicator = true;
             getDateList();
             getBuisnessTaskOpen();   
@@ -283,6 +284,14 @@
             } else {
                   $scope.errorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
+            }
+        }
+        $scope.submitReview=function(reviewDetail,reviewForm) {
+              reviewForm.$setSubmitted(true);
+            if (reviewForm.$valid) {
+                console.log('here1');
+            }else {
+                console.log('here2');
             }
         }
         $scope.assignTaskToUser = function (item)
