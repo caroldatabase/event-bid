@@ -252,7 +252,7 @@
         var userId = commonService.getUserid();
         $scope.userDetails.category_id = selectedCategories;
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
-            $('#categoryPopup').modal('show');
+            $('#categoryPopup').modal({ backdrop: 'static', keyboard: false }, 'show');
         });
     }
 

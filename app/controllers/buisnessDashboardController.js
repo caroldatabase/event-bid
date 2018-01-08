@@ -34,9 +34,9 @@
 
         $scope.openSelectedtaskInDetail = function (data) {
             
-            $('#OpenTaskModal').modal('toggle');
+            //$('#OpenTaskModal').modal('toggle');
             $("#OpenTaskModal").modal({ backdrop: "static" });
-            $('#OpenTaskModal').modal('show');
+            $('#OpenTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
             $scope.cardDetails = {};
             $scope.taskDetail = {};
             $scope.taskDetail = data;
@@ -165,7 +165,7 @@
         {
             $('#progressTaskModal').modal('toggle');
             $("#progressTaskModal").modal({ backdrop: "static" });
-            $('#progressTaskModal').modal('show');
+            $('#progressTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
             $scope.taskDetail = {};
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};
