@@ -81,7 +81,6 @@
                   </div>
               </div>
 
-
               <div class="container jobs-dasborad">
                   <div class="row">
                       <div class="col-sm-6">
@@ -537,21 +536,21 @@
                             </div>
                                 </div>
                         </li>
-                        <li><p class="v-c-h">Mark status as Completed if done :</p><button type="button" class="btn btn-default comp-btn" data-ng-click="completeTask(taskDetail)">Complete</button></li>
                         <li>
                         <form name="reviewForm" novalidate>
                             <p class="v-c-h">
                                 How was your experience ? Submit reviews how was your experience with this user.
                             </p>
-                            <p>
                             <p class="rating-experience">
-                                 <span>Rating</span> 
+                                <span>Rating</span>
                                 <span>
-                                    <select  id="rating" name="rating" required data-ng-model="reviewDetail.rating">
-                                        <option selected value="">Select rating</option>
+                                    <select  id="doersRating" name="doersRating" required data-ng-model="reviewDetail.doersRating">
+                                       <option selected value="">Select rating</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </span>
                                 <span>
@@ -562,6 +561,12 @@
                                        <button type="button" class="btn btn-default" data-ng-click="submitReview(reviewDetail,reviewForm)">Submit Review</button>
                             </form>
                         </li>
+                        <li><p class="v-c-h">
+                            Mark status as Completed if done :</p>
+                        <button type="button" class="btn btn-default comp-btn" data-ng-click="completeTask(taskDetail)">
+                            Complete</button>
+                        </li>
+                       
                     </ul>
                 </div>
             </div>
