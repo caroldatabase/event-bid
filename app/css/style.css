@@ -3012,3 +3012,15 @@ span#cspio-privacy-policy-txt {
     margin-top: 24px !important;
     display: block;
 }
+.col-sm-12.blog-detail-thumb h3 {
+    font-size: 30px;
+    text-align: center;
+}
+.col-sm-12.blog-detail-thumb {
+    text-align: center;
+    font-size: 18px;
+}
+.new-blog .row {
+    width: 75%;
+    margin: 0 auto;
+}
