@@ -3024,3 +3024,12 @@ span#cspio-privacy-policy-txt {
     width: 75%;
     margin: 0 auto;
 }
+.new-blog .row h3 {
+    color: #12ab9c;
+    font-weight: 700;
+}
+.new-blog.ng-scope {
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+}
