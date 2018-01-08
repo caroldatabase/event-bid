@@ -3045,3 +3045,17 @@ textarea.form-control {
 label.desk-hair {
     margin-bottom: 25px;
 }
+.commenter-text h4 {
+    margin-top: 0px;
+}
+.reset-btn {
+    background: #298992;
+    color: #fff !important;
+    display: block;
+}
+.commenter-text textarea {
+    margin-top: 0px;
+}
+.show-more-btn input {
+    color: #fff !important;
+}
