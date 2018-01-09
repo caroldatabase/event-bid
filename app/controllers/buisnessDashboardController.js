@@ -289,7 +289,7 @@
         $scope.submitReview=function(reviewDetail,reviewForm) {
               reviewForm.$setSubmitted(true);
             if (reviewForm.$valid) {
-                console.log('here1',$scope.taskDetail);
+                $scope.reviewErrorMessageIndicator=false;
                 $scope.reviewDetail.taskId=$scope.taskDetail.id;
                 $scope.reviewDetail.userId=$scope.taskDetail.post_user_id;
                 httpService.updateProfile($scope.taskDetail.post_user_id,$scope.reviewDetail).then(function (result) {
@@ -315,7 +315,8 @@
                       
                     });
             }else {
-                console.log('here2');
+                $scope.reviewErrorMessageIndicator=true;
+                $scope.reviewMessage = "Please enter the review";
             }
         }
         $scope.assignTaskToUser = function (item)
@@ -524,6 +525,7 @@
         }
         $scope.completeTask = function (data) {
            if ($scope.reviewDetail.review&&$scope.reviewDetail.doersRating) {
+                $scope.reviewErrorMessageIndicator=false;
                 $rootScope.loaderIndicator = true;
                 var task = {};
                 var id = data.id;
@@ -535,7 +537,8 @@
                     $rootScope.loaderIndicator = false;
                 });
             } else {
-                console.log('here 6');
+                $scope.reviewErrorMessageIndicator=true;
+                $scope.reviewMessage = "Please enter the review";
             }
             
         }
