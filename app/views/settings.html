@@ -387,11 +387,11 @@
                     <div class="row">
                         <div class="col-sm-6">
                                <form name="insuranceForm" novalidate class="padding-other">
-                            <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
-                                {{ message}}
+                            <div class="alert alert-danger" data-ng-show="insuranceErrorMessageIndicator">
+                                {{ insuranceMessage}}
                             </div>
-                            <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                                {{message}}
+                            <div class="alert alert-success" data-ng-if="insuranceSuccessMessageIndicator">
+                                {{insuranceMessage}}
                             </div>
                             <h3>INSURANCE</h3>
                             <p>Insurance Type:</p>

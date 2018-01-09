@@ -390,24 +390,24 @@
                         $rootScope.loaderIndicator = false;
                         insuranceForm.$setPristine();
                         insuranceForm.$setUntouched();
-                        $scope.successMessageIndicator = true;
-                        $scope.errorMessageIndicator = false;
-                        $scope.message = "This details will be saved to your profile after verification from our admin team.";
+                        $scope.insuranceSuccessMessageIndicator = true;
+                        $scope.insuranceErrorMessageIndicator = false;
+                        $scope.insuranceMessage = "This details will be saved to your profile after verification from our admin team.";
                         $scope.insuranceDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;
                         insuranceForm.$setPristine();
                         insuranceForm.$setUntouched();
-                        $scope.successMessageIndicator = false;
-                        $scope.errorMessageIndicator = true;
-                        $scope.message = result.message;
+                        $scope.insuranceSuccessMessageIndicator = false;
+                        $scope.insuranceErrorMessageIndicator = true;
+                        $scope.insuranceMessage = result.message;
                         $scope.insuranceDetails = {};
                         }
                       
                     });
             
             } else {
-                  $scope.errorMessageIndicator = true;
+                  $scope.insuranceErrorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
             }
 
