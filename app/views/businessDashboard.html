@@ -537,7 +537,10 @@
                                 </div>
                         </li>
                         <li>
-                        <form name="reviewForm" novalidate>
+                          <div class="alert alert-success" data-ng-show="!showFeedbackForm">   
+                            {{feedbackMessage}}
+                               </div>
+                        <form name="reviewForm" data-ng-show="showFeedbackForm" novalidate>
                             <div class="alert alert-danger" data-ng-show="reviewErrorMessageIndicator">
                                 {{ reviewMessage}}
                             </div>

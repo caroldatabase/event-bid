@@ -164,6 +164,7 @@
         }
         $scope.openProgresstaskInDetail = function(data)
         {
+            $scope.showFeedbackForm=true;
             $('#progressTaskModal').modal('toggle');
             $("#progressTaskModal").modal({ backdrop: "static" });
             $('#progressTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
@@ -293,6 +294,8 @@
                 $scope.reviewDetail.taskId=$scope.taskDetail.id;
                 $scope.reviewDetail.userId=$scope.taskDetail.post_user_id;
                 httpService.updateProfile($scope.taskDetail.post_user_id,$scope.reviewDetail).then(function (result) {
+                    $scope.showFeedbackForm=false;
+                    $scope.feedbackMessage="Thank You for your valuable feedback";
                     console.log('result',result);
 //                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
 //                        $rootScope.loaderIndicator = false;
