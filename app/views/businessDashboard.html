@@ -346,7 +346,7 @@
                         <div class="row">
                             <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
-                                    <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm)"
+                                    <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm,taskDetail.category_question['totalCost'])"
                                            type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn ">
                                     <input type="button" data-ng-click="cancelPaymentByAddingCard()" value="Cancel"
                                            class="btn btn-primary btn-lg payment-btn">
@@ -537,15 +537,21 @@
                                 </div>
                         </li>
                         <li>
+                          <div class="alert alert-success" data-ng-show="!showFeedbackForm">   
+                            {{feedbackMessage}}
+                               </div>
+                        <form name="reviewForm" data-ng-show="showFeedbackForm" novalidate>
+                            <div class="alert alert-danger" data-ng-show="reviewErrorMessageIndicator">
+                                {{ reviewMessage}}
+                            </div>
                             <p class="v-c-h">
-
                                 How was your experience ? Submit reviews how was your experience with this user.
                             </p>
-                            <p>
                             <p class="rating-experience">
                                 <span>Rating</span>
                                 <span>
-                                    <select name="doersRating">
+                                    <select  id="doersRating" name="doersRating" required data-ng-model="reviewDetail.doersRating">
+                                       <option selected value="">Select rating</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -557,7 +563,9 @@
                                     <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
                                 </span>
                             </p>
-                            <textarea width="100%" rows="4" data-ng-model="reviews" name="Reviews"></textarea>
+                            <textarea required width="100%" rows="4" data-ng-model="reviewDetail.review" id="review" name="review" ng-class="{error : reviewForm.review.$invalid && reviewForm.$submitted}" required data-ng-model="reviewDetail.review"></textarea>
+                                       <button type="button" class="btn btn-default" data-ng-click="submitReview(reviewDetail,reviewForm)">Submit Review</button>
+                            </form>
                         </li>
                         <li><p class="v-c-h">
                             Mark status as Completed if done :</p>

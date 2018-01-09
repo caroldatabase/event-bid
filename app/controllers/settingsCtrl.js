@@ -13,6 +13,8 @@
         $scope.cardDetailIndicator = false;
         $scope.updateCardDetailIndicator = false;
         $scope.buttonIndicator = true;
+        $scope.insurancetList=[];
+        $scope.qualificationList=[];
         httpService.getCategory().then(function (data) {
             $scope.categoryList =  data.data.data;
         });
@@ -205,6 +207,8 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = true;
+        $scope.showInsuForm=true;
+        $scope.qualificationForm=true; 
     }
     $scope.updateAccountDetails = function()
     {
@@ -371,6 +375,7 @@
     $scope.insuranceFileUpload = function(insuranceDetails,insuranceForm)
     {
         var imageFile = document.getElementById('doc').files[0];
+        $scope.imageIndidcator=document.getElementById('doc').files[0]?false:true;
         insuranceForm.$setSubmitted(true);
             if (insuranceForm.$valid&&imageFile) {
                     reader = new FileReader();
@@ -388,34 +393,43 @@
                     httpService.addInsurance($scope.insuranceDetails).then(function (result) {
                         if (result.data.message == 'Insurance added!') {
                         $rootScope.loaderIndicator = false;
+                        $scope.showInsuForm=false;    
                         insuranceForm.$setPristine();
                         insuranceForm.$setUntouched();
-                        $scope.successMessageIndicator = true;
-                        $scope.errorMessageIndicator = false;
-                        $scope.message = "This details will be saved to your profile after verification from our admin team.";
+                        $scope.insuranceSuccessMessageIndicator = true;
+                        $scope.insuranceErrorMessageIndicator = false;
+                        $scope.insuranceMessage = "This details will be saved to your profile after verification from our admin team.";
+                        $scope.insurancetList.push($scope.insuranceDetails);    
+                        $scope.showInsuDetail=true;
                         $scope.insuranceDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;
                         insuranceForm.$setPristine();
                         insuranceForm.$setUntouched();
-                        $scope.successMessageIndicator = false;
-                        $scope.errorMessageIndicator = true;
-                        $scope.message = result.message;
+                        $scope.insuranceSuccessMessageIndicator = false;
+                        $scope.insuranceErrorMessageIndicator = true;
+                        $scope.insuranceMessage = result.message;
                         $scope.insuranceDetails = {};
                         }
                       
                     });
             
             } else {
-                  $scope.errorMessageIndicator = true;
+                  $scope.insuranceErrorMessageIndicator = true;
                   $scope.message = "Please enter required details.";
             }
 
     }
-    
+    $scope.addInsuranceForm=function(){
+        $scope.showInsuForm=true;
+    }
+     $scope.addQualificationForm=function(){
+        $scope.showQuaForm=true;
+    }
      $scope.saveQualification = function(qualificationDetails,qualificationForm)
     {
         var imageFile = document.getElementById('quaDoc').files[0];
+        $scope.quaImageIndidcator=document.getElementById('quaDoc').files[0]?false:true;
         qualificationForm.$setSubmitted(true);
             if (qualificationForm.$valid&&imageFile) {
                     reader = new FileReader();
@@ -431,13 +445,16 @@
                     $scope.qualificationDetails.doc = reader.result;
                     $scope.qualificationDetails.status ="pending from admin";
                     httpService.addInsurance($scope.qualificationDetails).then(function (result) {
-                        if (result.data.message == 'Insurance added!') {
+                        if (result.data.message == 'Insurance added!') {    
                         $rootScope.loaderIndicator = false;
+                        $scope.qualificationForm=false;    
                         insuranceForm.$setPristine();
                         insuranceForm.$setUntouched();
                         $scope.quaSuccessMessageIndicator = true;
                         $scope.quaErrorMessageIndicator = false;
                         $scope.message = "This details will be saved to your profile after verification from our admin team.";
+                        $scope.qualificationList.push($scope.qualificationDetails);    
+                        $scope.showQuaForm=true;
                         $scope.qualificationDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;

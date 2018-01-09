@@ -3078,6 +3078,7 @@ form.padding-other {
     background: #e9e9e9 !important;
     margin: 0px 0px !important;
 }
+
 input#assignBtn {
     float: right;
     background: #12ab9c;
@@ -3086,4 +3087,45 @@ input#assignBtn {
     text-shadow: none;
     font-size: 16px !important;
     border: none;
+
+.insurance-card-sec {
+padding: 15px;
+background: #e9e9e9;
+margin-bottom: 30px;
+border-radius: 5px;
+}
+p.insurance-states {
+font-size: 16px !important;
+padding-bottom: 15px;
+border-bottom: 1px solid #ccc;
+}
+span.ins-type {
+display: block;
+margin-bottom: 10px;
+font-size: 18px;
+}
+.insurance-states span {
+font-size: 16px;
+}
+span.ins-entry {
+float: right;
+font-weight: 300;
+}
+span.insurer-type {
+display: block;
+font-size: 18px;
+}
+span.ins-type {
+display: block;
+margin-bottom: 10px;
+font-size: 18px;
+}
+span.insurer-entry {
+float: right;
+font-weight: 300;
+}
+.added-file a:hover {
+text-decoration: none;
+color: #fff;
+
 }
