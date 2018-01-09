@@ -15,7 +15,28 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             getDateList();
-            getBuisnessTaskOpen();   
+            getBuisnessTaskOpen();
+           
+        }
+        function getPersonalMessagesForAllTask()
+        {
+           
+                var userId = commonService.getUserid();
+                var messages = {};
+                messages.taskId = taskId;
+                messages.poster_userid = userId;
+                $rootScope.loaderIndicator = true;
+                httpService.getPersonalMessage(messages).then(function (data) {
+                    if (data.data.message == "Success") {
+                        $scope.messageList = data.data.data;
+                        $rootScope.loaderIndicator = false;
+                        
+                    } else {
+                        $rootScope.loaderIndicator = false;
+                    }
+                });
+
+            
         }
         function getDateList() {
             $scope.dayArray = [];
@@ -369,6 +390,7 @@
                         $scope.jobsInProgressIndicator = true;
                         $rootScope.loaderIndicator = false;
                         $scope.progressTask = response.data.data.assigned;
+                        getPersonalMessagesForAllTask();
                     }
                     
                 }
