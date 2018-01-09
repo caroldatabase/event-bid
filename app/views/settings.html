@@ -398,11 +398,11 @@
                             <input type="text" id="insuranceType" name="insuranceType" required data-ng-model="insuranceDetails.insuranceType" 
                                    ng-class="{error : insuranceForm.insuranceType.$invalid && insuranceForm.$submitted}" placeholder="i.e. public liability insurance">
                             <p>Insurer:</p>
-                               <input type="text" id="insurer " name="insurer " required data-ng-model="insuranceDetails.insurer " 
-                                   ng-class="{error : insuranceForm.insurer .$invalid && paymentForm.$submitted}" placeholder="">
+                               <input type="text" id="insurer" name="insurer" required data-ng-model="insuranceDetails.insurer" 
+                                   ng-class="{error : insuranceForm.insurer.$invalid && insuranceForm.$submitted}" placeholder="">
                             <p>Certificate Of Currency</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
-                                   ng-class="{error : insuranceForm.doc .$invalid && insuranceForm.$submitted}" />
+                                   ng-class="{error : insuranceForm.doc.$invalid && insuranceForm.$submitted}" />
                                    
                             <input type="button" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add" />
 
