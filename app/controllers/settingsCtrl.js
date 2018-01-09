@@ -196,6 +196,7 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = true;
         $scope.successMobileIndicator = false;
+        $scope.insuranceIndicator = false;
     }
     $scope.insuranceSettings = function()
     {
