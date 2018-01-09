@@ -54,8 +54,6 @@ app.config(function ($routeProvider,$locationProvider) {
             templateUrl: "app/views/EBManager.html",
             controller: "EBManagerCtrl"
         })
-
-
         .when("/Rewards", {
             templateUrl: "app/views/Rewards.html",
             controller: "rewardsCtrl"
@@ -63,9 +61,7 @@ app.config(function ($routeProvider,$locationProvider) {
         .when("/post-task", {
             templateUrl: "app/views/post-task.html",
             controller : "postTaskController"
-
         })
-    
             .when("/about-us", {
                 templateUrl: "app/views/sitemap/about-us.html",
                 controller : "aboutusController"
@@ -127,7 +123,7 @@ app.config(function ($routeProvider,$locationProvider) {
              templateUrl: "app/views/messaging.html",
              controller: "messagingCtrl"
          })
-         .when("/blog-detail", {
+         .when("/blog-detail/:blogTitle?", {
              templateUrl: "app/views/addBlogDetail2.html",
              controller: "blogDetailCtrl"
          })
