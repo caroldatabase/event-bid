@@ -289,7 +289,31 @@
         $scope.submitReview=function(reviewDetail,reviewForm) {
               reviewForm.$setSubmitted(true);
             if (reviewForm.$valid) {
-                console.log('here1');
+                console.log('here1',$scope.taskDetail);
+                $scope.reviewDetail.taskId=$scope.taskDetail.id;
+                $scope.reviewDetail.userId=$scope.taskDetail.post_user_id;
+                httpService.updateProfile($scope.taskDetail.post_user_id,$scope.reviewDetail).then(function (result) {
+                    console.log('result',result);
+//                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
+//                        $rootScope.loaderIndicator = false;
+//                        paymentForm.$setPristine();
+//                        paymentForm.$setUntouched();
+//                        $scope.successMessageIndicator = true;
+//                        $scope.errorMessageIndicator = false;
+//                        $scope.message = "Payment done successfully.Please assign task.";
+//                        $scope.cardDetails = {};
+//                        $("#assignBtn").removeAttr('disabled');
+//                        } else {
+//                        $rootScope.loaderIndicator = false;
+//                        paymentForm.$setPristine();
+//                        paymentForm.$setUntouched();
+//                        $scope.successMessageIndicator = false;
+//                        $scope.errorMessageIndicator = true;
+//                        $scope.message = result.message;
+//                        $scope.cardDetails = {};
+//                        }
+                      
+                    });
             }else {
                 console.log('here2');
             }
@@ -499,17 +523,21 @@
             getCustomerTask()
         }
         $scope.completeTask = function (data) {
+           if ($scope.reviewDetail.review&&$scope.reviewDetail.doersRating) {
+                $rootScope.loaderIndicator = true;
+                var task = {};
+                var id = data.id;
+                task.task_status = "completed";
+                httpService.updateTask(id, task).then(function (response) {
+                    $('#progressTaskModal').modal('hide');
+                    getBuisnessTaskOpen();
+                    alert("task completed");
+                    $rootScope.loaderIndicator = false;
+                });
+            } else {
+                console.log('here 6');
+            }
             
-            $rootScope.loaderIndicator = true;
-            var task = {};
-            var id = data.id;
-            task.task_status = "completed";
-            httpService.updateTask(id, task).then(function (response) {
-                $('#progressTaskModal').modal('hide');
-                getBuisnessTaskOpen();
-                alert("task completed");
-                $rootScope.loaderIndicator = false;
-            });
         }
         $scope.onReply = function (item) {
             $('#item_' + item.id).show();
