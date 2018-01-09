@@ -371,6 +371,7 @@
     $scope.insuranceFileUpload = function(insuranceDetails,insuranceForm)
     {
         var imageFile = document.getElementById('doc').files[0];
+        $scope.imageIndidcator=document.getElementById('doc').files[0]?false:true;
         insuranceForm.$setSubmitted(true);
             if (insuranceForm.$valid&&imageFile) {
                     reader = new FileReader();
@@ -416,6 +417,7 @@
      $scope.saveQualification = function(qualificationDetails,qualificationForm)
     {
         var imageFile = document.getElementById('quaDoc').files[0];
+        $scope.quaImageIndidcator=document.getElementById('quaDoc').files[0]?false:true;
         qualificationForm.$setSubmitted(true);
             if (qualificationForm.$valid&&imageFile) {
                     reader = new FileReader();

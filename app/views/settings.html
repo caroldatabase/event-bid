@@ -402,7 +402,7 @@
                                    ng-class="{error : insuranceForm.insurer.$invalid && insuranceForm.$submitted}" placeholder="">
                             <p>Certificate Of Currency</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
-                                   ng-class="{error : insuranceForm.doc.$invalid && insuranceForm.$submitted}" />
+                                   ng-class="{error : imageIndidcator}" />
                                    
                             <input type="button" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add" />
 
@@ -419,15 +419,15 @@
                                 {{message}}
                             </div>
                             <h3>QUALIFICATION</h3>
-                            <p>Insurance Type:</p>
+                            <p>Qualification Type:</p>
                            <input type="text" id="insuranceType" name="qualificationType" required data-ng-model="qualificationDetails.qualificationType" 
                                    ng-class="{error : qualificationForm.qualificationType.$invalid && qualificationForm.$submitted}" placeholder="i.e. public liability insurance">
-                            <p>Insurer:</p>
+                            <p>Qualification name:</p>
                                          <input type="text" id="qualification" name="qualification" required data-ng-model="qualificationDetails.qualification" 
                                    ng-class="{error : qualificationForm.qualification.$invalid && qualificationForm.$submitted}" placeholder="">
-                            <p>Certificate Of Currency</p>
+                            <p>Qualification Certificate</p>
                              <input type="file" value="Upload File" id="quaDoc" name="doc "  data-ng-model="qualificationDetails.doc " 
-                                   ng-class="{error : qualificationForm.doc .$invalid && qualificationForm.$submitted}" />
+                                   ng-class="{error : quaImageIndidcator}" />
                                    <input type="button" ng-click="saveQualification(qualificationDetails,qualificationForm)" value="add" />
                             <p class="add-more-isurance"><i class="fa fa-plus"></i> Add More Insurance</p>
                             </form>
