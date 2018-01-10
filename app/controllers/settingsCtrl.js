@@ -311,14 +311,16 @@
         }
     });
 
-    $scope.updateMobileDetails = function () {
+    $scope.updateMobileDetails = function (number) {
         var userId = commonService.getUserid();
+       if(number.toString().length<=10){
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
             if (response.data.message == "Profile updated successfully") {
                 $scope.successMobileIndicator = true;
                 $('#mobilePopup').modal('show');
             }
         });
+       }
     }
 
     $scope.updatePassword = function (passwordDetails,passForm) {
@@ -427,9 +429,7 @@
      $scope.addQualificationForm=function(){
         $scope.showQuaForm=true;
     }
-    $scope.numberVal=function(e){
-        console.log(e);
-    }
+
      $scope.saveQualification = function(qualificationDetails,qualificationForm)
     {
         var imageFile = document.getElementById('quaDoc').files[0];
