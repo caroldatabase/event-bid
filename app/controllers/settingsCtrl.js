@@ -381,14 +381,15 @@
                     reader = new FileReader();
                     reader.readAsDataURL(imageFile);
                     reader.onload = function () {
-                        console.log(reader.result);
+                       imageFile=eader.result;
                     };
                     reader.onerror = function (error) {
                         console.log('Error: ', error);
                     };
                     $rootScope.loaderIndicator = true;
                     $scope.insuranceDetails.userId = commonService.getUserid();
-                    $scope.insuranceDetails.doc = reader.result;
+                console.log('img',imageFile);
+                    $scope.insuranceDetails.doc = imageFile;
                     $scope.insuranceDetails.status ="pending from admin";
                     httpService.addInsurance($scope.insuranceDetails).then(function (result) {
                         if (result.data.message == 'Insurance added!') {
@@ -435,16 +436,16 @@
                     reader = new FileReader();
                     reader.readAsDataURL(imageFile);
                     reader.onload = function () {
-                        console.log(reader.result);
+                     $scope.qualificationDetails.doc = reader.result;
                     };
                     reader.onerror = function (error) {
                         console.log('Error: ', error);
                     };
                     $rootScope.loaderIndicator = true;
                     $scope.qualificationDetails.userId = commonService.getUserid();
-                    $scope.qualificationDetails.doc = reader.result;
+                   console.log('qua',$scope.qualificationDetails);
                     $scope.qualificationDetails.status ="pending from admin";
-                    httpService.addInsurance($scope.qualificationDetails).then(function (result) {
+                    httpService.addQualification($scope.qualificationDetails).then(function (result) {
                         if (result.data.message == 'Insurance added!') {    
                         $rootScope.loaderIndicator = false;
                         $scope.qualificationForm=false;    

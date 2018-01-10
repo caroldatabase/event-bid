@@ -47,7 +47,8 @@
         getPersonalMessage:getPersonalMessage,
         addPersonalMessage:addPersonalMessage,
         deactivate:deactivate,
-        addInsurance:addInsurance
+        addInsurance:addInsurance,
+        addQualification:addQualification
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -349,6 +350,13 @@
  
     function addInsurance(insurance) {
         return $http.post(serviceBase + 'api/v1/addInsurance', insurance, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+    
+    function addQualification(qualification) {
+        return $http.post(serviceBase + 'api/v1/addQualification', qualification, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 
