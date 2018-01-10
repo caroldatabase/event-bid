@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What do you need designed for your event?</label>
+            <label >What do you need designed for your event?</label>
             <select class="multipleSelection" required multiple="multiple"
                     data-ng-model="task.category_question.graphicBanners" name="graphicBanners"
                     ng-class="{error : postTaskForm.graphicBanners.$invalid && postTaskForm.$submitted}">
@@ -47,7 +47,7 @@
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What is your total budget for your design job? </label>
+            <label class="desk-hair">What is your total budget for your design job? </label>
             <span class="other-iocn-d">$</span>
             <input type="number" class="form-control" ng-model="task.category_question.totalBudgetForbanners" name="totalBudgetForbanners" min="1" max="5000"
                    required
@@ -61,13 +61,13 @@
             </label>
             <input type="file" class="form-control" name="graphicImage" id="graphicImage"
                    fileread="graphicImage" image-type="graphicImage" accept="image/*" data-ng-model="graphicImage">
-                <label>Uploaded Image :</label>
+            <label data-ng-if="task.category_question.graphicImages.length > 0">Uploaded Image :</label>
             <div data-ng-if="task.category_question.graphicImages.length > 0" data-ng-repeat="data in task.category_question.graphicImages track by $index">
                 <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="graphicPhoto">
             </div>
-            <div data-ng-if="task.category_question.graphicImages.length == 0">
+            <!--<div data-ng-if="task.category_question.graphicImages.length == 0">
                 <img width="100" height="50" alt="Image preview..." id="graphicPhoto">
-            </div>
+            </div>-->
          
         </div>
     </div>

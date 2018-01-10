@@ -39,14 +39,14 @@
 
                             <div class="col-sm-4">
                                 <div class="form-field">
-                                    <label>Describe what kind of make-up look you are going for?</label>
+                                    <label >Describe what kind of make-up look you are going for?</label>
                                     <textarea class="form-control" required data-ng-model="task.category_question.makeUpTypeRequired" name="makeUpTypeRequired"
                                               ng-class="{error : postTaskForm.makeUpTypeRequired.$invalid && postTaskForm.$submitted}"></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-field">
-                                    <label>Do you have any special requests or requirements?	</label>
+                                    <label class="desk-hair">Do you have any special requests or requirements?	</label>
                                     <textarea class="form-control" required data-ng-model="task.category_question.specialRequirement" name="specialRequirement"
                                               ng-class="{error : postTaskForm.specialRequirement.$invalid && postTaskForm.$submitted}"></textarea>
                                 </div>
@@ -73,14 +73,14 @@
                     <div class="row" data-ng-if="hairIndicator">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>Describe what kind of hair style you would like?</label>
+            <label class="desk-hair">Describe what kind of hair style you would like?</label>
             <textarea class="form-control" required data-ng-model="task.category_question.hairStyleRequired" name="hairStyleRequired"
                       ng-class="{error : postTaskForm.hairStyleRequired.$invalid && postTaskForm.$submitted}"></textarea>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="form-field">
-            <label>Describe your hair (click up to three options)</label>
+            <label class="desk-hair">Describe your hair (click up to three options)</label>
             <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.hairType" name="hairType"
                     ng-class="{error : postTaskForm.hairType.$invalid && postTaskForm.$submitted}">
                 <option value="">PLEASE SELECT</option>
@@ -127,7 +127,7 @@
 <div class="row" data-ng-if="otherBeautyServicesIndicator">
         <div class="col-sm-4">
         <div class="form-field">
-            <label>Other beauty services</label>
+            <label class="desk-hair">Other beauty services</label>
             <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.otherBeautyServiceType" name="otherBeautyServiceType"
                     ng-class="{error : postTaskForm.otherBeautyServiceType.$invalid && postTaskForm.$submitted}">
                 <option value="">PLEASE SELECT </option>
@@ -141,7 +141,7 @@
        </div>
         <div class="col-sm-4">
             <div class="form-field">
-                <label>Please describe in more detail what you would like?	</label>
+                <label class="desk-hair">Please describe in more detail what you would like?	</label>
                 <textarea class="form-control" required data-ng-model="task.category_question.userThoughts" name="userThoughts"
                           ng-class="{error : postTaskForm.userThoughts.$invalid && postTaskForm.$submitted}"></textarea>
             </div>
