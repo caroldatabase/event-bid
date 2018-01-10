@@ -208,7 +208,7 @@
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = true;
         $scope.showInsuForm=true;
-        $scope.qualificationForm=true; 
+        $scope.showQuaForm=true; 
     }
     $scope.updateAccountDetails = function()
     {
@@ -383,15 +383,10 @@
                     reader = new FileReader();
                     reader.readAsDataURL(imageFile);
                     reader.onload = function () {
-                       imageFile=eader.result;
-                    };
-                    reader.onerror = function (error) {
-                        console.log('Error: ', error);
-                    };
+                        
                     $rootScope.loaderIndicator = true;
-                    $scope.insuranceDetails.userId = commonService.getUserid();
-                console.log('img',imageFile);
-                    $scope.insuranceDetails.doc = imageFile;
+                    $scope.insuranceDetails.userId = commonService.getUserid();             
+                    $scope.insuranceDetails.doc = reader.result;
                     $scope.insuranceDetails.status ="pending from admin";
                     httpService.addInsurance($scope.insuranceDetails).then(function (result) {
                         if (result.data.message == 'Insurance added!') {
@@ -416,6 +411,11 @@
                         }
                       
                     });
+                    };
+                    reader.onerror = function (error) {
+                        console.log('Error: ', error);
+                    };
+                  
             
             } else {
                   $scope.insuranceErrorMessageIndicator = true;
@@ -438,28 +438,23 @@
             if (qualificationForm.$valid&&imageFile) {
                     reader = new FileReader();
                     reader.readAsDataURL(imageFile);
-                    reader.onload = function () {
-                     $scope.qualificationDetails.doc = reader.result;
-                    };
-                    reader.onerror = function (error) {
-                        console.log('Error: ', error);
-                    };
+                    reader.onload = function (e) {
+                    var data = e.target.result;
                     $rootScope.loaderIndicator = true;
                     $scope.qualificationDetails.userId = commonService.getUserid();
-                 
+                    $scope.qualificationDetails.doc=data;
                     $scope.qualificationDetails.status ="pending from admin";
-                  console.log('qua6',$scope.qualificationDetails);
                     httpService.addQualification($scope.qualificationDetails).then(function (result) {
                         if (result.data.message == 'Qualification added') {    
                         $rootScope.loaderIndicator = false;
-                        $scope.qualificationForm=false;    
+                        $scope.showQuaForm=false;   
                         qualificationForm.$setPristine();
                         qualificationForm.$setUntouched();
                         $scope.quaSuccessMessageIndicator = true;
                         $scope.quaErrorMessageIndicator = false;
                         $scope.message = "This details will be saved to your profile after verification from our admin team.";
                         $scope.qualificationList.push($scope.qualificationDetails);    
-                        $scope.showQuaForm=true;
+                        $scope.showQuaDetail=true; 
                         $scope.qualificationDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;
@@ -472,6 +467,11 @@
                         }
                       
                     });
+                    };
+                    reader.onerror = function (error) {
+                        console.log('Error: ', error);
+                    };
+                   
             
             } else {
                   $scope.quaErrorMessageIndicator = true;
