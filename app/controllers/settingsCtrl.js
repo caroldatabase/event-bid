@@ -427,6 +427,9 @@
      $scope.addQualificationForm=function(){
         $scope.showQuaForm=true;
     }
+    $scope.numberVal=function(e){
+        console.log(e);
+    }
      $scope.saveQualification = function(qualificationDetails,qualificationForm)
     {
         var imageFile = document.getElementById('quaDoc').files[0];
@@ -443,14 +446,15 @@
                     };
                     $rootScope.loaderIndicator = true;
                     $scope.qualificationDetails.userId = commonService.getUserid();
-                   console.log('qua',$scope.qualificationDetails);
+                 
                     $scope.qualificationDetails.status ="pending from admin";
+                  console.log('qua6',$scope.qualificationDetails);
                     httpService.addQualification($scope.qualificationDetails).then(function (result) {
-                        if (result.data.message == 'Insurance added!') {    
+                        if (result.data.message == 'Qualification added') {    
                         $rootScope.loaderIndicator = false;
                         $scope.qualificationForm=false;    
-                        insuranceForm.$setPristine();
-                        insuranceForm.$setUntouched();
+                        qualificationForm.$setPristine();
+                        qualificationForm.$setUntouched();
                         $scope.quaSuccessMessageIndicator = true;
                         $scope.quaErrorMessageIndicator = false;
                         $scope.message = "This details will be saved to your profile after verification from our admin team.";
@@ -459,8 +463,8 @@
                         $scope.qualificationDetails = {};
                         } else {
                         $rootScope.loaderIndicator = false;
-                        insuranceForm.$setPristine();
-                        insuranceForm.$setUntouched();
+                        qualificationForm.$setPristine();
+                        qualificationForm.$setUntouched();
                         $scope.quaSuccessMessageIndicator = false;
                         $scope.quaErrorMessageIndicator = true;
                         $scope.message = result.message;
