@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-4">
         <div class="form-field">
-            <label>What supplies do you need?</label>
+            <label class="desk-hair">What supplies do you need?</label>
             <select class="multipleSelection" required multiple="multiple"
                     data-ng-model="task.category_question.supplyTypes" name="supplyTypes"
                     ng-class="{error : postTaskForm.supplyTypes.$invalid && postTaskForm.$submitted}">
@@ -26,8 +26,6 @@
                       ng-class="{error : postTaskForm.decriptionInDetail.$invalid && postTaskForm.$submitted}"></textarea>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-sm-4">
         <div class="form-field">
             <label style="width:100%; margin-left:5px;">Would you like the supplier to include cleaning in the cost? </label>
@@ -39,8 +37,11 @@
                 <option value="No">NO</option>
                 <option value="Not applicable">NOT APPLICABLE</option>
             </select>
-            </div>
         </div>
+    </div>
+</div>
+<div class="row">
+    
     <div class="col-sm-4">
         <div class="form-field">
             <label style="width:100%; margin-left:5px;">Will you expect to return or discard what you are supplied? </label>
