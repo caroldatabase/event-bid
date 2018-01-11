@@ -222,6 +222,7 @@
         $scope.user.state = $scope.userDetails.state;
         $scope.user.photo = $scope.userDetails.photo;
         $scope.dateErrorIndicator = false;
+        console.log('scope',$scope.day);
         if ($scope.day != undefined || $scope.day != null)
         {
             if (!$scope.month || !$scope.year) {
@@ -245,9 +246,11 @@
         httpService.updateProfile(userId, $scope.user).then(function (response) {
             if (response.data.message == "Profile updated successfully")
             {
-                 $scope.successMessageIndicator = true;
+                $scope.successMessageIndicator = true;
                 $scope.userDetails.first_name = response.data.data.first_name;
                 $scope.userDetails.last_name = response.data.data.last_name;
+                $("#OpenTaskModal").modal({ backdrop: "static" });
+                $('#OpenTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
             }
         });
     }
