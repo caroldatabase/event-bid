@@ -65,10 +65,10 @@
         });
     }
     $scope.countChar = function () {
-        if ($scope.user.comments) {
-            var len = $scope.user.comments.length;
+        if ($scope.user.message) {
+            var len = $scope.user.message.length;
             if (len >= 1000) {
-                $scope.user.comments = $scope.user.comments.substring(0, 1000);
+                $scope.user.message = $scope.user.message.substring(0, 1000);
             } else {
                 $('#charNum').text(1000 - len);
             }
