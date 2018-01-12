@@ -3127,3 +3127,60 @@ font-weight: 300;
 text-decoration: none;
 color: #fff;
 }
+input#doc {
+    margin-top: 40px !important;
+}
+input#quaDoc {
+    margin-top: 40px !important;
+}
+p.add-more-isurance {
+    float: left;
+    width: 100%;
+}
+p.add-more-isurance {
+    padding: 0px 15px;
+}
+p.add-more-isurance button {
+    background: none;
+    border: none;
+    color: #666;
+}
+p.add-more-isurance {
+    text-align: center;
+}
+input.view-in-input:hover {
+    background: #12ab9c;
+}
+input.view-in-input {
+    width: 200px;
+    font-size: 18px;
+    color: #fff;
+    background: #298992;
+    border: none;
+}
+.view-in-detail {
+    float: left;
+    width: 100%;
+}
+p.added-file a {
+    width: 200px;
+}
+p.added-file a span {
+    margin-left: 10px !important;
+    font-size: 16px;
+}
+span.select2-selection.select2-selection--multiple {
+    max-height: 40px !important;
+    overflow-y: scroll !important;
+}
+.insurance-page .col-sm-6 {
+    background: #e9e9e9;
+    margin: 0px 15px;
+    width: 46%;
+}
+input.add-insurance-info {
+    color: #fff !important;
+    background: #298992;
+    border: none;
+    font-size: 16px !important;
+}
