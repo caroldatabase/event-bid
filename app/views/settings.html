@@ -102,20 +102,20 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-2">
-                        <select class="singleSelection" ng-model="day"
+                        <select class="singleSelection" ng-model="userDetails.day"
                                 ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
                             <option value="">dd</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
-                        <select class="singleSelection" ng-model="month"
+                        <select class="singleSelection" ng-model="userDetails.month"
                                 ng-options="item1 as item1 for item1 in monthArray" width="100%"
                                 ng-class="{error : dateErrorIndicator}">
                             <option value="">mm</option>
                         </select>
                     </div>
                     <div class="col-sm-4">
-                        <select class="singleSelection" ng-model="year"
+                        <select class="singleSelection" ng-model="userDetails.year"
                                 ng-options="item2 as item2 for item2 in yearArray" width="100%"
                                 ng-class="{error : dateErrorIndicator}">
                             <option value="">yyyy</option>
