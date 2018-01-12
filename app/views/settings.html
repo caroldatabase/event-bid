@@ -406,7 +406,8 @@
                             <div class="insurance-card-sec"  data-ng-repeat="item in insurancetList"  data-ng-show="showInsuDetail">
                                 <p class="insurance-states"><span class="ins-type">Insurance Type:<span class="ins-entry">{{item.insuranceType}} </span></span>
                                 <span class="insurer-type">Insurer: <span class="insurer-entry">{{item.insurer}}</span></span>
-                                </p><p class="added-file"><a href="#">View Added File</a></p>
+                                </p>
+                                <p class="added-file">File :  <a href="{{item.doc}}" target="_blank"><i class="fa fa-file"></i></a></p>
                             </div>
                                <form name="insuranceForm" novalidate class="padding-other" data-ng-show="showInsuForm">
                             <div class="alert alert-danger" data-ng-show="insuranceErrorMessageIndicator">
@@ -422,9 +423,8 @@
                             <p>Certificate Of Currency</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
                                    ng-class="{error : imageIndidcator}" />
-                                   
                             <input type="button" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add" />
-                                       </form>
+                               </form>
                              <p class="add-more-isurance"><i class="fa fa-plus"></i><a ng-click="addInsuranceForm()"> Add More Insurance</a></p>
                         </div>
                     

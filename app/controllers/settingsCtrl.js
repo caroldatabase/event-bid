@@ -400,7 +400,7 @@
                         $scope.insuranceSuccessMessageIndicator = true;
                         $scope.insuranceErrorMessageIndicator = false;
                         $scope.insuranceMessage = "This details will be saved to your profile after verification from our admin team.";
-                        $scope.insurancetList.push($scope.insuranceDetails);    
+                        $scope.insurancetList.push(result.data.data);    
                         $scope.showInsuDetail=true;
                         $scope.insuranceDetails = {};
                         } else {
@@ -422,7 +422,7 @@
             
             } else {
                   $scope.insuranceErrorMessageIndicator = true;
-                  $scope.message = "Please enter required details.";
+                  $scope.insuranceMessage = "Please enter required details.";
             }
 
     }
