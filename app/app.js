@@ -127,10 +127,10 @@ app.config(function ($routeProvider,$locationProvider) {
              templateUrl: "app/views/addBlogDetail2.html",
              controller: "blogDetailCtrl"
          })
-        /* .when("/payment", {
+         .when("/payment", {
              templateUrl: "app/views/payment.html",
              controller: "paymentCtrl"
-         })*/
+         })
     .otherwise({
         redirect: '/'
     });

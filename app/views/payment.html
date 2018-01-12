@@ -5,113 +5,24 @@
             <h1>Hello, {{firstName}}</h1>
         </div>
     </div>
-    <div class="form-container payment-form">
-          <form role="form" name="paymentForm" novalidate> 
-              <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
-                  {{ message}}
-              </div>
-              <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                  {{message}}
-              </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-field">
-                    <label>Phone Number</label>
-                    <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" maxlength="10"
-                         ng-class="{error : paymentForm.phoneNumber.$invalid && paymentForm.$submitted}" required data-ng-model="user.phoneNumber">
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="form-field">
-                    <label>Email</label>
-                    <input type="email" class="form-control" id="emailID" name="emailID" ng-pattern="emailFormat"
-                           ng-class="{error : paymentForm.emailID.$invalid && paymentForm.$submitted}" required data-ng-model="user.emailID">
-                </div>
-            </div>
+   
+        <div class="container payment-table-colum">
+            <h4 style="text-align:center;">please find your transaction history as follows :</h4>
+            <table width="100%" border="1">
+                <tr class="pay-table-head">
+                    <td>task id</td>
+                    <td>task title</td>
+                    <td>payment description</td>
+                    <td>status</td>
+                </tr>
+                <tr>
+                    <td>lorem</td>
+                    <td>lorem</td>
+                    <td>lorem</td>
+                    <td>lorem</td>
+                </tr>
+            </table>
+
         </div>
-
-        <div class="paymentOption form-field">
-            <label class="radio-inline"><input type="radio" class="form-control" id="debit" name="debit" value="debit"
-                         ng-class="{error : paymentForm.debit.$invalid && paymentForm.$submitted}" required data-ng-model="user.cardType">
-                         <span class="payment-radio-text">Debit Card</span></label>
-            <label class="radio-inline"><input type="radio" class="form-control" id="credit" name="credit" value="credit"
-                          ng-class="{error : paymentForm.credit.$invalid && paymentForm.$submitted}" required data-ng-model="user.cardType">
-            <span class="payment-radio-text">Credit Card</span></label>
-           </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-field">
-                    <label>Enter Card Number</label>
-                    <input type="number" class="form-control" id="debitNumber" name="debitNumber" maxlength="16"
-                           ng-class="{error : paymentForm.debitNumber.$invalid && paymentForm.$submitted}" required data-ng-model="user.cardNumber">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="form-field expireDate">
-                            <label class="btn-block">EXPIRY DATE</label>
-                            <select required class="form-control" data-ng-model="user.month" ng-options="item for item in montharray">
-                                <option value="" selected>MM</option>
-                            </select>
-                            <select required class="form-control" data-ng-model="user.year" ng-options="item for item in yeararray">
-                                <option value="" selected>YYYY</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>CVV</label>
-                              <input type="number" class="form-control" id="cvv" name="cvv" maxlength="3"
-                        required ng-class="{error : paymentForm.cvv.$invalid && paymentForm.$submitted}" data-ng-model="user.cvv">
-                        </div>
-                    </div>
-                 
-                </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="form-field">
-                            <label>Amount</label>
-                            <input type="number" class="form-control" id="amount" name="amount"
-                                   required ng-class="{error : paymentForm.amount.$invalid && paymentForm.$submitted}" data-ng-model="user.amount">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-field">
-                            <label>Card Holder's  Name</label>
-                            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"
-                                   ng-class="{error : paymentForm.first_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.firstName">
-                            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"
-                                   ng-class="{error : paymentForm.last_name.$invalid && paymentForm.$submitted}" required data-ng-model="user.lastName">
-                        </div>
-                    </div>
-                </div>
-                </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="form-field">
-                    <input type="checkbox"> Save this card for faster checkout
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="button-group">
-                    <input data-ng-click="makePayment()" type="submit" value="Pay Now" class="btn btn-primary btn-lg">
-                    <input type="submit" value="Cancel" class="btn btn-primary btn-lg">
-                </div>
-            </div>
-        </div>
-        </form>
-    </div>
+   
 </div>
