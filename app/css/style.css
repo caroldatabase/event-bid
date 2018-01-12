@@ -3184,3 +3184,15 @@ input.add-insurance-info {
     border: none;
     font-size: 16px !important;
 }
+p.added-file {
+    margin-top: 15px;
+}
+.added-file a {
+    float: right;
+    margin-top: -5px;
+}
+p.added-file {
+    margin-top: 15px;
+    float: left;
+    width: 100%;
+}
