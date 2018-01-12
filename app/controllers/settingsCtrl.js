@@ -64,7 +64,7 @@
         var year = (new Date()).getFullYear()
         $scope.yearArray = [];
         for (var i = year ; i <= 2067; i++) {
-            $scope.yearArray.push(i);
+            $scope.yearArray.push('' +i);
         }
     }
     $scope.getProfilePicture = function()
@@ -82,6 +82,11 @@
             if(response.data.message == "Record found successfully.")
             {
                 $scope.userDetails = response.data.data;
+                var birthday = $scope.userDetails.birthday;
+                birthday = birthday.split("/");
+                $scope.userDetails.day=birthday[0];
+                $scope.userDetails.month=birthday[1];
+                $scope.userDetails.year=birthday[2];
                 $scope.portfolioImageArray = [];
                 if ($scope.userDetails && $scope.userDetails.portfolio && ($scope.userDetails.portfolio != "Array" && $scope.userDetails.portfolio != "NULL"))
                 {
@@ -222,26 +227,25 @@
         $scope.user.state = $scope.userDetails.state;
         $scope.user.photo = $scope.userDetails.photo;
         $scope.dateErrorIndicator = false;
-        console.log('scope',$scope.day);
-        if ($scope.day != undefined || $scope.day != null)
+        if ($scope.userDetails.day != undefined || $scope.userDetails.day != null)
         {
-            if (!$scope.month || !$scope.year) {
+            if (!$scope.userDetails.month || !$scope.userDetails.year) {
                 $scope.dateErrorIndicator = true;
             }
         }
-        if ($scope.month != undefined || $scope.month != null) {
-            if (!$scope.day || !$scope.year) {
+        if ($scope.userDetails.month != undefined || $scope.userDetails.month != null) {
+            if (!$scope.userDetails.day || !$scope.userDetails.year) {
                 $scope.dateErrorIndicator = true;
             }
         }
-        if ($scope.year != undefined || $scope.year != null) {
-            if (!$scope.month || !$scope.day) {
+        if ($scope.userDetails.year != undefined || $scope.userDetails.year != null) {
+            if (!$scope.userDetails.month || !$scope.userDetails.day) {
                 $scope.dateErrorIndicator = true;
             }
         }
-        if ($scope.day && $scope.month && $scope.year) {
+        if ($scope.userDetails.day && $scope.userDetails.month && $scope.userDetails.year) {
             $scope.dateErrorIndicator = false;
-            $scope.user.birthday = $scope.day + "/" + $scope.month + "/" + $scope.year;
+            $scope.user.birthday = $scope.userDetails.day + "/" + $scope.userDetails.month + "/" + $scope.userDetails.year;
         }
         httpService.updateProfile(userId, $scope.user).then(function (response) {
             if (response.data.message == "Profile updated successfully")
