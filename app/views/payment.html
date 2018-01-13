@@ -8,20 +8,31 @@
    
         <div class="container payment-table-colum">
             <h4 style="text-align:center;">please find your transaction history as follows :</h4>
+            <div data-ng-if="transactionRecordIndicator">
             <table width="100%" border="1">
                 <tr class="pay-table-head">
-                    <td>task id</td>
-                    <td>task title</td>
-                    <td>payment description</td>
-                    <td>status</td>
+                    <td>Task Id</td>
+                    <td>Task Title</td>
+                    <td>Amount</td>
+                    <td>Transaction Id</td>
+                    <td>Transaction Status</td>
+                    <td>Payment Made</td>
                 </tr>
-                <tr>
-                    <td>lorem</td>
-                    <td>lorem</td>
-                    <td>lorem</td>
-                    <td>lorem</td>
+                <div>
+                <tr data-ng-repeat="item in transactionDetail">
+                    <td>{{item.taskId}}</td>
+                    <td>{{item.task.event_title}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.transactionId}}</td>
+                    <td>{{item.transactionDetails.ACK}}</td>
+                    <td>{{item.task.isPaymentMade}}</td>
                 </tr>
+                </div>
             </table>
+            </div>
+            <div data-ng-if="!transactionRecordIndicator">
+            No transaction found
+            </div>
 
         </div>
    

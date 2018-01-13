@@ -48,7 +48,8 @@
         addPersonalMessage:addPersonalMessage,
         deactivate:deactivate,
         addInsurance:addInsurance,
-        addQualification:addQualification
+        addQualification:addQualification,
+        getTransaction:getTransaction
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -361,6 +362,14 @@
         });
 
     }
+    
+    function getTransaction(userid) {
+        return $http.post(serviceBase + 'api/v1/getTransaction/'+userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+    
     
     return httpService;
 

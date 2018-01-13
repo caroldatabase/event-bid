@@ -2,13 +2,29 @@
     init();
     function init() {
         $scope.user = {};
+        $scope.transactionDetail = {};
         $scope.emailFormat = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
         $scope.errorMessageIndicator = false;
         commonService.scrollToTop();
         getMonth();
         getYear();
+        getTransaction();
     }
-
+    
+    function getTransaction(){
+        $rootScope.loaderIndicator = true;
+        var userId = commonService.getUserid();
+              httpService.getTransaction(userId).then(function (result) {
+                  if(result.data.message=='Transaction Found!'){
+                   $rootScope.loaderIndicator = false;      
+                   $scope.transactionDetail=result.data.data;   
+                   $scope.transactionRecordIndicator=true;
+                  } else {
+                    $rootScope.loaderIndicator = false;  
+                    $scope.transactionRecordIndicator=false;  
+                  }
+            });
+    }
     function getMonth()
     {
         $scope.montharray = [];
