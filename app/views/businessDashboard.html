@@ -364,6 +364,10 @@
                             <a class="assign-view" href="#/profile/{{item.interested_user.id}}">view profile</a>
                             <input type="button" class="btn btn-default manage-assign" id="assignBtn"
                                    data-ng-click="assignTaskToUser(item)" value="assign" disabled="disabled">
+                            <div>
+                            {{item.offerCost}}
+                            {{item.commentDescription}}     
+                            </div>
                         </li>
                     </ul>
                    
