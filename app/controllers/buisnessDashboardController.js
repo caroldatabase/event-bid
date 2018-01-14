@@ -16,6 +16,7 @@
             $scope.buisnessDashboardIndicator = true;
             getDateList();
             getBuisnessTaskOpen();
+            getMessageOnDashBoard();
            
         }
         function getPersonalMessagesForAllTask()
@@ -37,6 +38,21 @@
                 });
 
             
+        }
+        function getMessageOnDashBoard(){
+                var userId = commonService.getUserid();
+                $rootScope.loaderIndicator = true;
+                httpService.getMessageOnDashBoard(userId).then(function (data) {
+                    if (data.data.message == "Success") {
+                        $scope.reviewsIndicator = false;
+                        $scope.dashboardMessage = data.data.data;
+                        $rootScope.loaderIndicator = false;
+                        
+                    } else {
+                        $rootScope.loaderIndicator = false;
+                        $scope.reviewsIndicator = true;
+                    }
+                });  
         }
         function getDateList() {
             $scope.dayArray = [];
@@ -244,7 +260,8 @@
             $rootScope.loaderIndicator = true;
             httpService.getCardDetails(user).then(function (response) {
                 $rootScope.loaderIndicator = false;
-                if (response.data.message == "No card added yet!") {
+                if($scope.taskDetail.isPaymentMade==false){
+                    if (response.data.message == "No card added yet!") {
                     $scope.cardDetailsAlreadySaved = false;
                     $scope.NoCardDetailsFound = true;
                     
@@ -255,7 +272,12 @@
                     $scope.cardDetailsAlreadySaved = true;
                     $scope.NoCardDetailsFound = false;
                     
+                }  
+                } else {
+                    $scope.cardDetailsAlreadySaved = false;
+                    $scope.NoCardDetailsFound = false;
                 }
+              
             });
         }
 

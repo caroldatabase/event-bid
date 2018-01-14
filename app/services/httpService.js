@@ -49,7 +49,8 @@
         deactivate:deactivate,
         addInsurance:addInsurance,
         addQualification:addQualification,
-        getTransaction:getTransaction
+        getTransaction:getTransaction,
+        getMessageOnDashBoard: getMessageOnDashBoard
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -368,6 +369,12 @@
             return response;
         });
 
+    }
+    function getMessageOnDashBoard(userid){
+        return $http.get(serviceBase + 'api/v1/getMessageOnDashBoard?userId=' + userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+        
     }
     
     
