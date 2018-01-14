@@ -138,9 +138,12 @@
                               <p class="text-content-dash" data-ng-if="reviewsIndicator">
                                   You have no new messages at the moment. Check in a little later.
                               </p>
-                              <p class="text-content-dash" data-ng-if="!reviewsIndicator">
-                                  You're up-to-date with all your reviews.
-                              </p>
+                              <p class="text-content-dash" data-ng-if="!reviewsIndicator" >
+                                  <div data-ng-repeat="item in dashboardMessage">
+                             <a href="#">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a href="#">{{item.task.event_title}}</a>
+                                  {{item.comments}}    
+                              </div>
+                            
                           </div>
                       </div>
                   </div>

@@ -209,6 +209,7 @@
                     <div class="col-sm-12">
                         <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
                             <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="portPhoto">
+                            <a data-ng-click="deletePhoto(data)">X</a>
                         </div>
                         <div class="view-in-detail">
                             <input class="view-in-input" type="button" value="view in detail" data-ng-click="getPortfolioPicture(portfolioImageArray)">
@@ -435,17 +436,20 @@
                         </div>
                     
                         <div class="col-sm-6">
+                               <div class="alert alert-success" data-ng-if="quaSuccessMessageIndicator">
+                                {{message}}
+                               </div>
                                 <div class="insurance-card-sec"  data-ng-repeat="qua in qualificationList"  data-ng-show="showQuaDetail">
                                 <p class="insurance-states"><span class="ins-type">Qualification name:<span class="ins-entry">{{qua.qualificationType}} </span></span>
                                 <span class="insurer-type">Insurer: <span class="insurer-entry">{{qua.qualification}}</span></span>
-                                </p><p class="added-file"><a href="#">View Added File</a></p>
+                                </p>
+                                <p class="added-file">File :  
+                                    <a href="{{qua.doc}}" target="_blank"><i class="fa fa-file"><span>View Document</span></i></a>
+                                </p>
                             </div>
                               <form name="qualificationForm" novalidate class="padding-other" data-ng-show="showQuaForm">
                                    <div class="alert alert-danger" data-ng-show="quaErrorMessageIndicator">
                                 {{ message}}
-                            </div>
-                            <div class="alert alert-success" data-ng-if="quaSuccessMessageIndicator">
-                                {{message}}
                             </div>
                             <h3>QUALIFICATION</h3>
                             <p>Qualification Type:</p>
