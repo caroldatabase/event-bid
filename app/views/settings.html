@@ -425,7 +425,7 @@
                             <p>Insurer:</p>
                                <input type="text" id="insurer" name="insurer" required data-ng-model="insuranceDetails.insurer" 
                                    ng-class="{error : insuranceForm.insurer.$invalid && insuranceForm.$submitted}" placeholder="">
-                            <p>Certificate Of Currency</p>
+                            <p>Certificate Of Currency:</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
                                    ng-class="{error : imageIndidcator}" />
                                    <input type="button" class="add-insurance-info" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add insurance" />
@@ -454,7 +454,7 @@
                             <p>Qualification name:</p>
                                          <input type="text" id="qualification" name="qualification" required data-ng-model="qualificationDetails.qualification" 
                                    ng-class="{error : qualificationForm.qualification.$invalid && qualificationForm.$submitted}" placeholder="">
-                            <p>Qualification Certificate</p>
+                            <p>Qualification Certificate:</p>
                              <input type="file" value="Upload File" id="quaDoc" name="quaDoc"  data-ng-model="qualificationDetails.quaDoc" 
                                    ng-class="{error : quaImageIndidcator}" />
                                   <input type="button" class="add-insurance-info" ng-click="saveQualification(qualificationDetails,qualificationForm)" value="add qualification" />

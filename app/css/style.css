@@ -3196,3 +3196,8 @@ p.added-file {
     float: left;
     width: 100%;
 }
+.other-iocn-d {
+    position: absolute;
+    right: 25px;
+    top: 60px;
+}
