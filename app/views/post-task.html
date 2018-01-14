@@ -133,21 +133,21 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-sm-4">
-                        <!--<div class="form-field">
+                    <div class="col-sm-4" data-ng-if="!((task.category === categoryConst.CLEANING) || (task.category === categoryConst.GRAPHIC_DESIGN))">
+                        <div class="form-field">
                             <label>Inspiration photos (upto 3 images)</label>
                             <input type="file" class="form-control" name="categoryImage" id="categoryImage"
                                    fileread="categoryImage" image-type="categoryImage" accept="image/*" data-ng-model="categoryImage">
-                        </div>-->
-                        <!--<div class="form-field ">
-                            <label>Uploaded Image :</label>
+                        </div>
+                        <div class="form-field ">
+                            <label data-ng-if="task.inspirationPhoto.length > 0">Uploaded Image :</label>
                             <div data-ng-if="task.inspirationPhoto.length > 0" data-ng-repeat="data in task.inspirationPhoto track by $index">
                                 <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
                             </div>
-                            <div data-ng-if="task.inspirationPhoto.length == 0" >
-                                <img ng-src="{{task.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
-                            </div>
-                        </div>-->
+                            <!--<div data-ng-if="task.inspirationPhoto.length == 0">
+                <img ng-src="{{task.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
+            </div>-->
+                        </div>
                     </div>
                 </div>
  

@@ -22,8 +22,8 @@
                 responsive: true,
                 nav: false,
                 autoplay: true,
-                autoPlaySpeed: 5000,
-                autoPlayTimeout: 5000,
+                autoPlaySpeed: 3000,
+                autoPlayTimeout: 3000,
                 autoplayHoverPause: true
             });
            

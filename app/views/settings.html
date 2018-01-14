@@ -428,7 +428,7 @@
                             <p>Certificate Of Currency:</p>
                             <input type="file" value="Upload File" id="doc" name="doc "  data-ng-model="insuranceDetails.doc " 
                                    ng-class="{error : imageIndidcator}" />
-                                   <input type="button" class="add-insurance-info" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="add insurance" />
+                                   <input type="button" class="add-insurance-info" ng-click="insuranceFileUpload(insuranceDetails,insuranceForm)" value="Add Insurance" />
                                </form>
                               <p class="add-more-isurance"><i class="fa fa-plus"></i><button ng-click="addInsuranceForm()"> Add More Insurance</button></p>
                              <!--<p class="add-more-isurance"><i class="fa fa-plus"></i><a ng-click="addInsuranceForm()"> Add More Insurance</a></p>-->
@@ -457,7 +457,7 @@
                             <p>Qualification Certificate:</p>
                              <input type="file" value="Upload File" id="quaDoc" name="quaDoc"  data-ng-model="qualificationDetails.quaDoc" 
                                    ng-class="{error : quaImageIndidcator}" />
-                                  <input type="button" class="add-insurance-info" ng-click="saveQualification(qualificationDetails,qualificationForm)" value="add qualification" />
+                                  <input type="button" class="add-insurance-info" ng-click="saveQualification(qualificationDetails,qualificationForm)" value="Add Qualification" />
                             </form>
                             <p class="add-more-isurance"><i class="fa fa-plus"></i><button ng-click="addQualificationForm()"> Add More Qualification</button></p>
                         </div>
@@ -586,4 +586,25 @@
             </div>
         </div>
     </div>
+<!--password update pop up  -->
+<div class="modal fade" id="passwordPopup" tabindex="-1">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Success Message</h3>
+                </div>
+                <div class="modal-body">
+                    <p>
+                       Password updated successfully.
+                    </p>
+                    <div class="text-center">
+                        <a class="btn btn-primary" data-ng-click="passwordPopupClose()">OK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

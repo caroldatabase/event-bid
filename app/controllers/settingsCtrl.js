@@ -1,4 +1,4 @@
-﻿app.controller('settingsCtrl', function ($scope, httpService, commonService, $rootScope) {
+﻿app.controller('settingsCtrl', function ($scope, httpService, commonService, $rootScope, $location) {
     init();
     function init() {
         $scope.accountIndicator = true;
@@ -277,6 +277,10 @@
         $('#categoryPopup').modal('hide');
     }
 
+    $scope.passwordPopupClose = function()
+    {
+        $('#passwordPopup').modal('hide');
+    }
     $scope.portfolioPicturePopupClose = function () {
         $('#portfolioPicturePopup').modal('hide');
     }
@@ -341,23 +345,28 @@
                     if (result.data.code != 500 && result.data.message == "Password changed successfully.") {
                         $rootScope.loaderIndicator = false;
                        
-                        $scope.passwordDetails.oldPassword = "";
-                        $scope.passwordDetails.newPassword = "";
-                        $scope.passwordDetails.cnfNewPassword = "";
-                        $scope.successIndicator = true;
+                      
+                        //$scope.successIndicator = true;
+                        
+                        $('#passwordPopup').modal('toggle');
+                        $("#passwordPopup").modal({ backdrop: "static" });
+                        $('#passwordPopup').modal('show');
                         setTimeout(function () {
-                            $scope.passwordIndicator = false;
+                            $location.path('/');
+                            //$scope.passwordIndicator = false;
                             $rootScope.isLogin = false;
+                            $scope.passwordDetails.oldPassword = "";
+                            $scope.passwordDetails.newPassword = "";
+                            $scope.passwordDetails.cnfNewPassword = "";
                             $rootScope.adminIndicator = false;
                             commonService.deleteCookieValues('FirstName');
                             commonService.deleteCookieValues('UserID');
                             commonService.deleteCookieValues('UserType');
                             commonService.reloadRoute();
-                            $location.path('/');
                             $('#promptLoginPopup').modal('toggle');
                             $("#promptLoginPopup").modal({ backdrop: "static" });
                             $('#promptLoginPopup').modal('show');
-                        }, 3000);
+                        }, 2000);
                     }
                     else {
                         $scope.passwordIndicator = true;
