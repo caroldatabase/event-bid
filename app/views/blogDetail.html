@@ -2,8 +2,26 @@
 
 <div class="new-blog">
     <div class="container">
-        
-        <div class="row" data-ng-repeat="item in blogList">
+        <div class="sub-banner">
+            <img src="app/images/dashboard-banner.jpg">
+            <div class="banner-name-user text-center">
+                <h1>Hello, {{firstName}}</h1>
+            </div>
+        </div>
+        <div class="task-browse">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search blog by title" class="search-input" data-ng-model="searchText" name="searchText"
+                                   id="searchText">
+                            <i class="fa fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" data-ng-repeat="item in blogList | filter : {blog_title : searchText}">
             <div class="col-sm-1">
                 <div class="blog-date text-center">
                     <p class="blog-month"><b>APR</b></p>
@@ -15,7 +33,7 @@
                 <img ng-src="{{item.blog_image}}" alt="">
             </div>
             <div class="col-sm-4">
-                <a href="#/blog-detail/{{item.blog_title}}"><h3>
+                <a href="#/blog-detail/{{item.blog_title}}">
                     <h3 style="margin-top:0px;">
                         {{item.blog_title}}
                     </h3>
