@@ -390,7 +390,6 @@
                     reader = new FileReader();
                     reader.readAsDataURL(imageFile);
                     reader.onload = function () {
-                        
                     $rootScope.loaderIndicator = true;
                     $scope.insuranceDetails.userId = commonService.getUserid();             
                     $scope.insuranceDetails.doc = reader.result;

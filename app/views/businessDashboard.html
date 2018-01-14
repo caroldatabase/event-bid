@@ -258,7 +258,7 @@
                         Card details was not saved.Please add card details and make payment.
                     </p>
                     <form name="paymentForm" novalidate class="padding-other">
-                        <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                        <div class="alert alert-danger" data-ng-if="errorMessageIndicator">
                             {{ message}}
                         </div>
                         <div class="alert alert-success" data-ng-if="successMessageIndicator">
@@ -347,7 +347,7 @@
                             <div class="col-sm-12 card-pay-button">
                                 <div class="button-group">
                                     <input data-ng-click="makePaymentByAddingCard(cardDetails, paymentForm,taskDetail.category_question['totalCost'])"
-                                           type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn ">
+                                           type="submit" value="Add card & make payment" class="btn btn-primary btn-lg payment-btn ">
                                     <input type="button" data-ng-click="cancelPaymentByAddingCard()" value="Cancel"
                                            class="btn btn-primary btn-lg payment-btn">
                                 </div>
@@ -363,7 +363,7 @@
                             <span class="assign-rating"><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             <a class="assign-view" href="#/profile/{{item.interested_user.id}}">view profile</a>
                             <input type="button" class="btn btn-default manage-assign" id="assignBtn"
-                                   data-ng-click="assignTaskToUser(item)" value="assign" disabled="disabled">
+                                   data-ng-click="assignTaskToUser(item)" value="assign">
                             <div>
                             {{item.offerCost}}
                             {{item.commentDescription}}     
@@ -541,11 +541,11 @@
                                 </div>
                         </li>
                         <li>
-                          <div class="alert alert-success" data-ng-show="!showFeedbackForm">   
+                          <div class="alert alert-success" data-ng-if="!showFeedbackForm">   
                             {{feedbackMessage}}
                                </div>
-                        <form name="reviewForm" data-ng-show="showFeedbackForm" novalidate>
-                            <div class="alert alert-danger" data-ng-show="reviewErrorMessageIndicator">
+                        <form name="reviewForm" data-ng-if="showFeedbackForm" novalidate>
+                            <div class="alert alert-danger" data-ng-if="reviewErrorMessageIndicator">
                                 {{ reviewMessage}}
                             </div>
                             <p class="v-c-h">
