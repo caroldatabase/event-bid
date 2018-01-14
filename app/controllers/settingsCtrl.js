@@ -459,7 +459,7 @@
                         $scope.quaSuccessMessageIndicator = true;
                         $scope.quaErrorMessageIndicator = false;
                         $scope.message = "This details will be saved to your profile after verification from our admin team.";
-                        $scope.qualificationList.push($scope.qualificationDetails);    
+                        $scope.qualificationList.push(result.data.data);    
                         $scope.showQuaDetail=true; 
                         $scope.qualificationDetails = {};
                         } else {
