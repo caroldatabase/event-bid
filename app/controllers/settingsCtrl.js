@@ -527,5 +527,10 @@
     {
         $('#portfolioPicturePopup').modal('show');
     }
+     $scope.deletePhoto = function (data)
+    {
+        var index = $scope.portfolioImageArray.indexOf(data);
+        $scope.portfolioImageArray.splice(index, 1);
+    }
 
 });

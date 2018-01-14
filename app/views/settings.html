@@ -209,6 +209,7 @@
                     <div class="col-sm-12">
                         <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
                             <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="portPhoto">
+                            <a data-ng-click="deletePhoto(data)">X</a>
                         </div>
                         <div class="view-in-detail">
                             <input class="view-in-input" type="button" value="view in detail" data-ng-click="getPortfolioPicture(portfolioImageArray)">
