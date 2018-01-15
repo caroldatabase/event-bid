@@ -5,7 +5,8 @@
     {
         $scope.categoryIndicator = false;
         $scope.blogIndicator = false;
-        $scope.taskIndicator = false; 
+        $scope.taskIndicator = false;
+        $scope.userIndicator = false;
         getCategory();
         $scope.currentPage = 1;
         $scope.numPerPage = 5;
@@ -18,6 +19,14 @@
         $scope.categoryIndicator = true;
         $scope.blogIndicator = false;
         $scope.taskIndicator = false;
+        $scope.userIndicator = false;
+    }
+    $scope.openUserSection = function()
+    {
+        $scope.categoryIndicator = false;
+        $scope.blogIndicator = false;
+        $scope.taskIndicator = false;
+        $scope.userIndicator = true;
     }
 
     $scope.openAddCategoryPopup = function () {
@@ -63,6 +72,7 @@
         $scope.categoryIndicator = false;
         $scope.blogIndicator = true;
         $scope.taskIndicator = false;
+        $scope.userIndicator = false;
         getAllBlogs();
     }
 
@@ -70,6 +80,7 @@
         $scope.categoryIndicator = false;
         $scope.blogIndicator = false;
         $scope.taskIndicator = true;
+        $scope.userIndicator = false;
         getAllTask();
     }
 

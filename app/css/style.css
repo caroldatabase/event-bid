@@ -3096,7 +3096,6 @@ border-radius: 5px;
 p.insurance-states {
 font-size: 16px !important;
 padding-bottom: 15px;
-border-bottom: 1px solid #ccc;
 }
 span.ins-type {
 display: block;
@@ -3208,4 +3207,34 @@ p.added-file {
 }
 a.right-cross {
     float: right;
+}
+.text-center.skip-pop {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+}
+p.added-file {
+    border-bottom: 1px solid #ccc;
+}
+.search-bar.blog-search-bar {
+    margin-top: 20px;
+}
+.blog-date.text-center {
+    padding: 5px;
+}
+.new-blog .row {
+    margin-bottom: 30px;
+}
+p.blog-year {
+    font-size: 12px;
+}
+p.blog-month {
+    font-size: 12px;
+}
+p.blog-digit {
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+p#noRecord {
+    text-align: center;
 }
