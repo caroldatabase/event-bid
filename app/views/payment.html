@@ -7,7 +7,7 @@
     </div>
    
         <div class="container payment-table-colum">
-            <h4 style="text-align:center;">please find your transaction history as follows :</h4>
+            <h4 >Please find your transaction history as follows :</h4>
             <div data-ng-if="transactionRecordIndicator">
             <table width="100%" border="1">
                 <tr class="pay-table-head">
@@ -22,7 +22,7 @@
                 <tr data-ng-repeat="item in transactionDetail">
                     <td>{{item.taskId}}</td>
                     <td>{{item.task.event_title}}</td>
-                    <td>{{item.amount}}</td>
+                    <td>{{item.amount}} $</td>
                     <td>{{item.transactionId}}</td>
                     <td>{{item.transactionDetails.ACK}}</td>
                     <td>{{item.task.isPaymentMade}}</td>

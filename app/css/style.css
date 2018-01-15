@@ -3238,3 +3238,27 @@ p.blog-digit {
 p#noRecord {
     text-align: center;
 }
+tr.pay-table-head td {
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #227d86;
+}
+tr.pay-table-head {
+    background: #298992;
+    padding: 15px;
+    border: none;
+}
+.container.payment-table-colum td {
+    padding: 15px;
+    text-align: center;
+}
+.container.payment-table-colum h4 {
+    margin-bottom: 30px;
+}
+.container.payment-table-colum {
+    padding: 40px 0px;
+}
+.container.payment-table-colum table {
+    border: none;
+}
