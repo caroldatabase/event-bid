@@ -207,7 +207,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
+                        <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index" class="port-upload">
                             <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="portPhoto">
                             <a data-ng-click="deletePhoto(data)">X</a>
                         </div>
@@ -512,7 +512,7 @@
                         <div class="popup-form-row">
                             <div class="form-field">
                                 <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
-                                        <a data-ng-click="deletePhoto(data)">X</a>
+                                    <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
                                     <img class="uploaded-image" ng-src="{{data}}" alt="Image preview..." id="portPhoto">
                                 </div>
                             </div>

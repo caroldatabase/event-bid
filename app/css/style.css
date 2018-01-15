@@ -3201,3 +3201,11 @@ p.added-file {
     right: 25px;
     top: 60px;
 }
+.port-upload {
+    float: left;
+    width: 150px;
+    margin-right: 15px;
+}
+a.right-cross {
+    float: right;
+}
