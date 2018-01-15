@@ -50,7 +50,9 @@
         addInsurance:addInsurance,
         addQualification:addQualification,
         getTransaction:getTransaction,
-        getMessageOnDashBoard: getMessageOnDashBoard
+        getMessageOnDashBoard: getMessageOnDashBoard,
+        allUserDetails:allUserDetails,
+        deactivate:deactivate
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -376,8 +378,19 @@
         });
         
     }
-    
-    
+   function allUserDetails(){
+        return $http.get(serviceBase + 'api/v1/allUserDetails', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+        
+    }
+  function deactivate(userid){
+        return $http.get(serviceBase + 'api/v1/deactivate'+userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+        
+    }
+
     return httpService;
 
 
