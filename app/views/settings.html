@@ -512,6 +512,7 @@
                         <div class="popup-form-row">
                             <div class="form-field">
                                 <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index">
+                                        <a data-ng-click="deletePhoto(data)">X</a>
                                     <img class="uploaded-image" ng-src="{{data}}" alt="Image preview..." id="portPhoto">
                                 </div>
                             </div>
