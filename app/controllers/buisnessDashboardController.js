@@ -15,6 +15,7 @@
             $scope.anchorDisable = true;
             $scope.buisnessDashboardIndicator = true;
             $scope.reviewDetail = {};
+            $scope.ratingList=[1,2,3,4,5];
             getDateList();
             getBuisnessTaskOpen();
             getMessageOnDashBoard();
@@ -25,8 +26,8 @@
            
                 var userId = commonService.getUserid();
                 var messages = {};
-                messages.taskId = taskId;
-                messages.poster_userid = userId;
+               // messages.taskId = taskId;
+                //messages.poster_userid = userId;
                 $rootScope.loaderIndicator = true;
                 httpService.getPersonalMessage(messages).then(function (data) {
                     if (data.data.message == "Success") {
@@ -39,6 +40,13 @@
                 });
 
             
+        }
+        $scope.changedValue= function(rating){
+            $scope.ratingList=[];
+            rating=rating==undefined?5:rating;
+            for (var i = 1; i <= rating; i++) {
+                $scope.ratingList.push(i);
+            }
         }
         function getMessageOnDashBoard(){
                 var userId = commonService.getUserid();

@@ -557,7 +557,7 @@
                             <p class="rating-experience">
                                 <span>Rating</span>
                                 <span>
-                                    <select  id="doersRating" name="doersRating" required data-ng-model="reviewDetail.doersRating">
+                                    <select  id="doersRating" name="doersRating" required data-ng-model="reviewDetail.doersRating" ng-change="changedValue(reviewDetail.doersRating)" >
                                        <option selected value="">Select rating</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -566,8 +566,8 @@
                                         <option value="5">5</option>
                                     </select>
                                 </span>
-                                <span>
-                                    <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                <span data-ng-repeat="item in ratingList">
+                                    <i class="fa fa-star"></i> 
                                 </span>
                             </p>
                             <textarea required width="100%" rows="4" data-ng-model="reviewDetail.review" id="review" name="review" ng-class="{error : reviewForm.review.$invalid && reviewForm.$submitted}" required data-ng-model="reviewDetail.review"></textarea>
