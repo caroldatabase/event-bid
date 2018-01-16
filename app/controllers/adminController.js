@@ -1,8 +1,9 @@
-﻿app.controller('adminCtrl', function ($scope, httpService, $rootScope) {
+﻿app.controller('adminCtrl', function ($scope,commonService, httpService, $rootScope) {
     init();
 
     function init()
     {
+        commonService.checkUserLoggedIn();
         $scope.categoryIndicator = false;
         $scope.blogIndicator = false;
         $scope.taskIndicator = false;
@@ -27,6 +28,7 @@
         $scope.blogIndicator = false;
         $scope.taskIndicator = false;
         $scope.userIndicator = true;
+            getUserList();
     }
 
     $scope.openAddCategoryPopup = function () {
@@ -57,6 +59,37 @@
                 $rootScope.loaderIndicator = false;
             });
         
+    }
+    function getUserList()
+    {
+        $rootScope.loaderIndicator = true;
+            httpService.allUserDetails().then(function (response) {
+                     if (response.data.message == "Transaction Found!") {
+                        $scope.userList = response.data.data;
+                        $rootScope.loaderIndicator = false;
+                         $scope.userIndicator=true;
+                        
+                    } else {
+                        $rootScope.loaderIndicator = false;
+                    }
+                
+                $rootScope.loaderIndicator = false;
+            });
+        
+    }
+     $scope.deactivateUser=function (userid){
+         $rootScope.loaderIndicator = true;
+         var userId = commonService.getUserid();
+            httpService.deactivate(userId).then(function (response) {
+                     if (response.data.message == "User deactivated!") {
+                        $rootScope.loaderIndicator = false;
+                        $scope.userIndicator=true;                      
+                    } else {
+                        $rootScope.loaderIndicator = false;
+                    }
+                
+                $rootScope.loaderIndicator = false;
+            });
     }
 
     $rootScope.$on("addedCategory", function (event, args) {

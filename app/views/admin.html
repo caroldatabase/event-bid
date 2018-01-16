@@ -109,7 +109,7 @@
         <h4 class="tsk-head">User Management</h4>
         <div class="browse-list">
             <div class="container">
-                <ul data-ng-repeat="data in filteredLists | filter : searchText">
+                <ul data-ng-repeat="data in userList | filter : searchText">
                     <div class="card-pop">
                         <li>
                             <h3>{{data.event_title}}</h3>
@@ -129,11 +129,11 @@
                         </li>
                         <li class="third-cont right-text">
                             <p>
-                                <span>{{data.post_user_detail.first_name}}</span>
+                                <span>{{data.first_name}} {{data.last_name}}</span>
                                 <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
                             </p>
                         </li>
-                        <input type="button" value="deactive user" data-ng-click="deleteTask(data)" />
+                        <input type="button" value="deactive user" data-ng-click="deactivateUser(data.id)" />
                     </div>
                 </ul>
 
@@ -145,7 +145,7 @@
 
     </div>
     <pagination ng-model="currentPage"
-                total-items="taskList.length"
+                total-items="userList.length"
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>

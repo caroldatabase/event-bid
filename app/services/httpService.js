@@ -385,7 +385,7 @@
         
     }
   function deactivate(userid){
-        return $http.get(serviceBase + 'api/v1/deactivate'+userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.get(serviceBase + 'api/v1/user/deactivate/'+userid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
         
