@@ -400,8 +400,9 @@
                     <div class="popup-form-row">
                         <div class="row">
                             <div data-ng-if="interestedUser.offerImages.length > 0" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
                                 <img class="uploaded-image" ng-src="{{data}}"  alt="Image preview..." id="inspirationPhoto">
-                                <a data-ng-click="deletePhoto(data)">X</a>
+                                
                             </div>
 
                         </div>

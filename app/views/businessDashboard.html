@@ -556,7 +556,7 @@
                             </p>
                             <p class="rating-experience">
                                 <span>Rating</span>
-                                <span>
+                                <span class="select-rating">
                                     <select  id="doersRating" name="doersRating" required data-ng-model="reviewDetail.doersRating" ng-change="changedValue(reviewDetail.doersRating)" >
                                        <option selected value="">Select rating</option>
                                         <option value="1">1</option>
@@ -566,6 +566,7 @@
                                         <option value="5">5</option>
                                     </select>
                                 </span>
+                                
                                 <span data-ng-repeat="item in ratingList">
                                     <i class="fa fa-star"></i> 
                                 </span>
