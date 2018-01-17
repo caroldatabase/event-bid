@@ -52,7 +52,8 @@
         getTransaction:getTransaction,
         getMessageOnDashBoard: getMessageOnDashBoard,
         allUserDetails:allUserDetails,
-        deactivate:deactivate
+        deactivate:deactivate,
+        paypal:paypal
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -389,6 +390,13 @@
             return response;
         });
         
+    }
+    
+     function paypal(param) {
+        return $http.post('http://api.eventbid.com.au/api/v1/paypalPayKey',param, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
     }
 
     return httpService;
