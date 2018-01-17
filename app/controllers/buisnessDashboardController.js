@@ -564,9 +564,9 @@
                reviewForm.$setSubmitted(true);
              if (reviewForm.$valid) {
                 $scope.reviewErrorMessageIndicator=false;
-                $scope.reviewDetail.taskId=$scope.taskDetail.id;
-                $scope.reviewDetail.userId=$scope.taskDetail.post_user_id;
-                httpService.updateProfile($scope.taskDetail.post_user_id,$scope.reviewDetail).then(function (result) {
+                $scope.reviewDetail.feedback=[{"name":$scope.taskDetail.event_title},{"messge":reviewDetail.review}];
+                $scope.reviewDetail.review_rating=[{"name":$scope.taskDetail.event_title},{"rating":reviewDetail.doersRating}];
+                httpService.updateProfile($scope.taskDetail.seeker_user_id,$scope.reviewDetail).then(function (result) {
                    $scope.showFeedbackForm=false;
                    $scope.feedbackMessage="Thank You for your valuable feedback";
 //                        if (result.data.message == 'Payment has been successfully done!' && result.data.success == true) {
