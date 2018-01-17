@@ -3262,3 +3262,6 @@ tr.pay-table-head {
 .container.payment-table-colum table {
     border: none;
 }
+.commenter-text.full-text-area {
+    width: 100%;
+}

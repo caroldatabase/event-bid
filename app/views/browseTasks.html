@@ -336,7 +336,7 @@
                             <div class="comment-box-browse">
                                 <div class="commenter">
                                     <b>Please comment on your offer : </b>
-                                    <div class="commenter-text">
+                                    <div class="commenter-text full-text-area">
                                         <textarea value="Ask a question" data-ng-model="interestedUser.commentDescription" name="description"
                                                   required ng-class="{error : showInterestForm.description.$invalid && showInterestForm.$submitted}"></textarea>
                                     </div>
@@ -353,8 +353,9 @@
                                 <div class="col-sm-12">
                                     <div data-ng-if="interestedUser.offerImages.length > 0">
                                         <div class="uploadedImage" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                            <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
                                             <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                                            <a data-ng-click="deletePhoto(data)">X</a>
+                                            
                                         </div>
                                         <div class="show-more-btn">
                                             <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
