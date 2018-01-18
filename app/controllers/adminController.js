@@ -83,6 +83,7 @@
             httpService.deactivate(userId).then(function (response) {
                      if (response.data.message == "User deactivated!") {
                         $rootScope.loaderIndicator = false;
+                        alert("User deactivated successfully");
                         $scope.userIndicator=true;                      
                     } else {
                         $rootScope.loaderIndicator = false;
