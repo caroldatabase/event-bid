@@ -1,4 +1,5 @@
-﻿app.controller('EBManagerCtrl', function ($scope, commonService, $rootScope, httpService, $routeParams) {
+﻿app.controller('EBManagerCtrl',['$scope', 'commonService', '$rootScope', 'httpService', '$routeParams', 
+    function ($scope, commonService, $rootScope, httpService, $routeParams) {
     $scope.showContactSettingsTab = showContactSettingsTab;
     init();
     function showContactSettingsTab() {
@@ -107,4 +108,4 @@
     {
         console.log($scope.user.selectedCategories);
     }
-});
+}]);

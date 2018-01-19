@@ -1,6 +1,6 @@
-﻿app.controller('messagingCtrl', function ($scope) {
+﻿app.controller('messagingCtrl',[ function () {
     
    
     
 
-});
+}]);

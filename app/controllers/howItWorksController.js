@@ -1,4 +1,5 @@
-﻿app.controller('howItWorksCtrl', function ($scope, commonService, $rootScope) {
+﻿app.controller('howItWorksCtrl',['$scope', 'commonService', '$rootScope',
+    function ($scope, commonService, $rootScope) {
     init();
 
     function init()
@@ -52,4 +53,4 @@
     $scope.openLoginModal = function () {
         $('#loginPopup').modal('toggle');
     }
-});
+}]);

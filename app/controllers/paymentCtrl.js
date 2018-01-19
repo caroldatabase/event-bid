@@ -1,4 +1,5 @@
-﻿app.controller('paymentCtrl', function ($scope, $rootScope, httpService, commonService) {
+﻿app.controller('paymentCtrl', ['$scope', '$rootScope', 'httpService', 'commonService',
+    function ($scope, $rootScope, httpService, commonService) {
     init();
     function init() {
         $scope.user = {};
@@ -89,4 +90,4 @@
             }
         }
     }
-});
+}]);

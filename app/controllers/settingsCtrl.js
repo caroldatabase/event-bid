@@ -1,4 +1,5 @@
-﻿app.controller('settingsCtrl', function ($scope, httpService, commonService, $rootScope, $location,$window) {
+﻿app.controller('settingsCtrl',['$scope', 'httpService', 'commonService', '$rootScope', '$location','$window',
+    function ($scope, httpService, commonService, $rootScope, $location,$window) {
     init();
     function init() {
         $scope.accountIndicator = true;
@@ -582,4 +583,4 @@
         $scope.portfolioImageArray.splice(index, 1);
     }
 
-});
+}]);

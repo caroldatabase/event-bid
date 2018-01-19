@@ -1,4 +1,5 @@
-﻿app.controller('contactUsCtrl', function ($scope, commonService, httpService, $rootScope) {
+﻿app.controller('contactUsCtrl',['$scope', 'commonService', 'httpService', '$rootScope',
+    function ($scope, commonService, httpService, $rootScope) {
     init();
     function init()
     {
@@ -50,4 +51,4 @@
         else
             $('#charNum').text(5000);
     }
-});
+}]);

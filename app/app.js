@@ -23,7 +23,7 @@ var app = angular.module('eventBid', ['ngRoute', 'ui.bootstrap', 'ngCookies']);
 //}(document, 'script', 'facebook-jssdk'));
 
 
-app.config(function ($routeProvider,$locationProvider) {
+app.config(['$routeProvider','$locationProvider', function ($routeProvider,$locationProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/views/dashBoard.html",
@@ -143,17 +143,17 @@ app.config(function ($routeProvider,$locationProvider) {
     //});
 
 $locationProvider.hashPrefix('');
-});
+}]);
 
 
-app.config(function ($httpProvider) {
+app.config(['$httpProvider',function ($httpProvider) {
     $httpProvider.defaults.headers.common = {};
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
-});
+}]);
 
-app.run( function($rootScope, $location) {
+app.run(['$rootScope', '$location', function ($rootScope, $location) {
 
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
@@ -164,8 +164,8 @@ app.run( function($rootScope, $location) {
             } 
         }         
     });
-})
+}])
 
-app.controller("FAQCtrl", function (commonService) {
+app.controller("FAQCtrl",['commonService', function (commonService) {
     commonService.scrollToTop();
-});
+}]);

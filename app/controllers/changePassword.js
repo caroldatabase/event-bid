@@ -1,4 +1,4 @@
-﻿app.controller('changePasswordCtrl', function ($scope, $rootScope, commonService, CONSTANTS, httpService, $location) {
+﻿app.controller('changePasswordCtrl',['$scope', '$rootScope', 'commonService', 'CONSTANTS', 'httpService', '$location', function ($scope, $rootScope, commonService, CONSTANTS, httpService, $location) {
     init();
     function init()
     {
@@ -66,4 +66,4 @@
         else
             $scope.emailIndicator = false;
     }
-});
+}]);

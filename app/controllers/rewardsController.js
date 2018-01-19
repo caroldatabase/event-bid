@@ -1,4 +1,4 @@
-﻿app.controller('rewardsCtrl', function ($scope, commonService) {
+﻿app.controller('rewardsCtrl',['$scope', 'commonService', function ($scope, commonService) {
     init();
 
     function init() {
@@ -18,4 +18,4 @@
         $('#collapseOne').hide();
         $("i", this).toggleClass("up down");
     });
-});
+}]);

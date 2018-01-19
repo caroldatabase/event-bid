@@ -1,4 +1,5 @@
-﻿app.controller('requestCategoryCtrl', function ($scope, $rootScope, commonService, httpService) {
+﻿app.controller('requestCategoryCtrl',[ '$scope', '$rootScope', 'commonService', 'httpService',
+    function ($scope, $rootScope, commonService, httpService) {
     init();
 
     function init()
@@ -51,4 +52,4 @@
         else
              $('#charNum').text(5000);
     }
-});
+}]);

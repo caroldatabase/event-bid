@@ -1,4 +1,4 @@
-﻿app.controller('adminCtrl', function ($scope,commonService, httpService, $rootScope) {
+﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope', function ($scope,commonService, httpService, $rootScope) {
     init();
 
     function init()
@@ -169,4 +169,4 @@
         }
     }
 
-});
+}]);

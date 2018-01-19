@@ -1,4 +1,4 @@
-﻿app.controller('customerDashboardCtrl', ['$scope', function () {
+﻿app.controller('customerDashboardCtrl', ['$scope', function ($scope) {
     init();
 
     function init() {

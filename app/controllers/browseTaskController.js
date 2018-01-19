@@ -1,4 +1,4 @@
-﻿app.controller('browseTaskCtrl', function ($scope, httpService, $rootScope, commonService, CONSTANTS, $routeParams) {
+﻿app.controller('browseTaskCtrl',['$scope', 'httpService', '$rootScope', 'commonService', 'CONSTANTS', '$routeParams', function ($scope, httpService, $rootScope, commonService, CONSTANTS, $routeParams) {
 
     $scope.currentPage = 1;
     $scope.numPerPage = 25;
@@ -473,7 +473,7 @@
     });
 
    
-});
+}]);
 
 
         

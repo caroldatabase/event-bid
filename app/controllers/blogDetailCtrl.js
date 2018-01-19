@@ -1,4 +1,4 @@
-﻿app.controller("blogDetailCtrl", function ($scope, $rootScope, httpService, commonService, $routeParams) {
+﻿app.controller("blogDetailCtrl",['$scope', '$rootScope', 'httpService', 'commonService', '$routeParams', function ($scope, $rootScope, httpService, commonService, $routeParams) {
     init();
 
     function init() {
@@ -30,4 +30,4 @@
         var dateOut = new Date(date);
         return dateOut;
     };
-});
+}]);
