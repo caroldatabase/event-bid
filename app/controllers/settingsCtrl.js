@@ -16,6 +16,7 @@
         $scope.buttonIndicator = true;
         $scope.insurancetList=[];
         $scope.qualificationList=[];
+        $scope.skillIndex=[1,2,3];
         httpService.getCategory().then(function (data) {
             $scope.categoryList =  data.data.data;
         });
@@ -237,6 +238,7 @@
         $scope.user.suburb = $scope.userDetails.suburb;
         $scope.user.state = $scope.userDetails.state;
         $scope.user.photo = $scope.userDetails.photo;
+        $scope.user.verification_skills = $scope.userDetails.skill; 
         $scope.dateErrorIndicator = false;
         if ($scope.userDetails.day != undefined || $scope.userDetails.day != null)
         {
