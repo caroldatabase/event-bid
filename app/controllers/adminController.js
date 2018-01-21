@@ -1,4 +1,4 @@
-﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope','$location', function ($scope,commonService, httpService, $rootScope,$location) {
+﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope','$location','$window', function ($scope,commonService, httpService, $rootScope,$location,$window) {
     init();
 
     function init()
@@ -202,6 +202,31 @@
     }
     $scope.releasePayment = function()
     {
-
+      $rootScope.loaderIndicator = true;
+        var param={
+              "actionType": "PAY",
+              "currencyCode": "USD",
+              "receiverList": {
+                "receiver": [{
+                  "amount": "0.02",
+                  "email": "kanikasethi04@gmail.com"  // this email ll be paypal login user email of reciever
+                }]
+              },
+              "returnUrl": "file:///d:/event-bid/index.html#/admin",  // set success url
+              "cancelUrl": "http://localhostt/eventbid/cancel", // set cancel url
+              "requestEnvelope": {
+                "errorLanguage": "en_US",
+                "detailLevel": "ReturnAll"
+              }
+            }
+             httpService.paypal(param).then(function (response) {
+                 
+                 if(response.data.message=="PayKey Generated"){
+                     $rootScope.loaderIndicator = false;
+                      $window.location.href=' https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay?paykey=' +response.data.data.payKey;
+                 }else{
+                     $rootScope.loaderIndicator = false;
+                 }
+        });
     }
 }]);
