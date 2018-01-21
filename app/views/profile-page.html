@@ -28,10 +28,8 @@
 						<p class="user-name">About Me</p>
 						<p class="text-center">{{user.about_me}}</p>
 						<p class="skill-pro">Skills</p>
-						<ul class="skill-list">
-							<li>Drawing</li>
-							<li>Cooking</li>
-							<li>Party planning</li>
+						<ul class="skill-list" data-ng-repeat="skills in skillList">
+							<li>{{skills}}</li>
 						</ul>
 					</div>
 					
