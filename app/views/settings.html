@@ -139,8 +139,9 @@
                  <div class="col-sm-9" data-ng-if="paypal">
                      <div class="add-account-paypal">
                                             <p>Email</p>
-                                            <input type="email" required placeholder="enter your email" data-ng-model="userDetails.paypalAccount">
+                                            <input type="email"  placeholder="enter your email" data-ng-model="userDetails.paypalAccount">
                                         </div>
+                       <button type="button" class="btn btn-default" data-ng-click="paypalAccount()">Add Account</button>
                         <button type="button" class="btn btn-default">Cancel</button>         
 <!--
                 <div class="row">
