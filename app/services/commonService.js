@@ -1,5 +1,5 @@
-app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope', '$filter', 
-    function ($location, $window, $cookies, $route, $rootScope, $filter) {
+app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$rootScope', '$filter', 'httpService',
+    function ($location, $window, $cookies, $route, $rootScope, $filter, httpService) {
     var commonService = {
         updateLocationPath : updateLocationPath,
         scrollToTop: scrollToTop,
@@ -77,7 +77,20 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
             $rootScope.isLogin = false;
         }
     }
-    
+    function updateUserDetails()
+    {
+        var userId = $cookies.get("UserID");
+        $rootScope.loaderIndicator = true;
+        httpService.getUserDetails(userId).then(function (response) {
+            if (response.data.message == "Record found successfully.") {
+                var userDetails = response.data.data;
+                $rootScope.photo = userDetails.photo;
+                $rootScope.loaderIndicator = false;
+                setCookieValues('FirstName', userDetails.firstName);
+                setCookieValues('Photo', $rootScope.photo);
+            }
+        })
+    }
     return commonService;
 
 

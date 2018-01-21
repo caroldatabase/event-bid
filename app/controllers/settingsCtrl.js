@@ -277,14 +277,20 @@
             $scope.dateErrorIndicator = false;
             $scope.user.birthday = $scope.userDetails.day + "/" + $scope.userDetails.month + "/" + $scope.userDetails.year;
         }
+        $rootScope.loaderIndicator = true;
         httpService.updateProfile(userId, $scope.user).then(function (response) {
+            $rootScope.loaderIndicator = false;
             if (response.data.message == "Profile updated successfully")
             {
+
                 $scope.successMessageIndicator = true;
                 $scope.userDetails.first_name = response.data.data.first_name;
                 $scope.userDetails.last_name = response.data.data.last_name;
                 $("#OpenTaskModal").modal({ backdrop: "static" });
                 $('#OpenTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
+                $rootScope.photo = $scope.userDetails.photo;
+                setCookieValues('FirstName', $scope.userDetails.first_name);
+                setCookieValues('Photo', $rootScope.photo);
             }
         });
     }
