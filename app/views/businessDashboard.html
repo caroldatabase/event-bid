@@ -117,6 +117,7 @@
           <div data-ng-if="customerDashboardIndicator">
               <div class="container jobs-dasborad">
                   <div class="row">
+                      <!--jobs you have bidded on -->
                       <div class="col-sm-6">
                           <div class="jobs-list">
                               <h4>Jobs you bidded on</h4>
@@ -129,23 +130,26 @@
                               <div class="dashborad-post-btn">
                                   <a href="#/browse-tasks">Browse Task</a>
                               </div>
+                          </div>
+                      </div>
+                      <!--recommendation jobs-->
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>Recommended Task</h4>
+                              <p class="text-content-dash" data-ng-if="!recommendationJobsCustomerIndicator">
+                                  Have a look at the tasks listed to find something you can do!
+                              </p>
+                              <ul data-ng-if="recommendationJobsCustomerIndicator" data-ng-repeat="item in recommendedTaskCustomer">
+                                  <li><a data-ng-click="openSelectedtaskInDetail(item)">{{item.event_title}}</a></li>
+                              </ul>
+                             
+                              <div class="dashborad-post-btn">
+                                  <a href="#/browse-tasks">Browse Task</a>
+                              </div>
 
                           </div>
                       </div>
-                      <div class="col-sm-6">
-                          <div class="jobs-list">
-                              <h4>My messages</h4>
-                              <p class="text-content-dash" data-ng-if="reviewsIndicator">
-                                  You have no new messages at the moment. Check in a little later.
-                              </p>
-                              <p class="text-content-dash" data-ng-if="!reviewsIndicator" >
-                                  <div data-ng-repeat="item in dashboardMessage">
-                             <a href="#/">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
-                                 - {{item.comments}}    
-                              </div>
-                            
-                          </div>
-                      </div>
+                      
                   </div>
               </div>
 
@@ -167,6 +171,38 @@
                       </div>
                       <div class="col-sm-6">
                           <div class="jobs-list">
+                              <h4>Completed task</h4>
+                              <ul data-ng-if="jobsCompletedCustomerIndicator" data-ng-repeat="item in completedTaskCustomer">
+                                  <li><a data-ng-click="openProgresstaskInDetail(item)">{{item.event_title}}</a></li>
+                              </ul>
+                              <p class="text-content-dash" data-ng-if="!jobsCompletedCustomerIndicator">
+                                  You have no completed task right now.
+                              </p>
+                              <div class="dashborad-post-btn">
+                                  <a href="#/browse-tasks">Browse Task</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="container jobs-dasborad">
+                  <div class="row">
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
+                              <h4>My messages</h4>
+                              <p class="text-content-dash" data-ng-if="reviewsIndicator">
+                                  You have no new messages at the moment. Check in a little later.
+                              </p>
+                              <p class="text-content-dash" data-ng-if="!reviewsIndicator">
+                                  <div data-ng-repeat="item in dashboardMessage">
+                                      <a href="#/">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
+                                      - {{item.comments}}
+                                  </div>
+
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="jobs-list">
                               <h4>Invoices Due</h4>
                               <ul data-ng-if="invoicesIndicator">
                                   <li><a href="#">List content of invoices description will be goes here</a></li>
@@ -181,21 +217,19 @@
                       </div>
                   </div>
               </div>
-              <div class="row">
+              <!--<div class="row">
                   <div class="col-sm-12 message-box-dev">
                       <div class="jobs-list">
                           <h4>My Message</h4>
-                          <!-- ngIf: invoicesIndicator -->
-                          <!-- ngIf: !invoicesIndicator -->
+                        
                           <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p>
                           <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p>
                           <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p>
                           <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p>
-                          <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p><!-- end ngIf: !invoicesIndicator -->
-
+                          <p><a href="#">Anita a</a> has replied to your comment in <a href="#">vaibhav kasar</a></p>
                       </div>
                   </div>
-              </div>
+              </div>-->
           </div>
 </div>
 

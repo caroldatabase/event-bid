@@ -326,7 +326,9 @@
                 if ($scope.interestedUser.offerImages.length > 0 ) {
                     interestedUser.offerImages = $scope.interestedUser.offerImages;
                 }
+                $rootScope.loaderIndicator = false;
                 httpService.showInterest(interestedUser).then(function (response) {
+                    $rootScope.loaderIndicator = false;
                     if (response.data.code == 200) {
                         ////$rootScope.loaderIndicator = false;
                         //$scope.interestMsg = "Thank you for showing interest in this task. Buisness will get back to you shortly.";

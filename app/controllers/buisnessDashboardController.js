@@ -17,7 +17,10 @@
             $scope.reviewDetail = {};
             $scope.ratingList=[1,2,3,4,5];
             getDateList();
-            getBuisnessTaskOpen();
+            //Fetch task posters's history 
+            //This is actually customer.
+            getBuisnessTaskOpen(); // It will fetch list of task posted by user. 
+           
             getMessageOnDashBoard();
            
         }
@@ -498,27 +501,20 @@
                     $scope.progressTaskCustomer = [];
                     $rootScope.loaderIndicator = false;
                     if (response.data.data.open) {
+                       
                         $scope.potentialJobsCustomerIndicator = true;
                         $rootScope.loaderIndicator = false;
                         $scope.openTaskCustomer = response.data.data.open;
-                    }
-                    else {
-                        var userId = commonService.getUserid();
-                        $rootScope.loaderIndicator = true;
-                        httpService.getRecommendationTask(userId).then(function (res) {
-                            if(res.data.code == 200 && res.data.message == "Recommended Task")
-                            {
-                                $scope.potentialJobsCustomerIndicator = true;
-                                $rootScope.loaderIndicator = false;
-                                $scope.openTaskCustomer = response.data.data.completed
-                            ;
-                            }
-                        });
                     }
                     if (response.data.data.assigned) {
                         $scope.jobsInProgressCustomerIndicator = true;
                         $rootScope.loaderIndicator = false;
                         $scope.progressTaskCustomer = response.data.data.assigned;
+                    }
+                    if (response.data.data.completed) {
+                        $scope.jobsCompletedCustomerIndicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.completedTaskCustomer = response.data.data.completed;
                     }
 
                 }
@@ -529,7 +525,22 @@
                     $scope.openTaskCustomer = [];
                 }
             });
+            //get recommendation task 
+            var userId = commonService.getUserid();
+            $rootScope.loaderIndicator = true;
+            httpService.getRecommendationTask(userId).then(function (res) {
+                if (res.data.code == 200 && res.data.message == "Recommended Task") {
+                    $scope.recommendationJobsCustomerIndicator = true;
+                    $rootScope.loaderIndicator = false;
+                    $scope.recommendedTaskCustomer = res.data.data;
 
+                }
+                else
+                {
+                    $scope.recommendationJobsCustomerIndicator = false;
+                    $rootScope.loaderIndicator = false;
+                }
+            });
             
         }
         $scope.showBuisnessTab = function()

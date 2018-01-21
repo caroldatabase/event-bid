@@ -3308,3 +3308,12 @@ span.dea-name {
     margin-top: 15px;
     font-size: 16px;
 }
+.add-account-paypal input[type="text"] {
+    height: 45px;
+    width: 100%;
+    padding-left: 15px;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #666;
+    border: 1px solid #ccc;
+}
