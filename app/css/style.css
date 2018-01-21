@@ -1473,7 +1473,7 @@ ul.multiselect-container.dropdown-menu.checkbox-fix li {
     height: 110px;
     border-radius: 100%;
     width: 110px;
-    overflow: hidden;
+    overflow: initial;
     margin: 0 auto;
 }.user-pic img
 {
