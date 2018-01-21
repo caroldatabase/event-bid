@@ -3317,3 +3317,17 @@ span.dea-name {
     color: #666;
     border: 1px solid #ccc;
 }
+.insurance-page .col-sm-6 {
+    background: none !important;
+    margin: 0px 0px !important;
+    width: 50%;
+}
+.insurance-card-sec.ng-scope {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.insurance-page form.padding-other {
+    float: left;
+    width: 100%;
+}

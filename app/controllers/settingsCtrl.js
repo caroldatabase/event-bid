@@ -222,6 +222,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.paypal = true;
+        $scope.insuranceIndicator = false;
     }
     $scope.insuranceSettings = function()
     {
