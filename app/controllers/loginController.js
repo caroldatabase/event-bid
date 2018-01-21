@@ -49,8 +49,8 @@
     
     function selectCategories()
     {
-        if ($scope.user.selectedCategories.length <= 3)
-            $scope.user.categories = $scope.user.selectedCategories;
+        if ($scope.user.category_id.length <= 3)
+            $scope.user.category_id = $scope.user.category_id;
         //else
             //$scope.errorIndicator = true;
             //$scope.message = "You can select at max three categories.";

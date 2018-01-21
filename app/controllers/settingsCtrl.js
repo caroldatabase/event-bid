@@ -320,7 +320,9 @@
         var userId = commonService.getUserid();
         $scope.userDetails.portfolio = [];
         $scope.userDetails.portfolio = $scope.portfolioImageArray;
+        $rootScope.loaderIndicator = true;
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            $rootScope.loaderIndicator = false;
             $('#portfolioPopup').modal('show');
         });
     }

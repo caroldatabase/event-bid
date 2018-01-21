@@ -53,7 +53,8 @@
         getMessageOnDashBoard: getMessageOnDashBoard,
         allUserDetails:allUserDetails,
         deactivate:deactivate,
-        paypal:paypal
+        paypal: paypal,
+        getCompletedTaskList: getCompletedTaskList 
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -125,6 +126,12 @@
 
     function getInterestedUsersList(taskid) {
         return $http.get(serviceBase + 'api/v1/interestUsersList/' + taskid, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+
+    function getCompletedTaskList() {
+        return $http.get(serviceBase + 'api/v1/getCompletedTasktist' , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }

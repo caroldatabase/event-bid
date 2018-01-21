@@ -13,6 +13,7 @@
             <input type="button" value="Task management" data-ng-click="openTaskSection()" />
             <input type="button" value="Blog management" data-ng-click="openBlogSection()" />
             <input type="button" value="User management" data-ng-click="openUserSection()" />
+            <input type="button" value="payment management" data-ng-click="openPaymentSection()" />
         </div>
     </div>
 </div>
@@ -132,6 +133,51 @@
                 boundary-links="true">
     </pagination>
 </div>
+
+<!--payment management-->
+<div class="container" data-ng-if="paymentIndicator">
+    <div class="row">
+        <h4 class="tsk-head">Payment Management</h4>
+        <div class="browse-list">
+            <div class="container">
+                <table width="100%" border="1">
+                    <tr class="pay-table-head">
+                        <td>Task Id</td>
+                        <td>Task Title</td>
+                        <td>Amount</td>
+                        <td>Task Doer Name</td>
+                        <td>Paypal Account</td>
+                        <td>Payment Made</td>
+                        <td>Action</td>
+                    </tr>
+                    <div>
+                        <tr data-ng-repeat="item in taskList">
+                            <td>{{item.id}}</td>
+                            <td>{{item.event_title}}</td>
+                            <td>{{item.amount}} $</td>
+                            <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
+                            <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
+                            <td>{{item.transactionDetails == null ? false : true}}</td>
+                            <td>
+                                <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
+                                       data-ng-click="releasePayment()">
+                            </td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <pagination ng-model="currentPage"
+                total-items="taskList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
+</div>
+
+
             <!--Request a new category-->
             <div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
                 <div class="eb-vAlignment">
@@ -171,7 +217,8 @@
                                     </div>
 
                                     <div class="popup-button-group">
-                                        <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                                        <input type="submit" value="add a category" class="btn btn-primary btn-block" 
+                                               data-ng-click="addNewCategory()">
                                     </div>
                                 </form>
                             </div>
