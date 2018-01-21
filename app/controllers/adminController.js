@@ -224,6 +224,9 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         httpService.getCompletedTaskList().then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.taskList = response.data.data;
+            for (var i = 0; i < $scope.taskList.length; i++) {
+                $scope.taskList[i].category_question = JSON.parse($scope.taskList[i].category_question);
+            }
         });
 
     }

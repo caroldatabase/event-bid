@@ -198,7 +198,7 @@
                         <tr data-ng-repeat="item in insuranceList">
                             <td>{{item.id}}</td>
                             <td>{{item.event_title}}</td>
-                            <td>{{item.category_question['totalCost']}} $</td>
+                            <td> $ {{item.category_question['totalCost']}} </td>
                             <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
                             <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
                             <td>{{item.transactionDetails == null ? false : true}}</td>
