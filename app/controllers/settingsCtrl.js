@@ -85,6 +85,12 @@
             {
                 $scope.userDetails = response.data.data;
                 var birthday = $scope.userDetails.birthday;
+                if($scope.userDetails.verification_skills!=null)
+                {
+                  var skills=$scope.userDetails.verification_skills;      
+                  var array = JSON.parse("[" + skills + "]");
+                  $scope.userDetails.skill=array[0];
+                }
                 if (birthday != null)
                 {
                     birthday = birthday.split("/");
