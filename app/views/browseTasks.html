@@ -425,14 +425,14 @@
     <div class="eb-vAlignment">
         <div class="modal-dialog eb-vAlignCenter">
             <div class="modal-content">
-                 <div class="alert alert-danger" data-ng-show="emailIndicator">
-                        Please enter valid email address.
-                </div>
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
                     <h4 class="modal-title ng-binding">Please add paypal account</h4>
                 </div>
                 <div class="modal-body">
+                       <div class="alert alert-danger" data-ng-show="emailIndicator">
+                        Please enter valid email address.
+                </div>
                     <div class="add-account-paypal">
                         <p>Email</p>
                         <input type="email" required placeholder="enter your email" data-ng-model="userDetails.paypalAccount" >
