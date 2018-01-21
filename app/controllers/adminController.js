@@ -1,4 +1,4 @@
-﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope', function ($scope,commonService, httpService, $rootScope) {
+﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope','$location', function ($scope,commonService, httpService, $rootScope,$location) {
     init();
 
     function init()
@@ -12,6 +12,17 @@
         $scope.currentPage = 1;
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
+        var userId = commonService.getUserid();
+        if(userId!=36){
+            commonService.deleteCookieValues('FirstName');
+            commonService.deleteCookieValues('UserID');
+            commonService.deleteCookieValues('UserType');
+            commonService.deleteCookieValues('Photo');
+            $rootScope.isLogin = false;
+            $rootScope.adminIndicator = false;
+            commonService.reloadRoute();  
+            $location.path('/');
+        }
     }
 
     //category section 
