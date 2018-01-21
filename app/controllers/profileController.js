@@ -12,7 +12,9 @@
         if (publicProfileId) {
             httpService.getUserDetails(publicProfileId).then(function (response) {
                 $scope.user = response.data.data;
-                getCustomerTask(publicProfileId);
+                var skills=$scope.user.verification_skills;      
+                var array = JSON.parse("[" + skills + "]");
+                $scope.skillList=array[0];
                 $scope.isEdit = false;
                 //$route.reload();
             });
@@ -20,6 +22,10 @@
         else {
             httpService.getUserDetails(userid).then(function (response) {
                 $scope.user = response.data.data;
+                var skills=$scope.user.verification_skills;      
+                var array = JSON.parse("[" + skills + "]");
+                $scope.skillList=array[0];
+                getCustomerTask(publicProfileId);
                 getCustomerTask(userid);
             });
         }
