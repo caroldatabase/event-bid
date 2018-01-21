@@ -272,7 +272,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
     function getInsuranceList()
     {
         $rootScope.loaderIndicator = true;
-        httpService.getInsurance().then(function (response) {
+        httpService.getInsuranceDetailsForAdmin().then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.insuranceList = response.data.data;
             console.log($scope.insuranceList);

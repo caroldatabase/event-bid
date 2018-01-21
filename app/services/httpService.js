@@ -42,7 +42,8 @@
         paymentByCard: paymentByCard,
         getQualification:getQualification,
         getInsurance:getInsurance,
-        approveQualification:approveQualification,
+        approveQualification: approveQualification,
+        getInsuranceDetailsForAdmin : getInsuranceDetailsForAdmin,
         approveInsurance:approveInsurance,
         getPersonalMessage:getPersonalMessage,
         addPersonalMessage:addPersonalMessage,
@@ -138,7 +139,7 @@
             return response;
         });
     }
-    function getInsurance() {
+    function getInsuranceDetailsForAdmin() {
         return $http.get(serviceBase + 'api/v1/getInsurance?page_num=1&page_size=10', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });

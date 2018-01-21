@@ -186,22 +186,24 @@
             <div class="container">
                 <table width="100%" border="1">
                     <tr class="pay-table-head">
-                        <td>Task Id</td>
-                        <td>Task Title</td>
-                        <td>Amount</td>
-                        <td>Task Doer Name</td>
-                        <td>Paypal Account</td>
-                        <td>Payment Made</td>
+                        <td>UserID </td>
+                        <td>User Name</td>
+                        <td>Email</td>
+                        <td>Insurance Type</td>
+                        <td>Insurer</td>
+                        <td>Doc</td>
                         <td>Action</td>
                     </tr>
                     <div>
                         <tr data-ng-repeat="item in insuranceList">
-                            <td>{{item.id}}</td>
-                            <td>{{item.event_title}}</td>
-                            <td> $ {{item.category_question['totalCost']}} </td>
-                            <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
-                            <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
-                            <td>{{item.transactionDetails == null ? false : true}}</td>
+                            <td>{{item.user.userId}}</td>
+                            <td>{{item.user.first_name}} {{item.user.last_name}}</td>
+                            <td>{{item.user.email}}</td>
+                            <td> {{item.user.insuranceType}} </td>
+                            <td>{{item.user.insurer}}</td>
+                            <td>
+                                <a href="{{item.doc}}" target="_blank"><i class="fa fa-file"><span>View Document</span></i></a>
+                            </td>
                             <td>
                                 <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
                                        data-ng-click="releasePayment()">
