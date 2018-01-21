@@ -3331,3 +3331,21 @@ span.dea-name {
     float: left;
     width: 100%;
 }
+.container.setting-pages button.btn.btn-default,  {
+    background: #298992;
+    color: #fff;
+    text-shadow: none;
+    border: 0;
+}
+.browse-list tr td {
+    text-align: center;
+}
+
+td input.btn.btn-primary.btn-block {
+    margin: 0 auto;
+    padding: 10px;
+    width: auto;
+    text-align: center;
+    margin-bottom: 10px !important;
+    margin-top: 10px;
+}

@@ -37,8 +37,8 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
            $cookies.put("UserID", data);
        if (dataType == "UserType")
            $cookies.put("UserType", data);
-       if (dataType == "Photo")
-           $cookies.put("Photo", data);
+       if (dataType == "paykey")
+           $cookies.put("paykey", data);
     }
     function deleteCookieValues(dataType) {
         if (dataType == "FirstName")

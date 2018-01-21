@@ -16,13 +16,21 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         var userId = commonService.getUserid();
         if ($routeParams.payments)
         {
+            
             $scope.categoryIndicator = false;
             $scope.blogIndicator = false;
             $scope.taskIndicator = false;
             $scope.userIndicator = false;
             $scope.paymentIndicator = true;
             $scope.insuranceIndicator = false;
-            getPaymentManagement();
+            var paykey = $cookies.get("paykey");
+            var userTransaction = {
+                "payKey": paykey
+            }
+            httpService.sendPaykey(userTransaction).then(function (response) {
+                console.log("key" + response);
+            });
+            //getPaymentManagement();
         }
         if(userId!=36){
             commonService.deleteCookieValues('FirstName');
@@ -242,8 +250,8 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
                   "email": "kanikasethi04@gmail.com"  // this email ll be paypal login user email of reciever
                 }]
               },
-              "returnUrl": "http://uat.eventbid.com.au/#/admin",  // set success url
-              "cancelUrl": "http://uat.eventbid.com.au/#/admin", // set cancel url
+              "returnUrl": "http://uat.eventbid.com.au/#/admin/payments",  // set success url
+              "cancelUrl": "http://uat.eventbid.com.au/#/admin/payments", // set cancel url
               "requestEnvelope": {
                 "errorLanguage": "en_US",
                 "detailLevel": "ReturnAll"
@@ -253,7 +261,8 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
                  
                  if(response.data.message=="PayKey Generated"){
                      $rootScope.loaderIndicator = false;
-                      $window.location.href=' https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay?paykey=' +response.data.data.payKey;
+                      commonService.setCookieValues("paykey", response.data.data.payKey)
+                      $window.location.href=' https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay?paykey=' + response.data.data.payKey;
                  }else{
                      $rootScope.loaderIndicator = false;
                  }
