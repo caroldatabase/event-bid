@@ -142,6 +142,7 @@
         $(".singleSelection").select2();
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.paypal = false;
     }
 
     $scope.categorySettings = function()
@@ -154,6 +155,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.paypal = false;
         setTimeout(function () {
             //$('#selectedCategories').multiselect();
             $(".multipleSelection").select2({
@@ -173,6 +175,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false; 
+        $scope.paypal = false;
     }
     $scope.portfolioSettings = function () {
         $scope.accountIndicator = false;
@@ -183,6 +186,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.paypal = false;
     }
     $scope.paymentSettings = function () {
         $scope.accountIndicator = false;
@@ -193,6 +197,7 @@
         $scope.passwordIndicator = false;
         $scope.successMobileIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.paypal = false;
         
     }
     $scope.passwordSettings = function () {
@@ -203,6 +208,7 @@
         $scope.paymentIndicator = false;
         $scope.passwordIndicator = true;
         $scope.successMobileIndicator = false;
+        $scope.paypal = false;
     }
     $scope.showPaypal=function(){
                 $scope.accountIndicator = false;
@@ -226,6 +232,7 @@
         $scope.insuranceIndicator = true;
         $scope.showInsuForm=true;
         $scope.showQuaForm=true; 
+        $scope.paypal = false;
     }
     $scope.updateAccountDetails = function()
     {
