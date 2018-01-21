@@ -140,25 +140,38 @@
         <h4 class="tsk-head">Payment Management</h4>
         <div class="browse-list">
             <div class="container">
-                <ul data-ng-repeat="data in userList">
-                    <li class="third-cont deactive-setup right-text">
-                        <p class="dea-email">
-                            <span class="dea-name">{{data.first_name}} {{data.last_name}}</span>
-                        </p>
-                        <p class="dea-email">
-                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                            {{data.email}}
-                        </p>
-                        <input type="button" value="Deactive User" data-ng-click="deactivateUser(data.id)" />
-                    </li>
-                </ul>
+                <table width="100%" border="1">
+                    <tr class="pay-table-head">
+                        <td>Task Id</td>
+                        <td>Task Title</td>
+                        <td>Amount</td>
+                        <td>Task Doer Name</td>
+                        <td>Paypal Account</td>
+                        <td>Payment Made</td>
+                        <td>Action</td>
+                    </tr>
+                    <div>
+                        <tr data-ng-repeat="item in taskList">
+                            <td>{{item.id}}</td>
+                            <td>{{item.event_title}}</td>
+                            <td>{{item.amount}} $</td>
+                            <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
+                            <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
+                            <td>{{item.transactionDetails == null ? false : true}}</td>
+                            <td>
+                                <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
+                                       data-ng-click="releasePayment()">
+                            </td>
+                        </tr>
+                    </div>
+                </table>
             </div>
 
         </div>
 
     </div>
     <pagination ng-model="currentPage"
-                total-items="userList.length"
+                total-items="taskList.length"
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>
@@ -204,7 +217,8 @@
                                     </div>
 
                                     <div class="popup-button-group">
-                                        <input type="submit" value="add a category" class="btn btn-primary btn-block" data-ng-click="addNewCategory()">
+                                        <input type="submit" value="add a category" class="btn btn-primary btn-block" 
+                                               data-ng-click="addNewCategory()">
                                     </div>
                                 </form>
                             </div>

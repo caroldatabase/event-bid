@@ -21,6 +21,7 @@
         $scope.blogIndicator = false;
         $scope.taskIndicator = false;
         $scope.userIndicator = false;
+        $scope.paymentIndicator = false;
     }
     $scope.openUserSection = function()
     {
@@ -30,7 +31,15 @@
         $scope.userIndicator = true;
             getUserList();
     }
-
+    $scope.openPaymentSection = function()
+    {
+        $scope.categoryIndicator = false;
+        $scope.blogIndicator = false;
+        $scope.taskIndicator = false;
+        $scope.userIndicator = false;
+        $scope.paymentIndicator = true;
+        getPaymentManagement();
+    }
     $scope.openAddCategoryPopup = function () {
         $('#addCategoryPopup').modal('show');
         $('#categoryName').val(""); 
@@ -107,6 +116,7 @@
         $scope.blogIndicator = true;
         $scope.taskIndicator = false;
         $scope.userIndicator = false;
+        $scope.paymentIndicator = false;
         getAllBlogs();
     }
 
@@ -115,6 +125,7 @@
         $scope.blogIndicator = false;
         $scope.taskIndicator = true;
         $scope.userIndicator = false;
+        $scope.paymentIndicator = false;
         getAllTask();
     }
 
@@ -169,4 +180,17 @@
         }
     }
 
+    function getPaymentManagement()
+    {
+        $rootScope.loaderIndicator = true;
+        httpService.getCompletedTaskList().then(function (response) {
+            $rootScope.loaderIndicator = false;
+            $scope.taskList = response.data.data;
+        });
+
+    }
+    $scope.releasePayment = function()
+    {
+
+    }
 }]);
