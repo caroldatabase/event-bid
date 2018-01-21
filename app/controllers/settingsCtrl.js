@@ -84,10 +84,13 @@
             {
                 $scope.userDetails = response.data.data;
                 var birthday = $scope.userDetails.birthday;
-                birthday = birthday.split("/");
-                $scope.userDetails.day=birthday[0];
-                $scope.userDetails.month=birthday[1];
-                $scope.userDetails.year=birthday[2];
+                if (birthday != null)
+                {
+                    birthday = birthday.split("/");
+                    $scope.userDetails.day = birthday[0];
+                    $scope.userDetails.month = birthday[1];
+                    $scope.userDetails.year = birthday[2];
+                }
                 $scope.portfolioImageArray = [];
                 if ($scope.userDetails && $scope.userDetails.portfolio && ($scope.userDetails.portfolio != "Array" && $scope.userDetails.portfolio != "NULL"))
                 {
