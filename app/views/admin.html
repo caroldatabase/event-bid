@@ -13,6 +13,7 @@
             <input type="button" value="Task management" data-ng-click="openTaskSection()" />
             <input type="button" value="Blog management" data-ng-click="openBlogSection()" />
             <input type="button" value="User management" data-ng-click="openUserSection()" />
+            <input type="button" value="payment management" data-ng-click="openPaymentSection()" />
         </div>
     </div>
 </div>
@@ -132,6 +133,38 @@
                 boundary-links="true">
     </pagination>
 </div>
+
+<!--payment management-->
+<div class="container" data-ng-if="paymentIndicator">
+    <div class="row">
+        <h4 class="tsk-head">Payment Management</h4>
+        <div class="browse-list">
+            <div class="container">
+                <ul data-ng-repeat="data in userList">
+                    <li class="third-cont deactive-setup right-text">
+                        <p class="dea-email">
+                            <span class="dea-name">{{data.first_name}} {{data.last_name}}</span>
+                        </p>
+                        <p class="dea-email">
+                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                            {{data.email}}
+                        </p>
+                        <input type="button" value="Deactive User" data-ng-click="deactivateUser(data.id)" />
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <pagination ng-model="currentPage"
+                total-items="userList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
+</div>
+
+
             <!--Request a new category-->
             <div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">
                 <div class="eb-vAlignment">
