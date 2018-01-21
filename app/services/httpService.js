@@ -55,7 +55,8 @@
         deactivate:deactivate,
         paypal: paypal,
         getCompletedTaskList: getCompletedTaskList,
-        getQualifications: getQualifications
+        getQualifications: getQualifications,
+        sendPaykey:sendPaykey
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -413,6 +414,13 @@
     
      function paypal(param) {
         return $http.post('http://api.eventbid.com.au/api/v1/paypalPayKey',param, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+
+    }
+    
+    function sendPaykey(param) {
+        return $http.post('http://api.eventbid.com.au/api/v1/getPaymentStatus',param, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
 
