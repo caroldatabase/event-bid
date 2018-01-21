@@ -137,29 +137,11 @@
             </div>
             
                  <div class="col-sm-9" data-ng-if="paypal">
-                               <!-- Modal content-->
-                <div id="OpenTaskModal" class="modal browse-task-detail-pop fade"  role="dialog" >
-                  <div class="modal-dialog">
-                     <div class="modal-content" >
-                        <div class="alert alert-success" >
-                     <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="modal-body d-listing">
-                             Details updated successfully.
-                         </div>
-                     </div>
-                         </div>
-                      </div>
-                    </div>
-                </div>
-                     
                      <div class="add-account-paypal">
                                             <p>Email</p>
                                             <input type="email" required placeholder="enter your email" data-ng-model="userDetails.paypalAccount">
                                         </div>
-                    <button type="button" class="btn btn-default" data-ng-click="paypalAccount()">Add Account</button>
-                        <button type="button" class="btn btn-default">Cancel</button>
-         
+                        <button type="button" class="btn btn-default">Cancel</button>         
 <!--
                 <div class="row">
                     <div class="col-sm-12">
@@ -647,25 +629,42 @@
             </div>
         </div>
     </div>
-<!--password update pop up  -->
-<div class="modal fade" id="passwordPopup" tabindex="-1">
-    <div class="eb-vAlignment">
-        <div class="modal-dialog eb-vAlignCenter">
-            <div class="modal-content">
-                <div class="eb-modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title">Success Message</h3>
-                </div>
-                <div class="modal-body">
-                    <p>
-                       Password updated successfully.
-                    </p>
-                    <div class="text-center">
-                        <a class="btn btn-primary" data-ng-click="passwordPopupClose()">OK</a>
+
+    <!--password update pop up  -->
+    <div class="modal fade" id="passwordPopup" tabindex="-1">
+        <div class="eb-vAlignment">
+            <div class="modal-dialog eb-vAlignCenter">
+                <div class="modal-content">
+                    <div class="eb-modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                        <h3 class="modal-title">Success Message</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                           Password updated successfully.
+                        </p>
+                        <div class="text-center">
+                            <a class="btn btn-primary" data-ng-click="passwordPopupClose()">OK</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+
+  <!-- Modal content-->
+<div id="OpenTaskModal" class="modal browse-task-detail-pop fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="alert alert-success">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-body d-listing">
+                        Details updated successfully.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

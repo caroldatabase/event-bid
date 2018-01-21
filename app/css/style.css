@@ -3308,3 +3308,26 @@ span.dea-name {
     margin-top: 15px;
     font-size: 16px;
 }
+.add-account-paypal input[type="text"] {
+    height: 45px;
+    width: 100%;
+    padding-left: 15px;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #666;
+    border: 1px solid #ccc;
+}
+.insurance-page .col-sm-6 {
+    background: none !important;
+    margin: 0px 0px !important;
+    width: 50%;
+}
+.insurance-card-sec.ng-scope {
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.insurance-page form.padding-other {
+    float: left;
+    width: 100%;
+}

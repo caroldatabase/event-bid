@@ -1,156 +1,157 @@
 <style>
     .disabled {
-          cursor: not-allowed;
-        }
+        cursor: not-allowed;
+    }
 </style>
 
 
-    <div class="category-page text-center">
-        <div class="sub-banner">
-          <!--<img src="app/images/browse.jpg">  -->
-            <div class="container">
-                <h1 class="heading">
-                    Browse Task
-                    <p>Go on, take a look! Show them what the pros can do</p>
-                </h1>
-            </div>
-    </div>
-    </div>
-    <div class="task-browse">
+<div class="category-page text-center">
+    <div class="sub-banner">
+        <!--<img src="app/images/browse.jpg">  -->
         <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="search-bar">
-                        <input type="text" placeholder="Search task by event name" class="search-input" data-ng-model="searchText" name="searchText"
-                               id="searchText">
-                        <i class="fa fa-search"></i>
-                    </div>
+            <h1 class="heading">
+                Browse Task
+                <p>Go on, take a look! Show them what the pros can do</p>
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="task-browse">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search task by event name" class="search-input" data-ng-model="searchText" name="searchText"
+                           id="searchText">
+                    <i class="fa fa-search"></i>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="find-button">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-style="btn-primary" data-ng-model="eventTypeFilter" name="eventTypeFilter"
-                            id="eventTypeFilter">
-                        <option value="">Filter By Event Type</option>
-                        <option value="Wedding">Wedding</option>
-                        <option value="Birthday">Birthday</option>
-                        <option value="Graduation">Graduation</option>
-                        <option value="High Tea">High Tea</option>
-                        <option value="Corporate">Corporate</option>
-                        <option value="Cocktail">Cocktail</option>
-                        <option value="Anniversary">Anniversary</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-ng-model="eventTypeCategory" data-style="btn-primary" name="category" id="category"
-                            ng-options="item.name as item.name for item in categoryList">
-                        <option value="">Filter By Category</option>
-                    </select>
-                </div>
-                <!--<div class="col-sm-3 text-center">
-                    <select class="selectpicker" data-style="btn-primary" name="budgetFilter" id="budgetFilter" data-ng-model="budgetFilter">
-                        <option value="">Filter By Budget</option>
-                        <option value="Per Person">Per Person</option>
-                        <option value="Per Piece">Per Piece</option>
-                        <option value="Total">Total</option>
-                    </select>
-                </div>-->
-               
-                <div class="col-sm-2 text-center">
-                    <div class='input-group date'>
-                        <input type='text' class="form-control" placeholder="Filter from event date" data-ng-model="fromDate"
-                               id="datetimepicker1" name="datetimepicker1" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <div class='input-group date'>
-                        <input type='text' class="form-control" placeholder="to this date" data-ng-model="toDate"
-                               id="datetimepicker2" name="datetimepicker2" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-2 text-center">
-                    <a data-ng-click="resetFilters()" class="btn btn-lg btn-primary">Reset Filters</a>
-                </div>
-              </div>
+<div class="find-button">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 text-center">
+                <select class="selectpicker" data-style="btn-primary" data-ng-model="eventTypeFilter" name="eventTypeFilter"
+                        id="eventTypeFilter">
+                    <option value="">Filter By Event Type</option>
+                    <option value="Wedding">Wedding</option>
+                    <option value="Birthday">Birthday</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="High Tea">High Tea</option>
+                    <option value="Corporate">Corporate</option>
+                    <option value="Cocktail">Cocktail</option>
+                    <option value="Anniversary">Anniversary</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
+            <div class="col-sm-3 text-center">
+                <select class="selectpicker" data-ng-model="eventTypeCategory" data-style="btn-primary" name="category" id="category"
+                        ng-options="item.name as item.name for item in categoryList">
+                    <option value="">Filter By Category</option>
+                </select>
+            </div>
+            <!--<div class="col-sm-3 text-center">
+                <select class="selectpicker" data-style="btn-primary" name="budgetFilter" id="budgetFilter" data-ng-model="budgetFilter">
+                    <option value="">Filter By Budget</option>
+                    <option value="Per Person">Per Person</option>
+                    <option value="Per Piece">Per Piece</option>
+                    <option value="Total">Total</option>
+                </select>
+            </div>-->
+
+            <div class="col-sm-2 text-center">
+                <div class='input-group date'>
+                    <input type='text' class="form-control" placeholder="Filter from event date" data-ng-model="fromDate"
+                           id="datetimepicker1" name="datetimepicker1" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-2 text-center">
+                <div class='input-group date'>
+                    <input type='text' class="form-control" placeholder="to this date" data-ng-model="toDate"
+                           id="datetimepicker2" name="datetimepicker2" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="col-sm-2 text-center">
+                <a data-ng-click="resetFilters()" class="btn btn-lg btn-primary">Reset Filters</a>
+            </div>
+        </div>
     </div>
-    
-    <div class="browse-list">
-        <div class="container">
-            <ul data-ng-repeat="data in taskList | filter : {event_title : searchText, event_type : eventTypeFilter,
+</div>
+
+<div class="browse-list">
+    <div class="container">
+        <ul data-ng-repeat="data in taskList | filter : {event_title : searchText, event_type : eventTypeFilter,
                 category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}
                 | filter : { date_required : getDataByDate()}">
-                <a class="card-pop" data-ng-click="openSelectedtaskInDetail(data)">
-                    <li>
-                        <h3>{{data.event_title}}</h3>
-                    </li>
-                    <li class="text-center category-img">
-                        <img ng-src="{{data.category.categoryImage}}" alt="category image">
-                    </li>
-                    <li>
-                        <h3>{{data.event_type}}</h3>
-                    </li>
-                    <li class="third-cont">
-                        <p>
-                            <strong>Event date :</strong><span>{{data.date_required}}</span>
-                            <span><strong>From</strong> {{data.time_from}} <strong>To</strong> {{data.time_to}}</span>
-                        </p>
-                    </li>
-                    <li>
-                        <h3 data-ng-if="data.category_question.totalCost">
-                            {{data.category_question.totalCost | currency}}
-                            {{data.category_question.costType}}
-                        </h3>
+            <a class="card-pop" data-ng-click="openSelectedtaskInDetail(data)">
+                <li>
+                    <h3>{{data.event_title}}</h3>
+                </li>
+                <li class="text-center category-img">
+                    <img ng-src="{{data.category.categoryImage}}" alt="category image">
+                </li>
+                <li>
+                    <h3>{{data.event_type}}</h3>
+                </li>
+                <li class="third-cont">
+                    <p>
+                        <strong>Event date :</strong><span>{{data.date_required}}</span>
+                        <span><strong>From</strong> {{data.time_from}} <strong>To</strong> {{data.time_to}}</span>
+                    </p>
+                </li>
+                <li>
+                    <h3 data-ng-if="data.category_question.totalCost">
+                        {{data.category_question.totalCost | currency}}
+                        {{data.category_question.costType}}
+                    </h3>
 
-                    </li>
-                    <li class="third-cont right-text">
-                        <p>
-                            <span>{{data.post_user_detail.first_name}}</span>
-                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                        </p>
-                        <p>
-                            task posted date :
-                            {{ formatDate(data.created_at) | date:'dd/MM/yyyy'}}
-                        </p>
-                    </li>
-                </a>
-            </ul>
-            <div id="notFoundDiv" ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter, 
-                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length==0" style="color: red; font-weight: bold">No Records Found</div>  
-
-        </div>
+                </li>
+                <li class="third-cont right-text">
+                    <p>
+                        <span>{{data.post_user_detail.first_name}}</span>
+                        <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                    </p>
+                    <p>
+                        task posted date :
+                        {{ formatDate(data.created_at) | date:'dd/MM/yyyy'}}
+                    </p>
+                </li>
+            </a>
+        </ul>
+        <div id="notFoundDiv" ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length==0" style="color: red; font-weight: bold">No Records Found</div>
 
     </div>
+
+</div>
 
 
 <div class="container">
- <div class="row">
-<div class="col-sm-12 text-right">
-    <!--<pagination ng-model="currentPage"
-                total-items="taskList.length"
-                max-size="maxSize"
-                boundary-links="true">
-    </pagination>-->
-    <div class="col-sm-12" data-ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
-                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length > 0"><button id="seeMore" class="btn btn-lg btn-primary see-more-browse" data-ng-click="seeMoreClick()">See More</button>
-    <p id="noRecord"style="display:none">No more results found</p>
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <!--<pagination ng-model="currentPage"
+                        total-items="taskList.length"
+                        max-size="maxSize"
+                        boundary-links="true">
+            </pagination>-->
+            <div class="col-sm-12" data-ng-show="(taskList | filter : {event_title : searchText, event_type : eventTypeFilter, date_required : dateFilter,
+                category :{ name: eventTypeCategory},  category_question :{ costType: budgetFilter}}).length > 0">
+                <button id="seeMore" class="btn btn-lg btn-primary see-more-browse" data-ng-click="seeMoreClick()">See More</button>
+                <p id="noRecord" style="display:none">No more results found</p>
+            </div>
+            <br /><br />
+        </div>
+
     </div>
-    <br /><br /> 
-</div>
- 
- </div>
 </div>
 
 
@@ -293,7 +294,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-ng-click="showInterestPopup()">Place your bid</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -302,89 +303,91 @@
 
         </div>
     </div>
-    </div>
-    <div class="modal fade" id="showInterestPopup" tabindex="-1">
-        <div class="eb-vAlignment">
-            <div class="modal-dialog eb-vAlignCenter">
-                <div class="modal-content">
-                    <div class="eb-modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">{{taskDetail.event_title}}</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form name="showInterestForm" id="showInterestForm" novalidate class="signupform">
-                            <div data-ng-if="errorMessage" class="alert alert-danger">
-                               Please enter required details
-                            </div>
-                            <div>
-                                <b> Offer cost</b>
-                               
-                                <input type="number" class="form-control" ng-model="interestedUser.offerCost" name="offerCost" required
-                                       placeholder="In $"
-                                       ng-class="{error : showInterestForm.offerCost.$invalid && showInterestForm.$submitted}">
-                            </div>
-                            <div>
-                                <b>Offer type</b>
-                                <select class="selectpicker" data-style="btn-primary" required name="offerType" id="offerType" data-ng-model="interestedUser.showInterestCostType"
-                                        ng-class="{error : offerType.$invalid}">
-                                    <option value="">Filter By Budget</option>
-                                    <option value="Per Person">Per Person</option>
-                                    <option value="Per Piece">Per Piece</option>
-                                    <option value="Total">Total</option>
-                                </select>
-                            </div>
-                            <div class="comment-box-browse">
-                                <div class="commenter">
-                                    <b>Please comment on your offer : </b>
-                                    <div class="commenter-text full-text-area">
-                                        <textarea value="Ask a question" data-ng-model="interestedUser.commentDescription" name="description"
-                                                  required ng-class="{error : showInterestForm.description.$invalid && showInterestForm.$submitted}"></textarea>
-                                    </div>
+</div>
+<div class="modal fade" id="showInterestPopup" tabindex="-1">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">{{taskDetail.event_title}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="showInterestForm" id="showInterestForm" novalidate class="signupform">
+                        <div data-ng-if="errorMessage" class="alert alert-danger">
+                            Please enter required details
+                        </div>
+                        <div>
+                            <b> Offer cost</b>
+
+                            <input type="number" class="form-control" ng-model="interestedUser.offerCost" name="offerCost" required
+                                   placeholder="In $"
+                                   ng-class="{error : showInterestForm.offerCost.$invalid && showInterestForm.$submitted}">
+                        </div>
+                        <div>
+                            <b>Offer type</b>
+                            <select class="selectpicker" data-style="btn-primary" required name="offerType" id="offerType" data-ng-model="interestedUser.showInterestCostType"
+                                    ng-class="{error : offerType.$invalid}">
+                                <option value="">Filter By Budget</option>
+                                <option value="Per Person">Per Person</option>
+                                <option value="Per Piece">Per Piece</option>
+                                <option value="Total">Total</option>
+                            </select>
+                        </div>
+                        <div class="comment-box-browse">
+                            <div class="commenter">
+                                <b>Please comment on your offer : </b>
+                                <div class="commenter-text full-text-area">
+                                    <textarea value="Ask a question" data-ng-model="interestedUser.commentDescription" name="description"
+                                              required ng-class="{error : showInterestForm.description.$invalid && showInterestForm.$submitted}"></textarea>
                                 </div>
                             </div>
-                            <div class="row">
-                                 <div class="col-sm-12">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <label>Upload photos (upto 3 photos )</label>
                                 <input type="file" class="form-control" name="offerImages" id="offerImages"
                                        fileread="offerImages" image-type="offerImages" accept="image/*" data-ng-model="offerImages" />
                             </div>
-                                 </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div data-ng-if="interestedUser.offerImages.length > 0">
-                                        <div class="uploadedImage" data-ng-repeat="data in interestedUser.offerImages track by $index">
-                                            <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
-                                            <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                                            
-                                        </div>
-                                        <div class="show-more-btn">
-                                            <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
-                                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div data-ng-if="interestedUser.offerImages.length > 0">
+                                    <div class="uploadedImage" data-ng-repeat="data in interestedUser.offerImages track by $index">
+                                        <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
+                                        <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+
                                     </div>
-                                    <div data-ng-if="interestedUser.offerImages.length == 0">
-                                        <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
-                                        no images uploaded yet.
+                                    <div class="show-more-btn">
+                                        <input type="button" value="show Image Preview" data-ng-click="showOfferImagesPreview()" />
                                     </div>
+                                </div>
+                                <div data-ng-if="interestedUser.offerImages.length == 0">
+                                    <!--<img ng-src="{{offerImages}}" width="100" height="50" alt="Image preview..." id="categoryImage">-->
+                                    no images uploaded yet.
                                 </div>
                             </div>
-                            <div class="row">
-                                <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
-                                    {{message}}
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div data-ng-if="errorMessageIndicator" class="alert alert-danger">
+                                {{message}}
                             </div>
-                            <div class="row">
-                                    <div class="col-sm-12">
-                                        <button type="button" class="btn btn-default place-yr-bid" 
-                                               data-ng-click="showInterest(taskDetail)">Place your bid</button>
-                                    </div>
-                                </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-default place-yr-bid"
+                                        data-ng-click="showInterest(taskDetail)">
+                                    Place your bid
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
     </div>
-        </div>
+</div>
 
 <!--Offer images pop up  -->
 <div class="modal fade" id="offerImagesPopup" tabindex="-1">
@@ -401,8 +404,8 @@
                         <div class="row">
                             <div data-ng-if="interestedUser.offerImages.length > 0" data-ng-repeat="data in interestedUser.offerImages track by $index">
                                 <a class="right-cross" data-ng-click="deletePhoto(data)">X</a>
-                                <img class="uploaded-image" ng-src="{{data}}"  alt="Image preview..." id="inspirationPhoto">
-                                
+                                <img class="uploaded-image" ng-src="{{data}}" alt="Image preview..." id="inspirationPhoto">
+
                             </div>
 
                         </div>
@@ -411,6 +414,33 @@
                         <a class="btn btn-primary" data-ng-click="offerImagesPopupClose()">Close</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--add paypal account -->
+<div class="modal fade" id="addPaypalAccountPopup" tabindex="-1">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                    <h4 class="modal-title ng-binding">Please add paypal account</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="add-account-paypal">
+                        <p>Email</p>
+                        <input type="text" placeholder="enter your email">
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default">Add Account</button>
+                        <button type="button" class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
