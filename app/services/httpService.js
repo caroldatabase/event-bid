@@ -54,7 +54,8 @@
         allUserDetails:allUserDetails,
         deactivate:deactivate,
         paypal: paypal,
-        getCompletedTaskList: getCompletedTaskList 
+        getCompletedTaskList: getCompletedTaskList,
+        getQualifications: getQualifications
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -130,6 +131,17 @@
         });
     }
 
+    function getQualifications()
+    {
+        return $http.get(serviceBase + 'api/v1/getQualification?page_num=1&page_size=10', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
+    function getInsurance() {
+        return $http.get(serviceBase + 'api/v1/getInsurance?page_num=1&page_size=10', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        });
+    }
     function getCompletedTaskList() {
         return $http.get(serviceBase + 'api/v1/getCompletedTasktist' , { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;

@@ -33,6 +33,19 @@
         $scope.taskIndicator = false;
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
+        $scope.insuranceIndicator = false;
+    }
+    $scope.openInsuranceQualificationSection = function()
+    {
+
+        $scope.categoryIndicator = false;
+        $scope.blogIndicator = false;
+        $scope.taskIndicator = false;
+        $scope.userIndicator = false;
+        $scope.paymentIndicator = false;
+        $scope.insuranceIndicator = true;
+        getInsuranceList();
+        getQualificationList();
     }
     $scope.openUserSection = function()
     {
@@ -49,6 +62,7 @@
         $scope.taskIndicator = false;
         $scope.userIndicator = false;
         $scope.paymentIndicator = true;
+        $scope.insuranceIndicator = false;
         getPaymentManagement();
     }
     $scope.openAddCategoryPopup = function () {
@@ -128,6 +142,7 @@
         $scope.taskIndicator = false;
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
+        $scope.insuranceIndicator = false;
         getAllBlogs();
     }
 
@@ -137,6 +152,7 @@
         $scope.taskIndicator = true;
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
+        $scope.insuranceIndicator = false;
         getAllTask();
     }
 
@@ -202,6 +218,24 @@
     }
     $scope.releasePayment = function()
     {
+
+    }
+
+    function getInsuranceList()
+    {
+        $rootScope.loaderIndicator = true;
+        httpService.getInsurance().then(function (response) {
+            $rootScope.loaderIndicator = false;
+            $scope.insuranceList = response.data.data;
+        });
+
+    }
+    function getQualificationList() {
+        $rootScope.loaderIndicator = true;
+        httpService.getQualifications().then(function (response) {
+            $rootScope.loaderIndicator = false;
+            $scope.qualificationList = response.data.data;
+        });
 
     }
 }]);
