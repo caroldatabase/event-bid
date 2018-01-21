@@ -326,32 +326,10 @@
         $('#portfolioPopup').modal('hide');
     }
     
-    $scope.paypalPayment = function(){
-        $rootScope.loaderIndicator = true;
-        var param={
-              "actionType": "PAY",
-              "currencyCode": "USD",
-              "receiverList": {
-                "receiver": [{
-                  "amount": "1.00",
-                  "email": "kroy.iips@gmail.com"  // this email ll be paypal login user email of reciever
-                }]
-              },
-              "returnUrl": "http://localhostt/eventbid/return",  // set success url
-              "cancelUrl": "http://localhostt/eventbid/cancel", // set cancel url
-              "requestEnvelope": {
-                "errorLanguage": "en_US",
-                "detailLevel": "ReturnAll"
-              }
-            }
-             httpService.paypal(param).then(function (response) {
-                 
-                 if(response.data.message=="PayKey Generated"){
-                     $rootScope.loaderIndicator = false;
-                      $window.open(' https://www.sandbox.paypal.com/webapps/adaptivepayment/flow/pay?paykey=' +response.data.data.payKey, '_blank');
-                 }else{
-                     $rootScope.loaderIndicator = false;
-                 }
+    $scope.paypalAccount = function(){
+        var userId = commonService.getUserid();
+        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+            $('#portfolioPopup').modal('show');
         });
         
     }

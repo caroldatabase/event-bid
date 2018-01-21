@@ -5,7 +5,8 @@
     $scope.maxSize = 5;
     $scope.countIndicator = 0;
     $scope.anchorDisable = true;
-    $scope.anchorReplyDisable = true;;
+    $scope.anchorReplyDisable = true;
+    $scope.userDetails={};
     // $scope.taskList = [];
 
     init();
@@ -51,18 +52,46 @@
             $scope.categoryList = data.data.data;
         });
     }
+    
+    $scope.paypalAccount = function() {
+        var userId = commonService.getUserid();
+        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+                $('#taskDetailModal').modal('hide');
+                $('#showInterestPopup').modal('toggle');
+                $("#showInterestPopup").modal({ backdrop: "static" });
+                $('#showInterestPopup').modal('show');
+                $('#addPaypalAccountPopup').modal('hide');
+        }); 
+    }
+    
+    $scope.closePaypal =function(){
+         $('#addPaypalAccountPopup').modal('hide');
+    }
 
     $scope.showInterestPopup = function()
     {
-        $('#taskDetailModal').modal('hide');
-        $('#showInterestPopup').modal('toggle');
-        $("#showInterestPopup").modal({ backdrop: "static" });
-        $('#showInterestPopup').modal('show');
-        $scope.interestedUser = {};
-        $scope.errorMessageIndicator = false;
-        $scope.interestedUser.offerImages = [];
-        $scope.interestedUser.showInterestCostType = $scope.showInterestCostType;
-        $scope.errorMessage = false;
+        var userId = commonService.getUserid();
+        httpService.getUserDetails(userId).then(function (response) {
+            if(response.data.message == "Record found successfully.")
+            {
+                $scope.userDetails = response.data.data;
+                $scope.userDetails.paypalAccount=='';
+                if(0) {
+                $('#taskDetailModal').modal('hide');
+                $('#showInterestPopup').modal('toggle');
+                $("#showInterestPopup").modal({ backdrop: "static" });
+                $('#showInterestPopup').modal('show');
+                $scope.interestedUser = {};
+                $scope.errorMessageIndicator = false;
+                $scope.interestedUser.offerImages = [];
+                $scope.interestedUser.showInterestCostType = $scope.showInterestCostType;
+                $scope.errorMessage = false;
+                } else {
+                    $('#taskDetailModal').modal('hide');
+                    $('#addPaypalAccountPopup').modal('show');
+                }
+            }
+        })
     }
 
     $scope.showOfferImagesPreview = function()
