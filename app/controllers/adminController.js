@@ -1,4 +1,5 @@
-﻿app.controller('adminCtrl', ['$scope','commonService', 'httpService', '$rootScope','$location','$window', function ($scope,commonService, httpService, $rootScope,$location,$window) {
+﻿app.controller('adminCtrl', ['$scope', 'commonService', 'httpService', '$rootScope', '$location', '$window','$routeParams',
+function ($scope, commonService, httpService, $rootScope, $location, $window, $routeParams) {
     init();
 
     function init()
@@ -13,6 +14,16 @@
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
         var userId = commonService.getUserid();
+        if ($routeParams.payments)
+        {
+            $scope.categoryIndicator = false;
+            $scope.blogIndicator = false;
+            $scope.taskIndicator = false;
+            $scope.userIndicator = false;
+            $scope.paymentIndicator = true;
+            $scope.insuranceIndicator = false;
+            getPaymentManagement();
+        }
         if(userId!=36){
             commonService.deleteCookieValues('FirstName');
             commonService.deleteCookieValues('UserID');
@@ -224,12 +235,12 @@
               "currencyCode": "USD",
               "receiverList": {
                 "receiver": [{
-                  "amount": "0.02",
+                  "amount": "0.04",
                   "email": "kanikasethi04@gmail.com"  // this email ll be paypal login user email of reciever
                 }]
               },
-              "returnUrl": "file:///d:/event-bid/index.html#/admin",  // set success url
-              "cancelUrl": "http://localhostt/eventbid/cancel", // set cancel url
+              "returnUrl": "http://uat.eventbid.com.au/#/admin",  // set success url
+              "cancelUrl": "http://uat.eventbid.com.au/#/admin", // set cancel url
               "requestEnvelope": {
                 "errorLanguage": "en_US",
                 "detailLevel": "ReturnAll"
@@ -252,6 +263,7 @@
         httpService.getInsurance().then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.insuranceList = response.data.data;
+            console.log($scope.insuranceList);
         });
 
     }
@@ -260,6 +272,7 @@
         httpService.getQualifications().then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.qualificationList = response.data.data;
+            console.log($scope.qualificationList);
         });
 
     }

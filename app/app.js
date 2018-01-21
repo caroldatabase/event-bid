@@ -110,7 +110,10 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider,$loca
              templateUrl: "app/views/admin.html",
              controller: "adminCtrl"
          })
-       
+         .when("/admin/:payments?", {
+              templateUrl: "app/views/admin.html",
+              controller: "adminCtrl"
+         })
         .when("/my-dashboard", {
             templateUrl: "app/views/businessDashboard.html",
             controller: "buisnessDashboardCtrl"
