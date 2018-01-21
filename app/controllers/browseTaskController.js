@@ -55,13 +55,19 @@
     
     $scope.paypalAccount = function() {
         var userId = commonService.getUserid();
-        httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+        if($scope.userDetails.paypalAccount!=''&&$scope.userDetails.paypalAccount!=null){
+            $scope.emailIndicator=false;
+            httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
                 $('#taskDetailModal').modal('hide');
                 $('#showInterestPopup').modal('toggle');
                 $("#showInterestPopup").modal({ backdrop: "static" });
                 $('#showInterestPopup').modal('show');
                 $('#addPaypalAccountPopup').modal('hide');
-        }); 
+        });   
+        } else {
+            $scope.emailIndicator=true;
+        }
+
     }
     
     $scope.closePaypal =function(){
