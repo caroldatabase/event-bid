@@ -15,6 +15,7 @@
             <input type="button" value="User management" data-ng-click="openUserSection()" />
             <input type="button" value="payment management" data-ng-click="openPaymentSection()" />
             <input type="button" value="Qualification & Insurance management" data-ng-click="openInsuranceQualificationSection()" />
+             <input type="button" value="Transcation history" data-ng-click="openTranscation()" />
         </div>
     </div>
 </div>
@@ -139,6 +140,49 @@
 <div class="container" data-ng-if="paymentIndicator">
     <div class="row">
         <h4 class="tsk-head">Payment Management</h4>
+        <div class="browse-list">
+            <div class="container">
+                <table width="100%" border="1">
+                    <tr class="pay-table-head">
+                        <td>Task Id</td>
+                        <td>Task Title</td>
+                        <td>Amount</td>
+                        <td>Task Doer Name</td>
+                        <td>Paypal Account</td>
+                        <td>Payment Made</td>
+                        <td>Action</td>
+                    </tr>
+                    <div>
+                        <tr data-ng-repeat="item in taskList">
+                            <td>{{item.id}}</td>
+                            <td>{{item.event_title}}</td>
+                            <td>{{item.category_question['totalCost']}} $</td>
+                            <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
+                            <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
+                            <td>{{item.transactionDetails == null ? false : true}}</td>
+                            <td>
+                                <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
+                                       data-ng-click="releasePayment()">
+                            </td>
+                        </tr>
+                    </div>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+    <pagination ng-model="currentPage"
+                total-items="taskList.length"
+                max-size="maxSize"
+                boundary-links="true">
+    </pagination>
+</div>
+
+<!--transaction management-->
+<div class="container" data-ng-if="transactionIndicator">
+    <div class="row">
+        <h4 class="tsk-head">Transaction Management</h4>
         <div class="browse-list">
             <div class="container">
                 <table width="100%" border="1">

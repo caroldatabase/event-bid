@@ -53,6 +53,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.transactionIndicator = false;
     }
     $scope.openInsuranceQualificationSection = function()
     {
@@ -63,6 +64,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
         $scope.insuranceIndicator = true;
+        $scope.transactionIndicator = false;
         getInsuranceList();
         getQualificationList();
     }
@@ -72,6 +74,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.blogIndicator = false;
         $scope.taskIndicator = false;
         $scope.userIndicator = true;
+        $scope.transactionIndicator = false;
             getUserList();
     }
     $scope.openPaymentSection = function()
@@ -82,7 +85,19 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.userIndicator = false;
         $scope.paymentIndicator = true;
         $scope.insuranceIndicator = false;
+        $scope.transactionIndicator = false;
         getPaymentManagement();
+    }
+    $scope.openTranscation = function()
+     {
+        $scope.categoryIndicator = false;
+        $scope.blogIndicator = false;
+        $scope.taskIndicator = false;
+        $scope.userIndicator = false;
+        $scope.paymentIndicator = false;
+        $scope.insuranceIndicator = false;
+        $scope.transactionIndicator = true;
+        getTransaction();
     }
     $scope.openAddCategoryPopup = function () {
         $('#addCategoryPopup').modal('show');
@@ -162,6 +177,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.transactionIndicator = false;
         getAllBlogs();
     }
 
@@ -172,6 +188,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.userIndicator = false;
         $scope.paymentIndicator = false;
         $scope.insuranceIndicator = false;
+        $scope.transactionIndicator = false;
         getAllTask();
     }
 
@@ -235,6 +252,15 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
             for (var i = 0; i < $scope.taskList.length; i++) {
                 $scope.taskList[i].category_question = JSON.parse($scope.taskList[i].category_question);
             }
+        });
+
+    }
+    function getTransaction()
+    {
+        $rootScope.loaderIndicator = true;
+        httpService.getTransactionHistory().then(function (response) {
+            $rootScope.loaderIndicator = false;
+            console.log('ts',response);
         });
 
     }
