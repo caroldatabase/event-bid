@@ -415,6 +415,7 @@
                     $rootScope.loaderIndicator = false;
                     $scope.openTask = [];
                     $scope.progressTask = [];
+                    $scope.looking_user_offers = [];
                     if(response.data.data.open)
                     {
                         $scope.potentialJobsIndicator = true;
@@ -427,12 +428,19 @@
                         $scope.progressTask = response.data.data.assigned;
                         getPersonalMessagesForAllTask();
                     }
+                    if (response.data.data.looking_user_offers) {
+                        $scope.looking_user_Indicator = true;
+                        $rootScope.loaderIndicator = false;
+                        $scope.looking_user_offers = response.data.data.looking_user_offers[0];
+                        
+                    }
                     
                 }
                 else if (response.data.code == 404) {
                     $rootScope.loaderIndicator = false;
                     $scope.potentialJobsIndicator = false;
                     $scope.jobsInProgressIndicator = false;
+                    $scope.looking_user_Indicator = false;
                     $scope.openTask = [];
                 }
             });

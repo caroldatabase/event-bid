@@ -145,8 +145,8 @@
     $rootScope.$on("imageAdded", function (event, fileUploaded, imageType) {
         if (fileUploaded) {
             $scope.errorMessageIndicator = false;
-            if (imageType == "offerImages" && $scope.interestedUser.offerImages) { //push into array case and check if it exists.
-                if ($scope.interestedUser.offerImages.length < 3) {
+            if (imageType == "offerImages" && $scope.offerImages) { //push into array case and check if it exists.
+                if ($scope.interestedUser.offerImages && $scope.interestedUser.offerImages.length < 3) {
                     $scope.interestedUser.offerImages.push(fileUploaded);
                     setTimeout(function () {
                         $('#offerImages').val("");
