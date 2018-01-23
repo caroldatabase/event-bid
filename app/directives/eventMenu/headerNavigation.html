@@ -216,8 +216,8 @@
                             </div>-->
                             <div class="popup-form-row row" data-ng-show="categoriesIndicator">
                                 <div class="col-sm-12">
-                                    <label class="control-label">Categories <span data-ng-show="user.category_id.length > 3" style="color: red">maximum three categories can be selected.</span></label>
-                                    <div class="form-field" ng-class="{error : user.selectedCategories.length > 3 }">
+                                    <label class="control-label">Categories <span data-ng-show="user.category_id.length > 4" style="color: red">maximum four categories can be selected.</span></label>
+                                    <div class="form-field" ng-class="{error : user.category_id.length > 4}">
 
                                         <select class="form-control checkbox-fix" name="selectedCategories" id="selectedCategories" ng-model="user.category_id" multiple
                                                 data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>

@@ -121,10 +121,10 @@
                       <div class="col-sm-6">
                           <div class="jobs-list">
                               <h4>Jobs you bidded on</h4>
-                              <ul data-ng-if="potentialJobsCustomerIndicator" data-ng-repeat="item in openTaskCustomer">
+                              <ul data-ng-if="looking_user_Indicator" data-ng-repeat="item in looking_user_offers">
                                   <li><a data-ng-click="openSelectedtaskInDetail(item)">{{item.event_title}}</a></li>
                               </ul>
-                              <p class="text-content-dash" data-ng-if="!potentialJobsCustomerIndicator">
+                              <p class="text-content-dash" data-ng-if="!looking_user_Indicator">
                                   You haven't bidded on any tasks yet! Have a look at the tasks listed to find something you can do!
                               </p>
                               <div class="dashborad-post-btn">
