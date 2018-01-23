@@ -167,7 +167,7 @@
         $scope.paypal = false;
         setTimeout(function () {
             //$('#selectedCategories').multiselect();
-            $(".multipleSelection").select2({
+            $("#selectedCategories").select2({
                 maximumSelectionLength: 4
             });
         }, 000);

@@ -44,7 +44,12 @@
             $scope.emailIndicator = false;
         });
         
-        
+        setTimeout(function () {
+            //$('#selectedCategories').multiselect();
+            $(".multipleSelection").select2({
+                maximumSelectionLength: 4
+            });
+        }, 000);
     }
     
     function selectCategories()
