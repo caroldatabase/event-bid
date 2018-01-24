@@ -49,6 +49,8 @@ app.factory('commonService', ['$location', '$window', '$cookies', '$route', '$ro
             $cookies.remove("Photo");
         if (dataType == "UserType")
             $cookies.remove("UserType");
+        if (dataType == "paykey")
+            $cookies.remove("paykey");
 
     }
     

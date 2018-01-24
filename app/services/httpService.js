@@ -57,7 +57,8 @@
         paypal: paypal,
         getCompletedTaskList: getCompletedTaskList,
         getQualifications: getQualifications,
-        sendPaykey:sendPaykey
+        sendPaykey:sendPaykey,
+        approvePaymentFromAdminMerchant:approvePaymentFromAdminMerchant
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -425,6 +426,11 @@
             return response;
         });
 
+    }
+    function approvePaymentFromAdminMerchant(param,taskid){
+         return $http.post('http://api.eventbid.com.au/api/v1/approvePaymentFromAdminMerchant/'+taskid,param, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+            return response;
+        }); 
     }
 
     return httpService;

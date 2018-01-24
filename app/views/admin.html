@@ -135,9 +135,23 @@
                 boundary-links="true">
     </pagination>
 </div>
-
+ <div id="OpenTaskModal" class="modal browse-task-detail-pop fade"  role="dialog" >
+                  <div class="modal-dialog">
+                     <div class="modal-content" >
+                        <div class="alert alert-success" >
+                     <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-body d-listing">
+                             Your payment is successful transaction id is {{transactionId}}
+                         </div>
+                     </div>
+                         </div>
+                      </div>
+                    </div>
+                </div>
 <!--payment management-->
 <div class="container" data-ng-if="paymentIndicator">
+   
     <div class="row">
         <h4 class="tsk-head">Payment Management</h4>
         <div class="browse-list">
@@ -162,7 +176,7 @@
                             <td>{{item.transactionDetails == null ? false : true}}</td>
                             <td>
                                 <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment()">
+                                       data-ng-click="releasePayment(item.id)">
                             </td>
                         </tr>
                     </div>

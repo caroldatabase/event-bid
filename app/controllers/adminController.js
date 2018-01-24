@@ -1,5 +1,5 @@
-﻿app.controller('adminCtrl', ['$scope', 'commonService', 'httpService', '$rootScope', '$location', '$window','$routeParams',
-function ($scope, commonService, httpService, $rootScope, $location, $window, $routeParams) {
+﻿app.controller('adminCtrl', ['$scope', 'commonService', 'httpService', '$rootScope', '$location', '$window','$routeParams','$cookies',
+function ($scope, commonService, httpService, $rootScope, $location, $window, $routeParams,$cookies) {
     init();
 
     function init()
@@ -15,22 +15,36 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.maxSize = 5;
         var userId = commonService.getUserid();
         if ($routeParams.payments)
-        {
-            
+        {   
+            getPaymentManagement();
+            $scope.paymentIndicator = true;
             $scope.categoryIndicator = false;
             $scope.blogIndicator = false;
             $scope.taskIndicator = false;
-            $scope.userIndicator = false;
-            $scope.paymentIndicator = true;
+            $scope.userIndicator = false;       
             $scope.insuranceIndicator = false;
             var paykey = $cookies.get("paykey");
-            var userTransaction = {
+            if(paykey){
+               var userTransaction = {
                 "payKey": paykey
-            }
+             }
             httpService.sendPaykey(userTransaction).then(function (response) {
-                console.log("key" + response);
-            });
-            //getPaymentManagement();
+                if(response.data.message=='Payment status'&& response.data.data.status=='COMPLETED'){
+                    commonService.deleteCookieValues("paykey");
+                    $scope.transactionId=response.data.data.paymentInfoList.paymentInfo[0].senderTransactionId;
+                    $('#OpenTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
+                    var param={
+                          "transactionDetails": [response.data.data] ,
+                           "isPaymentMade":"true" 
+                    }
+                     httpService.approvePaymentFromAdminMerchant(param,12).then(function (response) {
+                         console.log('response',response);
+                     })
+                }
+            });  
+            } else {
+                $location.path('/admin');
+            }
         }
         if(userId!=36){
             commonService.deleteCookieValues('FirstName');
@@ -264,20 +278,21 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         });
 
     }
-    $scope.releasePayment = function()
+    $scope.releasePayment = function(taskid)
     {
       $rootScope.loaderIndicator = true;
         var param={
+            "taskId":taskid,
               "actionType": "PAY",
               "currencyCode": "USD",
               "receiverList": {
                 "receiver": [{
-                  "amount": "0.04",
+                  "amount": "0.01",
                   "email": "kanikasethi04@gmail.com"  // this email ll be paypal login user email of reciever
                 }]
               },
-              "returnUrl": "http://uat.eventbid.com.au/#/admin/payments",  // set success url
-              "cancelUrl": "http://uat.eventbid.com.au/#/admin/payments", // set cancel url
+              "returnUrl": "http://localhost/event-bid/#/admin/payments",  // set success url
+              "cancelUrl": "http://localhost/event-bid/#/admin", // set cancel url
               "requestEnvelope": {
                 "errorLanguage": "en_US",
                 "detailLevel": "ReturnAll"
