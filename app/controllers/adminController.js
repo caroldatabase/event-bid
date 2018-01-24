@@ -291,8 +291,8 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
                   "email": "kanikasethi04@gmail.com"  // this email ll be paypal login user email of reciever
                 }]
               },
-              "returnUrl": "http://localhost/event-bid/#/admin/payments",  // set success url
-              "cancelUrl": "http://localhost/event-bid/#/admin", // set cancel url
+              "returnUrl": "http://uat.eventbid.com.au/#/admin/payments",  // set success url
+              "cancelUrl": "http://uat.eventbid.com.au/#/admin", // set cancel url
               "requestEnvelope": {
                 "errorLanguage": "en_US",
                 "detailLevel": "ReturnAll"
