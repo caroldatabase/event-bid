@@ -16,6 +16,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         var userId = commonService.getUserid();
         if ($routeParams.payments)
         {   
+            $rootScope.loaderIndicator = true;
             getPaymentManagement();
             $scope.paymentIndicator = true;
             $scope.categoryIndicator = false;
@@ -37,7 +38,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
                           "transactionDetails": [response.data.data] ,
                            "isPaymentMade":"true" 
                     }
-                     httpService.approvePaymentFromAdminMerchant(param,12).then(function (response) {
+                     httpService.approvePaymentFromAdminMerchant(param,response.data.taskId).then(function (response) {
                          console.log('response',response);
                      })
                 }
