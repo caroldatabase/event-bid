@@ -52,7 +52,13 @@
             $scope.categoryList = data.data.data;
         });
     }
-    
+    $scope.openSignupModal = function () {
+        $('#signUpPopup').modal('toggle');
+    }
+
+    $scope.openLoginModal = function () {
+        $('#loginPopup').modal('toggle');
+    }
     $scope.paypalAccount = function() {
         var userId = commonService.getUserid();
         if($scope.userDetails.paypalAccount!=''&&$scope.userDetails.paypalAccount!=null){

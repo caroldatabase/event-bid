@@ -84,6 +84,15 @@
                 <a data-ng-click="resetFilters()" class="btn btn-lg btn-primary">Reset Filters</a>
             </div>
         </div>
+        <div class="row" data-ng-if="!isLogin">
+            <div class="col-sm-12">
+                <p class="para-before-login">
+                    Want to see what people are asking for? All you need to do is register for your free Event Bid account to start bidding for business!
+                    <span><button data-ng-click="openSignupModal()">Sign Up</button>  <button data-ng-click="openLoginModal()">Login</button></span>
+                    <!--<span><a href="#">Join</a> <a href="#">Login</a></span>-->
+                </p>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -3349,3 +3349,41 @@ td input.btn.btn-primary.btn-block {
     margin-bottom: 10px !important;
     margin-top: 10px;
 }
+p.para-before-login {
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+    width: 49%;
+    float: right;
+    margin-bottom: -15px;
+        font-size: 16px;
+}
+p.para-before-login span a {
+    background: #298992;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    text-shadow: none;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+p.para-before-login span {
+    display: block;
+    margin-top: 15px;
+}
+p.para-before-login span a:hover
+{
+text-decoration:none;
+}
+.side-bar-profile {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+img#profilePicture {
+    border-radius: 100%;
+    height: 110px !important;
+    width: 110px !important;
+}
