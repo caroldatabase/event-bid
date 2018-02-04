@@ -15,7 +15,7 @@
                     <td>Task Title</td>
                     <td>Amount</td>
                     <td>Transaction Id</td>
-                    <td>Transaction Status</td>
+                    <!--<td>Transaction Status</td>-->
                     <td>Payment Made</td>
                 </tr>
                 <div>
@@ -24,8 +24,11 @@
                     <td>{{item.task.event_title}}</td>
                     <td>{{item.amount}} $</td>
                     <td>{{item.transactionId}}</td>
-                    <td>{{item.transactionDetails.ACK}}</td>
-                    <td>{{item.task.isPaymentMade}}</td>
+                    <!--<td>{{item.transactionDetails.ACK}}</td>-->
+                    <td>
+                        <span data-ng-if="item.transactionDetails.state == 'approved'"> Payment successfully done.</span>
+                        <span data-ng-if="item.transactionDetails.state !== 'approved'"> Payment failed.</span>
+                    </td>
                 </tr>
                 </div>
             </table>

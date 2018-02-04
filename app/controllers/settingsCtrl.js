@@ -338,10 +338,15 @@
         $('#portfolioPopup').modal('hide');
     }
     
+    $scope.paypalPopupClose = function()
+    {
+        $('#paypalTaskModal').modal('hide');
+    }
+
     $scope.paypalAccount = function(){
         var userId = commonService.getUserid();
         httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
-            $('#portfolioPopup').modal('show');
+            $('#paypalTaskModal').modal('show');
         });
         
     }

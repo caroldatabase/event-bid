@@ -47,4 +47,24 @@
                    ng-class="{error : postTaskForm.thingsRequiredForTalent.$invalid && postTaskForm.$submitted}">
         </div>
     </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>How much would you like to spend?</label>
+
+            <div class="input-adjust">
+                <span class="place-ico">$</span>
+                <input type="number" class="form-control" ng-model="task.category_question.totalCost" name="totalCost"
+                       required
+                       ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+            </div>
+            <div class="input-adjust">
+                <select class="singleSelection" required data-ng-model="task.category_question.costType" name="totalCostType"
+                        ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
+                    <option value="">SELECT TYPE OF COST</option>
+                    <option value="Per Hour">PER HOUR</option>
+                    <option value="Total">TOTAL</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </div>

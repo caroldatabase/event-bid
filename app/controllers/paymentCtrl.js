@@ -18,7 +18,11 @@
               httpService.getTransaction(userId).then(function (result) {
                   if(result.data.message=='Transaction Found!'){
                    $rootScope.loaderIndicator = false;      
-                   $scope.transactionDetail=result.data.data;   
+                   $scope.transactionDetail = result.data.data;
+                   for (var i = 0; i < $scope.transactionDetail.length; i++)
+                   {
+                       $scope.transactionDetail[i].transactionDetails = JSON.parse($scope.transactionDetail[i].transactionDetails);
+                   }
                    $scope.transactionRecordIndicator=true;
                   } else {
                     $rootScope.loaderIndicator = false;  

@@ -92,13 +92,13 @@
                               <p class="text-content-dash" data-ng-if="!invoicesIndicator">
                                   You're up-to-date with all payments.You have no invoices due.
                               </p>
-                              <div class="dashborad-post-btn">
+                              <!--<div class="dashborad-post-btn">
                                   <a href="#">Pay Invoices Now</a>
-                              </div>
+                              </div>-->
                           </div>
                       </div>
                       <div class="col-sm-6">
-                          <div class="jobs-list">
+                          <!--<div class="jobs-list">
                               <h4>Reviews</h4>
                               <ul data-ng-if="reviewsIndicator">
                                   <li><a >List content of jobs description will be goes here</a></li>
@@ -109,6 +109,18 @@
                               <div class="dashborad-post-btn">
                                   <a>Submit Reviews</a>
                               </div>
+                          </div>-->
+                          <div class="jobs-list">
+                              <h4>My messages</h4>
+                              <p class="text-content-dash" data-ng-if="reviewsIndicator">
+                                  You have no new messages at the moment. Check in a little later.
+                              </p>
+                              <p class="text-content-dash" data-ng-if="!reviewsIndicator">
+                                  <div data-ng-repeat="item in dashboardMessage">
+                                      <a href="#/">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
+                                      - {{item.comments}}
+                                  </div>
+
                           </div>
                       </div>
                   </div>
@@ -202,7 +214,7 @@
                           </div>
                       </div>
                       <div class="col-sm-6">
-                          <div class="jobs-list">
+                          <!--<div class="jobs-list">
                               <h4>Invoices Due</h4>
                               <ul data-ng-if="invoicesIndicator">
                                   <li><a href="#">List content of invoices description will be goes here</a></li>
@@ -213,7 +225,7 @@
                               <div class="dashborad-post-btn">
                                   <a href="#">Request Payment</a>
                               </div>
-                          </div>
+                          </div>-->
                       </div>
                   </div>
               </div>

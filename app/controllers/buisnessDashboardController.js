@@ -33,7 +33,7 @@
                 //messages.poster_userid = userId;
                 $rootScope.loaderIndicator = true;
                 httpService.getPersonalMessage(messages).then(function (data) {
-                    if (data.data.message == "Success") {
+                    if (data.data.data.length >= 1) {
                         $scope.messageList = data.data.data;
                         $rootScope.loaderIndicator = false;
                         
@@ -55,7 +55,7 @@
                 var userId = commonService.getUserid();
                 $rootScope.loaderIndicator = true;
                 httpService.getMessageOnDashBoard(userId).then(function (data) {
-                    if (data.data.message == "Success") {
+                    if (data.data.data.length >= 1) {
                         $scope.reviewsIndicator = false;
                         $scope.dashboardMessage = data.data.data;
                         $rootScope.loaderIndicator = false;
@@ -93,8 +93,13 @@
             $scope.taskDetail.category_question = angular.fromJson(data.category_question);
             getInterestedUsersList(data.id);
             getTaskDetail();
-            //get card details if exists. 
-            getCardDetails();
+            
+            if ($scope.taskDetail.isPaymentMade == "false")
+            {
+                //get card details if exists. 
+                getCardDetails();
+
+            }
             
         }
         function getTaskDetail()
@@ -273,7 +278,7 @@
             $rootScope.loaderIndicator = true;
             httpService.getCardDetails(user).then(function (response) {
                 $rootScope.loaderIndicator = false;
-                if($scope.taskDetail.isPaymentMade==false){
+                if($scope.taskDetail.isPaymentMade== "false"){
                     if (response.data.message == "No card added yet!") {
                     $scope.cardDetailsAlreadySaved = false;
                     $scope.NoCardDetailsFound = true;
@@ -342,8 +347,8 @@
         }
         $scope.assignTaskToUser = function (item)
         {
-           // if($scope.paymentMadeBeforeAssignment)
-            //{
+            if ($scope.paymentMadeBeforeAssignment || $scope.taskDetail.isPaymentMade == "true")
+            {
                 $rootScope.loaderIndicator = true;
                 $scope.assignTask = {};
                 $scope.assignTask.taskId = item.taskId;
@@ -356,7 +361,10 @@
                     getBuisnessTaskOpen();
                     $rootScope.loaderIndicator = false;
                 });
-           // }
+            }
+            else {
+                alert("please make payment before assigning a task.");
+            }
         }
 
         $scope.makePayment = function(amount)
