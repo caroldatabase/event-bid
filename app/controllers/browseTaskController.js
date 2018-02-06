@@ -83,7 +83,8 @@
           
         });   
         } else {
-            $scope.emailIndicator=true;
+            $scope.emailIndicator = true;
+            $rootScope.loaderIndicator = false;
         }
 
     }
