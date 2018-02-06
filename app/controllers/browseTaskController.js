@@ -61,14 +61,26 @@
     }
     $scope.paypalAccount = function() {
         var userId = commonService.getUserid();
+        $rootScope.loaderIndicator = true;
         if($scope.userDetails.paypalAccount!=''&&$scope.userDetails.paypalAccount!=null){
             $scope.emailIndicator=false;
             httpService.updateProfile(userId, $scope.userDetails).then(function (response) {
+                if(response.data.message=='Profile updated successfully'){
+                $rootScope.loaderIndicator = false;
                 $('#taskDetailModal').modal('hide');
                 $('#showInterestPopup').modal('toggle');
                 $("#showInterestPopup").modal({ backdrop: "static" });
                 $('#showInterestPopup').modal('show');
                 $('#addPaypalAccountPopup').modal('hide');
+                $scope.interestedUser = {};
+                $scope.errorMessageIndicator = false;
+                $scope.interestedUser.offerImages = [];
+                $scope.interestedUser.showInterestCostType = $scope.showInterestCostType;
+                $scope.errorMessage = false;   
+                } else {
+                  $rootScope.loaderIndicator = false;  
+                }
+          
         });   
         } else {
             $scope.emailIndicator=true;
