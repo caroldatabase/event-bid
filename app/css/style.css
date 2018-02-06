@@ -3387,3 +3387,12 @@ img#profilePicture {
     height: 110px !important;
     width: 110px !important;
 }
+p.para-before-login {
+    background: #eee;
+    padding: 15px;
+    border-radius: 5px;
+    width: 100%;
+    float: right;
+    margin-bottom: -15px;
+    font-size: 16px;
+}
