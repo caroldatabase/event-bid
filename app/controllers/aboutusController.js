@@ -1,4 +1,4 @@
-﻿app.controller("aboutusController", ['commonService', function (commonService) {
+﻿app.controller("aboutusController", ['commonService', '$scope', function (commonService, $scope) {
     commonService.scrollToTop();
 
 
