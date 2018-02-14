@@ -52,7 +52,8 @@
             }
         }
         function getMessageOnDashBoard(){
-                var userId = commonService.getUserid();
+            var userId = commonService.getUserid();
+            $scope.userId = userId;
                 $rootScope.loaderIndicator = true;
                 httpService.getMessageOnDashBoard(userId).then(function (data) {
                     if (data.data.data.length >= 1) {

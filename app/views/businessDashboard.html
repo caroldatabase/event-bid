@@ -117,7 +117,11 @@
                               </p>
                               <p class="text-content-dash" data-ng-if="!reviewsIndicator">
                                   <div data-ng-repeat="item in dashboardMessage">
-                                      <a href="#/">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
+                                      <a href="#/"><span data-ng-if="userId != item.task.post_user_detail.id">{{item.task.post_user_detail.first_name}} {{item.task.post_user_detail.last_name}}</span>
+                                          <span data-ng-if="userId != item.task.seeker_user_detail.id">{{item.task.seeker_user_detail.first_name}} {{item.task.seeker_user_detail.last_name}}</span>
+                                      </a> 
+                                       has messaged you on 
+                                      <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
                                       - {{item.comments}}
                                   </div>
 
@@ -206,8 +210,13 @@
                                   You have no new messages at the moment. Check in a little later.
                               </p>
                               <p class="text-content-dash" data-ng-if="!reviewsIndicator">
+                                 
                                   <div data-ng-repeat="item in dashboardMessage">
-                                      <a href="#/">{{item.user.first_name}} {{item.user.last_name}}</a> has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
+                                      <a href="#/">
+                                     
+                                          <span data-ng-if="userId != item.task.post_user_detail.id">{{item.task.post_user_detail.first_name}} {{item.task.post_user_detail.last_name}}</span>
+                                          <span data-ng-if="userId != item.task.seeker_user_detail.id">{{item.task.seeker_user_detail.first_name}} {{item.task.seeker_user_detail.last_name}}</span></a> 
+                                      has messaged you on <a data-ng-click="openProgresstaskInDetail(item.task)">{{item.task.event_title}}</a>
                                       - {{item.comments}}
                                   </div>
 
