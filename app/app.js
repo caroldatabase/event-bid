@@ -94,10 +94,10 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider,$loca
             templateUrl: "app/views/contact-us.html",
             controller: "contactUsCtrl"
         })
-        .when("/FAQ's", {
-            templateUrl: "app/views/sitemap/FAQ.html",
-            controller : "FAQCtrl"
-        })
+        //.when("/FAQ's", {
+        //    templateUrl: "app/views/sitemap/FAQ.html",
+        //    controller : "FAQCtrl"
+        //})
         .when("/profile", {
             templateUrl: "app/views/profile-page.html",
             controller : "profileController"
