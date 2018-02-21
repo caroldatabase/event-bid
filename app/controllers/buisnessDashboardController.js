@@ -222,6 +222,7 @@
             $('#progressTaskModal').modal('toggle');
             $("#progressTaskModal").modal({ backdrop: "static" });
             $('#progressTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
+            $scope.userId = commonService.getUserid();
             $scope.taskDetail = {};
             $scope.taskDetail = data;
             $scope.taskDetail.category_Detail = {};

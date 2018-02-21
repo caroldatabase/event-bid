@@ -488,21 +488,33 @@
 
                 </div>
                 <div class="people-int">
-                    <p class="peo-head">Details of User whom task has assigned : </p>
+                    <div data-ng-if="userId != taskDetail.post_user_id">
+                        <p class="peo-head">Details of User whose task has assigned : </p>
+                    </div>
+                    <div data-ng-if="userId != taskDetail.seeker_user_id">
+                        <p class="peo-head">Details of User to which task has assigned : </p>
+                    </div>
                     <ul class="task-chat-assign">
                         <li>
                             <div class="commenter-pic">
                                 <a href="#"><img src="app/images/profile-btn.png" alt="yellotasker"></a>
                             </div>
-                            <div class="spans-div">
-                            <span><b>{{taskDetail.seeker_user_detail.first_name}} {{taskDetail.seeker_user_detail.last_name}}</b></span>
-                            <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
-                            <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
-                                </div>
-                            <div class="message-button">
-                            <button type="button" class="btn btn-default" data-ng-click="messageView()">Message {{taskDetail.seeker_user_detail.first_name}} </button>
-                                </div>
-
+                            <div class="spans-div" data-ng-if="userId == taskDetail.seeker_user_id">
+                                <span><b>{{taskDetail.post_user_detail.first_name}} {{taskDetail.post_user_detail.last_name}}</b></span>
+                                <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                <a href="#/profile/{{taskDetail.post_user_detail.id}}">view profile</a>
+                            </div>
+                            <div class="spans-div" data-ng-if="userId == taskDetail.post_user_id">
+                                <span><b>{{taskDetail.seeker_user_detail.first_name}} {{taskDetail.seeker_user_detail.last_name}}</b></span>
+                                <span><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></span>
+                                <a href="#/profile/{{taskDetail.seeker_user_detail.id}}">view profile</a>
+                            </div>
+                            <div class="message-button" data-ng-if="userId == taskDetail.seeker_user_id">
+                                <button type="button" class="btn btn-default" data-ng-click="messageView()">Message {{taskDetail.post_user_detail.first_name}} </button>
+                            </div>
+                            <div class="message-button" data-ng-if="userId == taskDetail.post_user_id">
+                                <button type="button" class="btn btn-default" data-ng-click="messageView()">Message {{taskDetail.seeker_user_detail.first_name}} </button>
+                            </div>
                         </li>
                         <li data-ng-show="messageUser">
                             <div class="commenter-pic">
