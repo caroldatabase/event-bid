@@ -84,6 +84,10 @@
             if(response.data.message == "Record found successfully.")
             {
                 $scope.userDetails = response.data.data;
+                $scope.insurancetList=response.data.data.insurance;
+                $scope.qualificationList=response.data.data.qualification;
+                $scope.showInsuDetail=$scope.insurancetList!=''?true:false;
+                $scope.showQuaDetail=$scope.qualificationList!=''?true:false;
                 var birthday = $scope.userDetails.birthday;
                 if($scope.userDetails.verification_skills!=null)
                 {

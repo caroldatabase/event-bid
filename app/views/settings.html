@@ -439,6 +439,7 @@
                                 <!--<a href="{{item.doc}}" target="_blank"><i class="fa fa-file"></i></a>-->
                                     <a href="{{item.doc}}" target="_blank"><i class="fa fa-file"><span>View Document</span></i></a>
                                 </p>
+                                   <span class="insurer-type">Status: <span class="insurer-entry">{{item.status}}</span></span>
                             </div>
                                <form name="insuranceForm" novalidate class="padding-other" data-ng-show="showInsuForm">
                             <div class="alert alert-danger" data-ng-show="insuranceErrorMessageIndicator">
@@ -471,6 +472,7 @@
                                 <p class="added-file">File :  
                                     <a href="{{qua.doc}}" target="_blank"><i class="fa fa-file"><span>View Document</span></i></a>
                                 </p>
+                                <span class="insurer-type">Status: <span class="insurer-entry">{{qua.status}}</span></span>
                             </div>
                               <form name="qualificationForm" novalidate class="padding-other" data-ng-show="showQuaForm">
                                    <div class="alert alert-danger" data-ng-show="quaErrorMessageIndicator">
