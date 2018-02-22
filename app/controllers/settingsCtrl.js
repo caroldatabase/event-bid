@@ -286,8 +286,8 @@
                 $scope.successMessageIndicator = true;
                 $scope.userDetails.first_name = response.data.data.first_name;
                 $scope.userDetails.last_name = response.data.data.last_name;
-                $("#OpenTaskModal").modal({ backdrop: "static" });
-                $('#OpenTaskModal').modal({ backdrop: 'static', keyboard: false }, 'show');
+                $("#settingsModal").modal({ backdrop: "static" });
+                $('#settingsModal').modal({ backdrop: 'static', keyboard: false }, 'show');
                 $rootScope.photo = $scope.userDetails.photo;
                 setCookieValues('FirstName', $scope.userDetails.first_name);
                 setCookieValues('Photo', $rootScope.photo);
@@ -341,6 +341,10 @@
     $scope.paypalPopupClose = function()
     {
         $('#paypalTaskModal').modal('hide');
+    }
+
+    $scope.settingsPopupClose = function () {
+        $('#settingsModal').modal('hide');
     }
 
     $scope.paypalAccount = function(){

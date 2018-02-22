@@ -28,21 +28,7 @@
             </div>
 
             <div class="col-sm-9" data-ng-if="accountIndicator">
-                               <!-- Modal content-->
-                <div id="OpenTaskModal" class="modal browse-task-detail-pop fade"  role="dialog" >
-                  <div class="modal-dialog">
-                     <div class="modal-content" >
-                        <div class="alert alert-success" >
-                     <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <div class="modal-body d-listing">
-                             Details updated successfully.
-                         </div>
-                     </div>
-                         </div>
-                      </div>
-                    </div>
-                </div>
+                              
                 <div class="row">
                     <div class="col-sm-6">
                         <label>First Name</label>
@@ -679,7 +665,7 @@
 </div>
 
 <!--settings update pop up  -->
-<div class="modal fade" id="OpenTaskModal" tabindex="-1">
+<div class="modal fade" id="settingsModal" tabindex="-1">
     <div class="eb-vAlignment">
         <div class="modal-dialog eb-vAlignCenter">
             <div class="modal-content">
@@ -692,7 +678,7 @@
                         Details updated successfully.
                     </p>
                     <div class="text-center">
-                        <a class="btn btn-primary" data-ng-click="paypalPopupClose()">OK</a>
+                        <a class="btn btn-primary" data-ng-click="settingsPopupClose()">OK</a>
                     </div>
                 </div>
             </div>
@@ -700,3 +686,18 @@
     </div>
 </div>
 
+ <!-- Modal content-->
+<div id="OpenTaskModal" class="modal browse-task-detail-pop fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="alert alert-success">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="modal-body d-listing">
+                        Details updated successfully.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
