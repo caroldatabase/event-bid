@@ -272,11 +272,18 @@
         </div>
 
     </div>
+ <!--
     <pagination ng-model="currentPage"
-                total-items="insuranceList.length"
+                total-items="qualificationList.length"
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>
+-->
+    	<div class="row">
+          <div class="col-sm-12 see-more-cat-btn text-center">
+          <a data-ng-click="getMoreItems('insurance')">See More</a>
+          </div>
+    </div>
 
     <div class="row">
         <h4 class="tsk-head">Qualification Management</h4>
@@ -312,11 +319,18 @@
         </div>
 
     </div>
+<!--
     <pagination ng-model="currentPage"
                 total-items="qualificationList.length"
                 max-size="maxSize"
                 boundary-links="true">
     </pagination>
+-->
+    	<div class="row">
+          <div class="col-sm-12 see-more-cat-btn text-center">
+          <a data-ng-click="getMoreItems('qualification')">See More</a>
+          </div>
+    </div>
 </div>
             <!--Request a new category-->
             <div class="modal fade" id="addCategoryPopup" tabindex="-1" ng-controller="addCategoryController">

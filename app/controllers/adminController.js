@@ -279,6 +279,24 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         });
 
     }
+    $scope.getMoreItems=function(type){
+        if(type=='insurance'){
+            $scope.insuPageNum=$scope.insuPageNum+1;
+            $rootScope.loaderIndicator = true;
+            httpService.getInsuranceDetailsForAdmin($scope.insuPageNum).then(function (response) {
+                $rootScope.loaderIndicator = false;
+                $scope.insuranceList = $scope.insuranceList.concat(response.data.data);
+            });  
+        } else {
+            $scope.quaPageNum=$scope.quaPageNum+1;
+            $rootScope.loaderIndicator = true;
+            httpService.getQualifications($scope.quaPageNum).then(function (response) {
+                $rootScope.loaderIndicator = false;
+                $scope.qualificationList = $scope.qualificationList.concat(response.data.data);
+            }); 
+        }
+    
+    }
      $scope.approve = function(status,type)
     {
          $rootScope.loaderIndicator = true;
@@ -342,8 +360,9 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
 
     function getInsuranceList()
     {
+        $scope.insuPageNum=1;
         $rootScope.loaderIndicator = true;
-        httpService.getInsuranceDetailsForAdmin().then(function (response) {
+        httpService.getInsuranceDetailsForAdmin($scope.insuPageNum).then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.insuranceList = response.data.data;
             console.log($scope.insuranceList);
@@ -351,8 +370,9 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
 
     }
     function getQualificationList() {
+        $scope.quaPageNum=1;
         $rootScope.loaderIndicator = true;
-        httpService.getQualifications().then(function (response) {
+        httpService.getQualifications($scope.quaPageNum).then(function (response) {
             $rootScope.loaderIndicator = false;
             $scope.qualificationList = response.data.data;
             console.log($scope.qualificationList);

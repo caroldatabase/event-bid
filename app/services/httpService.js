@@ -140,8 +140,8 @@
             return response;
         });
     }
-    function getInsuranceDetailsForAdmin() {
-        return $http.get(serviceBase + 'api/v1/getInsurance?page_num=1&page_size=10', { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+    function getInsuranceDetailsForAdmin(pageNum) {
+        return $http.get(serviceBase + 'api/v1/getInsurance?page_size=10&page_num='+pageNum, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
@@ -329,8 +329,8 @@
         });
     }
 
-    function getQualification(pageNum,pageSize) {
-        return $http.get(serviceBase + 'api/v1/blog/getQualification?page_num=' + pageNum +  '&page_size=' + pageSize, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+    function getQualification(pageNum) {
+        return $http.get(serviceBase + 'api/v1/blog/getQualification?page_size=10&page_num='+pageNum, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
