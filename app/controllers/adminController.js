@@ -279,6 +279,35 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         });
 
     }
+     $scope.approve = function(status,type)
+    {
+         $rootScope.loaderIndicator = true;
+         var userId = commonService.getUserid();
+         var param={
+             "approveType":type,
+             "status":status,
+             "comment":status
+         }
+         if(type=='insurance') {
+            httpService.approveInsurance(userId,param).then(function (response) {
+            $rootScope.loaderIndicator = false;
+             if(response.data.message=='Status Approved successfully'){
+                 alert('approved successfully')
+             } else {
+                 alert('rejected');
+             }
+        });  
+         } else {
+           httpService.approveQualification(userId,param).then(function (response) {
+            $rootScope.loaderIndicator = false;
+             if(response.data.message=='Status Approved successfully'){
+                 alert('approved successfully')
+             } else {
+                 alert('rejected');
+             }
+        });   
+       }      
+     }
     $scope.releasePayment = function(taskid)
     {
       $rootScope.loaderIndicator = true;

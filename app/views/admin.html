@@ -260,9 +260,9 @@
                             </td>
                             <td>
                                 <input type="submit" value="Approve" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment()">
+                                       data-ng-click="approve('approved','insurance')">
                                  <input type="submit" value="Reject" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment()">
+                                       data-ng-click="approve('rejected','insurance')">
                             </td>
                         </tr>
                     </div>
@@ -300,9 +300,9 @@
                             <td>    <a href="{{item.doc}}" target="_blank"><i class="fa fa-file"><span>View Document</span></i></a></td>
                             <td>
                                   <input type="submit" value="Approve" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment()">
+                                       data-ng-click="approve('approved','qualification')">
                                  <input type="submit" value="Reject" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment()">
+                                       data-ng-click="approve('rejected','qualification')">
                             </td>
                         </tr>
                     </div>
