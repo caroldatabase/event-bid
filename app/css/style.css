@@ -3497,3 +3497,13 @@ padding:40px 0px;
     float: right !important;
 margin-top:30px;
 }
+.place-ico {
+    position: absolute;
+    left: 5px;
+    top: 14px;
+}
+.other-iocn-d {
+    position: absolute;
+    left: 20px;
+    top: 59px;
+}

@@ -4,7 +4,8 @@
             {
                 WEBUAT: 'http://139.59.63.136/eventbid',
                 LOCAL: 'http://localhost/eventBid_webapi',
-                PRODUCTION: 'http://api.eventbid.com.au'
+                // PRODUCTION: 'http://api.eventbid.com.au'
+                PRODUCTION: 'https://api.eventbid.com.au'
             },
         ERRORMESSAGE:
             {
