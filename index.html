@@ -1,191 +1,443 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html class="cspio">
 <head>
-    <!-- Basic Page Needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Event Bid</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<base href="/">-->
-    <!-- CSS
-      ================================================== -->
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-theme.css" />
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-theme.css.map" />
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap.css.map" />
-    <link rel="stylesheet" href="app/css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="app/css/style.css" />
-    
-    <link href="app/css/vaibhav_style.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="app/css/bootstrap-datetimepicker.css" />
-    <link rel="stylesheet" type="text/css" href="app/css/select2.min.css" />
-   
-    <link rel="shortcut icon" href="app/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="app/images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!---
+	Welcome to our free coming soon page template by http://comingsoonpage.com Get your free download at https://www.seedprod.com/free-coming-soon-page/
+	This work is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License
+	http://creativecommons.org/licenses/by-nc-nd/4.0/
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    <!-- Favicons
-        ================================================== -->
+	To get started follow this checklist.
 
-    <script type="text/javascript" src="app/js/jquery.js"></script>
-    
-    <script src="https://use.fontawesome.com/796412e158.js"></script>
-    
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.js"></script>
-    <!--<script src="bower_components/angular/angular.js"></script>-->
-	<script src="app/js/angular-route.js"></script>
-    <script src="app/js/bootstrap.tpls.js"></script>
-    
-    
-    <script type="text/javascript" src="app/js/bootstrap.min.js"></script>
-    <script src="app/js/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="app/js/bootbox.min.js"></script>
-    <script type="text/javascript" src="app/js/moment.js"></script>
-    <script type="text/javascript" src="app/js/bootstrap-datetimepicker.js"></script>
-    <script type="text/javascript" src="app/js/select2.full.min.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-messages.js"></script>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-cookies.js"></script>
-    <script type="text/javascript" src="app/js/bootstrap-multiselect.js"></script>
-    
-    
+	1. Replace the *Page Title* on lines 23, 31 & 296
+	2. Set the *Page Description* on lines 26, 32 & 298
+	3. Set an optional *Logo* on lines 294 using the src attribute.
+	4. Set your *Facebook Profile* URL on line 312 using the href attribute.
+	5. Set your *Twitter Profile* URL on line 313 using the href attribute.
+	6. Set your *Email* on line 314 using the href attribute.
+	7. Set your background image on line 63, see file README.mb for additional background images.
+	8. Set your MailChimp email post URL on line 300 See video: https://youtu.be/YUdP1qfMot8
+	9. FTP to your Website. 
+	-->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Coming Soon</title>
 
-    <link rel="stylesheet" href="app/js/bootstrap-multiselect.css" type="text/css" />
+	<meta name="generator" content="comingsoonpage.com 1.0.0" />
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="https://static.comingsoonpage.com/cspio-assets/1.0.0/favicon.ico">
+	<meta property="og:url" content="" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="My Coming Soon Page" />
+	<meta property="og:description" content="" />
+	
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="app/js/jquery_timepicker.min.css">
-    <script src="app/js/jquery_timepicker.min.js"></script>
-    <script src="app/js/eventbid.min.js"></script>
-   <!-- <script src="app/app.js"></script>
-    <script src="app/js/uniquefilter.js"></script>
-    <script src="app/js/timeago.filter.js"></script>
-    <script src="app/services/constants.js"></script>
-    <script src="app/services/commonService.js"></script>
-    <script src="app/services/httpService.js"></script>
-    <script src="app/directives/fileReadDirective.js"></script>
-    <script src="app/controllers/dashBoardController.js"></script>
-    <script src="app/controllers/loginController.js"></script>
-    <script src="app/controllers/postTaskController.js"></script>
-    <script src="app/controllers/aboutusController.js"></script>
-    <script src="app/controllers/profileController.js"></script>
-    <script src="app/directives/eventMenu/eventMenu.js"></script>
-    <script src="app/controllers/updateProfileController.js"></script>
-    <script src="app/controllers/addCategoryController.js"></script>
-    <script src="app/controllers/EBManagerController.js"></script>
-    <script src="app/controllers/contactUsController.js"></script>
-    <script src="app/controllers/howItWorksController.js"></script>
-    <script src="app/controllers/rewardsController.js"></script>
-    <script src="app/controllers/requestCategoryController.js"></script>
-    <script src="app/controllers/adminController.js"></script>
-    <script src="app/controllers/browseTaskController.js"></script>
-    <script src="app/controllers/customerDashboardCtrl.js"></script>
-    <script src="app/controllers/buisnessDashboardController.js"></script>
-    <script src="app/controllers/addBlogController.js"></script>
-    <script src="app/controllers/settingsCtrl.js"></script>
-    <script src="app/controllers/changePassword.js"></script>
-    <script src="app/controllers/paymentCtrl.js"></script>
-    <script src="app/controllers/messagingCtrl.js"></script>
-    <script src="app/controllers/blogDetailCtrl.js"></script>-->
+	<!-- Bootstrap and default Style -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="https://static.comingsoonpage.com/cspio-assets/1.0.0/style.css">
+
+	<!-- Google Fonts -->
+	<link class="gf-headline" href='https://fonts.googleapis.com/css?family=Pacifico:400&subset=' rel='stylesheet' type='text/css'>
+			
+	<!-- Animate CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+	
+	<!-- Calculated Styles -->
+	<style type="text/css">
+	
+	html {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	body {
+		height:100%;
+		overflow: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	html{
+		height:100%;
+		background: #ffffff url(img/banner-3.jpg); no-repeat center bottom fixed;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
+	#cspio-page{
+		background-color: rgba(0,0,0,0);
+	}
+	
+	.flexbox #cspio-page{
+		align-items: center;
+		justify-content: center;
+	}
+
+	.cspio body{
+		background: transparent;
+	}
+
+	.cspio body, .cspio body p{
+        font-family: Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+        font-size: 20px;
+        line-height: 1.50em;
+        color:#ffffff;
+    }
+
+	::-webkit-input-placeholder {
+		font-family:Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+	}
+
+	::-moz-placeholder {
+		font-family:Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+	} 
+
+	:-ms-input-placeholder {
+		font-family:Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+	} 
+
+	:-moz-placeholder {
+		font-family:Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+	}
+
+    .cspio h1, .cspio h2, .cspio h3, .cspio h4, .cspio h5, .cspio h6{
+        font-family: 'Pacifico';
+        color:#ffffff;
+    }
+
+	#cspio-headline{
+		font-family: 'Pacifico';
+		font-weight: 400;
+		font-style: ;
+				font-size: 48px;
+		color:#ffffff;
+		line-height: 1.00em;
+	}
+
+	.cspio button{
+        font-family: Helvetica, Arial, sans-serif;
+		font-weight: 400;
+		font-style: ;
+    }
+	
+    .cspio a, .cspio a:visited, .cspio a:hover, .cspio a:active{
+		color: #ffffff;
+	}
+
+	#cspio-socialprofiles a {
+	  color: #ffffff;
+	}
+	.cspio .btn-primary,
+	.cspio .btn-primary:focus,
+	.gform_button,
+	#mc-embedded-subscribe, .submit-button {
+		color: black;
+		text-shadow: 0 -1px 0 rgba(255,255,255,0.3);
+		background-color: #ffffff;
+		background-image: -moz-linear-gradient(top,#ffffff,#d9d9d9);
+		background-image: -ms-linear-gradient(top,#ffffff,#d9d9d9);
+		background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffffff),to(#d9d9d9));
+		background-image: -webkit-linear-gradient(top,#ffffff,#d9d9d9);
+		background-image: -o-linear-gradient(top,#ffffff,#d9d9d9);
+		background-image: linear-gradient(top,#ffffff,#d9d9d9);
+		background-repeat: repeat-x;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#d9d9d9', GradientType=0);
+		border-color: #d9d9d9 #d9d9d9 #b3b3b3;
+		border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+		*background-color: #d9d9d9;
+		filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+	}
+
+	.cspio .btn-primary:hover,
+	.cspio .btn-primary:active,
+	.cspio .btn-primary.active,
+	.cspio .btn-primary.disabled,
+	.cspio .btn-primary[disabled],
+	.cspio .btn-primary:focus:hover,
+	.cspio .btn-primary:focus:active,
+	.cspio .btn-primary:focus.active,
+	.cspio .btn-primary:focus.disabled,
+	.cspio .btn-primary:focus[disabled],
+	#mc-embedded-subscribe:hover,
+	#mc-embedded-subscribe:active,
+	#mc-embedded-subscribe.active,
+	#mc-embedded-subscribe.disabled,
+	#mc-embedded-subscribe[disabled] {
+		background-color: #d9d9d9;
+		*background-color: #cccccc;
+	}
+    .category{
+        color :black;
+    }
+	.cspio .btn-primary:active,
+	.cspio .btn-primary.active,
+	.cspio .btn-primary:focus:active,
+	.cspio .btn-primary:focus.active,
+	.gform_button:active,
+	.gform_button.active,
+	#mc-embedded-subscribe:active,
+	#mc-embedded-subscribe.active {
+		background-color: #bfbfbf;
+	}
+
+	.form-control,
+	.progress {
+		background-color: rgba(255, 255, 255, 0.85);
+	}
+
+	#cspio-progressbar span,
+	.countdown_section {
+		color: black;
+		text-shadow: 0 -1px 0 rgba(255,255,255,0.3);
+	}
+
+	.cspio .btn-primary:hover,
+	.cspio .btn-primary:active {
+		color: black;
+		text-shadow: 0 -1px 0 rgba(255,255,255,0.3);
+		border-color: #e6e6e6;
+	}
+
+	.cspio input[type='text']:focus {
+		webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
+		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
+		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
+	}
     
+    #cspio-content {
+		display: none;
+		max-width: 600px;
+		background-color: #000000;
+		-webkit-border-radius: 2px;
+		border-radius: 2px;
+		-moz-background-clip: padding;
+		-webkit-background-clip: padding-box;
+		background-clip: padding-box;
+		background-color:transparent;
+	}
+    
+	.cspio .progress-bar,
+	.countdown_section,
+	.cspio .btn-primary,
+	.cspio .btn-primary:focus,
+	.gform_button {
+		background-image: none;
+		text-shadow: none;
+	}
+
+	.cspio input,
+	.cspio input:focus {
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+							
+	#cspio-page{
+	    background: -moz-radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.2) 37%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%);
+	    background: -webkit-radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.2) 37%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%);
+	    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%,rgba(0, 0, 0, 0.2) 37%,rgba(0,0,0,0) 68%,rgba(0,0,0,0) 100%);
+	}
+
+	.cspio body{
+		background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 7%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.23) 100%); 
+		background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 7%,rgba(0,0,0,0) 80%,rgba(0,0,0,0.23) 100%); 
+		background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 7%,rgba(0,0,0,0) 80%,rgba(0,0,0,0.23) 100%); 
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#3b000000',GradientType=1 ); 
+	}
+
+	#cspio-subscribe-btn{
+	    background:transparent;
+	    border: 1px solid #fff !important;
+	    color: #fff;
+	}
+
+	#cspio-subscribe-btn:hover{
+	    background: rgba(255,255,255,0.2);
+	    color: #fff;
+	}
+
+	#cspio-credit img{
+		margin-left:auto;
+		margin-right:auto;
+		width:125px;
+		    margin-top: -4px;
+	}
+
+	#cspio-credit {
+		font-size:11px;
+	}
+	.comm
+	{
+	font-size:60px !important;
+	}
+	div#cspio-content {
+    background: rgba(0,0,0,0.6);
+    margin-top: 25px !important;
+}
+    #cspio-content label {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+}
+#cspio-content select#category {
+    height: 45px;
+    background: rgba(255,255,255,0.8);
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    color: #666;
+    padding-left: 15px;
+}
+div#cspio-description {
+    margin-bottom: 15px;
+}
+
+	</style>
+
+	<!-- jQuery -->
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+	<!-- Modernizr -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+	
+	<!-- Google Analytics Code Goes Here-->
 </head>
-<body ng-app="eventBid">
-    <event-menu></event-menu>
-    <div class="loader" data-ng-if ="loaderIndicator" >
-       <img src="app/images/loader_image.gif" alt="">
-    </div>
-    <div ng-view></div>
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-section footer-border-bottom">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <h4 class="footer-title">Event Bid</h4>
-                        <ul class="footer-links">
-                            <li><a href="#/about-us">About Us</a></li>
-                            <li><a href="#/how-it-works">How it works</a></li>
-                            <li><a href="#/Rewards">Rewards</a></li>
-                            <li><a href="#/browse-tasks">Categories</a></li>
-                            <li><a href="#/blog">Blog</a></li>
-                            <li data-ng-if="adminIndicator"><a href="#/admin">Admin</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-2">
-                        <h4 class="footer-title">Contact Us</h4>
-                        <ul class="footer-links">
-                            <li><a href="#/contact-us">Contact Us</a></li>
-                            <!--<li><a href="#/FAQ's">FAQs</a></li>-->
-                            <li><a href="#/add-category">Request a Category</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-2">
-                        <h4 class="footer-title">EB Manager</h4>
-                        <ul class="footer-links MB20">
-                            <li><a href="#/EBManager/contactUs">About EB Manager</a></li>
-                            <li><a href="#/EBManager">Manage my event</a></li>
-                        </ul>
-                        <h4 class="footer-title">The Important Stuff</h4>
-                        <ul class="footer-links">
-                            <li><a href="#/privacy-policy">Privacy policy</a></li>
-                            <li><a href="#/terms-and-conditions">Terms & Conditions</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-2">
-                        <h4 class="footer-title">Categories</h4>
-                        <ul class="footer-links">
-                            <li><a href="#/browse-tasks/Floristry/27">Floristry</a></li>
-                            <li><a href="#/browse-tasks/Hair%20and%20Beauty/28">Hair & Beauty</a></li>
-                            <li><a href="#/browse-tasks/Catering/30">Catering</a></li>
-                            <li><a href="#/browse-tasks/Patisserie/32">Patisserie</a></li>
-                            <li><a href="#/browse-tasks/Cleaning/31">Cleaning</a></li>
-                            <li><a href="#/browse-tasks/Entertainment%20and%20talent/29">Entertainment & Talent</a></li>
-                            <li><a href="#/browse-tasks/Waiting%20Staff/33">Waiting/Waitressing</a></li>
-                            <li><a href="#/browse-tasks/Graphic%20Design/34">Graphic Design</a></li>
-                            <li><a href="#/browse-tasks/Car%20and%20Venue%20Hire/37">Car & Venue Hire</a></li>
-                            <li><a href="#/browse-tasks/Supply%20Hire/35">Supply Hire</a></li>
-                            <li><a href="#/browse-tasks/Photography%20and%20Videography/36">Photography and Videography</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        <h4 class="footer-title">Connect With Us</h4>
-                        <div class="social_network">
-                            <a href="http://instagram.com/eventbid" target="_blank"><i class="icons instagram"></i> Instagram</a>
-                            <a href="http://facebook.com/eventbidau" target="_blank"><i class="icons fb"></i> Facebook</a>
-                            <!--<a href="#"><i class="icons eb"></i> Snap Chat @eventbid</a>-->
-                        </div>
+<body>
+	<div id="cspio-page">
+		<div id="cspio-content">
+			
+			<img id="cspio-logo" src="img/logo.png">
+			<h1 class="comm" id="cspio-headline">Coming Soon</h1>			    				
+			
+			<div id="cspio-description">Get ready! Something really cool is coming!</div>			    				
+            <div id="cspio-description">Want to be an Event Bid supplier?</div>
+            <div id="cspio-description">Tell us what you can do and we’ll let you know when you can!</div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-field">
+                        <label>Category </label>
+                            <select class="category" required  name="category" id="category">
+                                <option value="">SELECT CATEGORY</option>
+                                <option value="Floristry">Floristry</option>
+                                <option value="Hair & Beauty">Hair & Beauty</option>
+                                <option value="Catering">Catering</option>
+                                <option value="Patisserie">Patisserie</option>
+                                <option value="Cleaning">Cleaning</option>
+                                <option value="Entertainment & Talent">Entertainment & Talent</option>
+                                <option value="Waiting/Waitressing">Waiting/Waitressing</option>
+                                <option value="Graphic Design">Graphic Design</option>
+                                <option value="Car & Venue Hire">Car & Venue Hire</option>
+                                <option value="Supply Hire">Supply Hire</option>
+                                <option value="Photography and Videography">Photography and Videography</option>
+                            </select>
+                        
                     </div>
                 </div>
-            </div>            
+            </div>
+			<form id="cspio-form">
+				<div id="cspio-field-wrapper">
+					<div class="row">
+						<div class="col-md-12 seperate"><div class="input-group">
+                            <input id="cspio-email" name="EMAIL" class="form-control input-lg form-el" type="email" placeholder="Email"  required tabindex="0"/>
+					<span class="input-group-btn"><button id="cspio-subscribe-btn" type="button" class="btn btn-lg btn-primary form-el noglow">Notify Me</button></span></div></div>
+					</div>
+				</div>
+			</form>
+			
+			<span id="cspio-privacy-policy-txt">We promise to never spam you.</span>
+			    						    			    								    			    			    				
+			<!--<div id="cspio-socialprofiles">
+				<a href="" target="_blank"><i class="fa fa-facebook-official fa-2x"></i></a>			
+				<a href="" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>			
+				<a href="mailto:" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>			
+			</div>-->
 
-            <!--<div class="footer-section text-center footer-social-network">
-                <a href="#">
-                    <svg class="Icon-image" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.41 8.65h-3v-2a.8.8 0 0 1 .84-.91h2.12V2.51h-2.93a3.7 3.7 0 0 0-4 4v2.14H7.59V12h1.87v9.5h3.95V12h2.66l.34-3.35z"></path>
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg class="Icon-image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M8.192 21c-2.28 0-4.404-.668-6.192-1.815 2.144.252 4.282-.342 5.98-1.672-1.768-.034-3.26-1.202-3.772-2.806.633.12 1.256.085 1.823-.07-1.942-.39-3.282-2.14-3.24-4.01.545.302 1.17.484 1.83.505C2.822 9.93 2.313 7.555 3.37 5.738c1.992 2.444 4.97 4.053 8.326 4.22C11.106 7.434 13.024 5 15.63 5c1.163 0 2.212.49 2.95 1.276.92-.18 1.785-.517 2.565-.98-.3.944-.942 1.736-1.775 2.235.817-.097 1.596-.314 2.32-.635-.542.807-1.228 1.52-2.016 2.088C19.93 14.665 15.694 21 8.192 21z"></path>
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg class="Icon-image" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M24 12.5h-3v3h-2v-3h-3v-2h3v-3h2v3h3M7 18.5c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.89 0 3.47.69 4.69 1.83l-1.9 1.83C9.27 7.66 8.36 7.08 7 7.08c-2.39 0-4.34 1.98-4.34 4.42S4.61 15.92 7 15.92c2.77 0 3.81-1.99 3.97-3.02H7v-2.4h6.61c.06.35.11.702.11 1.16 0 4-2.68 6.84-6.72 6.84z"></path>
-                    </svg>
-                </a>
-                <a href="#">
-                    <svg class="Icon-image" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.168 20C4.97 20 4 19.03 4 17.835c0-1.196.97-2.165 2.168-2.165 1.197 0 2.167.97 2.167 2.165 0 1.196-.97 2.165-2.167 2.165zm5.18 0c-.04-4.03-3.314-7.298-7.348-7.34V9.455c5.814.04 10.518 4.74 10.56 10.546h-3.212zm5.44 0C16.77 12.937 11.054 7.24 4 7.208V4c8.83.03 15.98 7.18 16 16h-3.21z" fill-rule="evenodd"></path>
-                    </svg>
-                </a>
-            </div>-->
-        </div>
-    </footer>
-</body>
+			
+									    									    			    			    							    			     			    		
+		</div><!-- end of #cspio-content -->
+	</div>
+
+
+	<script>
+		// Animate Delay
+		setTimeout(function(){ jQuery("#cspio-content").show().addClass('animated fadeIn'); }, 250);
+
+		// Reseize	
+		function resize(){
+				$('head').append("<style id='form-style' type='text/css'></style>");
+				$('#form-style').html('.cspio .input-group-btn, .cspio .input-group{display:block;width:100%;}.cspio #cspio-subscribe-btn{margin-left:0;width:100%;display:block;}.cspio .input-group .form-control:first-child, .cspio .input-group-addon:first-child, .cspio .input-group-btn:first-child>.btn, .cspio .input-group-btn:first-child>.dropdown-toggle, .cspio .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {border-bottom-right-radius: 4px;border-top-right-radius: 4px;}.cspio .input-group .form-control:last-child, .cspio .input-group-addon:last-child, .cspio .input-group-btn:last-child>.btn, .cspio .input-group-btn:last-child>.dropdown-toggle, .cspio .input-group-btn:first-child>.btn:not(:first-child) {border-bottom-left-radius: 4px;border-top-left-radius: 4px;}');
+		}
+		
+		$('#cspio-content').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+			function(){
+				var width = $('#cspio-field-wrapper').width();
+				if(width < 480 && width != 0){
+					resize();
+				}
+			}
+		);
+		$('#cspio-subscribe-btn').click(function () {
+		    var email = $('#cspio-email').val();
+		    var category = $('#category').val();
+		    if (email != undefined && email != null && email != "" && category != "") {
+		        if (isValidEmailAddress(email))
+		        {
+		            var reqParam = { 'email': email, 'category' : category}
+		            var saveData = $.ajax({
+		                type: 'GET',
+		                url: 'http://api.eventbid.com.au/api/v1/contactus',
+		                data: reqParam,
+		                success: function (resultData) {
+		                    if (resultData.message != 'The email field is required.') {
+		                        alert("Thank you for contacting us. We will notify you soon.");
+		                        $('#cspio-email').val('');
+		                    }
+		                },
+		                error: function (data) {
+		                    alert(JSON.stringify(data));
+		                }
+		            });
+		            //});
+		            //var posting = $.post("http://api.eventbid.com.au/api/v1/contactus",
+                    //     //{ 'email': email }
+                    //     );
+		            //posting.done(function (data) {
+		            //    alert("done");
+		            //});
+		        }
+		        else {
+		            alert("Please enter a valid email address");
+		        }
+		    }
+		    else {
+		        alert("Please enter category");
+		    }
+		});
+
+		function isValidEmailAddress(emailAddress) {
+		    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+		    return pattern.test(emailAddress);
+		};
+	</script>
+
+	</body>
 </html>
- 
+
+<!-- This page was generated by ComingSoonPage.com | Learn more: http://www.comingsoonpage.com -->
