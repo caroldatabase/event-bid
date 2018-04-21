@@ -631,6 +631,7 @@ img {
                     padding: 1.5rem 0;
                     &:hover {
                         opacity: .8;
+                        color: white;
                     }
                 }
             }
@@ -811,7 +812,7 @@ img {
 \*------------------------------------*/
 
 .form-control.cal_icon {
-    background: url(../images/calendar-icon.png) no-repeat 96% center;
+    background: url(../images/calendar-icon.png) no-repeat 98% center;
 }
 
 .form-control.time_icon {
@@ -1589,7 +1590,37 @@ a#submit {
 }
 
 .contact-us-form {
-    padding: 40px 0px;
+    padding: 40px 15px;
+
+    h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    h4{
+        color: $eb_blue;
+        font-size: 1.7rem;
+        margin-bottom: 5px;
+    }
+    .submit {
+        font-size: 16px;
+        font-weight: 400;
+        padding: 15px 30px;
+        font-family: 'Lato', sans-serif;
+        border: none;
+        margin-bottom: 40px;
+        background-color: $eb_blue;
+        display: block;
+        text-align: center;
+        width: 11rem;
+        margin: 34px auto 0;
+        border-radius: 5px;
+        color: white;
+        &:hover,
+        &:active {
+            background-color: darken($eb_blue, 10%);
+        }
+    }
 }
 
 /*

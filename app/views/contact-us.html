@@ -1,7 +1,8 @@
 <div class="content-body">
 <div class="container">
 <div class="row">
-    <div class="col-sm-12 contact-us-form">
+    <div class="col-md-8 col-md-offset-2 contact-us-form">
+          <h2>Contact Us</h2>
           <form role="form" name="contactusForm" novalidate>
               <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
                   {{ message}}
@@ -12,14 +13,18 @@
               <br style="clear:both">
               <div class="contact-heading">
                   <h4>Name :</h4>
-              <div class="form-group fisrt-name-contact">
-                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name"
-                         ng-class="{error : contactusForm.firstname.$invalid && contactusForm.$submitted}" data-ng-model="user.FirstName"
-                         required>
-              </div>
-              <div class="form-group last-name-contact">
-                  <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name"
-                         ng-class="{error : contactusForm.lastname.$invalid && contactusForm.$submitted}" required data-ng-model="user.LastName">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="form-field col-sm-6 fisrt-name-contact">
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name"
+                               ng-class="{error : contactusForm.firstname.$invalid && contactusForm.$submitted}" data-ng-model="user.FirstName"
+                               required>
+                    </div>
+                    <div class="form-field col-sm-6 last-name-contact">
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name"
+                               ng-class="{error : contactusForm.lastname.$invalid && contactusForm.$submitted}" required data-ng-model="user.LastName">
+                    </div>
+                    </div>
               </div>
               </div>
               <div class="form-group">
@@ -45,7 +50,7 @@
                                                </div>
                      </p></span>
               </div>
-              <a data-ng-click="contactUs()" id="submit"><img src="app/images/submit-btn.png" alt=""></a>
+                <a data-ng-click="contactUs()" class="submit">Submit</a>
           </form>
     </div>
 </div>
