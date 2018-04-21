@@ -1,88 +1,75 @@
 <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>What do you need? (can choose multiple)</label>
-                                <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.serviceType" 
-                                        name="serviceType" id="serviceType"
-                                        ng-class="{error : postTaskForm.serviceType.$invalid && postTaskForm.$submitted}" 
-                                        data-ng-change="changeServiceType()">
-                                     <option value="Hair">HAIR</option>
-                                    <option value="Make up">MAKE UP</option>
-                                    <option value="Other beauty service">OTHER BEAUTY SERVICE</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>Location</label>
-                                <select class="singleSelection" required data-ng-model="task.category_question.location" name="location"
-                                        ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
-                                    <option value="">PLEASE SELECT</option>
-                                    <option value="Come to Me">COME TO ME</option>
-                                    <option value="I'll come to you">I'LL COME TO YOU</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>What do you need to bring?</label>
-                                <select class="singleSelection" required data-ng-model="task.category_question.needToBring" name="needToBring"
-                                        ng-class="{error : postTaskForm.needToBring.$invalid && postTaskForm.$submitted}">
-                                    <option value="Please Select">PLEASE SELECT</option>
-                                    <option value="Bring your products">BRING YOUR PRODUCTS</option>
-                                    <option value="Use my products">USE MY PRODUCTS</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="row" data-ng-if="makeUpIndicator">
-
-                            <div class="col-sm-4">
-                                <div class="form-field">
-                                    <label class="desk-hair">Describe what kind of make-up look you are going for?</label>
-                                    <textarea class="form-control" required data-ng-model="task.category_question.makeUpTypeRequired" name="makeUpTypeRequired"
-                                              ng-class="{error : postTaskForm.makeUpTypeRequired.$invalid && postTaskForm.$submitted}"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-field">
-                                    <label class="desk-hair">Do you have any special requests or requirements?	</label>
-                                    <textarea class="form-control" required data-ng-model="task.category_question.specialRequirement" name="specialRequirement"
-                                              ng-class="{error : postTaskForm.specialRequirement.$invalid && postTaskForm.$submitted}"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="form-field">
-                                    <label>
-                                        Show me some photos that inspire your make up look.
-                                        (Allow three photo uploads)
-                                    </label>
-                                    <input type="file" class="form-control" name="makeuplookImage" id="makeuplookImage"
-                                           fileread="makeuplookImage" image-type="makeuplookImage" accept="image/*" data-ng-model="makeuplookImage">
-                                    
-                                    <label data-ng-if="task.category_question.makeuplookImages.length > 0">Uploaded Image :</label>
-                                    <div data-ng-if="task.category_question.makeuplookImages.length > 0" data-ng-repeat="data in task.category_question.makeuplookImages track by $index">
-                                        <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="makeuplookImages">
-                                    </div>
-                                    <!--<div data-ng-if="task.category_question.makeuplookImages.length == 0">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What do you need? (can choose multiple)</label>
+            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.serviceType" name="serviceType" id="serviceType" ng-class="{error : postTaskForm.serviceType.$invalid && postTaskForm.$submitted}" data-ng-change="changeServiceType()">
+                <option value="Hair">HAIR</option>
+                <option value="Make up">MAKE UP</option>
+                <option value="Other beauty service">OTHER BEAUTY SERVICE</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Location</label>
+            <select class="form-control singleSelection" required data-ng-model="task.category_question.location" name="location" ng-class="{error : postTaskForm.location.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Come to Me">COME TO ME</option>
+                <option value="I'll come to you">I'LL COME TO YOU</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What do you need to bring?</label>
+            <select class="form-control singleSelection" required data-ng-model="task.category_question.needToBring" name="needToBring" ng-class="{error : postTaskForm.needToBring.$invalid && postTaskForm.$submitted}">
+                <option value="">PLEASE SELECT</option>
+                <option value="Bring your products">BRING YOUR PRODUCTS</option>
+                <option value="Use my products">USE MY PRODUCTS</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row" data-ng-if="makeUpIndicator">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label class="desk-hair">Describe what kind of make-up look you are going for?</label>
+            <textarea class="form-control" required data-ng-model="task.category_question.makeUpTypeRequired" name="makeUpTypeRequired" ng-class="{error : postTaskForm.makeUpTypeRequired.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label class="desk-hair">Do you have any special requests or requirements? </label>
+            <textarea class="form-control" required data-ng-model="task.category_question.specialRequirement" name="specialRequirement" ng-class="{error : postTaskForm.specialRequirement.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>
+                Show me some photos that inspire your make up look. (Allow three photo uploads)
+            </label>
+            <input type="file" class="form-control" name="makeuplookImage" id="makeuplookImage" fileread="makeuplookImage" image-type="makeuplookImage" accept="image/*" data-ng-model="makeuplookImage">
+            <label data-ng-if="task.category_question.makeuplookImages.length > 0">Uploaded Image :</label>
+            <div data-ng-if="task.category_question.makeuplookImages.length > 0" data-ng-repeat="data in task.category_question.makeuplookImages track by $index">
+                <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="makeuplookImages">
+            </div>
+            <!--<div data-ng-if="task.category_question.makeuplookImages.length == 0">
                                         <img width="100" height="50" alt="Image preview..." id="makeuplookImages">
                                     </div>-->
-                                </div>
-                        </div>
-                      </div>
-                    <div class="row" data-ng-if="hairIndicator">
+        </div>
+    </div>
+</div>
+<div class="row" data-ng-if="hairIndicator">
     <div class="col-sm-4">
         <div class="form-field">
             <label class="desk-hair">Describe what kind of hair style you would like?</label>
-            <textarea class="form-control" required data-ng-model="task.category_question.hairStyleRequired" name="hairStyleRequired"
-                      ng-class="{error : postTaskForm.hairStyleRequired.$invalid && postTaskForm.$submitted}"></textarea>
+            <textarea class="form-control" required data-ng-model="task.category_question.hairStyleRequired" name="hairStyleRequired" ng-class="{error : postTaskForm.hairStyleRequired.$invalid && postTaskForm.$submitted}"></textarea>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="form-field">
             <label class="desk-hair">Describe your hair (click up to three options)</label>
-            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.hairType" name="hairType"
-                    ng-class="{error : postTaskForm.hairType.$invalid && postTaskForm.$submitted}">
+            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.hairType" name="hairType" ng-class="{error : postTaskForm.hairType.$invalid && postTaskForm.$submitted}">
                 <option value="">PLEASE SELECT</option>
                 <option value="Long">LONG</option>
                 <option value="Short">SHORT</option>
@@ -98,19 +85,16 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>
-                Do you have any special requests for you hair style?
-                i.e. floral wreath
+                Do you have any special requests for you hair style? i.e. floral wreath
             </label>
-            <textarea class="form-control" required data-ng-model="task.category_question.specialRequestsForHairStyle" name="specialRequestsForHairStyle"
-                      ng-class="{error : postTaskForm.specialRequestsForHairStyle.$invalid && postTaskForm.$submitted}"></textarea>
+            <textarea class="form-control" required data-ng-model="task.category_question.specialRequestsForHairStyle" name="specialRequestsForHairStyle" ng-class="{error : postTaskForm.specialRequestsForHairStyle.$invalid && postTaskForm.$submitted}"></textarea>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="form-field">
             <label>Show me some photos that have inspired your head style.</label>
             <div class="form-field">
-                <input type="file" class="form-control" name="hairStyleImage" id="hairStyleImage"
-                       fileread="hairStyleImage" image-type="hairStyleImage" accept="image/*" data-ng-model="hairStyleImage">
+                <input type="file" class="form-control" name="hairStyleImage" id="hairStyleImage" fileread="hairStyleImage" image-type="hairStyleImage" accept="image/*" data-ng-model="hairStyleImage">
             </div>
             <div class="form-field ">
                 <label data-ng-if="task.category_question.hairStyleImages.length > 0">Uploaded Image :</label>
@@ -125,11 +109,10 @@
     </div>
 </div>
 <div class="row" data-ng-if="otherBeautyServicesIndicator">
-        <div class="col-sm-4">
+    <div class="col-sm-4">
         <div class="form-field">
             <label class="desk-hair">Other beauty services</label>
-            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.otherBeautyServiceType" name="otherBeautyServiceType"
-                    ng-class="{error : postTaskForm.otherBeautyServiceType.$invalid && postTaskForm.$submitted}">
+            <select class="multipleSelection" multiple="multiple" required data-ng-model="task.category_question.otherBeautyServiceType" name="otherBeautyServiceType" ng-class="{error : postTaskForm.otherBeautyServiceType.$invalid && postTaskForm.$submitted}">
                 <option value="">PLEASE SELECT </option>
                 <option value="Facial">FACIAL </option>
                 <option value="Spray tan">SPRAY TAN</option>
@@ -137,20 +120,18 @@
                 <option value="Waxing">WAXING</option>
                 <option value="Threading">THREADING</option>
             </select>
-         </div>
-       </div>
-        <div class="col-sm-4">
-            <div class="form-field">
-                <label class="desk-hair">Please describe in more detail what you would like?	</label>
-                <textarea class="form-control" required data-ng-model="task.category_question.userThoughts" name="userThoughts"
-                          ng-class="{error : postTaskForm.userThoughts.$invalid && postTaskForm.$submitted}"></textarea>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-field">
-                <label>Do you have any special requirement or information you need to tell your beauty therapist?	</label>
-                <textarea class="form-control" required data-ng-model="task.category_question.informationRequiredForBeautyTherapist" name="informationRequiredForBeautyTherapist"
-                          ng-class="{error : postTaskForm.informationRequiredForBeautyTherapist.$invalid && postTaskForm.$submitted}"></textarea>
-            </div>
         </div>
     </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label class="desk-hair">Please describe in more detail what you would like? </label>
+            <textarea class="form-control" required data-ng-model="task.category_question.userThoughts" name="userThoughts" ng-class="{error : postTaskForm.userThoughts.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any special requirement or information you need to tell your beauty therapist? </label>
+            <textarea class="form-control" required data-ng-model="task.category_question.informationRequiredForBeautyTherapist" name="informationRequiredForBeautyTherapist" ng-class="{error : postTaskForm.informationRequiredForBeautyTherapist.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+</div>

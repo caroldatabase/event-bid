@@ -1,0 +1,77 @@
+$eb_blue: 		#4F748C;
+$eb_blue_2: 	#bfcdd7;
+$eb_blue_3: 	#EFF3F7;
+$eb_orange: 	#E6BAA8;
+$eb_orange_2: 	#FAE6DE;
+$textcolor: 	#4F758B;
+$lightcolor: 	#dcdcdc;
+$white:			#FFFFFF;
+$black:         #333333;
+$lightgrey:     #F9F9F9;
+
+@mixin transWhite($deg:0.8) {
+    background-color:  rgba(255, 255, 255, $deg);
+}
+
+@mixin blueGradient(){
+    background: $eb_blue; 
+    background: linear-gradient(110deg,  $eb_blue_2 0%, $eb_blue 130%); 
+}
+
+@mixin blueGradientReverse(){
+    background: $eb_blue;
+    background: linear-gradient(45deg, $eb_blue 0%, $eb_blue_2 70%);
+}
+
+@mixin blueGradientHover(){
+    background: $eb_blue;
+    background: linear-gradient(-45deg, $eb_blue 33%, $eb_blue_2 100%);
+}
+
+@mixin button(){
+    background: $eb_blue;
+    color: $white;
+    &:hover,
+    &:focus{
+        background: darken($eb_blue, 10%); 
+    }
+}
+
+
+@mixin gradientButton($marginTop: 0px, $paddingLeft: 55px){
+    padding: 15px $paddingLeft;
+    border-radius: 15px;
+    font-size: 26px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: $marginTop 34px 0;
+    border: 0;
+    @include blueGradient();
+    color:white;
+    transition: color .2s ease;
+    &:hover,
+    &:focus {
+        color: $eb_blue;
+    }
+}
+
+
+%header60 {
+    font-family: "lato";
+    font-size: 60px;
+    color: $textcolor;
+}
+
+%header40 {
+    font-family: "lato";
+    font-size: 40px;
+    color: $textcolor;
+}
+
+%header19B {
+    font-family: "lato";
+    font-size: 19px;
+    font-weight: bold;
+    color: $textcolor;
+}

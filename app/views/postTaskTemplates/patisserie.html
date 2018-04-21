@@ -1,93 +1,81 @@
 <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>What kinds of cake or pastries do you need for your event?</label>
-                                <select class="multipleSelection" multiple="multiple" required id="cakeTypes"
-                                        data-ng-model="task.category_question.cakeTypes" name="cakeTypes"
-                                        ng-class="{error : postTaskForm.cakeTypes.$invalid && postTaskForm.$submitted}">
-                                    <option value="Wedding cake">WEDDING CAKE</option>
-                                    <option value="Custom celebration cake (large)">CUSTOM CELEBRATION CAKE (LARGE)</option>
-                                    <option value="Custom celebration cake (medium)">CUSTOM CELEBRATION CAKE (MEDIUM)</option>
-                                    <option value="Custom celebration cake (small)">CUSTOM CELEBRATION CAKE (SMALL)</option>
-                                    <option value="Dessert platters">DESSERT PLATTERS</option>
-                                    <option value="Specialty cake">SPECIALTY CAKE</option>
-                                    <option value="Lolly/dessert station">LOLLY/DESSERT STATION</option>
-                                    <option value="Cupcakes ">CUPCAKES</option>
-                                    <option value="Selection of pastries">SELECTION OF PASTRIES</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label style="width:100%; margin-left:5px;" class="desk-hair">How many do you require for your event? </label>
-                                <div class="input-adjust">
-                                    <input type="number" class="form-control" data-ng-model="task.category_question.numberOfDesert" name="numberOfDesert"
-                                           required min="1" max="25" placeholder="1 to 25"
-                                           ng-class="{error : postTaskForm.numberOfDesert.$invalid && postTaskForm.$submitted}" />
-                                </div>
-                                <div class="input-adjust">
-                                    <select class="singleSelection" required data-ng-model="task.category_question.desertType" name="desertType"
-                                            ng-class="{error : postTaskForm.desertType.$invalid && postTaskForm.$submitted}">
-                                        <option value="">PLEASE SELECT</option>
-                                        <option value="platters">PLATTERS</option>
-                                        <option value="cakes">CAKES</option>
-                                        <option value="types of dessert">TYPES OF DESSERT</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label style="width:100%; margin-left:5px;" class="desk-hair">Give us an idea about how much you want to spend </label>
-                                <div class="input-adjust">
-                                    <span class="place-ico">$</span>
-
-                                    <input type="number" class="form-control" data-ng-model="task.category_question.totalCost" name="totalCost"
-                                           required min="0"
-                                           ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
-                                </div>
-                                <div class="input-adjust">
-                                    <select class="singleSelection" required data-ng-model="task.category_question.costType" name="costType"
-                                            ng-class="{error : postTaskForm.costType.$invalid && postTaskForm.$submitted}">
-                                        <option value="">PLEASE SELECT</option>
-                                        <option value="Per cake">PER CAKE</option>
-                                        <option value="Per platter">PER PLATTER</option>
-                                        <option value="Per dessert">PER DESSERT</option>
-                                        <option value="Total">TOTAL</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-          </div>          
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label class="desk-hair">Describe what you need in a little more detail. </label>
-                                <textarea class="form-control" data-ng-model="task.category_question.describeReq" name="describeReq" required
-                                          ng-class="{error : postTaskForm.describeReq.$invalid && postTaskForm.$submitted}"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>Do you have any dietary requirements that you will need to tell the chef?</label>
-                                <textarea class="form-control" data-ng-model="task.category_question.dietaryRequirement" name="dietaryRequirement" required
-                                          ng-class="{error : postTaskForm.dietaryRequirement.$invalid && postTaskForm.$submitted}"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-field">
-                                <label>Please show us some photos that have inspired your dessert? (Allow upto three photos)</label>
-                                <input type="file" class="form-control" name="desertImage" id="desertImage"
-                                       fileread="desertImage" image-type="desertImage"  accept="image/*" data-ng-model="desertImage">
-                            </div>
-                            <div class="form-field ">
-                                <label data-ng-if="task.category_question.desertImages.length > 0">Uploaded Image :</label>
-                                <div data-ng-if="task.category_question.desertImages.length > 0" data-ng-repeat="data in task.category_question.desertImages track by $index">
-                                    <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="desertPhoto">
-                                </div>
-                                <!--<div data-ng-if="task.category_question.desertImages.length == 0">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>What kinds of cake or pastries do you need for your event?</label>
+            <select class="multipleSelection" multiple="multiple" required id="cakeTypes" data-ng-model="task.category_question.cakeTypes" name="cakeTypes" ng-class="{error : postTaskForm.cakeTypes.$invalid && postTaskForm.$submitted}">
+                <option value="Wedding cake">WEDDING CAKE</option>
+                <option value="Custom celebration cake (large)">CUSTOM CELEBRATION CAKE (LARGE)</option>
+                <option value="Custom celebration cake (medium)">CUSTOM CELEBRATION CAKE (MEDIUM)</option>
+                <option value="Custom celebration cake (small)">CUSTOM CELEBRATION CAKE (SMALL)</option>
+                <option value="Dessert platters">DESSERT PLATTERS</option>
+                <option value="Specialty cake">SPECIALTY CAKE</option>
+                <option value="Lolly/dessert station">LOLLY/DESSERT STATION</option>
+                <option value="Cupcakes ">CUPCAKES</option>
+                <option value="Selection of pastries">SELECTION OF PASTRIES</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label style="width:100%; margin-left:5px;" class="desk-hair">How many do you require for your event? </label>
+            <div class="input-adjust">
+                <input type="number" class="form-control" data-ng-model="task.category_question.numberOfDesert" name="numberOfDesert" required min="1" max="25" placeholder="1 to 25" ng-class="{error : postTaskForm.numberOfDesert.$invalid && postTaskForm.$submitted}" />
+            </div>
+            <div class="input-adjust">
+                <select class="form-control singleSelection" required data-ng-model="task.category_question.desertType" name="desertType" ng-class="{error : postTaskForm.desertType.$invalid && postTaskForm.$submitted}">
+                    <option value="">PLEASE SELECT</option>
+                    <option value="platters">PLATTERS</option>
+                    <option value="cakes">CAKES</option>
+                    <option value="types of dessert">TYPES OF DESSERT</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label style="width:100%; margin-left:5px;" class="desk-hair">Give us an idea about how much you want to spend </label>
+            <div class="input-adjust">
+                <span class="place-ico">$</span>
+                <input type="number" class="form-control" data-ng-model="task.category_question.totalCost" name="totalCost" required min="0" ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
+            </div>
+            <div class="input-adjust">
+                <select class="form-control singleSelection" required data-ng-model="task.category_question.costType" name="costType" ng-class="{error : postTaskForm.costType.$invalid && postTaskForm.$submitted}">
+                    <option value="">PLEASE SELECT</option>
+                    <option value="Per cake">PER CAKE</option>
+                    <option value="Per platter">PER PLATTER</option>
+                    <option value="Per dessert">PER DESSERT</option>
+                    <option value="Total">TOTAL</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label class="desk-hair">Describe what you need in a little more detail. </label>
+            <textarea class="form-control" data-ng-model="task.category_question.describeReq" name="describeReq" required ng-class="{error : postTaskForm.describeReq.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Do you have any dietary requirements that you will need to tell the chef?</label>
+            <textarea class="form-control" data-ng-model="task.category_question.dietaryRequirement" name="dietaryRequirement" required ng-class="{error : postTaskForm.dietaryRequirement.$invalid && postTaskForm.$submitted}"></textarea>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-field">
+            <label>Please show us some photos that have inspired your dessert? (Allow upto three photos)</label>
+            <input type="file" class="form-control" name="desertImage" id="desertImage" fileread="desertImage" image-type="desertImage" accept="image/*" data-ng-model="desertImage">
+        </div>
+        <div class="form-field ">
+            <label data-ng-if="task.category_question.desertImages.length > 0">Uploaded Image :</label>
+            <div data-ng-if="task.category_question.desertImages.length > 0" data-ng-repeat="data in task.category_question.desertImages track by $index">
+                <img class="uploaded-image" ng-src="{{data}}" width="50" height="50" alt="Image preview..." id="desertPhoto">
+            </div>
+            <!--<div data-ng-if="task.category_question.desertImages.length == 0">
                                     <img width="100" height="50" alt="Image preview..." id="desertPhoto">
                                 </div>-->
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
