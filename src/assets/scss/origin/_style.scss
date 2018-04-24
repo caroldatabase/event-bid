@@ -1999,11 +1999,6 @@ ul.multiselect-container.dropdown-menu li a:hover {
     padding: 40px 0px;
 }
 
-.top-menu-btn span {
-    font-size: 24px;
-    margin-left: 15px;
-    color: #484848;
-}
 
 .jobs-list {
     background: #eee;
@@ -2076,15 +2071,102 @@ ul.multiselect-container.dropdown-menu li a:hover {
     text-align: center;
 }
 
-.banner-name-user.text-center {
+.mydashboard{
+    .sub-banner{
+        padding: 13rem 0;
+        background-image: url(../imgs/Balloon_short.jpg);
+    }
+    .col-sm-4 {
+        text-align: center;
+    }
+    .svg_payments {
+        a {
+            display: block;
+        }
+        svg{
+            width: 210px;
+            height: auto;
+            path { transition: fill .2s ease-out; }
+            &:hover {
+                .st3 {
+                     fill: $eb_blue;
+                }
+                circle {
+                    fill:white;
+                }
+            }
+        }
+    }
+    .svg_profile {
+        a {
+            display: block;
+        }
+        svg{
+            width: 210px;
+            height: auto;
+            path { transition: fill .2s ease-out; }
+            &:hover {
+                circle {
+                    fill:white;
+                }
+               .st3{
+                    fill: $eb_blue;
+                }
+            }
+        }
+    }
+    .svg_settings {
+        a {
+            display: block;
+        }
+        svg{
+            width: 210px;
+            height: auto;
+            path { transition: fill .2s ease-out; }
+            &:hover {
+                circle {
+                    fill:white;
+                }
+               .st3{
+                    fill: $eb_blue;
+                }
+            }
+        }
+    }
+    .nav-tabs > li, .nav-pills > li {
+        float:none;
+        display:inline-block
+    }
+
+    .nav-tabs, .nav-pills {
+        text-align:center;
+    }
+}
+
+.banner-name-user {
     position: absolute;
     text-align: center;
     width: 100%;
     top: 36%;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translatey(-50%);
+        z-index: 99;
+        text-align: center;
+        padding: 5rem 0;
+        background-color: rgba(255, 255, 255, 0.7);
+        color: $white;
+        z-index: 1;
+    }
     h1 {
-        font-size: 65px;
-        text-shadow: 3px 1px 7px #018479;
-        color: #fff;
+        z-index: 5;
+        font-size: 4.5rem;
+        color: $eb_blue;
+        position: relative;
     }
 }
 
