@@ -38,10 +38,10 @@ $lightgrey:     #F9F9F9;
 }
 
 
-@mixin gradientButton($marginTop: 0px, $paddingLeft: 55px){
-    padding: 15px $paddingLeft;
-    border-radius: 15px;
-    font-size: 26px;
+@mixin gradientButton($marginTop: 0px, $padingTop: 15px, $paddingLeft: 55px, $radius: 15px, $font: 26px){
+    padding: $padingTop $paddingLeft;
+    border-radius: $radius;
+    font-size: $font;
     font-weight: 300;
     text-align: center;
     text-transform: lowercase;

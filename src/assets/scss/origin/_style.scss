@@ -853,7 +853,7 @@ img {
         border-top: 3px solid $eb_blue;
     }
     .button-group .btn {
-        @include gradientButton(8rem, 8.5rem);
+        @include gradientButton($marginTop: 8rem, $padingTop: 11px,  $font: 24px);
         border: 1px solid lighten($eb_blue, 24%);
     }
 }
@@ -1996,7 +1996,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
 }
 
 .container.customer-dashboard {
-    padding: 40px 0px;
+    padding: 7rem 0px 10rem;
 }
 
 
@@ -2026,7 +2026,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
             border-bottom: 1px solid #ccc;
             display: block;
             &:hover {
-                background: #018479;
+                background: $eb_blue;
                 color: #fff;
             }
         }
@@ -2048,17 +2048,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
     margin-bottom: 25px;
     text-align: center;
     a {
-        background: #018479;
-        font-size: 16px;
-        padding: 10px 20px;
-        color: #fff;
-        border-radius: 5px;
-        text-decoration: none;
-        &:hover {
-            background: #109699;
-            text-decoration: none;
-            color: #fff;
-        }
+        @include gradientButton(0, 12px, 50px, 6px, 18px);
     }
 }
 
@@ -2071,7 +2061,9 @@ ul.multiselect-container.dropdown-menu li a:hover {
     text-align: center;
 }
 
-.mydashboard{
+.mydashboard {
+    background-color: $eb_blue_3;
+
     .sub-banner{
         padding: 13rem 0;
         background-image: url(../imgs/Balloon_short.jpg);
@@ -2133,6 +2125,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
             }
         }
     }
+
     .nav-tabs > li, .nav-pills > li {
         float:none;
         display:inline-block
@@ -2140,6 +2133,64 @@ ul.multiselect-container.dropdown-menu li a:hover {
 
     .nav-tabs, .nav-pills {
         text-align:center;
+    }
+    .customerDashboard {
+        background-color: $eb_orange;
+        padding: 11rem 0 6rem;
+    }
+    .businessDashboard {
+        background-color: $eb_blue_2;
+        padding: 11rem 0 6rem;
+    }
+    .nav-tabs {
+        font-size: 0;
+        > li {
+            color: $white;
+            border: 0;
+            a {
+                color:$white;
+                font-size: 20px;
+                padding: 17px 27px;
+
+                &:hover,
+                &:focus {
+                    color: $white;
+                    border:0;
+                }
+                &.customerBtn {
+                    border-radius: 20px 0 0 0;
+                    background-color: $eb_orange;
+                    margin: 0;
+                    border: 0;
+                    &:hover {
+                        background-color: darken($eb_orange, 10%);
+                    }
+                }
+                &.businessBtn {
+                    margin: 0;
+                    border-radius: 0 20px 0 0;
+                    background-color: $eb_blue_2;
+                    border: 0;
+                    &:hover {
+                        background-color: darken($eb_blue_2, 10%);
+                    }
+                }
+            }
+
+            &.active > a
+            &.active > a:hover,
+            &.active > a:focus{
+                border-bottom-color: transparent;
+                color: $white;
+                border: 0;
+            }
+            &.active > a.customerBtn {
+                background-color: $eb_orange;
+            }
+            &.active > a.businessBtn {
+                background-color: $eb_blue_2;
+            }
+        } 
     }
 }
 
@@ -2663,7 +2714,7 @@ h4.tsk-head {
     }
     h4 {
         text-align: center;
-        background: #018479;
+        background: $eb_blue;
         margin: -15px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -2671,13 +2722,13 @@ h4.tsk-head {
         padding: 10px;
         margin-bottom: 15px;
     }
-    background: #eee;
+    background: $white;
     float: left;
     width: 100%;
     padding: 15px;
     border-radius: 5px;
     height: 250px;
-    overflow-y: scroll;
+    overflow-y: auto;
     ul {
         margin-top: 0;
         float: left;
@@ -2866,3 +2917,5 @@ ul.multiselect-container.dropdown-menu {
 .input-group .form-control:last-child {
     z-index: 0;
 }
+
+

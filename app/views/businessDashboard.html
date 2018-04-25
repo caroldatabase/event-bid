@@ -165,17 +165,17 @@
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" ng-class="{active: buisnessDashboardIndicator }">
-            <a aria-controls="function" data-ng-click="showBuisnessTab()" role="tab" data-toggle="tab">
+            <a aria-controls="function" class="customerBtn" data-ng-click="showBuisnessTab()" role="tab" data-toggle="tab">
                           Customer Dashboard
                       </a>
         </li>
         <li role="presentation" ng-class="{active: customerDashboardIndicator }">
-            <a aria-controls="contact" role="tab" data-ng-click="showCustomerTab()" data-toggle="tab">
+            <a aria-controls="contact" class="businessBtn" role="tab" data-ng-click="showCustomerTab()" data-toggle="tab">
                           Buisness Dashboard
                       </a>
         </li>
     </ul>
-    <div data-ng-if="buisnessDashboardIndicator" class="buisnessDashboard">
+    <div data-ng-if="buisnessDashboardIndicator" class="customerDashboard">
         <div class="container jobs-dasborad">
             <div class="row">
                 <div class="col-sm-6">
@@ -254,7 +254,7 @@
             </div>
         </div>
     </div>
-    <div data-ng-if="customerDashboardIndicator" class="customerDashboard">
+    <div data-ng-if="customerDashboardIndicator" class="businessDashboard">
         <div class="container jobs-dasborad">
             <div class="row">
                 <!--jobs you have bidded on -->

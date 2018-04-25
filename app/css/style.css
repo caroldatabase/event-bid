@@ -9020,9 +9020,9 @@ img {
     border-top: 3px solid #4F748C; }
   /* line 855, src/assets/scss/origin/_style.scss */
   .post-a-task .button-group .btn {
-    padding: 15px 8.5rem;
+    padding: 11px 55px;
     border-radius: 15px;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 300;
     text-align: center;
     text-transform: lowercase;
@@ -9778,7 +9778,7 @@ a#submit {
       z-index: -1; }
   /* line 1658, src/assets/scss/origin/_style.scss */
   .sub-banner .banner-overlay button {
-    padding: 15px 8.5rem;
+    padding: 8.5rem 55px;
     border-radius: 15px;
     font-size: 26px;
     font-weight: 300;
@@ -10110,7 +10110,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
 
 /* line 1998, src/assets/scss/origin/_style.scss */
 .container.customer-dashboard {
-  padding: 40px 0px; }
+  padding: 7rem 0px 10rem; }
 
 /* line 2003, src/assets/scss/origin/_style.scss */
 .jobs-list {
@@ -10142,7 +10142,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
       display: block; }
       /* line 2028, src/assets/scss/origin/_style.scss */
       .jobs-list ul a:hover {
-        background: #018479;
+        background: #4F748C;
         color: #fff; }
     /* line 2033, src/assets/scss/origin/_style.scss */
     .jobs-list ul li {
@@ -10162,19 +10162,25 @@ ul.multiselect-container.dropdown-menu li a:hover {
   text-align: center; }
   /* line 2050, src/assets/scss/origin/_style.scss */
   .dashborad-post-btn a {
-    background: #018479;
-    font-size: 16px;
-    padding: 10px 20px;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none; }
-    /* line 2057, src/assets/scss/origin/_style.scss */
-    .dashborad-post-btn a:hover {
-      background: #109699;
-      text-decoration: none;
-      color: #fff; }
+    padding: 12px 50px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0 34px 0;
+    border: 0;
+    background: #4F748C;
+    background: -webkit-linear-gradient(340deg, #bfcdd7 0%, #4F748C 130%);
+    background: linear-gradient(110deg, #bfcdd7 0%, #4F748C 130%);
+    color: white;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease; }
+    /* line 53, src/assets/scss/_vars.scss */
+    .dashborad-post-btn a:hover, .dashborad-post-btn a:focus {
+      color: #4F748C; }
 
-/* line 2065, src/assets/scss/origin/_style.scss */
+/* line 2055, src/assets/scss/origin/_style.scss */
 .text-content-dash {
   float: left;
   width: 100%;
@@ -10183,88 +10189,137 @@ ul.multiselect-container.dropdown-menu li a:hover {
   margin-top: 35px;
   text-align: center; }
 
-/* line 2075, src/assets/scss/origin/_style.scss */
-.mydashboard .sub-banner {
-  padding: 13rem 0;
-  background-image: url(../imgs/Balloon_short.jpg); }
+/* line 2064, src/assets/scss/origin/_style.scss */
+.mydashboard {
+  background-color: #EFF3F7; }
+  /* line 2067, src/assets/scss/origin/_style.scss */
+  .mydashboard .sub-banner {
+    padding: 13rem 0;
+    background-image: url(../imgs/Balloon_short.jpg); }
+  /* line 2071, src/assets/scss/origin/_style.scss */
+  .mydashboard .col-sm-4 {
+    text-align: center; }
+  /* line 2075, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_payments a {
+    display: block; }
+  /* line 2078, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_payments svg {
+    width: 210px;
+    height: auto; }
+    /* line 2081, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_payments svg path {
+      -webkit-transition: fill .2s ease-out;
+      transition: fill .2s ease-out; }
+    /* line 2083, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_payments svg:hover .st3 {
+      fill: #4F748C; }
+    /* line 2086, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_payments svg:hover circle {
+      fill: white; }
+  /* line 2093, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_profile a {
+    display: block; }
+  /* line 2096, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_profile svg {
+    width: 210px;
+    height: auto; }
+    /* line 2099, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_profile svg path {
+      -webkit-transition: fill .2s ease-out;
+      transition: fill .2s ease-out; }
+    /* line 2101, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_profile svg:hover circle {
+      fill: white; }
+    /* line 2104, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_profile svg:hover .st3 {
+      fill: #4F748C; }
+  /* line 2111, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_settings a {
+    display: block; }
+  /* line 2114, src/assets/scss/origin/_style.scss */
+  .mydashboard .svg_settings svg {
+    width: 210px;
+    height: auto; }
+    /* line 2117, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_settings svg path {
+      -webkit-transition: fill .2s ease-out;
+      transition: fill .2s ease-out; }
+    /* line 2119, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_settings svg:hover circle {
+      fill: white; }
+    /* line 2122, src/assets/scss/origin/_style.scss */
+    .mydashboard .svg_settings svg:hover .st3 {
+      fill: #4F748C; }
+  /* line 2129, src/assets/scss/origin/_style.scss */
+  .mydashboard .nav-tabs > li, .mydashboard .nav-pills > li {
+    float: none;
+    display: inline-block; }
+  /* line 2134, src/assets/scss/origin/_style.scss */
+  .mydashboard .nav-tabs, .mydashboard .nav-pills {
+    text-align: center; }
+  /* line 2137, src/assets/scss/origin/_style.scss */
+  .mydashboard .customerDashboard {
+    background-color: #E6BAA8;
+    padding: 11rem 0 6rem; }
+  /* line 2141, src/assets/scss/origin/_style.scss */
+  .mydashboard .businessDashboard {
+    background-color: #bfcdd7;
+    padding: 11rem 0 6rem; }
+  /* line 2145, src/assets/scss/origin/_style.scss */
+  .mydashboard .nav-tabs {
+    font-size: 0; }
+    /* line 2147, src/assets/scss/origin/_style.scss */
+    .mydashboard .nav-tabs > li {
+      color: #FFFFFF;
+      border: 0; }
+      /* line 2150, src/assets/scss/origin/_style.scss */
+      .mydashboard .nav-tabs > li a {
+        color: #FFFFFF;
+        font-size: 20px;
+        padding: 17px 27px; }
+        /* line 2155, src/assets/scss/origin/_style.scss */
+        .mydashboard .nav-tabs > li a:hover, .mydashboard .nav-tabs > li a:focus {
+          color: #FFFFFF;
+          border: 0; }
+        /* line 2160, src/assets/scss/origin/_style.scss */
+        .mydashboard .nav-tabs > li a.customerBtn {
+          border-radius: 20px 0 0 0;
+          background-color: #E6BAA8;
+          margin: 0;
+          border: 0; }
+          /* line 2165, src/assets/scss/origin/_style.scss */
+          .mydashboard .nav-tabs > li a.customerBtn:hover {
+            background-color: #db9b80; }
+        /* line 2169, src/assets/scss/origin/_style.scss */
+        .mydashboard .nav-tabs > li a.businessBtn {
+          margin: 0;
+          border-radius: 0 20px 0 0;
+          background-color: #bfcdd7;
+          border: 0; }
+          /* line 2174, src/assets/scss/origin/_style.scss */
+          .mydashboard .nav-tabs > li a.businessBtn:hover {
+            background-color: #a0b4c3; }
+      /* line 2180, src/assets/scss/origin/_style.scss */
+      .mydashboard .nav-tabs > li.active > a
+.mydashboard .nav-tabs > li.active > a:hover,
+      .mydashboard .nav-tabs > li.active > a:focus {
+        border-bottom-color: transparent;
+        color: #FFFFFF;
+        border: 0; }
+      /* line 2187, src/assets/scss/origin/_style.scss */
+      .mydashboard .nav-tabs > li.active > a.customerBtn {
+        background-color: #E6BAA8; }
+      /* line 2190, src/assets/scss/origin/_style.scss */
+      .mydashboard .nav-tabs > li.active > a.businessBtn {
+        background-color: #bfcdd7; }
 
-/* line 2079, src/assets/scss/origin/_style.scss */
-.mydashboard .col-sm-4 {
-  text-align: center; }
-
-/* line 2083, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_payments a {
-  display: block; }
-
-/* line 2086, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_payments svg {
-  width: 210px;
-  height: auto; }
-  /* line 2089, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_payments svg path {
-    -webkit-transition: fill .2s ease-out;
-    transition: fill .2s ease-out; }
-  /* line 2091, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_payments svg:hover .st3 {
-    fill: #4F748C; }
-  /* line 2094, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_payments svg:hover circle {
-    fill: white; }
-
-/* line 2101, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_profile a {
-  display: block; }
-
-/* line 2104, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_profile svg {
-  width: 210px;
-  height: auto; }
-  /* line 2107, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_profile svg path {
-    -webkit-transition: fill .2s ease-out;
-    transition: fill .2s ease-out; }
-  /* line 2109, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_profile svg:hover circle {
-    fill: white; }
-  /* line 2112, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_profile svg:hover .st3 {
-    fill: #4F748C; }
-
-/* line 2119, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_settings a {
-  display: block; }
-
-/* line 2122, src/assets/scss/origin/_style.scss */
-.mydashboard .svg_settings svg {
-  width: 210px;
-  height: auto; }
-  /* line 2125, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_settings svg path {
-    -webkit-transition: fill .2s ease-out;
-    transition: fill .2s ease-out; }
-  /* line 2127, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_settings svg:hover circle {
-    fill: white; }
-  /* line 2130, src/assets/scss/origin/_style.scss */
-  .mydashboard .svg_settings svg:hover .st3 {
-    fill: #4F748C; }
-
-/* line 2136, src/assets/scss/origin/_style.scss */
-.mydashboard .nav-tabs > li, .mydashboard .nav-pills > li {
-  float: none;
-  display: inline-block; }
-
-/* line 2141, src/assets/scss/origin/_style.scss */
-.mydashboard .nav-tabs, .mydashboard .nav-pills {
-  text-align: center; }
-
-/* line 2146, src/assets/scss/origin/_style.scss */
+/* line 2197, src/assets/scss/origin/_style.scss */
 .banner-name-user {
   position: absolute;
   text-align: center;
   width: 100%;
   top: 36%; }
-  /* line 2151, src/assets/scss/origin/_style.scss */
+  /* line 2202, src/assets/scss/origin/_style.scss */
   .banner-name-user::after {
     content: "";
     position: absolute;
@@ -10280,32 +10335,32 @@ ul.multiselect-container.dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #FFFFFF;
     z-index: 1; }
-  /* line 2165, src/assets/scss/origin/_style.scss */
+  /* line 2216, src/assets/scss/origin/_style.scss */
   .banner-name-user h1 {
     z-index: 5;
     font-size: 4.5rem;
     color: #4F748C;
     position: relative; }
 
-/* line 2173, src/assets/scss/origin/_style.scss */
+/* line 2224, src/assets/scss/origin/_style.scss */
 .user-pic {
   height: 110px;
   border-radius: 100%;
   width: 110px;
   overflow: hidden;
   margin: 0 auto; }
-  /* line 2179, src/assets/scss/origin/_style.scss */
+  /* line 2230, src/assets/scss/origin/_style.scss */
   .user-pic img {
     height: 100%;
     width: 100%; }
 
-/* line 2185, src/assets/scss/origin/_style.scss */
+/* line 2236, src/assets/scss/origin/_style.scss */
 .side-bar-profile {
   padding: 15px;
   background: #f9f9f9;
   border-bottom: 1px solid #e9e9e9; }
 
-/* line 2192, src/assets/scss/origin/_style.scss */
+/* line 2243, src/assets/scss/origin/_style.scss */
 p.user-name {
   text-align: center;
   font-weight: 600;
@@ -10313,43 +10368,43 @@ p.user-name {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 2199, src/assets/scss/origin/_style.scss */
+/* line 2250, src/assets/scss/origin/_style.scss */
 p.pro-ratting {
   text-align: center;
   margin-top: 0px; }
 
-/* line 2203, src/assets/scss/origin/_style.scss */
+/* line 2254, src/assets/scss/origin/_style.scss */
 p.location-text {
   float: left;
   width: 100%;
   margin-bottom: 5px;
   font-size: 16px; }
 
-/* line 2212, src/assets/scss/origin/_style.scss */
+/* line 2263, src/assets/scss/origin/_style.scss */
 span.from-pro {
   float: left; }
 
-/* line 2215, src/assets/scss/origin/_style.scss */
+/* line 2266, src/assets/scss/origin/_style.scss */
 span.loc-pro {
   float: right; }
 
-/* line 2220, src/assets/scss/origin/_style.scss */
+/* line 2271, src/assets/scss/origin/_style.scss */
 p.pro-contact-me {
   float: left;
   width: 100%; }
 
-/* line 2225, src/assets/scss/origin/_style.scss */
+/* line 2276, src/assets/scss/origin/_style.scss */
 .side-bar-profile {
   float: left;
   width: 100%;
   margin-top: 20px;
   border-radius: 5px; }
 
-/* line 2233, src/assets/scss/origin/_style.scss */
+/* line 2284, src/assets/scss/origin/_style.scss */
 p.pro-contact-me {
   text-align: center;
   margin-top: 25px; }
-  /* line 2236, src/assets/scss/origin/_style.scss */
+  /* line 2287, src/assets/scss/origin/_style.scss */
   p.pro-contact-me a {
     background: #0b7f74;
     color: #fff;
@@ -10360,7 +10415,7 @@ p.pro-contact-me {
     margin: 0 auto;
     border-radius: 5px; }
 
-/* line 2247, src/assets/scss/origin/_style.scss */
+/* line 2298, src/assets/scss/origin/_style.scss */
 p.skill-pro {
   margin: 0px -15px;
   background: #eee;
@@ -10370,21 +10425,21 @@ p.skill-pro {
   font-weight: 600;
   margin-top: 20px; }
 
-/* line 2258, src/assets/scss/origin/_style.scss */
+/* line 2309, src/assets/scss/origin/_style.scss */
 .skill-list {
   margin-top: 15px;
   margin-left: 15px; }
-  /* line 2261, src/assets/scss/origin/_style.scss */
+  /* line 2312, src/assets/scss/origin/_style.scss */
   .skill-list li {
     padding: 5px 0px;
     list-style: disc; }
 
-/* line 2267, src/assets/scss/origin/_style.scss */
+/* line 2318, src/assets/scss/origin/_style.scss */
 .portfolio-list {
   float: left;
   width: 100%; }
 
-/* line 2272, src/assets/scss/origin/_style.scss */
+/* line 2323, src/assets/scss/origin/_style.scss */
 ul.images-portfolio li {
   width: 25%;
   float: left;
@@ -10392,69 +10447,69 @@ ul.images-portfolio li {
   padding: 1%;
   margin-bottom: 20px; }
 
-/* line 2280, src/assets/scss/origin/_style.scss */
+/* line 2331, src/assets/scss/origin/_style.scss */
 .portfolio-list {
   float: left;
   width: 100%; }
 
-/* line 2285, src/assets/scss/origin/_style.scss */
+/* line 2336, src/assets/scss/origin/_style.scss */
 .jobs-profile {
   padding: 15px;
   border: 1px solid #e9e9e9;
   border-radius: 5px;
   margin-top: 20px; }
 
-/* line 2292, src/assets/scss/origin/_style.scss */
+/* line 2343, src/assets/scss/origin/_style.scss */
 .jobs-pro-heading {
   float: left;
   width: 100%;
   text-align: center;
   margin-bottom: 0px;
   /* font-size: 24px; */ }
-  /* line 2298, src/assets/scss/origin/_style.scss */
+  /* line 2349, src/assets/scss/origin/_style.scss */
   .jobs-pro-heading h2 {
     font-size: 24px; }
 
-/* line 2303, src/assets/scss/origin/_style.scss */
+/* line 2354, src/assets/scss/origin/_style.scss */
 .job-status-thumb {
   float: left;
   width: 100%;
   padding: 15px 0px;
   border-bottom: 1px solid #e9e9e9; }
-  /* line 2308, src/assets/scss/origin/_style.scss */
+  /* line 2359, src/assets/scss/origin/_style.scss */
   .job-status-thumb h3 {
     font-size: 18px; }
 
-/* line 2313, src/assets/scss/origin/_style.scss */
+/* line 2364, src/assets/scss/origin/_style.scss */
 p.status-desc {
   margin-top: 10px;
   font-size: 13px; }
 
-/* line 2318, src/assets/scss/origin/_style.scss */
+/* line 2369, src/assets/scss/origin/_style.scss */
 .review-pro {
   float: left;
   width: 100%; }
 
-/* line 2323, src/assets/scss/origin/_style.scss */
+/* line 2374, src/assets/scss/origin/_style.scss */
 .review-user.text-center {
   float: left;
   width: 10%;
   margin-right: 3%; }
-  /* line 2327, src/assets/scss/origin/_style.scss */
+  /* line 2378, src/assets/scss/origin/_style.scss */
   .review-user.text-center p {
     font-size: 13px; }
 
-/* line 2332, src/assets/scss/origin/_style.scss */
+/* line 2383, src/assets/scss/origin/_style.scss */
 .review-content-pro {
   float: left;
   width: 87%; }
 
-/* line 2337, src/assets/scss/origin/_style.scss */
+/* line 2388, src/assets/scss/origin/_style.scss */
 .review-pro {
   padding: 15px 0px;
   border-bottom: 1px solid #e9e9e9; }
 
-/* line 2342, src/assets/scss/origin/_style.scss */
+/* line 2393, src/assets/scss/origin/_style.scss */
 .jobs-profile {
   padding: 15px;
   border: 1px solid #e9e9e9;
@@ -10463,15 +10518,15 @@ p.status-desc {
   float: left;
   width: 100%; }
 
-/* line 2352, src/assets/scss/origin/_style.scss */
+/* line 2403, src/assets/scss/origin/_style.scss */
 .hub-thumbnails {
   margin-top: 30px; }
 
-/* line 2356, src/assets/scss/origin/_style.scss */
+/* line 2407, src/assets/scss/origin/_style.scss */
 .hub-head h1 {
   color: #aaa !important; }
 
-/* line 2360, src/assets/scss/origin/_style.scss */
+/* line 2411, src/assets/scss/origin/_style.scss */
 .review-outer {
   padding: 15px;
   border: 1px solid #eee;
@@ -10480,15 +10535,15 @@ p.status-desc {
   width: 100%;
   margin-top: 30px; }
 
-/* line 2369, src/assets/scss/origin/_style.scss */
+/* line 2420, src/assets/scss/origin/_style.scss */
 .review-head {
   text-align: center; }
-  /* line 2371, src/assets/scss/origin/_style.scss */
+  /* line 2422, src/assets/scss/origin/_style.scss */
   .review-head h3 {
     margin-top: 0;
     margin-bottom: 0; }
 
-/* line 2379, src/assets/scss/origin/_style.scss */
+/* line 2430, src/assets/scss/origin/_style.scss */
 .col-sm-12.admin-btn {
   text-align: center;
   margin-top: 25px;
@@ -10496,7 +10551,7 @@ p.status-desc {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  /* line 2383, src/assets/scss/origin/_style.scss */
+  /* line 2434, src/assets/scss/origin/_style.scss */
   .col-sm-12.admin-btn input {
     background: #298992;
     border: 0;
@@ -10513,13 +10568,13 @@ p.status-desc {
     border-radius: 5px;
     font-size: 16px; }
 
-/* line 2404, src/assets/scss/origin/_style.scss */
+/* line 2455, src/assets/scss/origin/_style.scss */
 .container.category-management h4 {
   text-align: center;
   margin-bottom: 25px;
   font-weight: 700; }
 
-/* line 2410, src/assets/scss/origin/_style.scss */
+/* line 2461, src/assets/scss/origin/_style.scss */
 .category-management input[type="button"] {
   background: #298992;
   text-align: center;
@@ -10529,7 +10584,7 @@ p.status-desc {
   color: #fff;
   font-size: 16px; }
 
-/* line 2421, src/assets/scss/origin/_style.scss */
+/* line 2472, src/assets/scss/origin/_style.scss */
 .container.category-management ul {
   width: 25%;
   padding: 0;
@@ -10537,7 +10592,7 @@ p.status-desc {
   padding: 15px;
   display: inline-block; }
 
-/* line 2428, src/assets/scss/origin/_style.scss */
+/* line 2479, src/assets/scss/origin/_style.scss */
 .container.category-management b {
   float: left;
   width: 100%;
@@ -10545,13 +10600,13 @@ p.status-desc {
   margin-bottom: 25px;
   font-size: 24px; }
 
-/* line 2435, src/assets/scss/origin/_style.scss */
+/* line 2486, src/assets/scss/origin/_style.scss */
 .container.category-management ul li {
   background: #eee;
   padding: 15px;
   border-radius: 5px;
   text-align: center; }
-  /* line 2440, src/assets/scss/origin/_style.scss */
+  /* line 2491, src/assets/scss/origin/_style.scss */
   .container.category-management ul li img {
     display: block;
     float: left;
@@ -10559,22 +10614,22 @@ p.status-desc {
     clear: both;
     text-align: center;
     margin: 15px auto; }
-  /* line 2448, src/assets/scss/origin/_style.scss */
+  /* line 2499, src/assets/scss/origin/_style.scss */
   .container.category-management ul li input {
     display: block;
     width: 70%;
     margin: 0 auto;
     clear: both; }
 
-/* line 2457, src/assets/scss/origin/_style.scss */
+/* line 2508, src/assets/scss/origin/_style.scss */
 .category-management input[type="button"] {
   float: right; }
 
-/* line 2462, src/assets/scss/origin/_style.scss */
+/* line 2513, src/assets/scss/origin/_style.scss */
 .container.category-management ul li input {
   float: none !important; }
 
-/* line 2465, src/assets/scss/origin/_style.scss */
+/* line 2516, src/assets/scss/origin/_style.scss */
 .container.category-management h4 {
   text-align: center;
   margin-bottom: 25px;
@@ -10585,7 +10640,7 @@ p.status-desc {
   background: #eee;
   border-radius: 5px; }
 
-/* line 2480, src/assets/scss/origin/_style.scss */
+/* line 2531, src/assets/scss/origin/_style.scss */
 h4.tsk-head {
   text-align: center;
   margin-bottom: 25px;
@@ -10597,7 +10652,7 @@ h4.tsk-head {
   border-radius: 5px;
   width: 100%; }
 
-/* line 2494, src/assets/scss/origin/_style.scss */
+/* line 2545, src/assets/scss/origin/_style.scss */
 .container.admin-blog input[type="button"] {
   color: #fff;
   border: 0;
@@ -10607,7 +10662,7 @@ h4.tsk-head {
   float: right;
   clear: both; }
 
-/* line 2503, src/assets/scss/origin/_style.scss */
+/* line 2554, src/assets/scss/origin/_style.scss */
 .container.admin-blog b {
   width: 100%;
   float: left;
@@ -10617,23 +10672,23 @@ h4.tsk-head {
   font-weight: 700;
   margin-bottom: 15px; }
 
-/* line 2516, src/assets/scss/origin/_style.scss */
+/* line 2567, src/assets/scss/origin/_style.scss */
 .container.admin-blog ul {
   float: left;
   width: 33.33%;
   text-align: center;
   padding: 15px; }
-  /* line 2521, src/assets/scss/origin/_style.scss */
+  /* line 2572, src/assets/scss/origin/_style.scss */
   .container.admin-blog ul li {
     padding: 15px;
     background: #eee;
     text-align: center; }
-    /* line 2525, src/assets/scss/origin/_style.scss */
+    /* line 2576, src/assets/scss/origin/_style.scss */
     .container.admin-blog ul li img {
       width: 100%;
       margin-top: 15px; }
 
-/* line 2531, src/assets/scss/origin/_style.scss */
+/* line 2582, src/assets/scss/origin/_style.scss */
 .container.admin-blog h4 {
   text-align: center;
   padding: 10px;
@@ -10644,7 +10699,7 @@ h4.tsk-head {
   color: #298992;
   margin-bottom: 20px; }
 
-/* line 2541, src/assets/scss/origin/_style.scss */
+/* line 2592, src/assets/scss/origin/_style.scss */
 .container.admin-blog b {
   width: 100%;
   float: left;
@@ -10654,103 +10709,103 @@ h4.tsk-head {
   font-weight: 700;
   margin-bottom: 15px; }
 
-/* line 2552, src/assets/scss/origin/_style.scss */
+/* line 2603, src/assets/scss/origin/_style.scss */
 .row.hub-thumbnails.ng-scope {
   float: left;
   width: 33.33%;
   padding: 15px !important;
   margin: 0 !important; }
-  /* line 2553, src/assets/scss/origin/_style.scss */
+  /* line 2604, src/assets/scss/origin/_style.scss */
   .row.hub-thumbnails.ng-scope .col-sm-4 {
     width: 100%; }
 
-/* line 2562, src/assets/scss/origin/_style.scss */
+/* line 2613, src/assets/scss/origin/_style.scss */
 .hub-head h1 {
   margin-bottom: 30px; }
 
-/* line 2566, src/assets/scss/origin/_style.scss */
+/* line 2617, src/assets/scss/origin/_style.scss */
 .container.admin-blog ul li input {
   float: none !important;
   margin-bottom: 0px !important;
   margin-top: 15px; }
 
-/* line 2572, src/assets/scss/origin/_style.scss */
+/* line 2623, src/assets/scss/origin/_style.scss */
 .d-listing.modal-body {
   padding: 0; }
 
-/* line 2576, src/assets/scss/origin/_style.scss */
+/* line 2627, src/assets/scss/origin/_style.scss */
 .m-body-top {
   display: block;
   background: #eee;
   padding: 15px 30px; }
-  /* line 2580, src/assets/scss/origin/_style.scss */
+  /* line 2631, src/assets/scss/origin/_style.scss */
   .m-body-top p b {
     width: 30%;
     display: inline-block; }
-  /* line 2584, src/assets/scss/origin/_style.scss */
+  /* line 2635, src/assets/scss/origin/_style.scss */
   .m-body-top:after {
     content: "";
     clear: both;
     display: block; }
 
-/* line 2591, src/assets/scss/origin/_style.scss */
+/* line 2642, src/assets/scss/origin/_style.scss */
 .m-body-mid:after,
 .m-body-bottom:after {
   content: "";
   clear: both;
   display: block; }
 
-/* line 2598, src/assets/scss/origin/_style.scss */
+/* line 2649, src/assets/scss/origin/_style.scss */
 .d-left {
   float: left;
   width: 80%; }
 
-/* line 2603, src/assets/scss/origin/_style.scss */
+/* line 2654, src/assets/scss/origin/_style.scss */
 .d-right {
   float: left;
   width: 20%; }
 
-/* line 2608, src/assets/scss/origin/_style.scss */
+/* line 2659, src/assets/scss/origin/_style.scss */
 .event-detail-pop {
   padding: 10px 30px;
   background: #fff;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc; }
 
-/* line 2615, src/assets/scss/origin/_style.scss */
+/* line 2666, src/assets/scss/origin/_style.scss */
 .m-body-mid li {
   line-height: 26px; }
-  /* line 2617, src/assets/scss/origin/_style.scss */
+  /* line 2668, src/assets/scss/origin/_style.scss */
   .m-body-mid li b {
     width: 30%;
     display: inline-block; }
 
-/* line 2623, src/assets/scss/origin/_style.scss */
+/* line 2674, src/assets/scss/origin/_style.scss */
 .m-body-bottom {
   display: block;
   background: #eee;
   padding: 15px 30px; }
-  /* line 2627, src/assets/scss/origin/_style.scss */
+  /* line 2678, src/assets/scss/origin/_style.scss */
   .m-body-bottom p {
     font-style: italic;
     text-align: left;
     float: right; }
-    /* line 2631, src/assets/scss/origin/_style.scss */
+    /* line 2682, src/assets/scss/origin/_style.scss */
     .m-body-bottom p b {
       font-style: normal; }
 
-/* line 2638, src/assets/scss/origin/_style.scss */
+/* line 2689, src/assets/scss/origin/_style.scss */
 .m-body-mid li b {
   width: 50%;
   display: inline-block;
   float: left; }
 
-/* line 2643, src/assets/scss/origin/_style.scss */
+/* line 2694, src/assets/scss/origin/_style.scss */
 .m-body-mid li span {
   float: left;
   width: 50%; }
 
-/* line 2649, src/assets/scss/origin/_style.scss */
+/* line 2700, src/assets/scss/origin/_style.scss */
 .thank-u-msg {
   background: #349d93;
   text-align: center;
@@ -10759,37 +10814,37 @@ h4.tsk-head {
   color: #fff;
   margin-bottom: -15px; }
 
-/* line 2658, src/assets/scss/origin/_style.scss */
+/* line 2709, src/assets/scss/origin/_style.scss */
 .jobs-list {
-  background: #eee;
+  background: #FFFFFF;
   float: left;
   width: 100%;
   padding: 15px;
   border-radius: 5px;
   height: 250px;
-  overflow-y: scroll; }
-  /* line 2659, src/assets/scss/origin/_style.scss */
+  overflow-y: auto; }
+  /* line 2710, src/assets/scss/origin/_style.scss */
   .jobs-list ul {
     margin-top: 0;
     float: left;
     width: 100%; }
-  /* line 2664, src/assets/scss/origin/_style.scss */
+  /* line 2715, src/assets/scss/origin/_style.scss */
   .jobs-list h4 {
     text-align: center;
-    background: #018479;
+    background: #4F748C;
     margin: -15px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     color: #fff;
     padding: 10px;
     margin-bottom: 15px; }
-  /* line 2681, src/assets/scss/origin/_style.scss */
+  /* line 2732, src/assets/scss/origin/_style.scss */
   .jobs-list ul {
     margin-top: 0;
     float: left;
     width: 50%; }
 
-/* line 2688, src/assets/scss/origin/_style.scss */
+/* line 2739, src/assets/scss/origin/_style.scss */
 p.peo-head {
   text-align: center;
   width: 100%;
@@ -10797,14 +10852,14 @@ p.peo-head {
   color: #349d93;
   font-weight: bold; }
 
-/* line 2696, src/assets/scss/origin/_style.scss */
+/* line 2747, src/assets/scss/origin/_style.scss */
 .people-int {
   padding: 15px;
   float: left;
   width: 100%;
   background: #fff; }
 
-/* line 2703, src/assets/scss/origin/_style.scss */
+/* line 2754, src/assets/scss/origin/_style.scss */
 .m-body-bottom {
   display: block;
   background: #eee;
@@ -10812,27 +10867,27 @@ p.peo-head {
   float: left;
   width: 100%; }
 
-/* line 2712, src/assets/scss/origin/_style.scss */
+/* line 2763, src/assets/scss/origin/_style.scss */
 .people-int ul {
   float: left;
   width: 100%;
   border: none !important; }
-  /* line 2716, src/assets/scss/origin/_style.scss */
+  /* line 2767, src/assets/scss/origin/_style.scss */
   .people-int ul li {
     float: left;
     width: 100%;
     border: none; }
-    /* line 2720, src/assets/scss/origin/_style.scss */
+    /* line 2771, src/assets/scss/origin/_style.scss */
     .people-int ul li span {
       float: left;
       margin-right: 15px; }
 
-/* line 2726, src/assets/scss/origin/_style.scss */
+/* line 2777, src/assets/scss/origin/_style.scss */
 .people-int button.btn.btn-default {
   float: right;
   display: block; }
 
-/* line 2735, src/assets/scss/origin/_style.scss */
+/* line 2786, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio p {
   float: right;
   text-align: left;
@@ -10840,12 +10895,12 @@ p.peo-head {
   margin-top: 20px;
   font-size: 14px; }
 
-/* line 2742, src/assets/scss/origin/_style.scss */
+/* line 2793, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio input.option-input.checkbox {
   margin: 0px !important;
   float: left; }
 
-/* line 2750, src/assets/scss/origin/_style.scss */
+/* line 2801, src/assets/scss/origin/_style.scss */
 h1.heading {
   background: #298992;
   padding: 15px;
@@ -10854,7 +10909,7 @@ h1.heading {
   margin-bottom: 0px;
   padding-bottom: 0px !important;
   margin-bottom: 25px; }
-  /* line 2758, src/assets/scss/origin/_style.scss */
+  /* line 2809, src/assets/scss/origin/_style.scss */
   h1.heading p {
     background: none !important;
     color: #fff !important;
@@ -10862,29 +10917,29 @@ h1.heading {
     font-weight: 600;
     margin-top: -15px; }
 
-/* line 2773, src/assets/scss/origin/_style.scss */
+/* line 2824, src/assets/scss/origin/_style.scss */
 ul.multiselect-container.dropdown-menu input[type="checkbox"] {
   margin-top: 0 !important;
   float: right; }
 
-/* line 2777, src/assets/scss/origin/_style.scss */
+/* line 2828, src/assets/scss/origin/_style.scss */
 ul.multiselect-container.dropdown-menu li {
   float: left;
   width: 100%; }
 
-/* line 2787, src/assets/scss/origin/_style.scss */
+/* line 2838, src/assets/scss/origin/_style.scss */
 #dropdownMenu2 {
   background: 0 0; }
 
-/* line 2793, src/assets/scss/origin/_style.scss */
+/* line 2844, src/assets/scss/origin/_style.scss */
 .option-input:hover {
   background: #9faab7; }
 
-/* line 2797, src/assets/scss/origin/_style.scss */
+/* line 2848, src/assets/scss/origin/_style.scss */
 .option-input:checked {
   background: #4F748C; }
 
-/* line 2801, src/assets/scss/origin/_style.scss */
+/* line 2852, src/assets/scss/origin/_style.scss */
 .option-input:checked::before {
   height: 40px;
   width: 40px;
@@ -10895,18 +10950,18 @@ ul.multiselect-container.dropdown-menu li {
   text-align: center;
   line-height: 40px; }
 
-/* line 2813, src/assets/scss/origin/_style.scss */
+/* line 2864, src/assets/scss/origin/_style.scss */
 .b-none.form-field.signup-redio {
   font-size: 24px;
   margin-top: 15px; }
 
-/* line 2818, src/assets/scss/origin/_style.scss */
+/* line 2869, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio {
   text-align: center;
   padding-bottom: 1 5px;
   width: 100%; }
 
-/* line 2824, src/assets/scss/origin/_style.scss */
+/* line 2875, src/assets/scss/origin/_style.scss */
 .option-input {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -10930,7 +10985,7 @@ ul.multiselect-container.dropdown-menu li {
   position: relative;
   z-index: 1000; }
 
-/* line 2845, src/assets/scss/origin/_style.scss */
+/* line 2896, src/assets/scss/origin/_style.scss */
 .option-input:checked::after {
   -webkit-animation: click-wave 0.65s;
           animation: click-wave 0.65s;
@@ -10940,19 +10995,19 @@ ul.multiselect-container.dropdown-menu li {
   position: relative;
   z-index: 100; }
 
-/* line 2854, src/assets/scss/origin/_style.scss */
+/* line 2905, src/assets/scss/origin/_style.scss */
 .option-input.radio {
   border-radius: 50%; }
 
-/* line 2858, src/assets/scss/origin/_style.scss */
+/* line 2909, src/assets/scss/origin/_style.scss */
 .option-input.radio::after {
   border-radius: 50%; }
 
-/* line 2862, src/assets/scss/origin/_style.scss */
+/* line 2913, src/assets/scss/origin/_style.scss */
 .option-input {
   float: left; }
 
-/* line 2866, src/assets/scss/origin/_style.scss */
+/* line 2917, src/assets/scss/origin/_style.scss */
 .input-group .form-control:last-child {
   z-index: 0; }
 
