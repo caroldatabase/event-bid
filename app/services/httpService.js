@@ -58,7 +58,8 @@
         getCompletedTaskList: getCompletedTaskList,
         getQualifications: getQualifications,
         sendPaykey:sendPaykey,
-        approvePaymentFromAdminMerchant:approvePaymentFromAdminMerchant
+        approvePaymentFromAdminMerchant: approvePaymentFromAdminMerchant,
+        updatePaymentDetails: updatePaymentDetails
     };
     /************************************Card Details ***********************************************************/
     function addCard(cardDetails) {
@@ -275,7 +276,7 @@
     }
 
     function getUserDetails(userid) {
-        return $http.get(serviceBase + '/api/v1/user/details/' + userid,  { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+        return $http.get(serviceBase + 'api/v1/user/details/' + userid,  { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
             return response;
         });
     }
@@ -346,7 +347,15 @@
             return response;
         });
 
-    }
+     }
+
+     function updatePaymentDetails(reqObject) {
+         return $http.post(serviceBase + 'api/v1/releaseFunds', reqObject, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {
+             return response;
+         });
+
+     }
+     
 
     function approveInsurance(userid, user) {
         return $http.post(serviceBase + 'api/v1/approveInsurance/'+ userid, user, { headers: { 'Content-Type': 'application/json' } }).then(function (response) {

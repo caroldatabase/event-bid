@@ -161,7 +161,7 @@
                         <td>Amount</td>
                         <td>Task Doer Name</td>
                         <td>Paypal Account</td>
-                        <td>Payment Made</td>
+                       
                         <td>Action</td>
                     </tr>
                     <div>
@@ -170,11 +170,22 @@
                             <td>{{item.event_title}}</td>
                             <td>{{item.category_question['totalCost']}} $</td>
                             <td>{{item.seeker_user_detail.first_name}} {{item.seeker_user_detail.last_name}}</td>
-                            <td>{{item.paypalAccount == null ? 'Not Found' : item.paypalAccount}}</td>
-                            <td>{{item.transactionDetails == null ? false : true}}</td>
+                            <td>{{item.seeker_user_detail.paypalAccount == null ? 'Not Found' : item.seeker_user_detail.paypalAccount}}</td>
+                            <!--<td>
+                                <select name="paymentRelease_{{item.id}}" id="paymentRelease_{{item.id}}" 
+                                        onchange="paymentRelease()">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No" selected>No</option>
+                                </select>
+                            </td>-->
+                            <!--<td>{{item.transactionDetails == null ? false : true}}</td>-->
+                            <!--<td data-ng-if="$scope.paymentReleasedIndicator &&  ">
+                                <input type="text" /></td>-->
                             <td>
-                                <input type="submit" value="Release Payment" class="btn btn-primary btn-block"
-                                       data-ng-click="releasePayment(item.id)">
+                                <input type="button" value="update" class="btn btn-primary btn-block"
+                                       data-ng-click="updatePaymentDetails(item)">
+                                <!--<input type="submit" value="Release Payment" class="btn btn-primary btn-block"
+                                       data-ng-click="releasePayment(item.id)">-->
                             </td>
                         </tr>
                     </div>
@@ -380,6 +391,51 @@
                     </div>
                 </div>
             </div>
+<!--Update payment status by admin-->
+<div class="modal fade" id="updatePaymentStatusPopup" tabindex="-1">
+    <div class="eb-vAlignment">
+        <div class="modal-dialog eb-vAlignCenter">
+            <div class="modal-content">
+                <div class="eb-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" data-ng-click="ModalClose()"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">Update Pyament Status</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="extraSpace"></div>
+                    <div class="alert alert-danger" data-ng-if="ErrorPaymentIndicator">
+                      {{paymentmessage}}
+                    </div>
+                    <div class="alert alert-success" data-ng-if="successPaymentMessageIndicator">
+                       Status updated successfully. Task status is set to closed as task life cycle is now completed. 
+                    </div>
+                    <form name="updatePaymentStatusForm" novalidate>
+                        <div class="popup-form-row">
+                            <div class="form-field">
+                                <label>Payment Released </label>
+                                <select name="paymentRelease" id="paymentRelease" data-ng-model="isPaymentRelease">
+                                        
+                                    <option value="Yes">Yes</option>
+                                    <option value="No" selected>No</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <div class="form-group ">
+                                    <label>Transaction Number(received from Paypal )	</label>
+                                    <input type="text" name="transaction_number" ng-model="transaction_number" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="popup-button-group">
+                            <input type="submit" value="update" class="btn btn-primary btn-block"
+                                   data-ng-click="updateTransactionStatus()">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
             <!--Request a new  pop up-->
             <div class="modal fade" id="addBlogPopup" tabindex="-1" ng-controller="addBlogController">

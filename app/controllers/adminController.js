@@ -13,6 +13,7 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
         $scope.currentPage = 1;
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
+        var userRecord = {};
         var userId = commonService.getUserid();
         if ($routeParams.payments)
         {   
@@ -56,6 +57,45 @@ function ($scope, commonService, httpService, $rootScope, $location, $window, $r
             $rootScope.adminIndicator = false;
             commonService.reloadRoute();  
             $location.path('/');
+        }
+    }
+
+    $scope.updatePaymentDetails = function (item)
+    {
+        $scope.transaction_number = "";
+        $scope.isPaymentRelease = "No";
+        userRecord = item;
+        $('#updatePaymentStatusPopup').modal({ backdrop: 'static', keyboard: false }, 'show');
+    }
+
+    $scope.updateTransactionStatus = function ()
+    {
+       
+        if ($scope.transaction_number != "" && $scope.isPaymentRelease == "Yes") {
+         
+            $rootScope.loaderIndicator = true;
+            var reqObject = {};
+            reqObject.TaskID = userRecord.id;
+            reqObject.Release_fund_transactionID = $scope.transaction_number;
+            reqObject.task_status = "closed";
+            reqObject.isPaymentRelease = "Yes";
+            httpService.updatePaymentDetails(reqObject).then(function (data) {
+                $rootScope.loaderIndicator = false;
+                $scope.isPaymentRelease = "Yes";
+                $scope.transaction_number = "";
+                getPaymentManagement();
+                $scope.ErrorPaymentIndicator = false;
+                $scope.successPaymentMessageIndicator = true;
+            });
+        }
+        else if ($scope.isPaymentRelease == "No")
+        {
+            $scope.ErrorPaymentIndicator = true;
+            $scope.paymentmessage = "Please mark release payment as Yes if you have release payment to seeker paypal account. "
+        }
+        else {
+            $scope.ErrorPaymentIndicator = true;
+            $scope.paymentmessage = "Please enter required details.";
         }
     }
 

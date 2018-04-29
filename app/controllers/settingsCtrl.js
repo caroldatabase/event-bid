@@ -35,6 +35,10 @@
                 $scope.buttonIndicator = true;
                 $rootScope.loaderIndicator = false;
             }
+            else
+            {
+                $rootScope.loaderIndicator = false;
+            }
         });
     }
     $scope.showCardDetails = function()
