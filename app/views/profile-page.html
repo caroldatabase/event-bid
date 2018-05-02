@@ -1,70 +1,67 @@
-	<div class="sub-banner">
-        <img src="app/images/dashboard-banner.jpg">
+<div class="content-body mydashboard">
+    <div class="sub-banner">
         <div class="banner-name-user text-center">
-            <h1> {{user.first_name}} {{user.last_name}}</h1>
+            <h1>Hello, {{firstName}}</h1>
         </div>
+    </div>
 </div>
 <div class="profile-page-event">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
-					<div class="side-bar-profile">
-                        <div data-ng-if="isEdit"><a href="#/settings"><i class="fa fa-pencil"></i></a></div>
-                        <div class="user-pic" data-ng-if="user.photo == null">
-                            <img src="app/images/sample-img.png">
-                        </div>
-                        <div class="user-pic">
-                            <img ng-src="{{user.photo}}" alt="photo..." id="profilePicture">
-                        </div>
-						<p class="user-name">{{user.first_name}} {{user.last_name}}</p>
-						<p class="pro-ratting"><img src="app/images/4-stars.png"></p>
-						<p class="location-text"><span class="from-pro">From:</span><span class="loc-pro">{{user.suburb}}, {{user.state}}</span></p>
-						<p class="location-text"><span class="from-pro">Tier:</span><span class="loc-pro">New User</span></p>
-						<!--<p class="pro-contact-me"><a href="#/contact-us">Contact Me</a></p>-->
-					</div>
-					
-					<div class="side-bar-profile">
-                        <div data-ng-if="isEdit"><a href="#/settings"><i class="fa fa-pencil"></i></a></div>
-						<p class="user-name">About Me</p>
-						<p class="text-center">{{user.about_me}}</p>
-						<p class="skill-pro">Skills</p>
-						<ul class="skill-list" data-ng-repeat="skills in skillList">
-							<li>{{skills}}</li>
-						</ul>
-					</div>
-					
-				</div>
-				<div class="col-sm-8">
-					<div class="jobs-profile">
-						<!--<div class="portfolio-list">
-							<ul class="images-portfolio">
-								<li><img src="app/images/earning.jpg"></li>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="side-bar-profile">
+                    <div data-ng-if="isEdit"><a href="#/settings"><i class="fa fa-pencil"></i></a></div>
+                    <div class="user-pic" data-ng-if="user.photo == null">
+                        <img src="app/images/sample-img.png">
+                    </div>
+                    <div class="user-pic">
+                        <img ng-src="{{user.photo}}" alt="photo..." id="profilePicture">
+                    </div>
+                    <p class="user-name">{{user.first_name}} {{user.last_name}}</p>
+                    <p class="pro-ratting"><img src="app/images/4-stars.png"></p>
+                    <p class="location-text"><span class="from-pro">From:</span><span class="loc-pro">{{user.suburb}}, {{user.state}}</span></p>
+                    <p class="location-text"><span class="from-pro">Tier:</span><span class="loc-pro">New User</span></p>
+                    <!--<p class="pro-contact-me"><a href="#/contact-us">Contact Me</a></p>-->
+                </div>
+                <div class="side-bar-profile">
+                    <div data-ng-if="isEdit"><a href="#/settings"><i class="fa fa-pencil"></i></a></div>
+                    <p class="user-name">About Me</p>
+                    <p class="text-center">{{user.about_me}}</p>
+                    <p class="skill-pro">Skills</p>
+                    <ul class="skill-list" data-ng-repeat="skills in skillList">
+                        <li>{{skills}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="jobs-profile">
+                    <!--<div class="portfolio-list">
+                            <ul class="images-portfolio">
                                 <li><img src="app/images/earning.jpg"></li>
                                 <li><img src="app/images/earning.jpg"></li>
                                 <li><img src="app/images/earning.jpg"></li>
-							</ul>
-						</div>-->
-						<div class="jobs-pro-heading">
-							<h2>PAST JOBS COMPLETED <span class="icon-right"></span></h2>
-						</div>
-                        <div class="job-status-thumb" ng-repeat="item in completedTaskCustomer">
-                            <h3>{{item.event_title}}</h3> <a data-ng-click="openSelectedtaskInDetail(item)">view description</a>
-                            <p class="status-desc"><b>Event Type </b>{{item.event_type}} </p>
-                            <p class="location-text"><span class="from-pro">{{item.updated_at | date}}</span><span class="loc-pro"><b>Status </b>{{item.task_status}}</span></p>
-                        </div>
-                        <div data-ng-if="completedTaskCustomer.length == 0">
-                            <p>
-                                No task completed till now. 
-                                Completion Rate is 0%. 
-                            </p>
-                        </div>
-						
-					</div>
-                    <div class="review-outer">
-                        <div class="review-head" style="float:left; width:100%; padding:15px 0px;">
-                            <h3>Reviews</h3>
-                        </div>
-                        <!--<div class="review-pro">
+                                <li><img src="app/images/earning.jpg"></li>
+                            </ul>
+                        </div>-->
+                    <div class="jobs-pro-heading">
+                        <h2>PAST JOBS COMPLETED <span class="icon-right"></span></h2>
+                    </div>
+                    <div class="job-status-thumb" ng-repeat="item in completedTaskCustomer">
+                        <h3>{{item.event_title}}</h3> <a data-ng-click="openSelectedtaskInDetail(item)">view description</a>
+                        <p class="status-desc"><b>Event Type </b>{{item.event_type}} </p>
+                        <p class="location-text"><span class="from-pro">{{item.updated_at | date}}</span><span class="loc-pro"><b>Status </b>{{item.task_status}}</span></p>
+                    </div>
+                    <div data-ng-if="completedTaskCustomer.length == 0">
+                        <p>
+                            No task completed till now. Completion Rate is 0%.
+                        </p>
+                    </div>
+                </div>
+                <div class="review-outer">
+                    <div class="review-head" style="float:left; width:100%; padding:15px 0px;">
+                        <h3>Reviews</h3>
+                    </div>
+                    <!--<div class="review-pro">
                             <div class="review-user text-center">
                                 <img src="app/images/sample-img.png">
                                 <p>Rebecca</p>
@@ -94,20 +91,17 @@
                                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                         </div>-->
-                        <p>
-                            No Reviews submitted till now.
-                        </p>
-                    </div>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-
+                    <p>
+                        No Reviews submitted till now.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Open Task Modal -->
 <div id="OpenTaskModal" class="modal browse-task-detail-pop fade" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
@@ -117,10 +111,10 @@
             <div class="modal-body d-listing">
                 <div class="m-body-top">
                     <div class="d-left">
-                        <p><b>Event Type </b>  {{taskDetail.event_type}}</p>
-                        <p><b>Category Name</b>  {{taskDetail.category.name}}</p>
+                        <p><b>Event Type </b> {{taskDetail.event_type}}</p>
+                        <p><b>Category Name</b> {{taskDetail.category.name}}</p>
                         <p><b>Date Required</b> {{taskDetail.date_required }}</p>
-                        <p><b>Time From</b>  {{taskDetail.time_from}}</p>
+                        <p><b>Time From</b> {{taskDetail.time_from}}</p>
                         <p><b>Time To</b> {{taskDetail.time_to}}</p>
                     </div>
                     <div class="d-right"><img ng-src="{{taskDetail.category.categoryImage}}" alt="category image"></div>
@@ -133,7 +127,6 @@
                                     <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
                                 </div>
                             </div>
-
                             <div class="left-list" data-ng-if="key != 'Desert Images for reference' && key !='Graphic images'">
                                 <b> {{key}}</b> <span> {{val}}</span>
                             </div>
@@ -142,17 +135,13 @@
                 </div>
                 <div class="m-body-bottom">
                     <p>
-                        <b>  Task posted date : </b>  {{ taskDetail.created_at | date}}
+                        <b>  Task posted date : </b> {{ taskDetail.created_at | date}}
                     </p>
-
                 </div>
             </div>
-           
             <div class="modal-footer">
-               
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>

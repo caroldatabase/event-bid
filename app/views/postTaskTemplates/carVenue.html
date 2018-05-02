@@ -17,7 +17,7 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>Type of car</label>
-            <select class="singleSelection" required data-ng-model="task.category_question.carType" name="carType"
+            <select class="form-control singleSelection" required data-ng-model="task.category_question.carType" name="carType"
                     ng-class="{error : postTaskForm.carType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select car Type</option>
                 <option value="limo classic">LIMO CLASSIC</option>
@@ -48,7 +48,7 @@
                        ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
                 </div>
             <div class="input-adjust">
-                <select class="singleSelection" required data-ng-model="task.category_question.totalCostType"
+                <select class="form-control singleSelection" required data-ng-model="task.category_question.totalCostType"
                         name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
                     <option value="">Select Budget type</option>
                     <option value="Per Person">PER HOUr</option>
@@ -64,7 +64,7 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>Type of Venue</label>
-            <select class="singleSelection" required data-ng-model="task.category_question.venueType" name="venueType"
+            <select class="form-control singleSelection" required data-ng-model="task.category_question.venueType" name="venueType"
                     ng-class="{error : postTaskForm.venueType.$invalid && postTaskForm.$submitted}">
                 <option value="">Select venue Type</option>
                 <option value="Small Hall">SMALL HALL</option>
@@ -88,7 +88,7 @@
     <div class="col-sm-4">
         <div class="form-field">
             <label>Venue Cleaning</label>
-            <select class="singleSelection" required data-ng-model="task.category_question.venueCleaning" name="venueCleaning"
+            <select class="form-control singleSelection" required data-ng-model="task.category_question.venueCleaning" name="venueCleaning"
                     ng-class="{error : postTaskForm.venueCleaning.$invalid && postTaskForm.$submitted}">
                 <option value="">Select Venue Cleaning Type </option>
                 <option value="I am happy to be responsible for cleaning after my event">

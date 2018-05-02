@@ -1,24 +1,24 @@
 ﻿ module.exports = function (grunt) {
     grunt.initConfig({
-        cssmin: {
-            options: {
-                shorthandCompacting: false,
-                roundingPrecision: -1
-            },
-            target: {
-                files: {
-                    'app/css/eventbid.min.css': [
-                        'app/css/bootstrap.css',
-                        'app/css/bootstrap-theme.css',
-                        'app/css/owl.carousel.css',
-                        'app/css/style.css',
-                        'app/css/vaibhav_style.css',
-                        'app/css/bootstrap-datetimepicker.css',
-                        'app/css/select2.min.css'
-                    ]
-                }
-            }
-        },
+        // cssmin: {
+        //     options: {
+        //         shorthandCompacting: false,
+        //         roundingPrecision: -1
+        //     },
+        //     target: {
+        //         files: {
+        //             'app/css/eventbid.min.css': [
+        //                 'app/css/bootstrap.css',
+        //                 'app/css/bootstrap-theme.css',
+        //                 'app/css/owl.carousel.css',
+        //                 'app/css/style.css',
+        //                 'app/css/vaibhav_style.css',
+        //                 'app/css/bootstrap-datetimepicker.css',
+        //                 'app/css/select2.min.css'
+        //             ]
+        //         }
+        //     }
+        // },
 
         uglify: {
             my_target: {
@@ -61,7 +61,7 @@
 
     });
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.registerTask('default', ['cssmin', 'uglify']);
-
+    // grunt.loadNpmTasks('grunt-contrib-cssmin');
+    // grunt.registerTask('default', ['cssmin', 'uglify']);
+    grunt.registerTask('default', ['uglify']);
 };

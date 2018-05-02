@@ -1,166 +1,163 @@
 <div class="content-body eb-content-body">
-    
-    <div class="container post-a-task">
-        <div class="main-heading">
-            <h1 class="heading">Post a Task
-                <p>Why do it yourself? Leave it to the experts </p>
-            </h1>
-            
-            <p>
-                Don't want to post each task individually and manage too many different suppliers ?
-                 Visit the EB Manager page and let one of our EB Managers 
-                  coordinate your entire event.  
-            </p>
-            <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
-                {{ message}}
-            </div>
-            <div class="alert alert-success" data-ng-if="successMessageIndicator">
-                {{message}}
-            </div>
-
+    <div class="sub-banner">
+        <div class="banner-overlay">
+            <div class="heading">post a task</div>
         </div>
-        <form name="postTaskForm" novalidate>
-            <div class="form-container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>Event Title</label>
-                            <input type="text" class="form-control" ng-model="task.eventTitle" name="eventTitle" required
-                                   ng-class="{error : postTaskForm.eventTitle.$invalid && postTaskForm.$submitted}">
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>Event Type</label>
-                            <div ng-class="{error : postTaskForm.eventType.$invalid && postTaskForm.$submitted}">
-                                <select class="singleSelection" name="eventType" data-ng-model="task.eventType" id="eventType" required>
-                                    <option value="">SELECT EVENT TYPE</option>
-                                    <option value="Wedding">WEDDING</option>
-                                    <option value="Birthday">BIRTHDAY</option>
-                                    <option value="Graduation">GRADUATION</option>
-                                    <option value="High Tea">HIGH TEA</option>
-                                    <option value="Corporate">CORPORATE</option>
-                                    <option value="Cocktail">COCKTAIL</option>
-                                    <option value="Anniversary">ANNIVERSARY</option>
-                                    <option value="Other">OTHER</option>
-                                </select>
+    </div>
+    <div class="post-a-task">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="main-heading">
+                        <h2>
+                           Why do it yourself? Leave it to the experts
+                        </h2>
+                        <div class="post-a-task-form--desc">
+                            <p>
+                                Don't want to post each task individually and manage too many different suppliers ? Visit the EB Manager page and let one of our EB Managers coordinate your entire event.
+                            </p>
+                            <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
+                                {{ message}}
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                           <label>Date Required</label>
-                            <input type="text" class="form-control datepicker cal_icon" required readonly data-ng-model="task.dateRequired"
-                                   name="dateRequired" ng-class="{error : postTaskForm.dateRequired.$invalid && postTaskForm.$submitted}">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>Time From</label>
-                            <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeFrom" required id="timeFrom"
-                                   name="timeFrom" ng-class="{error : postTaskForm.timeFrom.$invalid && postTaskForm.$submitted}" readonly>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>Time To </label>
-                            <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeTo" required id="timeTo"
-                                   name="timeTo" ng-class="{error : postTaskForm.timeTo.$invalid && postTaskForm.$submitted}" readonly >
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-field">
-                            <label>Category </label>
-                            <div ng-class="{error : postTaskForm.category.$invalid && postTaskForm.$submitted}">
-                                <select class="singleSelection" required data-ng-model="task.category" name="category" id="category"
-                                        data-ng-change="categoryChange(task.category)" ng-options="item.id as (item.name | uppercase) for item in categoryList">
-                                    <option value="" >SELECT CATEGORY</option>
-                                </select>
+                            <div class="alert alert-success" data-ng-if="successMessageIndicator">
+                                {{message}}
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- make Up , Hair and Beauty --> 
-                <div data-ng-if="task.category === categoryConst.HAIR_AND_BEAUTY">
-                    <div ng-include src="'app/views/postTaskTemplates/makeupHairBeauty.html'"></div>
-                </div>
-                <!--Catering--> 
-                <div data-ng-if="task.category === categoryConst.CATERING">
-                    <div ng-include src="'app/views/postTaskTemplates/catering.html'"></div>
-                </div>
-                 <!--Cleaning--> 
-                <div data-ng-if="task.category === categoryConst.CLEANING">
-                    <div ng-include src="'app/views/postTaskTemplates/cleaning.html'"></div>
-                </div>
-                 <!--Car & Venue Hire--> 
-                <div data-ng-if="task.category === categoryConst.CAR_AND_VENUE_HIRE">
-                    <div ng-include src="'app/views/postTaskTemplates/carVenue.html'"></div>
-                </div>
-                 <!--Entertainment & Talent--> 
-                <div data-ng-if="task.category === categoryConst.ENTERTAINMENT_AND_TALENT">
-                    <div ng-include src="'app/views/postTaskTemplates/entertainmentTalent.html'"></div>
-                </div>
-                 
-                 <!--Photography and Videography--> 
-                <div data-ng-if="task.category === categoryConst.PHOTOGRAPHY_AND_VIDEOGRAPHY">
-                    <div ng-include src="'app/views/postTaskTemplates/photographyVideography.html'"></div>
-                </div>
-                 <!--Patisserie--> 
-                <div data-ng-if="task.category === categoryConst.PATISSERIE">
-                    <div ng-include src="'app/views/postTaskTemplates/patisserie.html'" ></div>
-                </div>
-                 <!--Graphic Design--> 
-                <div data-ng-if="task.category === categoryConst.GRAPHIC_DESIGN">
-                    <div ng-include src="'app/views/postTaskTemplates/graphicDesign.html'" ></div>
-                </div>
-
-                <!--Supply Hire-->
-                <div data-ng-if="task.category === categoryConst.SUPPLY_HIRE"  >
-
-                    <div ng-include src="'app/views/postTaskTemplates/supplyHire.html'"></div>
-                </div>
-                <!--waiting & service-->
-                <div data-ng-if="task.category === categoryConst.WAITING_STAFF">
-
-                    <div ng-include src="'app/views/postTaskTemplates/waiterWaitress.html'"></div>
-                </div>
-                <!--Floristry-->
-                <div data-ng-if="task.category === categoryConst.FLORISTRY" >
-
-                    <div ng-include src="'app/views/postTaskTemplates/floristry.html'"></div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-sm-4" data-ng-if="!((task.category === categoryConst.CLEANING) || (task.category === categoryConst.GRAPHIC_DESIGN))">
-                        <div class="form-field">
-                            <label>Inspiration photos (upto 3 images)</label>
-                            <input type="file" class="form-control" name="categoryImage" id="categoryImage"
-                                   fileread="categoryImage" image-type="categoryImage" accept="image/*" data-ng-model="categoryImage">
-                        </div>
-                        <div class="form-field ">
-                            <label data-ng-if="task.inspirationPhoto.length > 0">Uploaded Image :</label>
-                            <div data-ng-if="task.inspirationPhoto.length > 0" data-ng-repeat="data in task.inspirationPhoto track by $index">
-                                <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
-                            </div>
-                            <!--<div data-ng-if="task.inspirationPhoto.length == 0">
-                <img ng-src="{{task.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage">
-            </div>-->
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="row  MB20">
-                    <div class="col-sm-12">
-                        <div class="button-group">
-                            <input type="button" value="Post Task" class="btn btn-primary btn-lg payment-btn" data-ng-click="postTask()">
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <form name="postTaskForm" novalidate>
+                        <div class="form-container">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Event Title</label>
+                                        <input type="text" class="form-control" ng-model="task.eventTitle" name="eventTitle" required ng-class="{error : postTaskForm.eventTitle.$invalid && postTaskForm.$submitted}">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Event Type</label>
+                                        <div ng-class="{error : postTaskForm.eventType.$invalid && postTaskForm.$submitted}">
+                                            <select class="singleSelection" name="eventType" data-ng-model="task.eventType" id="eventType" required>
+                                                <option value="">SELECT EVENT TYPE</option>
+                                                <option value="Wedding">WEDDING</option>
+                                                <option value="Birthday">BIRTHDAY</option>
+                                                <option value="Graduation">GRADUATION</option>
+                                                <option value="High Tea">HIGH TEA</option>
+                                                <option value="Corporate">CORPORATE</option>
+                                                <option value="Cocktail">COCKTAIL</option>
+                                                <option value="Anniversary">ANNIVERSARY</option>
+                                                <option value="Other">OTHER</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Date Required</label>
+                                        <input type="text" class="form-control datepicker cal_icon" required readonly data-ng-model="task.dateRequired" name="dateRequired" ng-class="{error : postTaskForm.dateRequired.$invalid && postTaskForm.$submitted}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Time From</label>
+                                        <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeFrom" required id="timeFrom" name="timeFrom" ng-class="{error : postTaskForm.timeFrom.$invalid && postTaskForm.$submitted}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Time To </label>
+                                        <input type="text" class="form-control timepicker time_icon" data-ng-model="task.timeTo" required id="timeTo" name="timeTo" ng-class="{error : postTaskForm.timeTo.$invalid && postTaskForm.$submitted}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-field">
+                                        <label>Category </label>
+                                        <div ng-class="{error : postTaskForm.category.$invalid && postTaskForm.$submitted}">
+                                            <select class="singleSelection" required data-ng-model="task.category" name="category" id="category" data-ng-change="categoryChange(task.category)" ng-options="item.id as (item.name | uppercase) for item in categoryList">
+                                                <option value="">SELECT CATEGORY</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- make Up , Hair and Beauty -->
+                            <div data-ng-if="task.category === categoryConst.HAIR_AND_BEAUTY">
+                                <div ng-include src="'app/views/postTaskTemplates/makeupHairBeauty.html'"></div>
+                            </div>
+                            <!--Catering-->
+                            <div data-ng-if="task.category === categoryConst.CATERING">
+                                <div ng-include src="'app/views/postTaskTemplates/catering.html'"></div>
+                            </div>
+                            <!--Cleaning-->
+                            <div data-ng-if="task.category === categoryConst.CLEANING">
+                                <div ng-include src="'app/views/postTaskTemplates/cleaning.html'"></div>
+                            </div>
+                            <!--Car & Venue Hire-->
+                            <div data-ng-if="task.category === categoryConst.CAR_AND_VENUE_HIRE">
+                                <div ng-include src="'app/views/postTaskTemplates/carVenue.html'"></div>
+                            </div>
+                            <!--Entertainment & Talent-->
+                            <div data-ng-if="task.category === categoryConst.ENTERTAINMENT_AND_TALENT">
+                                <div ng-include src="'app/views/postTaskTemplates/entertainmentTalent.html'"></div>
+                            </div>
+                            <!--Photography and Videography-->
+                            <div data-ng-if="task.category === categoryConst.PHOTOGRAPHY_AND_VIDEOGRAPHY">
+                                <div ng-include src="'app/views/postTaskTemplates/photographyVideography.html'"></div>
+                            </div>
+                            <!--Patisserie-->
+                            <div data-ng-if="task.category === categoryConst.PATISSERIE">
+                                <div ng-include src="'app/views/postTaskTemplates/patisserie.html'"></div>
+                            </div>
+                            <!--Graphic Design-->
+                            <div data-ng-if="task.category === categoryConst.GRAPHIC_DESIGN">
+                                <div ng-include src="'app/views/postTaskTemplates/graphicDesign.html'"></div>
+                            </div>
+                            <!--Supply Hire-->
+                            <div data-ng-if="task.category === categoryConst.SUPPLY_HIRE">
+                                <div ng-include src="'app/views/postTaskTemplates/supplyHire.html'"></div>
+                            </div>
+                            <!--waiting & service-->
+                            <div data-ng-if="task.category === categoryConst.WAITING_STAFF">
+                                <div ng-include src="'app/views/postTaskTemplates/waiterWaitress.html'"></div>
+                            </div>
+                            <!--Floristry-->
+                            <div data-ng-if="task.category === categoryConst.FLORISTRY">
+                                <div ng-include src="'app/views/postTaskTemplates/floristry.html'"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4" data-ng-if="!((task.category === categoryConst.CLEANING) || (task.category === categoryConst.GRAPHIC_DESIGN))">
+                                    <div class="form-field">
+                                        <label>Inspiration photos (upto 3 images)</label>
+                                        <input type="file" class="form-control" name="categoryImage" id="categoryImage" fileread="categoryImage" image-type="categoryImage" accept="image/*" data-ng-model="categoryImage">
+                                    </div>
+                                    <div class="form-field ">
+                                        <label data-ng-if="task.inspirationPhoto.length > 0">Uploaded Image :</label>
+                                        <div data-ng-if="task.inspirationPhoto.length > 0" data-ng-repeat="data in task.inspirationPhoto track by $index">
+                                            <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="inspirationPhoto">
+                                        </div>
+                                        <div data-ng-if="task.inspirationPhoto.length == 0">
+                                            Image preview...
+                                           <!--  <img ng-src="{{task.categoryImage}}" width="100" height="50" alt="Image preview..." id="categoryImage"> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row MB20">
+                                <div class="col-sm-12">
+                                    <div class="button-group">
+                                        <input type="button" value="Post Task" class="btn btn-primary btn-lg payment-btn" data-ng-click="postTask()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-</div>

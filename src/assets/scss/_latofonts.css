@@ -1,0 +1,162 @@
+/* Webfont: Lato-Black */
+@font-face {
+    font-family: 'LatoBlack';
+    src: url('../fonts/Lato-Black.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-BlackItalic */
+@font-face {
+    font-family: 'LatoBlack';
+    src: url('../fonts/Lato-BlackItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Bold */
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../fonts/Lato-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-BoldItalic */
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../fonts/Lato-BoldItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Hairline */
+@font-face {
+    font-family: 'LatoHairline';
+    src: url('../fonts/Lato-Hairline.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-HairlineItalic */
+@font-face {
+    font-family: 'LatoWebHairline';
+    src: url('../fonts/Lato-HairlineItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Heavy */
+@font-face {
+    font-family: 'LatoHeavy';
+    src: url('../fonts/Lato-Heavy.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-HeavyItalic */
+@font-face {
+    font-family: 'LatoHeavy';
+    src: url('../fonts/Lato-HeavyItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Italic */
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Italic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Light */
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../fonts/Lato-Light.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-LightItalic */
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../fonts/Lato-LightItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Medium */
+@font-face {
+    font-family: 'LatoMedium';
+    src: url('../fonts/Lato-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-MediumItalic */
+@font-face {
+    font-family: 'LatoMedium';
+    src: url('../fonts/Lato-MediumItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Regular */
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Regular.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Semibold */
+@font-face {
+    font-family: 'LatoSemibold';
+    src: url('../fonts/Lato-Semibold.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-SemiboldItalic */
+@font-face {
+    font-family: 'LatoSemibold';
+    src: url('../fonts/Lato-SemiboldItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-Thin */
+@font-face {
+    font-family: 'LatoThin';
+    src: url('../fonts/Lato-Thin.woff') format('woff');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: Lato-ThinItalic */
+@font-face {
+    font-family: 'LatoThin';
+    src: url('../fonts/Lato-ThinItalic.woff') format('woff');
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+
