@@ -384,7 +384,7 @@
                 paymentDetail.first_name = $scope.card.first_name;
                 paymentDetail.last_name = $scope.card.last_name;
                 $rootScope.loaderIndicator = true;
-                httpService.paymentByCard(paymentDetail).then(function (response) {
+                httpService.makePayment(paymentDetail).then(function (response) {
                     $rootScope.loaderIndicator = false;
                     if (response.data.success == false)
                     {
