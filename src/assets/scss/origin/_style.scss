@@ -580,6 +580,9 @@ img {
 /*------------------------------------*\
     #EB Manager
 \*------------------------------------*/
+.howitworks {
+    font-size: 24px;
+}
 
 .how-it-works {
     .eb-manager-form {
@@ -666,6 +669,11 @@ img {
     padding-bottom: 4rem;
     .sub-banner{
         border-color: $eb_orange;
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+    }
+    .btn-primary {
+        background-color: $eb_blue;
     }
     .para-before-login {
         background: #eee;
@@ -690,6 +698,7 @@ img {
 
         h3 {
             text-align: center;
+            color: $eb_blue;
         }   
         .searchBar {
             width: 100%;
@@ -802,7 +811,9 @@ img {
 }
 
 .search-bar .right-addon .glyphicon {
-    top: 6px;
+    top: 4px;
+    font-size: 21px;
+    color: $eb_blue;
 }
 
 
@@ -819,16 +830,40 @@ img {
     background: url(../images/time-icon.png) no-repeat 96% center;
 }
 
+.postatask {
+    .sub-banner{
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+        .banner-overlay .heading {
+            text-transform: none;
+            font-size: 34px;
+            &::before {
+                height: 77px;
+                top: -17px;
+            }
+        }
+    }
+}
+
 .post-a-task {
     padding: 7rem 0 10rem;
     background-color: $eb_orange_2;
 
     .post-a-task-form--desc {
-        margin-top: 4rem;
+        margin-top: 1rem;
+        p {
+            color: $eb_blue;
+        }
     }
 
     .main-heading {
         border: none;
+        h2 {
+            text-transform: uppercase;
+            color: $eb_blue;
+            font-size: 2rem;
+            font-weight: 600;
+        }
     }
 
     form {
@@ -853,7 +888,7 @@ img {
         border-top: 3px solid $eb_blue;
     }
     .button-group .btn {
-        @include gradientButton($marginTop: 8rem, $padingTop: 11px,  $font: 24px);
+        @include gradientButton($marginTop: 1rem, $padingTop: 11px,  $font: 24px);
         border: 1px solid lighten($eb_blue, 24%);
     }
 }
@@ -1588,10 +1623,31 @@ a#submit {
         margin-right: 2%;
     }
 }
-
+.contactUs {
+    background-color: $eb_blue_3;
+    .sub-banner{
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+        .banner-overlay .heading {
+            text-transform: none;
+            font-size: 34px;
+            &::before {
+                height: 77px;
+                top: -17px;
+            }
+        }
+    }
+}
 .contact-us-form {
-    padding: 40px 15px;
-
+    padding: 40px 30px;
+    background-color: $eb_blue_2;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    .fisrt-name-contact,
+    .last-name-contact {
+        margin-bottom: 10px;
+    }
     h2 {
         text-align: center;
         font-size: 2.5rem;
@@ -1603,19 +1659,15 @@ a#submit {
         margin-bottom: 5px;
     }
     .submit {
-        font-size: 16px;
-        font-weight: 400;
-        padding: 15px 30px;
-        font-family: 'Lato', sans-serif;
-        border: none;
-        margin-bottom: 40px;
-        background-color: $eb_blue;
+        @include gradientButton($padingTop: 0,  $paddingLeft: 0, $font: 20px);
+        margin: auto;
+        height: 50px;
+        width: 185px;
+        line-height: 2.4;
+        text-transform: none;
         display: block;
-        text-align: center;
-        width: 11rem;
-        margin: 34px auto 0;
-        border-radius: 5px;
-        color: white;
+        border-radius: 6px;
+        margin-top: 58px;
         &:hover,
         &:active {
             background-color: darken($eb_blue, 10%);
@@ -1651,7 +1703,7 @@ a#submit {
                 height: 120px;
                 width: 100%;
                 position: absolute;
-                top: -44px;
+                top: -40px;
                 z-index: -1;
             }
         }
@@ -1662,8 +1714,7 @@ a#submit {
 }
 
 .how-it-tabs {
-    padding: 10rem 0;
-    background-color: $eb_orange_2;
+    background-color: $eb_blue_3;
 
     .panel-group .panel + .panel {
         margin-top: 0;
@@ -1688,9 +1739,10 @@ a#submit {
                     font-weight: 300;
                     height: 50px;
                 }
-                p{
-
-                }
+                
+            }
+            p{
+                font-size: 16px;
             }
         }
 
@@ -1736,16 +1788,23 @@ a#submit {
         }
     
     }
+    .hire {
+        margin-top: 3rem;
+    }
+    .submitHire {
+        @include gradientButton($padingTop: 12px, $paddingLeft: 45px, $font: 20px);
+        margin: 0;
+
+    }
 }
 
 
 
 
 .request-form {
-    float: left;
-    width: 100%;
-    padding: 20px 15px;
-    background: #eee;
+    border-radius: 6px;
+    padding: 35px 40px;
+    background: $eb_blue_2;
 
     input {
         float: left;
@@ -1857,7 +1916,7 @@ a.fb_login_btn.btn.btn-block:hover {
 
 
 .banner-overlay h4 {
-    color: #fff;
+    color: black;
 }
 
 .hire .option-input {
@@ -2065,8 +2124,8 @@ ul.multiselect-container.dropdown-menu li a:hover {
     background-color: $eb_blue_3;
 
     .sub-banner{
-        padding: 13rem 0;
-        background-image: url(../imgs/Balloon_short.jpg);
+        padding: 9rem 0;
+        background-image: url(../imgs/BOKEH_1.jpg);
     }
     .col-sm-4 {
         text-align: center;
@@ -2208,14 +2267,14 @@ ul.multiselect-container.dropdown-menu li a:hover {
         transform: translatey(-50%);
         z-index: 99;
         text-align: center;
-        padding: 5rem 0;
+        padding: 4rem 0;
         background-color: rgba(255, 255, 255, 0.7);
         color: $white;
         z-index: 1;
     }
     h1 {
         z-index: 5;
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         color: $eb_blue;
         position: relative;
     }
@@ -2857,6 +2916,8 @@ ul.multiselect-container.dropdown-menu {
     display: inline-block;
     font-size: 26.66667px;
     text-align: center;
+    top: 0;
+    left:0;
     line-height: 40px;
 }
 
@@ -2882,7 +2943,7 @@ ul.multiselect-container.dropdown-menu {
     height: 40px;
     width: 40px;
     transition: all 0.15s ease-out 0s;
-    background: #cbd1d8;
+    background: white;
     border: none;
     color: #fff;
     cursor: pointer;
