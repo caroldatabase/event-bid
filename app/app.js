@@ -64,7 +64,7 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider,$loca
         })
             .when("/payment-acknowledgement", {
                 templateUrl: "app/views/paymentAcknowledgement.html",
-                controller : "paymentAckController"
+                controller: "paymentAckController"
             })
          .when("/about-us", {
              templateUrl: "app/views/sitemap/about-us.html",

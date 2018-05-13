@@ -53,7 +53,8 @@
                          "app/controllers/changePassword.js", 
                          "app/controllers/paymentCtrl.js" ,
                          "app/controllers/messagingCtrl.js",
-                         "app/controllers/blogDetailCtrl.js"
+                         "app/controllers/blogDetailCtrl.js",
+                         "app/controllers/paymentAckController.js"
                     ]
                 }
             }

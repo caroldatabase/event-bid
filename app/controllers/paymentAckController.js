@@ -21,6 +21,11 @@
                 if (returnedData.includes("SUCCESS"))
                 {
                     $scope.status = "Payment Suceeded. Now you can assign task to people who are interested in doing task.";
+                    if(returnedData.includes("task_id"))
+                    {
+                        var pos = returnedData.lastIndexOf("task_id=") + 1;
+                        returnedData.substring(pos, path.length() - pos);
+                    }
                 }
                 else {
                     $scope.status = "Payment Failure. Please try again.";

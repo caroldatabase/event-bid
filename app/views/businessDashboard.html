@@ -410,13 +410,40 @@
                         <b>  Task posted date : </b> {{ taskDetail.created_at | date :'dd-MM-yyyy'}}
                     </p>
                 </div>
+               
+                
+              <!--  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_s-xclick">
+                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+                    <input type="hidden" name="item_name" value="{{taskDetail.event_title}}"> 
+                    <input type="hidden" name="amount" value="1.00"> 
+                    <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                </form>-->
+
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="SXKJS3MKX2H7L">
+                    <input type="hidden" name="lc" value="AU">
+                    <input type="hidden" name="item_name" value="{{taskDetail.event_title}}">
+                    <input type="hidden" name="amount" value="1.00">
+                    <input type="hidden" name="button_subtype" value="services">
+                    <input type="hidden" name="no_note" value="1">
+                    <input type="hidden" name="no_shipping" value="1">
+                    <input type="hidden" name="rm" value="1">
+                    <input type="hidden" name="task_id" value="{{taskDetail.id}}">
+                    <!--<input type="hidden" name="return" value="http://uat.eventbid.com.au/#/my-dashboard">
+                    <input type="hidden" name="cancel_return" value="http://uat.eventbid.com.au/#/my-dashboard">-->
+                    <input type="hidden" name="currency_code" value="AUD">
+                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted">
+                    <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                    <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                </form>
+
                 <!--if card details was saved-->
-                <div class="people-int" data-ng-if="cardDetailsAlreadySaved">
+               <!-- <div class="people-int" data-ng-if="cardDetailsAlreadySaved">
                     <p class="peo-head">You need to make payment before assigning this task. Can we make payment by card saved with us ending with {{card.card_number}} ?</p>
-                    <!--
-                    <input type="number" class="form-control" ng-model="taskAmount" name="taskAmount" required min="1" max="1500000000"
-                           placeholder="{{taskDetail.category_question['totalCost']}}" ng-class="{error : taskAmount.$invalid }" data-ng-blur="calculateCharges(taskAmount)">
--->
                     {{taskDetail.category_question['totalCost']}}$
                     <span data-ng-if="serviceCharges"><b>Eventbid Services charges- </b>{{ serviceCharges }} </span>
                     <br />
@@ -426,9 +453,9 @@
                     <br />
                     <span style="color : red;">{{paymentSuccessMessage}}</span>
                     <span style="color : red;" data-ng-if="amountIndicator">{{amountMessage}}</span>
-                </div>
+                </div>-->
                 <!--if card details was not saved-->
-                <div data-ng-if="NoCardDetailsFound">
+                <!--<div data-ng-if="NoCardDetailsFound">
                     <p class="peo-head">
                         Card details was not saved.Please add card details and make payment.
                     </p>
@@ -471,14 +498,6 @@
                                             <select required class="form-control" data-ng-model="cardDetails.expire_year" ng-options="item for item in yearArray">
                                                 <option value="" selected>YYYY</option>
                                             </select>
-                                            <!--
-                                                                                <select required class="form-control" data-ng-model="cardDetails.expiryMonth">
-                                                                                    <option value="12" selected>12</option>
-                                                                                </select>
-                                                                                <select required class="form-control" data-ng-model="cardDetails.expiryDate">
-                                                                                    <option value="2021" selected>2021</option>
-                                                                                </select>
-                                -->
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
@@ -492,8 +511,6 @@
                                     <div class="col-sm-12">
                                         <div class="form-field">
                                             <label>Amount</label>
-                                            <!-- <input type="number" class="form-control" id="amount" name="amount"
-                                                   required ng-class="{error : paymentForm.amount.$invalid && paymentForm.$submitted}" data-ng-model="cardDetails.amount"> -->
                                             {{taskDetail.category_question['totalCost']}}$
                                         </div>
                                     </div>
@@ -520,7 +537,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div>-->
                 <div class="people-int" data-ng-if="interestedUsersListCount > 0">
                     <p class="peo-head">People who are interested for doing this task</p>
                     <ul data-ng-repeat="item in interestedUsersList | unique : item.interested_user.id">
