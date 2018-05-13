@@ -1708,13 +1708,17 @@ a#submit {
             }
         }
         button {
-            @include gradientButton(8rem, 8.5rem);
+            @include gradientButton(2rem, 1.5rem);
+        }
+        .hidenButtons {
+            margin-top:  40px;
         }
     }
 }
 
 .how-it-tabs {
     background-color: $eb_blue_3;
+    padding: 50px 0 40px;
 
     .panel-group .panel + .panel {
         margin-top: 0;
@@ -2119,6 +2123,40 @@ ul.multiselect-container.dropdown-menu li a:hover {
     margin-top: 35px;
     text-align: center;
 }
+
+
+.myprofile {
+    background-color: $eb_blue_3;
+
+    .sub-banner{
+        padding: 9rem 0;
+        background-image: url(../imgs/BOKEH_1.jpg);
+        border-bottom: 20px solid $eb_blue_2;
+    }
+}
+
+.profile-page-event {
+    background-color: $eb_orange;
+    padding: 8rem 0 10rem;
+    color: $eb_blue;
+    .skill-pro {
+        background-color: $eb_blue_2;
+        color: white;
+    }
+    .skill-list {
+        float: left;
+        padding-right: 14px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .location-text {
+        font-size: 13px;
+    }
+    .jobs-profile,
+    .review-outer {
+        background-color: white;
+    }
+}   
 
 .mydashboard {
     background-color: $eb_blue_3;
