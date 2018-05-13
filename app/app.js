@@ -62,10 +62,14 @@ app.config(['$routeProvider','$locationProvider', function ($routeProvider,$loca
             templateUrl: "app/views/post-task.html",
             controller : "postTaskController"
         })
-            .when("/about-us", {
-                templateUrl: "app/views/sitemap/about-us.html",
-                controller : "aboutusController"
+            .when("/payment-acknowledgement", {
+                templateUrl: "app/views/paymentAcknowledgement.html",
+                controller : "paymentAckController"
             })
+         .when("/about-us", {
+             templateUrl: "app/views/sitemap/about-us.html",
+             controller: "aboutusController"
+         })
          .when("/terms-and-conditions", {
              templateUrl: "app/views/sitemap/terms-and-conditions.html",
              controller: "aboutusController"
