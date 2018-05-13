@@ -97,8 +97,10 @@
             
             if ($scope.taskDetail.isPaymentMade == "false")
             {
+                $scope.taskDetail.isPaymentMade = "true";
+              //  $scope.taskDetail.isPaymentMade = "true"
                 //get card details if exists. 
-                getCardDetails();
+                //getCardDetails();
 
             }
             

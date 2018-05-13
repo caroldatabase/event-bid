@@ -421,25 +421,26 @@
                     <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
                     <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
                 </form>-->
-
-                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="SXKJS3MKX2H7L">
-                    <input type="hidden" name="lc" value="AU">
-                    <input type="hidden" name="item_name" value="{{taskDetail.event_title}}">
-                    <input type="hidden" name="amount" value="1.00">
-                    <input type="hidden" name="button_subtype" value="services">
-                    <input type="hidden" name="no_note" value="1">
-                    <input type="hidden" name="no_shipping" value="1">
-                    <input type="hidden" name="rm" value="1">
-                    <input type="hidden" name="task_id" value="{{taskDetail.id}}">
-                    <!--<input type="hidden" name="return" value="http://uat.eventbid.com.au/#/my-dashboard">
-                    <input type="hidden" name="cancel_return" value="http://uat.eventbid.com.au/#/my-dashboard">-->
-                    <input type="hidden" name="currency_code" value="AUD">
-                    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted">
-                    <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
-                    <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
-                </form>
+                <div data-ng-show="taskDetail.isPaymentMade == 'false'">
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="SXKJS3MKX2H7L">
+                        <input type="hidden" name="lc" value="AU">
+                        <input type="hidden" name="item_name" value="{{taskDetail.id}}-{{taskDetail.event_title}}">
+                        <input type="hidden" name="amount" value="1.00">
+                        <input type="hidden" name="button_subtype" value="services">
+                        <input type="hidden" name="no_note" value="1">
+                        <input type="hidden" name="no_shipping" value="1">
+                        <input type="hidden" name="rm" value="1">
+                        <input type="hidden" name="task_id" value="{{taskDetail.id}}">
+                        <!--<input type="hidden" name="return" value="http://uat.eventbid.com.au/#/my-dashboard">
+            <input type="hidden" name="cancel_return" value="http://uat.eventbid.com.au/#/my-dashboard">-->
+                        <input type="hidden" name="currency_code" value="AUD">
+                        <input type="hidden" name="bn" value="PP-BuyNowBF:btn_paynowCC_LG.gif:NonHosted">
+                        <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal – The safer, easier way to pay online!">
+                        <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+                </div>
 
                 <!--if card details was saved-->
                <!-- <div class="people-int" data-ng-if="cardDetailsAlreadySaved">

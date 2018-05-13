@@ -3,6 +3,7 @@
 
     function init() {
         $scope.transaction_id = $routeParams.tx;
+        $scope.item_name = $routeParams.item_name;
         console.log($scope.transaction_id);
         commonService.scrollToTop();
         checkTransaction();
@@ -18,14 +19,17 @@
         $.post('https://www.paypal.com/cgi-bin/webscr', data,
             function (returnedData) {
                 console.log(returnedData);
-                if (returnedData.includes("SUCCESS"))
+                if (item_name.includes("SUCCESS"))
                 {
                     $scope.status = "Payment Suceeded. Now you can assign task to people who are interested in doing task.";
-                    if(returnedData.includes("task_id"))
-                    {
-                        var pos = returnedData.lastIndexOf("task_id=") + 1;
-                        returnedData.substring(pos, path.length() - pos);
-                    }
+                    var pos = item_name.lastIndexOf("-");
+                    var id = str.substring(0, pos);
+                    var requestObj = {}
+                    requestObj.isPaymentMade = "true";
+                    requestObj.make_payment_transactionId = $scope.transaction_id;
+                    httpService.updateTask(id, requestObj).then(function (data) {
+
+                    });
                 }
                 else {
                     $scope.status = "Payment Failure. Please try again.";
