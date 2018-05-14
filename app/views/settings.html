@@ -7,7 +7,7 @@
 
 <div class="container setting-pages">
     <div class="row">
-        <div class="col-sm-3">
+        <div class="col-md-3">
             <div class="menubar-left">
                 <ul>
                     <li><a ng-class="{activeSide : accountIndicator}" data-ng-click="accountSettings()">Account</a></li>
@@ -25,23 +25,23 @@
                 </ul>
             </div>
         </div>
-        <div class="col-sm-8" data-ng-if="accountIndicator">
+        <div class="col-md-8" data-ng-if="accountIndicator">
             <div class="row m-space">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <label>First Name</label>
                     <input type="text" width="100%" data-ng-model="userDetails.first_name" name="first_name" maxlength="20">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <label>Last Name</label>
                     <input type="text" width="100%" data-ng-model="userDetails.last_name" name="last_name" maxlength="20">
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <label>Upload Profile Image :</label>
                     <input type="file" class="form-control" name="userDetails.photo" id="userDetails.user_image" fileread="userDetails.photo" image-type="categoryImage" accept="image/*" data-ng-model="userDetails.photo">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <div ng-if="userDetails.photo" class="pop-upload-image">
                         <img ng-src="{{userDetails.photo}}" widt width="100" height="50" alt="Image preview..." id="profilePhoto">
                         <input type="button" value="view picture" data-ng-click="getProfilePicture(userDetails.photo)" />
@@ -52,35 +52,35 @@
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <label>Suburb</label>
                     <input type="text" width="100%" data-ng-model="userDetails.suburb" name="suburb" maxlength="20">
                 </div>
-                <div class="col-sm-6">
+                <div class="col-md-6">
                     <label>State</label>
                     <input type="text" width="100%" data-ng-model="userDetails.state" name="state" maxlength="20">
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label>Email</label>
                     <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-4" data-ng-repeat="skill in skillIndex">
+                <div class="col-md-4" data-ng-repeat="skill in skillIndex">
                     <label>Skill {{skill}}</label>
                     <input type="text" width="100%" data-ng-model="userDetails.skill[$index]" name="skill[$index]" maxlength="20">
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label>About me</label>
                     <textarea width="100%" rows="4" data-ng-model="userDetails.about_me" name="aboutme"></textarea>
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label>Birthday</label>
                 </div>
                 <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
@@ -88,29 +88,29 @@
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-2">
+                <div class="col-md-2">
                     <select class="singleSelection" ng-model="userDetails.day" ng-options="item as item for item in dayArray" width="100%" ng-class="{error : dateErrorIndicator}">
                         <option value="">dd</option>
                     </select>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-md-2">
                     <select class="singleSelection" ng-model="userDetails.month" ng-options="item1 as item1 for item1 in monthArray" width="100%" ng-class="{error : dateErrorIndicator}">
                         <option value="">mm</option>
                     </select>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <select class="singleSelection" ng-model="userDetails.year" ng-options="item2 as item2 for item2 in yearArray" width="100%" ng-class="{error : dateErrorIndicator}">
                         <option value="">yyyy</option>
                     </select>
                 </div>
             </div>
             <div class="row m-space">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <a class="btn btn-lg btn-primary" data-ng-click="updateAccountDetails()">Update</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" data-ng-if="paypal">
+        <div class="col-md-9" data-ng-if="paypal">
             <div class="add-account-paypal">
                 <b>Email</b>
                 <input type="email" placeholder="enter your email" data-ng-model="userDetails.paypalAccount">
@@ -119,14 +119,14 @@
             <button type="button" class="btn btn-default">Cancel</button>
             <!--
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <label>Email</label>
                         <input type="text" width="100%" data-ng-model="userDetails.email" name="email" readonly>
                     </div>
 
                 </div>
                       <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <label>Amount</label>
                         <input type="text" width="100%" data-ng-model="userDetails.amount" name="amount" readonly>
                     </div>
@@ -134,15 +134,15 @@
                 </div>
              
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <a class="btn btn-lg btn-primary" data-ng-click="paypalPayment()">Update</a>
                     </div>
                 </div>
 -->
         </div>
-        <div class="col-sm-9" data-ng-show="categoryIndicator">
+        <div class="col-md-9" data-ng-show="categoryIndicator">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                 <b>Categories</b>
                 <p>
                     Let people know what categories you are a master of. That way people will be able to find you when they are looking for some help with their event. Are you a great baker ? A great singer ? Have great party supplies ?
@@ -154,17 +154,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <a class="btn btn-lg btn-primary" data-ng-click="updateCategoryDetails(selectedCategories)">Update</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" data-ng-if="mobileIndicator">
+        <div class="col-md-9" data-ng-if="mobileIndicator">
             <div class="alert alert-success" data-ng-if="successMobileIndicator">
                 Details updated successfully.
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label><b>Mobile number</b></label>
                     <p>
                         We may like to keep in touch with you and give you notifications about your projects.Your mobile number won't be available to the public.
@@ -173,21 +173,21 @@
                 <div class="alert alert-danger" data-ng-show="dateErrorIndicator">
                     Please select valid date(dd, mm, yyyy)
                 </div>
-                <div class="col-sm-6 enter-mobile">
+                <div class="col-md-6 enter-mobile">
                     <label>Mobile Number</label>
                     <span class="country-mobile-code">+61</span>
                     <input type="number" width="100%" data-ng-model="userDetails.mobile" name="mobile">
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <a class="btn btn-lg btn-primary" data-ng-click="updateMobileDetails(userDetails.mobile)">Update</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" data-ng-if="portfolioIndicator">
+        <div class="col-md-9" data-ng-if="portfolioIndicator">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label><b>Your Portfolio</b></label>
                     <p>Showcase your skills by uploading photos of your previous work. By showing potential customers what your abilities are , you may be more successful in winning a job.</p>
                     <p>You can upload a maximum of 5 files. Each file can not be larger than 4mb.</p>
@@ -199,14 +199,14 @@
             </div>
             <div class="row">
                 
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label>Upload Portfolio Image :</label>
                    <div class="row">
-                   <div class="col-sm-5">
+                   <div class="col-md-5">
                         <input type="file" class="form-control" name="portFolioImage" id="portFolioImage" fileread="portFolioImage" image-type="portFolioImage" accept="image/*" data-ng-model="portFolioImage">
                    </div>
               
-                <div class="col-sm-3">
+                <div class="col-md-3">
                      <div class="view-in-detail">
                         <input class="view-in-input" type="button" value="View photo" data-ng-click="getPortfolioPicture(portfolioImageArray)">
                     </div>
@@ -215,7 +215,7 @@
                   </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <div data-ng-if="portfolioImageArray.length > 0" data-ng-repeat="data in portfolioImageArray track by $index" class="port-upload">
                         <img class="uploaded-image" ng-src="{{data}}" width="100" height="50" alt="Image preview..." id="portPhoto">
                         <a data-ng-click="deletePhoto(data)">X</a>
@@ -224,21 +224,21 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <a class="btn btn-lg btn-primary" data-ng-click="uploadPortfolioFiles()">Upload Files</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" data-ng-if="paymentIndicator">
+        <div class="col-md-9" data-ng-if="paymentIndicator">
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <label><b>Your Credit Card Information</b></label>
                     <p>When you are ready to start transacting on the website, you will be required to provide your credit or debit card details.</p>
                     <p>Your card details will only be available for Event Bid admin.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <div data-ng-if="creditCardDetailsIndicator">
                         <div class="event-card-detail" ng-show="!updateCardDetailIndicator">
                             <a class="remove-card" ng-click="removecard(card)">remove card</a>
@@ -259,7 +259,7 @@
                         {{message}}
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-md-12">
                             <div class="form-field">
                                 <label>Enter Card Number</label>
                                 <input type="number" class="form-control" id="debitNumber" name="debitNumber" maxlength="16" min="16" ng-class="{error : paymentForm.debitNumber.$invalid && paymentForm.$submitted}" required data-ng-model="cardDetails.card_number">
@@ -279,12 +279,12 @@
                         </span>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-md-12">
                             <div class="row">
-                                <div class="col-sm-8">
+                                <div class="col-md-8">
                                     <div class="form-field expireDate">
                                         <label class="btn-block">Expiry Date</label>
-                                        <select required class="form-control" data-ng-model="cardDetails.expire_month" ng-options="item for item in montharray" style="margin-bottom: 15px;">
+                                        <select required class="form-control" data-ng-model="cardDetails.expire_month" ng-options="item for item in montharray" style="margin-bottom: 15px; margin-top: 6px;">
                                             <option value="" selected>MM</option>
                                         </select>
                                         <select required class="form-control" data-ng-model="cardDetails.expire_year" ng-options="item for item in yeararray">
@@ -292,7 +292,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-sm-4">
+                                <div class="col-md-4">
                                     <div class="form-field">
                                         <label>CVV</label>
                                         <input type="number" class="form-control" id="cvv" name="cvv" maxlength="3" min="3" required ng-class="{error : paymentForm.cvv.$invalid && paymentForm.$submitted}" data-ng-model="cardDetails.cvv">
@@ -300,7 +300,7 @@
                                 </div>
                             </div>
                             <!-- <div class="row">
-                                     <div class="col-sm-12">
+                                     <div class="col-md-12">
                                          <div class="form-field">
                                              <label>Amount</label>
                                              <input type="number" class="form-control" id="amount" name="amount"
@@ -309,7 +309,7 @@
                                      </div>
                                  </div>-->
                             <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-md-12">
                                     <div class="form-field card-holder-name">
                                         <label>Card Holder's Name</label>
                                         <div class="card-holder-input">
@@ -322,30 +322,30 @@
                         </div>
                     </div>
                     <!-- <div class="row">
-                             <div class="col-sm-12">
+                             <div class="col-md-12">
                                  <div class="form-field">
                                      <input type="checkbox" class="payment-checkbox"> Save this card for faster checkout
                                  </div>
                              </div>
                          </div>-->
                     <div class="row">
-                        <div class="col-sm-3 card-pay-button">
-                            <div class="btn-group">
-                                <input data-ng-click="addCardDetails(cardDetails, paymentForm)" type="submit" value="Add card" class="btn btn-primary btn-lg payment-btn">
-                                <input type="button" data-ng-click="cancelAddingCard()" value="Cancel" class="btn btn-primary btn-lg payment-btn">
-                            </div>
+                        <div class="col-md-2 card-pay-button">
+                            <input data-ng-click="addCardDetails(cardDetails, paymentForm)" type="submit" value="Add card" class="btn btn-default">
                         </div>
+                        <div class="col-md-2">
+                            <input type="button" data-ng-click="cancelAddingCard()" value="Cancel" class="btn btn-default">
+                                         </div>
                     </div>
                 </form>
             </div>
             <div class="row" data-ng-show="buttonIndicator">
-                <div class="col-sm-12">
+                <div class="col-md-12">
                     <a class="btn btn-lg btn-primary" ng-click="showCardDetails()">Add card</a>
                     <a class="btn btn-lg btn-primary" ng-click="updateCardDetails()">Update Card</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9" data-ng-if="passwordIndicator">
+        <div class="col-md-9" data-ng-if="passwordIndicator">
             <div class="alert alert-success" data-ng-if="successPasswordIndicator">
                 Details updated successfully.
             </div>
@@ -357,15 +357,15 @@
                     Password reset successfully. Please login to continue.
                 </label>
                 <div class="row">
-                    <div class="col-sm-7">
+                    <div class="col-md-7">
                         <!-- <label>Current Password</label> -->
                         <input type="password" class="form-control" placeholder="Old Password" id="oldPassword" name="oldPassword" ng-class="{error : passForm.oldPassword.$invalid && passForm.$submitted}" required data-ng-model="passwordDetails.oldPassword">
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-md-7">
                         <!-- <label>New Password</label> -->
                         <input type="password" class="form-control" placeholder="New Password" id="newPassword" name="newPassword" required data-ng-model="passwordDetails.newPassword" ng-class="{error : passForm.newPassword.$invalid && passForm.$submitted }">
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-md-7">
                         <!-- <label>Confirm Password</label> -->
                         <input type="password" class="form-control" placeholder="Confirm Password" name="cnfNewPassword" required data-ng-model="passwordDetails.cnfNewPassword" ng-class="{error : passForm.cnfNewPassword.$invalid && passForm.$submitted }">
                     </div>
@@ -373,7 +373,7 @@
                 <!--
 
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-md-12">
                         <a class="btn btn-lg btn-primary" data-ng-click="updatePassword()">Update</a>
                     </div>
                 </div>
@@ -381,10 +381,10 @@
                 <input id="login-button" class="reset-btn" type="button" value="Change Password" data-ng-click="updatePassword(passwordDetails,passForm)" />
             </form>
         </div>
-        <div class="col-sm-9" data-ng-if="insuranceIndicator">
+        <div class="col-md-9" data-ng-if="insuranceIndicator">
             <div class="insurance-page">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="alert alert-success" data-ng-if="insuranceSuccessMessageIndicator">
                             {{insuranceMessage}}
                         </div>
@@ -416,7 +416,7 @@
                         </p>
                         <!--<p class="add-more-isurance"><i class="fa fa-plus"></i><a ng-click="addInsuranceForm()"> Add More Insurance</a></p>-->
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <div class="alert alert-success" data-ng-if="quaSuccessMessageIndicator">
                             {{message}}
                         </div>
