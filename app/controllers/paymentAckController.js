@@ -7,6 +7,7 @@
         console.log($scope.transaction_id);
         commonService.scrollToTop();
         checkTransaction();
+        alert("payment check - 14/05 build")
     }
 
     
