@@ -9001,7 +9001,7 @@ img {
 /* line 301, src/assets/scss/origin/_style.scss */
 .homeslider-content .btn {
   padding: 15px 55px;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 26px;
   font-weight: 300;
   text-align: center;
@@ -9340,7 +9340,7 @@ img {
         transition: opacity .2s;
         opacity: 1;
         padding: 15px 55px;
-        border-radius: 8px;
+        border-radius: 6px;
         font-size: 26px;
         font-weight: 300;
         text-align: center;
@@ -9589,7 +9589,7 @@ img {
   /* line 890, src/assets/scss/origin/_style.scss */
   .post-a-task .button-group .btn {
     padding: 11px 55px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 24px;
     font-weight: 300;
     text-align: center;
@@ -10321,7 +10321,7 @@ a#submit {
   /* line 1661, src/assets/scss/origin/_style.scss */
   .contact-us-form .submit {
     padding: 0 0;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 20px;
     font-weight: 300;
     text-align: center;
@@ -10383,7 +10383,7 @@ a#submit {
   /* line 1710, src/assets/scss/origin/_style.scss */
   .sub-banner .banner-overlay button {
     padding: 1.5rem 55px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 26px;
     font-weight: 300;
     text-align: center;
@@ -10479,7 +10479,7 @@ a#submit {
   /* line 1798, src/assets/scss/origin/_style.scss */
   .how-it-tabs .submitHire {
     padding: 12px 45px;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 20px;
     font-weight: 300;
     text-align: center;
@@ -10618,91 +10618,242 @@ a.fb_login_btn.btn.btn-block:hover {
 
 /* line 1936, src/assets/scss/origin/_style.scss */
 .setting-pages {
-  padding: 25px 0px; }
-
-/* line 1940, src/assets/scss/origin/_style.scss */
-.menubar-left {
-  background: #eee;
-  padding: 15px;
-  border-radius: 5px; }
+  padding: 60px 25px;
+  color: #4F748C; }
+  /* line 1940, src/assets/scss/origin/_style.scss */
+  .setting-pages .m-space {
+    margin-bottom: 20px; }
   /* line 1944, src/assets/scss/origin/_style.scss */
+  .setting-pages label {
+    font-size: 16px;
+    width: 100%;
+    font-weight: 300;
+    color: #4F748C;
+    margin: 0; }
+  /* line 1952, src/assets/scss/origin/_style.scss */
+  .setting-pages input {
+    font-size: 16px;
+    width: 100%;
+    height: 40px;
+    color: #4F748C;
+    border: none;
+    border-radius: 5px;
+    margin-top: 6px;
+    padding-left: 15px; }
+  /* line 1962, src/assets/scss/origin/_style.scss */
+  .setting-pages textarea {
+    font-size: 16px;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    padding: 10px;
+    border: none;
+    color: #4F748C; }
+  /* line 1971, src/assets/scss/origin/_style.scss */
+  .setting-pages select {
+    width: 100%;
+    color: #4F748C;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px; }
+  /* line 1979, src/assets/scss/origin/_style.scss */
+  .setting-pages .btn-lg {
+    padding: 8px 49px;
+    border-radius: 6px;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0px 34px 0;
+    border: 0;
+    background: #4F748C;
+    background: -webkit-linear-gradient(340deg, #a0b4c3 0%, #4F748C 130%);
+    background: linear-gradient(110deg, #a0b4c3 0%, #4F748C 130%);
+    color: white;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
+    margin: 20px 0 0; }
+    /* line 53, src/assets/scss/_vars.scss */
+    .setting-pages .btn-lg:hover, .setting-pages .btn-lg:focus {
+      color: #4F748C; }
+  /* line 1983, src/assets/scss/origin/_style.scss */
+  .setting-pages .form-field {
+    width: 100%; }
+  /* line 1987, src/assets/scss/origin/_style.scss */
+  .setting-pages h4 {
+    margin-bottom: 20px;
+    color: #4F748C;
+    font-weight: bold; }
+  /* line 1992, src/assets/scss/origin/_style.scss */
+  .setting-pages p {
+    color: #4F748C;
+    margin: 15px 0; }
+  /* line 1996, src/assets/scss/origin/_style.scss */
+  .setting-pages .enter-mobile {
+    position: relative; }
+    /* line 1998, src/assets/scss/origin/_style.scss */
+    .setting-pages .enter-mobile .country-mobile-code {
+      position: absolute;
+      top: 39px;
+      left: 28px;
+      font-weight: bold;
+      font-size: 15px; }
+  /* line 2006, src/assets/scss/origin/_style.scss */
+  .setting-pages input[type="file"] {
+    font-size: 14px;
+    background: #FFFFFF; }
+  /* line 2010, src/assets/scss/origin/_style.scss */
+  .setting-pages .reset-btn {
+    padding: 8px 49px;
+    border-radius: 6px;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0px 34px 0;
+    border: 0;
+    background: #4F748C;
+    background: -webkit-linear-gradient(340deg, #a0b4c3 0%, #4F748C 130%);
+    background: linear-gradient(110deg, #a0b4c3 0%, #4F748C 130%);
+    color: white;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
+    padding: 0;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 185px;
+    margin-top: 27px; }
+    /* line 53, src/assets/scss/_vars.scss */
+    .setting-pages .reset-btn:hover, .setting-pages .reset-btn:focus {
+      color: #4F748C; }
+  /* line 2019, src/assets/scss/origin/_style.scss */
+  .setting-pages .add-account-paypal {
+    margin-bottom: 10px; }
+  /* line 2022, src/assets/scss/origin/_style.scss */
+  .setting-pages .add-insurance-info {
+    padding: 8px 49px;
+    border-radius: 6px;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0px 34px 0;
+    border: 0;
+    background: #4F748C;
+    background: -webkit-linear-gradient(340deg, #a0b4c3 0%, #4F748C 130%);
+    background: linear-gradient(110deg, #a0b4c3 0%, #4F748C 130%);
+    color: white;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
+    padding: 0;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    width: 185px;
+    margin-top: 27px; }
+    /* line 53, src/assets/scss/_vars.scss */
+    .setting-pages .add-insurance-info:hover, .setting-pages .add-insurance-info:focus {
+      color: #4F748C; }
+  /* line 2031, src/assets/scss/origin/_style.scss */
+  .setting-pages .addMoreStuff {
+    padding: 8px 49px;
+    border-radius: 6px;
+    font-size: 21px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0px 34px 0;
+    border: 0;
+    background: #4F748C;
+    background: -webkit-linear-gradient(340deg, #a0b4c3 0%, #4F748C 130%);
+    background: linear-gradient(110deg, #a0b4c3 0%, #4F748C 130%);
+    color: white;
+    -webkit-transition: color .2s ease;
+    transition: color .2s ease;
+    font-size: 20px;
+    margin: 0;
+    padding: 3px;
+    width: 277px;
+    margin-top: 27px; }
+    /* line 53, src/assets/scss/_vars.scss */
+    .setting-pages .addMoreStuff:hover, .setting-pages .addMoreStuff:focus {
+      color: #4F748C; }
+  /* line 2039, src/assets/scss/origin/_style.scss */
+  .setting-pages input[type="radio"] {
+    margin-left: -20px;
+    width: 17px;
+    top: -16px;
+    left: 20px;
+    border: 0;
+    box-shadow: none; }
+
+/* line 2049, src/assets/scss/origin/_style.scss */
+.menubar-left {
+  background: #FFFFFF;
+  padding: 13px;
+  border-radius: 5px; }
+  /* line 2053, src/assets/scss/origin/_style.scss */
   .menubar-left ul li {
     text-align: left; }
-  /* line 1947, src/assets/scss/origin/_style.scss */
+  /* line 2056, src/assets/scss/origin/_style.scss */
   .menubar-left a {
     display: block;
     padding: 10px 15px;
-    color: #333;
-    font-size: 18px; }
-    /* line 1952, src/assets/scss/origin/_style.scss */
+    color: #4F748C;
+    font-size: 16px; }
+    /* line 2061, src/assets/scss/origin/_style.scss */
     .menubar-left a:hover {
-      background: #298992;
+      background: #4F748C;
       text-decoration: none;
       color: #fff; }
 
-/* line 1961, src/assets/scss/origin/_style.scss */
-.setting-pages label {
-  font-size: 16px;
-  float: left;
-  width: 100%;
-  font-weight: 300; }
-
-/* line 1967, src/assets/scss/origin/_style.scss */
-.setting-pages input {
-  font-size: 16px;
-  float: left;
-  width: 100%;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 10px;
-  padding-left: 15px; }
-
-/* line 1979, src/assets/scss/origin/_style.scss */
+/* line 2069, src/assets/scss/origin/_style.scss */
 a.activeSide {
-  background: #298992;
+  background: #4F748C;
   text-decoration: none;
-  color: #fff; }
+  color: #FFFFFF; }
 
-/* line 1985, src/assets/scss/origin/_style.scss */
+/* line 2075, src/assets/scss/origin/_style.scss */
 i {
   border: 0 !important; }
 
-/* line 1989, src/assets/scss/origin/_style.scss */
+/* line 2079, src/assets/scss/origin/_style.scss */
 button.multiselect.dropdown-toggle.btn.btn-default:hover {
   background: #12ab9c;
   color: #fff;
   text-shadow: none; }
 
-/* line 1995, src/assets/scss/origin/_style.scss */
+/* line 2085, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio input.option-input.checkbox {
   margin-top: 30px; }
 
-/* line 1999, src/assets/scss/origin/_style.scss */
+/* line 2089, src/assets/scss/origin/_style.scss */
 .uploaded-image {
   float: left;
   margin-right: 15px;
   margin-bottom: 15px; }
 
-/* line 2005, src/assets/scss/origin/_style.scss */
+/* line 2095, src/assets/scss/origin/_style.scss */
 ul.multiselect-container.dropdown-menu li a:hover {
   color: #333; }
 
-/* line 2009, src/assets/scss/origin/_style.scss */
+/* line 2099, src/assets/scss/origin/_style.scss */
 .request-input {
   margin-top: 0px !important; }
 
-/* line 2014, src/assets/scss/origin/_style.scss */
+/* line 2104, src/assets/scss/origin/_style.scss */
 .browse-task-detail-pop .modal-dialog {
   left: 0; }
 
-/* line 2017, src/assets/scss/origin/_style.scss */
+/* line 2107, src/assets/scss/origin/_style.scss */
 .browse-task-detail-pop .modal-header {
   text-align: center;
   background: #4F748C;
   color: #FFFFFF; }
 
-/* line 2022, src/assets/scss/origin/_style.scss */
+/* line 2112, src/assets/scss/origin/_style.scss */
 .browse-task-detail-pop button.btn.btn-default {
   background: #4F748C;
   color: #FFFFFF;
@@ -10711,47 +10862,47 @@ ul.multiselect-container.dropdown-menu li a:hover {
   margin-top: 1.5rem;
   padding: 1.2rem; }
 
-/* line 2032, src/assets/scss/origin/_style.scss */
+/* line 2122, src/assets/scss/origin/_style.scss */
 .container.admin-page ul {
   float: left;
   width: 33.33%;
   margin-bottom: 15px; }
 
-/* line 2038, src/assets/scss/origin/_style.scss */
+/* line 2128, src/assets/scss/origin/_style.scss */
 .input-adjust {
   float: left;
   width: 48%;
   margin: 1%;
   position: relative; }
 
-/* line 2045, src/assets/scss/origin/_style.scss */
+/* line 2135, src/assets/scss/origin/_style.scss */
 .place-ico {
   position: absolute;
   right: 10px;
   top: 8px; }
 
-/* line 2051, src/assets/scss/origin/_style.scss */
+/* line 2141, src/assets/scss/origin/_style.scss */
 .other-iocn-d {
   position: absolute;
   right: 25px;
   top: 54px; }
 
-/* line 2057, src/assets/scss/origin/_style.scss */
+/* line 2147, src/assets/scss/origin/_style.scss */
 .col-sm-4 textarea {
   width: 100%; }
 
-/* line 2061, src/assets/scss/origin/_style.scss */
+/* line 2151, src/assets/scss/origin/_style.scss */
 .customer-dashboard {
   padding: 7rem 0px 10rem; }
 
-/* line 2066, src/assets/scss/origin/_style.scss */
+/* line 2156, src/assets/scss/origin/_style.scss */
 .jobs-list {
   background: #eee;
   float: left;
   width: 100%;
   padding: 15px;
   border-radius: 5px; }
-  /* line 2072, src/assets/scss/origin/_style.scss */
+  /* line 2162, src/assets/scss/origin/_style.scss */
   .jobs-list h4 {
     text-align: center;
     background: #018479;
@@ -10760,39 +10911,39 @@ ul.multiselect-container.dropdown-menu li a:hover {
     border-top-right-radius: 5px;
     color: #fff;
     padding: 10px; }
-  /* line 2081, src/assets/scss/origin/_style.scss */
+  /* line 2171, src/assets/scss/origin/_style.scss */
   .jobs-list ul {
     margin-top: 30px;
     float: left;
     width: 100%; }
-    /* line 2085, src/assets/scss/origin/_style.scss */
+    /* line 2175, src/assets/scss/origin/_style.scss */
     .jobs-list ul a {
       color: #484848;
       font-size: 18px;
       padding: 10px 0px;
       border-bottom: 1px solid #ccc;
       display: block; }
-      /* line 2091, src/assets/scss/origin/_style.scss */
+      /* line 2181, src/assets/scss/origin/_style.scss */
       .jobs-list ul a:hover {
         background: #4F748C;
         color: #fff; }
-    /* line 2096, src/assets/scss/origin/_style.scss */
+    /* line 2186, src/assets/scss/origin/_style.scss */
     .jobs-list ul li {
       margin-left: 15px;
       text-align: center; }
 
-/* line 2103, src/assets/scss/origin/_style.scss */
+/* line 2193, src/assets/scss/origin/_style.scss */
 .container.jobs-dasborad {
   padding-bottom: 40px; }
 
-/* line 2107, src/assets/scss/origin/_style.scss */
+/* line 2197, src/assets/scss/origin/_style.scss */
 .dashborad-post-btn {
   float: left;
   width: 100%;
   margin-top: 35px;
   margin-bottom: 25px;
   text-align: center; }
-  /* line 2113, src/assets/scss/origin/_style.scss */
+  /* line 2203, src/assets/scss/origin/_style.scss */
   .dashborad-post-btn a {
     padding: 12px 50px;
     border-radius: 6px;
@@ -10812,7 +10963,7 @@ ul.multiselect-container.dropdown-menu li a:hover {
     .dashborad-post-btn a:hover, .dashborad-post-btn a:focus {
       color: #4F748C; }
 
-/* line 2118, src/assets/scss/origin/_style.scss */
+/* line 2208, src/assets/scss/origin/_style.scss */
 .text-content-dash {
   float: left;
   width: 100%;
@@ -10821,169 +10972,178 @@ ul.multiselect-container.dropdown-menu li a:hover {
   margin-top: 35px;
   text-align: center; }
 
-/* line 2128, src/assets/scss/origin/_style.scss */
+/* line 2218, src/assets/scss/origin/_style.scss */
 .myprofile {
   background-color: #EFF3F7; }
-  /* line 2131, src/assets/scss/origin/_style.scss */
+  /* line 2221, src/assets/scss/origin/_style.scss */
   .myprofile .sub-banner {
     padding: 9rem 0;
     background-image: url(../imgs/BOKEH_1.jpg);
     border-bottom: 20px solid #bfcdd7; }
 
-/* line 2138, src/assets/scss/origin/_style.scss */
+/* line 2229, src/assets/scss/origin/_style.scss */
+.myprofile-settings {
+  background-color: #bfcdd7; }
+  /* line 2232, src/assets/scss/origin/_style.scss */
+  .myprofile-settings .sub-banner {
+    padding: 9rem 0;
+    background-image: url(../imgs/BOKEH_1.jpg);
+    border-bottom: 20px solid #E6BAA8; }
+
+/* line 2239, src/assets/scss/origin/_style.scss */
 .profile-page-event {
   background-color: #E6BAA8;
   padding: 8rem 0 10rem;
   color: #4F748C; }
-  /* line 2142, src/assets/scss/origin/_style.scss */
+  /* line 2243, src/assets/scss/origin/_style.scss */
   .profile-page-event .skill-pro {
     background-color: #bfcdd7;
     color: white; }
-  /* line 2146, src/assets/scss/origin/_style.scss */
+  /* line 2247, src/assets/scss/origin/_style.scss */
   .profile-page-event .skill-list {
     float: left;
     padding-right: 14px;
     font-size: 13px;
     font-weight: 500; }
-  /* line 2152, src/assets/scss/origin/_style.scss */
+  /* line 2253, src/assets/scss/origin/_style.scss */
   .profile-page-event .location-text {
     font-size: 13px; }
-  /* line 2155, src/assets/scss/origin/_style.scss */
+  /* line 2256, src/assets/scss/origin/_style.scss */
   .profile-page-event .jobs-profile,
   .profile-page-event .review-outer {
     background-color: white; }
 
-/* line 2161, src/assets/scss/origin/_style.scss */
+/* line 2262, src/assets/scss/origin/_style.scss */
 .mydashboard {
   background-color: #EFF3F7; }
-  /* line 2164, src/assets/scss/origin/_style.scss */
+  /* line 2265, src/assets/scss/origin/_style.scss */
   .mydashboard .sub-banner {
     padding: 9rem 0;
     background-image: url(../imgs/BOKEH_1.jpg); }
-  /* line 2168, src/assets/scss/origin/_style.scss */
+  /* line 2269, src/assets/scss/origin/_style.scss */
   .mydashboard .col-sm-4 {
     text-align: center; }
-  /* line 2172, src/assets/scss/origin/_style.scss */
+  /* line 2273, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_payments a {
     display: block; }
-  /* line 2175, src/assets/scss/origin/_style.scss */
+  /* line 2276, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_payments svg {
     width: 210px;
     height: auto; }
-    /* line 2178, src/assets/scss/origin/_style.scss */
+    /* line 2279, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_payments svg path {
       -webkit-transition: fill .2s ease-out;
       transition: fill .2s ease-out; }
-    /* line 2180, src/assets/scss/origin/_style.scss */
+    /* line 2281, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_payments svg:hover .st3 {
       fill: #4F748C; }
-    /* line 2183, src/assets/scss/origin/_style.scss */
+    /* line 2284, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_payments svg:hover circle {
       fill: white; }
-  /* line 2190, src/assets/scss/origin/_style.scss */
+  /* line 2291, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_profile a {
     display: block; }
-  /* line 2193, src/assets/scss/origin/_style.scss */
+  /* line 2294, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_profile svg {
     width: 210px;
     height: auto; }
-    /* line 2196, src/assets/scss/origin/_style.scss */
+    /* line 2297, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_profile svg path {
       -webkit-transition: fill .2s ease-out;
       transition: fill .2s ease-out; }
-    /* line 2198, src/assets/scss/origin/_style.scss */
+    /* line 2299, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_profile svg:hover circle {
       fill: white; }
-    /* line 2201, src/assets/scss/origin/_style.scss */
+    /* line 2302, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_profile svg:hover .st3 {
       fill: #4F748C; }
-  /* line 2208, src/assets/scss/origin/_style.scss */
+  /* line 2309, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_settings a {
     display: block; }
-  /* line 2211, src/assets/scss/origin/_style.scss */
+  /* line 2312, src/assets/scss/origin/_style.scss */
   .mydashboard .svg_settings svg {
     width: 210px;
     height: auto; }
-    /* line 2214, src/assets/scss/origin/_style.scss */
+    /* line 2315, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_settings svg path {
       -webkit-transition: fill .2s ease-out;
       transition: fill .2s ease-out; }
-    /* line 2216, src/assets/scss/origin/_style.scss */
+    /* line 2317, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_settings svg:hover circle {
       fill: white; }
-    /* line 2219, src/assets/scss/origin/_style.scss */
+    /* line 2320, src/assets/scss/origin/_style.scss */
     .mydashboard .svg_settings svg:hover .st3 {
       fill: #4F748C; }
-  /* line 2226, src/assets/scss/origin/_style.scss */
+  /* line 2327, src/assets/scss/origin/_style.scss */
   .mydashboard .nav-tabs > li, .mydashboard .nav-pills > li {
     float: none;
     display: inline-block; }
-  /* line 2231, src/assets/scss/origin/_style.scss */
+  /* line 2332, src/assets/scss/origin/_style.scss */
   .mydashboard .nav-tabs, .mydashboard .nav-pills {
     text-align: center; }
-  /* line 2234, src/assets/scss/origin/_style.scss */
+  /* line 2335, src/assets/scss/origin/_style.scss */
   .mydashboard .customerDashboard {
     background-color: #E6BAA8;
     padding: 11rem 0 6rem; }
-  /* line 2238, src/assets/scss/origin/_style.scss */
+  /* line 2339, src/assets/scss/origin/_style.scss */
   .mydashboard .businessDashboard {
     background-color: #bfcdd7;
     padding: 11rem 0 6rem; }
-  /* line 2242, src/assets/scss/origin/_style.scss */
+  /* line 2343, src/assets/scss/origin/_style.scss */
   .mydashboard .nav-tabs {
     font-size: 0; }
-    /* line 2244, src/assets/scss/origin/_style.scss */
+    /* line 2345, src/assets/scss/origin/_style.scss */
     .mydashboard .nav-tabs > li {
       color: #FFFFFF;
       border: 0; }
-      /* line 2247, src/assets/scss/origin/_style.scss */
+      /* line 2348, src/assets/scss/origin/_style.scss */
       .mydashboard .nav-tabs > li a {
         color: #FFFFFF;
         font-size: 20px;
         padding: 17px 27px; }
-        /* line 2252, src/assets/scss/origin/_style.scss */
+        /* line 2353, src/assets/scss/origin/_style.scss */
         .mydashboard .nav-tabs > li a:hover, .mydashboard .nav-tabs > li a:focus {
           color: #FFFFFF;
           border: 0; }
-        /* line 2257, src/assets/scss/origin/_style.scss */
+        /* line 2358, src/assets/scss/origin/_style.scss */
         .mydashboard .nav-tabs > li a.customerBtn {
           border-radius: 20px 0 0 0;
           background-color: #E6BAA8;
           margin: 0;
           border: 0; }
-          /* line 2262, src/assets/scss/origin/_style.scss */
+          /* line 2363, src/assets/scss/origin/_style.scss */
           .mydashboard .nav-tabs > li a.customerBtn:hover {
             background-color: #db9b80; }
-        /* line 2266, src/assets/scss/origin/_style.scss */
+        /* line 2367, src/assets/scss/origin/_style.scss */
         .mydashboard .nav-tabs > li a.businessBtn {
           margin: 0;
           border-radius: 0 20px 0 0;
           background-color: #bfcdd7;
           border: 0; }
-          /* line 2271, src/assets/scss/origin/_style.scss */
+          /* line 2372, src/assets/scss/origin/_style.scss */
           .mydashboard .nav-tabs > li a.businessBtn:hover {
             background-color: #a0b4c3; }
-      /* line 2277, src/assets/scss/origin/_style.scss */
+      /* line 2378, src/assets/scss/origin/_style.scss */
       .mydashboard .nav-tabs > li.active > a
 .mydashboard .nav-tabs > li.active > a:hover,
       .mydashboard .nav-tabs > li.active > a:focus {
         border-bottom-color: transparent;
         color: #FFFFFF;
         border: 0; }
-      /* line 2284, src/assets/scss/origin/_style.scss */
+      /* line 2385, src/assets/scss/origin/_style.scss */
       .mydashboard .nav-tabs > li.active > a.customerBtn {
         background-color: #E6BAA8; }
-      /* line 2287, src/assets/scss/origin/_style.scss */
+      /* line 2388, src/assets/scss/origin/_style.scss */
       .mydashboard .nav-tabs > li.active > a.businessBtn {
         background-color: #bfcdd7; }
 
-/* line 2294, src/assets/scss/origin/_style.scss */
+/* line 2395, src/assets/scss/origin/_style.scss */
 .banner-name-user {
   position: absolute;
   text-align: center;
   width: 100%;
   top: 36%; }
-  /* line 2299, src/assets/scss/origin/_style.scss */
+  /* line 2400, src/assets/scss/origin/_style.scss */
   .banner-name-user::after {
     content: "";
     position: absolute;
@@ -10999,32 +11159,32 @@ ul.multiselect-container.dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #FFFFFF;
     z-index: 1; }
-  /* line 2313, src/assets/scss/origin/_style.scss */
+  /* line 2414, src/assets/scss/origin/_style.scss */
   .banner-name-user h1 {
     z-index: 5;
     font-size: 3.5rem;
     color: #4F748C;
     position: relative; }
 
-/* line 2321, src/assets/scss/origin/_style.scss */
+/* line 2422, src/assets/scss/origin/_style.scss */
 .user-pic {
   height: 110px;
   border-radius: 100%;
   width: 110px;
   overflow: hidden;
   margin: 0 auto; }
-  /* line 2327, src/assets/scss/origin/_style.scss */
+  /* line 2428, src/assets/scss/origin/_style.scss */
   .user-pic img {
     height: 100%;
     width: 100%; }
 
-/* line 2333, src/assets/scss/origin/_style.scss */
+/* line 2434, src/assets/scss/origin/_style.scss */
 .side-bar-profile {
   padding: 15px;
   background: #f9f9f9;
   border-bottom: 1px solid #e9e9e9; }
 
-/* line 2340, src/assets/scss/origin/_style.scss */
+/* line 2441, src/assets/scss/origin/_style.scss */
 p.user-name {
   text-align: center;
   font-weight: 600;
@@ -11032,43 +11192,43 @@ p.user-name {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 2347, src/assets/scss/origin/_style.scss */
+/* line 2448, src/assets/scss/origin/_style.scss */
 p.pro-ratting {
   text-align: center;
   margin-top: 0px; }
 
-/* line 2351, src/assets/scss/origin/_style.scss */
+/* line 2452, src/assets/scss/origin/_style.scss */
 p.location-text {
   float: left;
   width: 100%;
   margin-bottom: 5px;
   font-size: 16px; }
 
-/* line 2360, src/assets/scss/origin/_style.scss */
+/* line 2461, src/assets/scss/origin/_style.scss */
 span.from-pro {
   float: left; }
 
-/* line 2363, src/assets/scss/origin/_style.scss */
+/* line 2464, src/assets/scss/origin/_style.scss */
 span.loc-pro {
   float: right; }
 
-/* line 2368, src/assets/scss/origin/_style.scss */
+/* line 2469, src/assets/scss/origin/_style.scss */
 p.pro-contact-me {
   float: left;
   width: 100%; }
 
-/* line 2373, src/assets/scss/origin/_style.scss */
+/* line 2474, src/assets/scss/origin/_style.scss */
 .side-bar-profile {
   float: left;
   width: 100%;
   margin-top: 20px;
   border-radius: 5px; }
 
-/* line 2381, src/assets/scss/origin/_style.scss */
+/* line 2482, src/assets/scss/origin/_style.scss */
 p.pro-contact-me {
   text-align: center;
   margin-top: 25px; }
-  /* line 2384, src/assets/scss/origin/_style.scss */
+  /* line 2485, src/assets/scss/origin/_style.scss */
   p.pro-contact-me a {
     background: #0b7f74;
     color: #fff;
@@ -11079,7 +11239,7 @@ p.pro-contact-me {
     margin: 0 auto;
     border-radius: 5px; }
 
-/* line 2395, src/assets/scss/origin/_style.scss */
+/* line 2496, src/assets/scss/origin/_style.scss */
 p.skill-pro {
   margin: 0px -15px;
   background: #eee;
@@ -11089,21 +11249,21 @@ p.skill-pro {
   font-weight: 600;
   margin-top: 20px; }
 
-/* line 2406, src/assets/scss/origin/_style.scss */
+/* line 2507, src/assets/scss/origin/_style.scss */
 .skill-list {
   margin-top: 15px;
   margin-left: 15px; }
-  /* line 2409, src/assets/scss/origin/_style.scss */
+  /* line 2510, src/assets/scss/origin/_style.scss */
   .skill-list li {
     padding: 5px 0px;
     list-style: disc; }
 
-/* line 2415, src/assets/scss/origin/_style.scss */
+/* line 2516, src/assets/scss/origin/_style.scss */
 .portfolio-list {
   float: left;
   width: 100%; }
 
-/* line 2420, src/assets/scss/origin/_style.scss */
+/* line 2521, src/assets/scss/origin/_style.scss */
 ul.images-portfolio li {
   width: 25%;
   float: left;
@@ -11111,69 +11271,69 @@ ul.images-portfolio li {
   padding: 1%;
   margin-bottom: 20px; }
 
-/* line 2428, src/assets/scss/origin/_style.scss */
+/* line 2529, src/assets/scss/origin/_style.scss */
 .portfolio-list {
   float: left;
   width: 100%; }
 
-/* line 2433, src/assets/scss/origin/_style.scss */
+/* line 2534, src/assets/scss/origin/_style.scss */
 .jobs-profile {
   padding: 15px;
   border: 1px solid #e9e9e9;
   border-radius: 5px;
   margin-top: 20px; }
 
-/* line 2440, src/assets/scss/origin/_style.scss */
+/* line 2541, src/assets/scss/origin/_style.scss */
 .jobs-pro-heading {
   float: left;
   width: 100%;
   text-align: center;
   margin-bottom: 0px;
   /* font-size: 24px; */ }
-  /* line 2446, src/assets/scss/origin/_style.scss */
+  /* line 2547, src/assets/scss/origin/_style.scss */
   .jobs-pro-heading h2 {
     font-size: 24px; }
 
-/* line 2451, src/assets/scss/origin/_style.scss */
+/* line 2552, src/assets/scss/origin/_style.scss */
 .job-status-thumb {
   float: left;
   width: 100%;
   padding: 15px 0px;
   border-bottom: 1px solid #e9e9e9; }
-  /* line 2456, src/assets/scss/origin/_style.scss */
+  /* line 2557, src/assets/scss/origin/_style.scss */
   .job-status-thumb h3 {
     font-size: 18px; }
 
-/* line 2461, src/assets/scss/origin/_style.scss */
+/* line 2562, src/assets/scss/origin/_style.scss */
 p.status-desc {
   margin-top: 10px;
   font-size: 13px; }
 
-/* line 2466, src/assets/scss/origin/_style.scss */
+/* line 2567, src/assets/scss/origin/_style.scss */
 .review-pro {
   float: left;
   width: 100%; }
 
-/* line 2471, src/assets/scss/origin/_style.scss */
+/* line 2572, src/assets/scss/origin/_style.scss */
 .review-user.text-center {
   float: left;
   width: 10%;
   margin-right: 3%; }
-  /* line 2475, src/assets/scss/origin/_style.scss */
+  /* line 2576, src/assets/scss/origin/_style.scss */
   .review-user.text-center p {
     font-size: 13px; }
 
-/* line 2480, src/assets/scss/origin/_style.scss */
+/* line 2581, src/assets/scss/origin/_style.scss */
 .review-content-pro {
   float: left;
   width: 87%; }
 
-/* line 2485, src/assets/scss/origin/_style.scss */
+/* line 2586, src/assets/scss/origin/_style.scss */
 .review-pro {
   padding: 15px 0px;
   border-bottom: 1px solid #e9e9e9; }
 
-/* line 2490, src/assets/scss/origin/_style.scss */
+/* line 2591, src/assets/scss/origin/_style.scss */
 .jobs-profile {
   padding: 15px;
   border: 1px solid #e9e9e9;
@@ -11182,15 +11342,15 @@ p.status-desc {
   float: left;
   width: 100%; }
 
-/* line 2500, src/assets/scss/origin/_style.scss */
+/* line 2601, src/assets/scss/origin/_style.scss */
 .hub-thumbnails {
   margin-top: 30px; }
 
-/* line 2504, src/assets/scss/origin/_style.scss */
+/* line 2605, src/assets/scss/origin/_style.scss */
 .hub-head h1 {
   color: #aaa !important; }
 
-/* line 2508, src/assets/scss/origin/_style.scss */
+/* line 2609, src/assets/scss/origin/_style.scss */
 .review-outer {
   padding: 15px;
   border: 1px solid #eee;
@@ -11199,15 +11359,15 @@ p.status-desc {
   width: 100%;
   margin-top: 30px; }
 
-/* line 2517, src/assets/scss/origin/_style.scss */
+/* line 2618, src/assets/scss/origin/_style.scss */
 .review-head {
   text-align: center; }
-  /* line 2519, src/assets/scss/origin/_style.scss */
+  /* line 2620, src/assets/scss/origin/_style.scss */
   .review-head h3 {
     margin-top: 0;
     margin-bottom: 0; }
 
-/* line 2527, src/assets/scss/origin/_style.scss */
+/* line 2628, src/assets/scss/origin/_style.scss */
 .col-sm-12.admin-btn {
   text-align: center;
   margin-top: 25px;
@@ -11215,7 +11375,7 @@ p.status-desc {
   text-align: center;
   margin-top: 25px;
   margin-bottom: 25px; }
-  /* line 2531, src/assets/scss/origin/_style.scss */
+  /* line 2632, src/assets/scss/origin/_style.scss */
   .col-sm-12.admin-btn input {
     background: #298992;
     border: 0;
@@ -11232,13 +11392,13 @@ p.status-desc {
     border-radius: 5px;
     font-size: 16px; }
 
-/* line 2552, src/assets/scss/origin/_style.scss */
+/* line 2653, src/assets/scss/origin/_style.scss */
 .container.category-management h4 {
   text-align: center;
   margin-bottom: 25px;
   font-weight: 700; }
 
-/* line 2558, src/assets/scss/origin/_style.scss */
+/* line 2659, src/assets/scss/origin/_style.scss */
 .category-management input[type="button"] {
   background: #298992;
   text-align: center;
@@ -11248,7 +11408,7 @@ p.status-desc {
   color: #fff;
   font-size: 16px; }
 
-/* line 2569, src/assets/scss/origin/_style.scss */
+/* line 2670, src/assets/scss/origin/_style.scss */
 .container.category-management ul {
   width: 25%;
   padding: 0;
@@ -11256,7 +11416,7 @@ p.status-desc {
   padding: 15px;
   display: inline-block; }
 
-/* line 2576, src/assets/scss/origin/_style.scss */
+/* line 2677, src/assets/scss/origin/_style.scss */
 .container.category-management b {
   float: left;
   width: 100%;
@@ -11264,13 +11424,13 @@ p.status-desc {
   margin-bottom: 25px;
   font-size: 24px; }
 
-/* line 2583, src/assets/scss/origin/_style.scss */
+/* line 2684, src/assets/scss/origin/_style.scss */
 .container.category-management ul li {
   background: #eee;
   padding: 15px;
   border-radius: 5px;
   text-align: center; }
-  /* line 2588, src/assets/scss/origin/_style.scss */
+  /* line 2689, src/assets/scss/origin/_style.scss */
   .container.category-management ul li img {
     display: block;
     float: left;
@@ -11278,22 +11438,22 @@ p.status-desc {
     clear: both;
     text-align: center;
     margin: 15px auto; }
-  /* line 2596, src/assets/scss/origin/_style.scss */
+  /* line 2697, src/assets/scss/origin/_style.scss */
   .container.category-management ul li input {
     display: block;
     width: 70%;
     margin: 0 auto;
     clear: both; }
 
-/* line 2605, src/assets/scss/origin/_style.scss */
+/* line 2706, src/assets/scss/origin/_style.scss */
 .category-management input[type="button"] {
   float: right; }
 
-/* line 2610, src/assets/scss/origin/_style.scss */
+/* line 2711, src/assets/scss/origin/_style.scss */
 .container.category-management ul li input {
   float: none !important; }
 
-/* line 2613, src/assets/scss/origin/_style.scss */
+/* line 2714, src/assets/scss/origin/_style.scss */
 .container.category-management h4 {
   text-align: center;
   margin-bottom: 25px;
@@ -11304,7 +11464,7 @@ p.status-desc {
   background: #eee;
   border-radius: 5px; }
 
-/* line 2628, src/assets/scss/origin/_style.scss */
+/* line 2729, src/assets/scss/origin/_style.scss */
 h4.tsk-head {
   text-align: center;
   margin-bottom: 25px;
@@ -11316,7 +11476,7 @@ h4.tsk-head {
   border-radius: 5px;
   width: 100%; }
 
-/* line 2642, src/assets/scss/origin/_style.scss */
+/* line 2743, src/assets/scss/origin/_style.scss */
 .container.admin-blog input[type="button"] {
   color: #fff;
   border: 0;
@@ -11326,7 +11486,7 @@ h4.tsk-head {
   float: right;
   clear: both; }
 
-/* line 2651, src/assets/scss/origin/_style.scss */
+/* line 2752, src/assets/scss/origin/_style.scss */
 .container.admin-blog b {
   width: 100%;
   float: left;
@@ -11336,23 +11496,23 @@ h4.tsk-head {
   font-weight: 700;
   margin-bottom: 15px; }
 
-/* line 2664, src/assets/scss/origin/_style.scss */
+/* line 2765, src/assets/scss/origin/_style.scss */
 .container.admin-blog ul {
   float: left;
   width: 33.33%;
   text-align: center;
   padding: 15px; }
-  /* line 2669, src/assets/scss/origin/_style.scss */
+  /* line 2770, src/assets/scss/origin/_style.scss */
   .container.admin-blog ul li {
     padding: 15px;
     background: #eee;
     text-align: center; }
-    /* line 2673, src/assets/scss/origin/_style.scss */
+    /* line 2774, src/assets/scss/origin/_style.scss */
     .container.admin-blog ul li img {
       width: 100%;
       margin-top: 15px; }
 
-/* line 2679, src/assets/scss/origin/_style.scss */
+/* line 2780, src/assets/scss/origin/_style.scss */
 .container.admin-blog h4 {
   text-align: center;
   padding: 10px;
@@ -11363,7 +11523,7 @@ h4.tsk-head {
   color: #298992;
   margin-bottom: 20px; }
 
-/* line 2689, src/assets/scss/origin/_style.scss */
+/* line 2790, src/assets/scss/origin/_style.scss */
 .container.admin-blog b {
   width: 100%;
   float: left;
@@ -11373,103 +11533,103 @@ h4.tsk-head {
   font-weight: 700;
   margin-bottom: 15px; }
 
-/* line 2700, src/assets/scss/origin/_style.scss */
+/* line 2801, src/assets/scss/origin/_style.scss */
 .row.hub-thumbnails.ng-scope {
   float: left;
   width: 33.33%;
   padding: 15px !important;
   margin: 0 !important; }
-  /* line 2701, src/assets/scss/origin/_style.scss */
+  /* line 2802, src/assets/scss/origin/_style.scss */
   .row.hub-thumbnails.ng-scope .col-sm-4 {
     width: 100%; }
 
-/* line 2710, src/assets/scss/origin/_style.scss */
+/* line 2811, src/assets/scss/origin/_style.scss */
 .hub-head h1 {
   margin-bottom: 30px; }
 
-/* line 2714, src/assets/scss/origin/_style.scss */
+/* line 2815, src/assets/scss/origin/_style.scss */
 .container.admin-blog ul li input {
   float: none !important;
   margin-bottom: 0px !important;
   margin-top: 15px; }
 
-/* line 2720, src/assets/scss/origin/_style.scss */
+/* line 2821, src/assets/scss/origin/_style.scss */
 .d-listing.modal-body {
   padding: 0; }
 
-/* line 2724, src/assets/scss/origin/_style.scss */
+/* line 2825, src/assets/scss/origin/_style.scss */
 .m-body-top {
   display: block;
   background: #eee;
   padding: 15px 30px; }
-  /* line 2728, src/assets/scss/origin/_style.scss */
+  /* line 2829, src/assets/scss/origin/_style.scss */
   .m-body-top p b {
     width: 30%;
     display: inline-block; }
-  /* line 2732, src/assets/scss/origin/_style.scss */
+  /* line 2833, src/assets/scss/origin/_style.scss */
   .m-body-top:after {
     content: "";
     clear: both;
     display: block; }
 
-/* line 2739, src/assets/scss/origin/_style.scss */
+/* line 2840, src/assets/scss/origin/_style.scss */
 .m-body-mid:after,
 .m-body-bottom:after {
   content: "";
   clear: both;
   display: block; }
 
-/* line 2746, src/assets/scss/origin/_style.scss */
+/* line 2847, src/assets/scss/origin/_style.scss */
 .d-left {
   float: left;
   width: 80%; }
 
-/* line 2751, src/assets/scss/origin/_style.scss */
+/* line 2852, src/assets/scss/origin/_style.scss */
 .d-right {
   float: left;
   width: 20%; }
 
-/* line 2756, src/assets/scss/origin/_style.scss */
+/* line 2857, src/assets/scss/origin/_style.scss */
 .event-detail-pop {
   padding: 10px 30px;
   background: #fff;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc; }
 
-/* line 2763, src/assets/scss/origin/_style.scss */
+/* line 2864, src/assets/scss/origin/_style.scss */
 .m-body-mid li {
   line-height: 26px; }
-  /* line 2765, src/assets/scss/origin/_style.scss */
+  /* line 2866, src/assets/scss/origin/_style.scss */
   .m-body-mid li b {
     width: 30%;
     display: inline-block; }
 
-/* line 2771, src/assets/scss/origin/_style.scss */
+/* line 2872, src/assets/scss/origin/_style.scss */
 .m-body-bottom {
   display: block;
   background: #eee;
   padding: 15px 30px; }
-  /* line 2775, src/assets/scss/origin/_style.scss */
+  /* line 2876, src/assets/scss/origin/_style.scss */
   .m-body-bottom p {
     font-style: italic;
     text-align: left;
     float: right; }
-    /* line 2779, src/assets/scss/origin/_style.scss */
+    /* line 2880, src/assets/scss/origin/_style.scss */
     .m-body-bottom p b {
       font-style: normal; }
 
-/* line 2786, src/assets/scss/origin/_style.scss */
+/* line 2887, src/assets/scss/origin/_style.scss */
 .m-body-mid li b {
   width: 50%;
   display: inline-block;
   float: left; }
 
-/* line 2791, src/assets/scss/origin/_style.scss */
+/* line 2892, src/assets/scss/origin/_style.scss */
 .m-body-mid li span {
   float: left;
   width: 50%; }
 
-/* line 2797, src/assets/scss/origin/_style.scss */
+/* line 2898, src/assets/scss/origin/_style.scss */
 .thank-u-msg {
   background: #349d93;
   text-align: center;
@@ -11478,7 +11638,7 @@ h4.tsk-head {
   color: #fff;
   margin-bottom: -15px; }
 
-/* line 2806, src/assets/scss/origin/_style.scss */
+/* line 2907, src/assets/scss/origin/_style.scss */
 .jobs-list {
   background: #FFFFFF;
   float: left;
@@ -11487,12 +11647,12 @@ h4.tsk-head {
   border-radius: 5px;
   height: 250px;
   overflow-y: auto; }
-  /* line 2807, src/assets/scss/origin/_style.scss */
+  /* line 2908, src/assets/scss/origin/_style.scss */
   .jobs-list ul {
     margin-top: 0;
     float: left;
     width: 100%; }
-  /* line 2812, src/assets/scss/origin/_style.scss */
+  /* line 2913, src/assets/scss/origin/_style.scss */
   .jobs-list h4 {
     text-align: center;
     background: #4F748C;
@@ -11502,13 +11662,13 @@ h4.tsk-head {
     color: #fff;
     padding: 10px;
     margin-bottom: 15px; }
-  /* line 2829, src/assets/scss/origin/_style.scss */
+  /* line 2930, src/assets/scss/origin/_style.scss */
   .jobs-list ul {
     margin-top: 0;
     float: left;
     width: 50%; }
 
-/* line 2836, src/assets/scss/origin/_style.scss */
+/* line 2937, src/assets/scss/origin/_style.scss */
 p.peo-head {
   text-align: center;
   width: 100%;
@@ -11516,14 +11676,14 @@ p.peo-head {
   color: #349d93;
   font-weight: bold; }
 
-/* line 2844, src/assets/scss/origin/_style.scss */
+/* line 2945, src/assets/scss/origin/_style.scss */
 .people-int {
   padding: 15px;
   float: left;
   width: 100%;
   background: #fff; }
 
-/* line 2851, src/assets/scss/origin/_style.scss */
+/* line 2952, src/assets/scss/origin/_style.scss */
 .m-body-bottom {
   display: block;
   background: #eee;
@@ -11531,27 +11691,27 @@ p.peo-head {
   float: left;
   width: 100%; }
 
-/* line 2860, src/assets/scss/origin/_style.scss */
+/* line 2961, src/assets/scss/origin/_style.scss */
 .people-int ul {
   float: left;
   width: 100%;
   border: none !important; }
-  /* line 2864, src/assets/scss/origin/_style.scss */
+  /* line 2965, src/assets/scss/origin/_style.scss */
   .people-int ul li {
     float: left;
     width: 100%;
     border: none; }
-    /* line 2868, src/assets/scss/origin/_style.scss */
+    /* line 2969, src/assets/scss/origin/_style.scss */
     .people-int ul li span {
       float: left;
       margin-right: 15px; }
 
-/* line 2874, src/assets/scss/origin/_style.scss */
+/* line 2975, src/assets/scss/origin/_style.scss */
 .people-int button.btn.btn-default {
   float: right;
   display: block; }
 
-/* line 2883, src/assets/scss/origin/_style.scss */
+/* line 2984, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio p {
   float: right;
   text-align: left;
@@ -11559,12 +11719,12 @@ p.peo-head {
   margin-top: 20px;
   font-size: 14px; }
 
-/* line 2890, src/assets/scss/origin/_style.scss */
+/* line 2991, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio input.option-input.checkbox {
   margin: 0px !important;
   float: left; }
 
-/* line 2898, src/assets/scss/origin/_style.scss */
+/* line 2999, src/assets/scss/origin/_style.scss */
 h1.heading {
   background: #298992;
   padding: 15px;
@@ -11573,7 +11733,7 @@ h1.heading {
   margin-bottom: 0px;
   padding-bottom: 0px !important;
   margin-bottom: 25px; }
-  /* line 2906, src/assets/scss/origin/_style.scss */
+  /* line 3007, src/assets/scss/origin/_style.scss */
   h1.heading p {
     background: none !important;
     color: #fff !important;
@@ -11581,29 +11741,29 @@ h1.heading {
     font-weight: 600;
     margin-top: -15px; }
 
-/* line 2921, src/assets/scss/origin/_style.scss */
+/* line 3022, src/assets/scss/origin/_style.scss */
 ul.multiselect-container.dropdown-menu input[type="checkbox"] {
   margin-top: 0 !important;
   float: right; }
 
-/* line 2925, src/assets/scss/origin/_style.scss */
+/* line 3026, src/assets/scss/origin/_style.scss */
 ul.multiselect-container.dropdown-menu li {
   float: left;
   width: 100%; }
 
-/* line 2935, src/assets/scss/origin/_style.scss */
+/* line 3036, src/assets/scss/origin/_style.scss */
 #dropdownMenu2 {
   background: 0 0; }
 
-/* line 2941, src/assets/scss/origin/_style.scss */
+/* line 3042, src/assets/scss/origin/_style.scss */
 .option-input:hover {
   background: #9faab7; }
 
-/* line 2945, src/assets/scss/origin/_style.scss */
+/* line 3046, src/assets/scss/origin/_style.scss */
 .option-input:checked {
   background: #4F748C; }
 
-/* line 2949, src/assets/scss/origin/_style.scss */
+/* line 3050, src/assets/scss/origin/_style.scss */
 .option-input:checked::before {
   height: 40px;
   width: 40px;
@@ -11616,18 +11776,18 @@ ul.multiselect-container.dropdown-menu li {
   left: 0;
   line-height: 40px; }
 
-/* line 2963, src/assets/scss/origin/_style.scss */
+/* line 3064, src/assets/scss/origin/_style.scss */
 .b-none.form-field.signup-redio {
   font-size: 24px;
   margin-top: 15px; }
 
-/* line 2968, src/assets/scss/origin/_style.scss */
+/* line 3069, src/assets/scss/origin/_style.scss */
 .form-field.signup-redio {
   text-align: center;
   padding-bottom: 1 5px;
   width: 100%; }
 
-/* line 2974, src/assets/scss/origin/_style.scss */
+/* line 3075, src/assets/scss/origin/_style.scss */
 .option-input {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -11651,7 +11811,7 @@ ul.multiselect-container.dropdown-menu li {
   position: relative;
   z-index: 1000; }
 
-/* line 2995, src/assets/scss/origin/_style.scss */
+/* line 3096, src/assets/scss/origin/_style.scss */
 .option-input:checked::after {
   -webkit-animation: click-wave 0.65s;
           animation: click-wave 0.65s;
@@ -11661,19 +11821,19 @@ ul.multiselect-container.dropdown-menu li {
   position: relative;
   z-index: 100; }
 
-/* line 3004, src/assets/scss/origin/_style.scss */
+/* line 3105, src/assets/scss/origin/_style.scss */
 .option-input.radio {
   border-radius: 50%; }
 
-/* line 3008, src/assets/scss/origin/_style.scss */
+/* line 3109, src/assets/scss/origin/_style.scss */
 .option-input.radio::after {
   border-radius: 50%; }
 
-/* line 3012, src/assets/scss/origin/_style.scss */
+/* line 3113, src/assets/scss/origin/_style.scss */
 .option-input {
   float: left; }
 
-/* line 3016, src/assets/scss/origin/_style.scss */
+/* line 3117, src/assets/scss/origin/_style.scss */
 .input-group .form-control:last-child {
   z-index: 0; }
 
