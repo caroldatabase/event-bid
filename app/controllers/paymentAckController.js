@@ -7,7 +7,7 @@
         console.log($scope.transaction_id);
         commonService.scrollToTop();
         checkTransaction();
-        alert("payment check - 14/05 build")
+        alert("payment check - 15/05 build")
     }
 
     
@@ -20,11 +20,16 @@
         $.post('https://www.paypal.com/cgi-bin/webscr', data,
             function (returnedData) {
                 console.log(returnedData);
-                if (item_name.includes("SUCCESS"))
+                if (returnedData.includes("SUCCESS"))
                 {
                     $scope.status = "Payment Suceeded. Now you can assign task to people who are interested in doing task.";
-                    var pos = item_name.lastIndexOf("-");
-                    var id = str.substring(0, pos);
+                    var firstPos = returnedData.lastIndexOf("item_name=");
+                    var remainingStr = returnedData.substr(firstPos, returnedData.length);
+                    var firstPos = remainingStr.lastIndexOf("item_name=");
+                    var pos = remainingStr.indexOf("-");
+                    var event_name = remainingStr.substring(firstPos, pos);
+                    var event_name_last_index = event_name.lastIndexOf("=");
+                    var id = remainingStr.substring(event_name_last_index + 1, pos);
                     var requestObj = {}
                     requestObj.isPaymentMade = "true";
                     requestObj.make_payment_transactionId = $scope.transaction_id;
@@ -36,5 +41,7 @@
                     $scope.status = "Payment Failure. Please try again.";
                 }
             });
-        }
+       
+       
+    }
 }]);
