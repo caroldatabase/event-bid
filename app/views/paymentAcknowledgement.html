@@ -2,15 +2,21 @@
     <div class="sub-banner">
         
         <div class="banner-name-user text-center">
-            Transaction acknowledgement page 
+            <h3> Transaction acknowledgement page </h3>
         </div>
     </div>
     
     <div class="dashborad-post-btn">
         <a href="#/my-dashboard">Back to dashboard</a>
     </div>
-    Payment Status : {{status}}
-   <!-- <form method=post action="https://www.paypal.com/cgi-bin/webscr">
+    <span style="color: green; font-size: large"> {{message}} </span><br/>
+    Transaction ID : {{transaction_id}} <br/>
+    Payment Status : {{status}} <br/>
+    Task Name : {{task_name}} <br/>
+    Task ID : {{taskid}} <br/>
+    Task Amount : {{amt}} <br/>
+    Currency : {{currency}}
+    <!-- <form method=post action="https://www.paypal.com/cgi-bin/webscr">
         <input type="hidden" name="cmd" value="_notify-synch">
         <input type="hidden" name="tx" value="{{transaction_id}}">
         <input type="hidden" name="at" value="2UgIk2q6xYYw2D-_4901jamBx8VieMienrTVCKXMkaVe7nAOd6txPodXX10">

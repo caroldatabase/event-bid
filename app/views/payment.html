@@ -11,23 +11,23 @@
             <div data-ng-if="transactionRecordIndicator">
             <table width="100%" border="1">
                 <tr class="pay-table-head">
-                    <td>Task Id</td>
+                    <td>Task ID</td>
                     <td>Task Title</td>
                     <td>Amount</td>
-                    <td>Transaction Id</td>
-                    <!--<td>Transaction Status</td>-->
-                    <td>Payment Made</td>
+                    <td>Task owner release fund transaction ID</td>
+                    <td>Admin release fund to doer transaction ID</td>
+                    <td>Admin release fund to doer transaction Status</td>
                 </tr>
                 <div>
                 <tr data-ng-repeat="item in transactionDetail">
                     <td>{{item.taskId}}</td>
                     <td>{{item.task.event_title}}</td>
                     <td>{{item.amount}} $</td>
-                    <td>{{item.transactionId}}</td>
-                    <!--<td>{{item.transactionDetails.ACK}}</td>-->
+                    <td>{{item.task.make_payment_transactionId}}</td>
+                    <td>{{item.task.release_fund_transactionId}}</td>
                     <td>
-                        <span data-ng-if="item.transactionDetails.state == 'approved'"> Payment successfully done.</span>
-                        <span data-ng-if="item.transactionDetails.state !== 'approved'"> Payment failed.</span>
+                        <span data-ng-if="item.task.isPaymentMade == 'false'">Payment Not Made yet.</span>
+                        <span data-ng-if="item.task.isPaymentMade == 'true'">Payment Completed.</span>
                     </td>
                 </tr>
                 </div>
