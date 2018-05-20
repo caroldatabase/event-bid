@@ -1,56 +1,51 @@
-<header id="header" class="navbar-fixed-top"  data-ng-controller="loginController">
-    
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-4">
-                   <a href="#/" class="homeLogo"><img src="app/imgs/logo.svg" alt="Event Big Logo"></a>
-            </div>
-            <div class="col-sm-8">
-                <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#eb-navbar" data-toggle="collapse" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+<nav id="header" class="navbar" data-ng-controller="loginController">
+    <div class="navbar-header">
+        <a href="#/" class="navbarLink">
+                    <img src="app/imgs/iconsvg.svg" width="202" height="56" class="d-inline-block align-top" alt="Event Big Logo">
+                </a>
+        <button aria-controls="bs-navbar" aria-expanded="false" class="collapsed navbar-toggle" data-target="#eb-navbar" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
 
-
-                <nav class="home-nav navbar-collapse collapse" id="eb-navbar" aria-expanded="false">
-
-                    <ul class="nav navbar-nav">
-                        <li><a href="#/how-it-works">How it works </a></li>
-                        <li data-ng-show ="!isLogin"><a data-toggle="modal" data-ng-click="openSignupModal()">Join</a></li>
-                        <li data-ng-show="!isLogin">
-                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true">Login <span class="caret"></span></a>
-                            <ul class="dropdown-menu accountList" aria-labelledby="dropdownMenu2">
-                                <li><small>If you are a new user</small><a data-ng-click="openSignUpPopup()" data-toggle="modal" data-target="#signUpPopup">Register</a></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a class="btn btn-primary" data-toggle="modal" data-ng-click="openLoginModal()">Login</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="userAction" data-ng-show="isLogin">
-                            <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> 
+      <div class="navbar-collapse collapse" id="eb-navbar" aria-expanded="false">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/how-it-works">How it works </a></li>
+            <li data-ng-show="!isLogin"><a data-toggle="modal" data-ng-click="openSignupModal()">Join</a></li>
+            <li data-ng-show="!isLogin">
+                <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true">Login <span class="caret"></span></a>
+                <ul class="dropdown-menu accountList" aria-labelledby="dropdownMenu2">
+                    <li><small>If you are a new user</small><a data-ng-click="openSignUpPopup()" data-toggle="modal" data-target="#signUpPopup">Register</a></li>
+                    <li class="divider"></li>
+                    <li>
+                        <a class="btn btn-primary" data-toggle="modal" data-ng-click="openLoginModal()">Login</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="userAction nav-item" data-ng-show="isLogin">
+                <a id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"> 
                                 <i class="profilce_pic" data-ng-if="!photo"></i> 
                                 <div data-ng-if="photo">
                                     <img ng-src="{{photo}}" widt width="50" height="50" alt="Image preview..." id="profilePhoto">
                                 </div>
                             Welcome, {{firstName}}<span class="caret"></span></a>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li><a data-ng-show="isLogin" href="#/my-dashboard">My Dashboard</a></li>
-                                <li><a data-ng-show="isLogin" href="#/profile">Profile</a></li>
-                                <!-- <li><a data-ng-show="isLogin" href="#/change-password">Change Password</a></li> -->
-                                <li><a data-ng-show="isLogin" href="#/settings">Settings</a></li>
-                               <!--<li><a data-ng-show="isLogin && UserType == 'taskSeeker'" href="#/customer-dashboard">My Dashboard</a></li>-->
-                                <li><a data-ng-click="logout();">Logout</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a data-ng-show="isLogin" href="#/my-dashboard">My Dashboard</a></li>
+                    <li><a data-ng-show="isLogin" href="#/profile">Profile</a></li>
+                    <!-- <li><a data-ng-show="isLogin" href="#/change-password">Change Password</a></li> -->
+                    <li><a data-ng-show="isLogin" href="#/settings">Settings</a></li>
+                    <!--<li><a data-ng-show="isLogin && UserType == 'taskSeeker'" href="#/customer-dashboard">My Dashboard</a></li>-->
+                    <li><a data-ng-click="logout();">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
     </div>
-</header>
+
+  </div><!-- /.container-fluid -->
+</nav>
 
 <!--login pop up -->
 <div class="modal fade" id="loginPopup" tabindex="-1" ng-controller="loginController">
@@ -71,24 +66,20 @@
                     <form name="loginForm" id="loginForm" novalidate class="signupform">
                         <div class="popup-form-row">
                             <div class="form-field">
-                                <input type="email" class="form-control" placeholder="Email" required name="email" id="email" data-ng-model="user.email"
-                                       data-ng-blur="checkEmail(loginForm)" ng-pattern="emailFormat"
-                                       ng-class="{error : (loginForm.email.$invalid && loginForm.$submitted) || emailIndicator}">
+                                <input type="email" class="form-control" placeholder="Email" required name="email" id="email" data-ng-model="user.email" data-ng-blur="checkEmail(loginForm)" ng-pattern="emailFormat" ng-class="{error : (loginForm.email.$invalid && loginForm.$submitted) || emailIndicator}">
                             </div>
                         </div>
                         <div class="popup-form-row last">
                             <div class="form-field">
-                                <input type="password" class="form-control" placeholder="Password" name="password" required data-ng-model="user.password"
-                                       ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
+                                <input type="password" class="form-control" placeholder="Password" name="password" required data-ng-model="user.password" ng-class="{error : loginForm.password.$invalid && loginForm.$submitted }">
                             </div>
                         </div>
                         <a href="" class="forgot_btn" data-dismiss="modal" data-toggle="modal" data-target="#forgetPopup">Forgot Password?</a>
                         <div class="popup-button-group">
                             <input type="button" value="Login" class="btn btn-primary btn-block login_btn" data-ng-click="login()">
                             <a class="fb_login_btn btn btn-block" data-ng-click="fbLogin()"> <img src="app/images/fb_icon.png" alt=""> Log in with Facebook </a>
-                           <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                            <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                             </fb:login-button>-->
-
                         </div>
                         <div class="eb_bottom_btn"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signUpPopup">Sign Up On Event Bid</a> </div>
                     </form>
@@ -96,7 +87,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <!--Forgot-->
 <div class="modal fade" id="forgetPopup" tabindex="-1" ng-controller="ForgetPassController">
@@ -119,24 +109,21 @@
                         <div class="popup-form-row">
                             <div class="form-field">
                                 <label>Your email address:</label>
-                                <input type="email" class="form-control" data-ng-model="emailID" required autofocus data-ng-blur="checkEmail(forgotPassForm)" ng-pattern="emailFormat"
-                                       ng-class="{error : forgotPassForm.email.$invalid && forgotPassForm.$submitted}" name="email1" id="email1">
+                                <input type="email" class="form-control" data-ng-model="emailID" required autofocus data-ng-blur="checkEmail(forgotPassForm)" ng-pattern="emailFormat" ng-class="{error : forgotPassForm.email.$invalid && forgotPassForm.$submitted}" name="email1" id="email1">
                             </div>
                         </div>
                         <p class="eb-note">
-                            Enter your register email address, and we will send you an
-                            reset password link on it
+                            Enter your register email address, and we will send you an reset password link on it
                         </p>
                         <div class="popup-button-group">
                             <input type="submit" value="Send" class="btn btn-primary btn-block" data-ng-click="forgetPassword()">
                         </div>
-                        </form>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!--Sign UP-->
 <div class="modal fade" id="signUpPopup" tabindex="-1" data-ng-controller="loginController">
     <div class="eb-vAlignment">
@@ -155,9 +142,8 @@
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
                                     <!--<img src="app/images/icon-post-task.png">-->
-                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()"
-                                           name="userType" />
-                                    <p>I want to post a task</p> 
+                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskProvider" required ng-click="userTypeClicked()" name="userType" />
+                                    <p>I want to post a task</p>
                                 </div>
                             </div>
                             <div class="col-sm-2">
@@ -168,9 +154,8 @@
                             <div class="col-sm-5">
                                 <div class="form-field signup-redio" ng-class="{error : userTypeIndicator }">
                                     <!--<img src="app/images/icon-do-task.png">-->
-                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType"
-                                            value="taskSeeker" required name="userType" ng-click="userTypeClicked()" /> 
-                                    <p>I want to do a task</p> 
+                                    <input type="radio" class="option-input checkbox" data-ng-model="user.userType" value="taskSeeker" required name="userType" ng-click="userTypeClicked()" />
+                                    <p>I want to do a task</p>
                                 </div>
                             </div>
                         </div>
@@ -186,14 +171,12 @@
                             <div class="popup-form-row row">
                                 <div class="col-sm-6">
                                     <div class="form-field">
-                                        <input type="text" class="form-control" name="firstName" placeholder="First Name" required data-ng-model="user.firstName"
-                                               ng-class="{error : signUpForm.$submitted && signUpForm.firstName.$invalid }">
+                                        <input type="text" class="form-control" name="firstName" placeholder="First Name" required data-ng-model="user.firstName" ng-class="{error : signUpForm.$submitted && signUpForm.firstName.$invalid }">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-field">
-                                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required data-ng-model="user.lastName"
-                                               ng-class="{error : signUpForm.lastName.$invalid && signUpForm.$submitted }">
+                                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required data-ng-model="user.lastName" ng-class="{error : signUpForm.lastName.$invalid && signUpForm.$submitted }">
                                     </div>
                                 </div>
                             </div>
@@ -201,9 +184,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-field">
                                         <!--<label>Email</label>-->
-                                        <input type="email" class="form-control" name="email" placeholder="Email Address" required data-ng-model="user.email"
-                                               ng-pattern="emailFormat" data-ng-blur="checkEmail(signupform)"
-                                               ng-class="{error : signUpForm.email.$invalid && signUpForm.$submitted }">
+                                        <input type="email" class="form-control" name="email" placeholder="Email Address" required data-ng-model="user.email" ng-pattern="emailFormat" data-ng-blur="checkEmail(signupform)" ng-class="{error : signUpForm.email.$invalid && signUpForm.$submitted }">
                                     </div>
                                 </div>
                             </div>
@@ -219,29 +200,21 @@
                                 <div class="col-sm-12">
                                     <label class="control-label">Categories <span data-ng-show="user.category_id.length > 4" style="color: red">maximum four categories can be selected.</span></label>
                                     <div class="form-field" ng-class="{error : user.category_id.length > 4}">
-
-                                        <select class="form-control checkbox-fix" name="selectedCategories" id="selectedCategories" ng-model="user.category_id" multiple
-                                                data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>
-
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="popup-form-row row">
-                                <div class="col-sm-12">
-                                    <div class="form-field">
-                                        <input type="password" class="form-control" name="password" placeholder="Password" required data-ng-model="user.password"
-                                               ng-class="{error : (signUpForm.password.$invalid && signUpForm.$submitted) || passwordIndicator}">
+                                        <select class="form-control checkbox-fix" name="selectedCategories" id="selectedCategories" ng-model="user.category_id" multiple data-ng-change="selectCategories()" ng-options="item.id as item.name for item in categoryList"></select>
                                     </div>
                                 </div>
                             </div>
                             <div class="popup-form-row row">
                                 <div class="col-sm-12">
                                     <div class="form-field">
-                                        <input type="password" name="cnfrmPass" class="form-control" placeholder="Confirm Password" required data-ng-model="user.cnfrmPass"
-                                               ng-class="{error : (signUpForm.cnfrmPass.$invalid && signUpForm.$submitted)  || passwordIndicator}">
-
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required data-ng-model="user.password" ng-class="{error : (signUpForm.password.$invalid && signUpForm.$submitted) || passwordIndicator}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup-form-row row">
+                                <div class="col-sm-12">
+                                    <div class="form-field">
+                                        <input type="password" name="cnfrmPass" class="form-control" placeholder="Confirm Password" required data-ng-model="user.cnfrmPass" ng-class="{error : (signUpForm.cnfrmPass.$invalid && signUpForm.$submitted)  || passwordIndicator}">
                                     </div>
                                 </div>
                             </div>
@@ -249,16 +222,14 @@
                                 <div>
                                     <input type="button" value="Sign Up" class="btn btn-primary btn-block remove-bottom" data-ng-click="createAccount()">
                                 </div>
-
                             </div>
                         </div>
                     </form>
                     <div class="btmtext">
                         By signing-up you agree to EventBid's platform agreement,
-                        <a href="#/privacy-policy">Privacy Policy</a> 
-                        and 
-                        <a href="#/terms-and-conditions">Terms and Conditions.</a> <br />
-                         already signed-up ? 
+                        <a href="#/privacy-policy">Privacy Policy</a> and
+                        <a href="#/terms-and-conditions">Terms and Conditions.</a>
+                        <br /> already signed-up ?
                         <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#loginPopup"><u>Login</u></a>
                     </div>
                 </div>
@@ -266,9 +237,8 @@
         </div>
     </div>
 </div>
-
 <!--Prompt to login -->
-<div class="modal fade" id="promptLoginPopup" tabindex="-1" style="z-index: 100000" ng-controller="dashBoardController" >
+<div class="modal fade" id="promptLoginPopup" tabindex="-1" style="z-index: 100000" ng-controller="dashBoardController">
     <div class="eb-vAlignment">
         <div class="modal-dialog eb-vAlignCenter">
             <div class="modal-content">
@@ -283,17 +253,15 @@
                             <label>You need to login/signup to proceed further. Please login/signup to get the most out of EventBid</label>
                         </div>
                     </div>
-                    
-                   <div class="text-center">
-                    <a class="btn btn-primary" data-toggle="modal" data-target="#signUpPopup" data-ng-click="promptModalClose()">Join</a>
-                           <a class="btn btn-primary" data-toggle="modal" data-target="#loginPopup" data-ng-click="promptModalClose()">Login</a>                      
-                   </div> </div>
+                    <div class="text-center">
+                        <a class="btn btn-primary" data-toggle="modal" data-target="#signUpPopup" data-ng-click="promptModalClose()">Join</a>
+                        <a class="btn btn-primary" data-toggle="modal" data-target="#loginPopup" data-ng-click="promptModalClose()">Login</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-
 <!--Confirmation pop up after post task  -->
 <div class="modal fade" id="sucessPostTaskPopup" tabindex="-1" ng-controller="dashBoardController">
     <div class="eb-vAlignment">
@@ -308,7 +276,6 @@
                     <div class="popup-form-row">
                         <div class="form-field">
                             <label>You are done! Now sit back & wait for the bids to come through.</label>
-
                         </div>
                     </div>
                     <div class="text-center">
@@ -319,7 +286,6 @@
         </div>
     </div>
 </div>
-
 <!--Confirmation pop up after post task  -->
 <div class="modal fade" id="sucessShowInterestPopup" tabindex="-1" ng-controller="dashBoardController">
     <div class="eb-vAlignment">
@@ -334,7 +300,6 @@
                     <div class="popup-form-row">
                         <div class="form-field">
                             <label>Thank you for showing interest in this task. Buisness will get back to you shortly.</label>
-
                         </div>
                     </div>
                     <div class="text-center">
@@ -345,9 +310,6 @@
         </div>
     </div>
 </div>
-
-
-
 <!--view categories-->
 <!--<div class="modal fade" id="viewCategoryPopup" tabindex="-1" ng-controller="viewCategoryController">
     <div class="eb-vAlignment">

@@ -1,3 +1,5 @@
+@import './include-media';
+
 body {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
@@ -152,11 +154,6 @@ img {
 }
 
 .navbar-toggle {
-    position: fixed;
-    margin: 0px;
-    top: 20px;
-    right: 15px;
-    border-radius: 0px;
     .icon-bar {
         background: #179a8d;
     }
@@ -181,16 +178,27 @@ img {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    margin: 0;
+    .navbar-header {
+        height: 68px;
+    }
+
+    .navbarLink {
+        display: inline-block;
+        padding: 10px;
+        @include media("<=tablet")  {
+            padding:0;
+            padding-top: 6px;
+        }
+
+    }
     .homeLogo {
         display: block;
         max-width: 250px;
     }
     .navbar-nav {
-        float: right;  
-        margin-top: 6px;
+    
     li {
-        text-align: right;
-        display: inline-block;
             a {
                 color: $lightcolor;
                 cursor: pointer;
@@ -201,6 +209,9 @@ img {
                 position: relative;
                 text-transform: lowercase;
                 padding: 0 10px;
+                @include media('<=tablet') {
+                    line-height: 56px;
+                }
 
                 &:hover,
                 &:focus,
@@ -227,7 +238,7 @@ img {
     margin-bottom: 2px;
 }
 
-#header nav .dropdown-menu {
+#header .dropdown-menu {
     left: auto;
     right: 0;
     margin: 0px;
@@ -248,6 +259,9 @@ img {
     &.accountList {
         text-align: center;
         padding: 15px 0px;
+        @include media("<=tablet") {
+            background-color: white;
+        }
         li {
             text-align: center;
         }
@@ -264,8 +278,6 @@ img {
         text-align: center;
         margin-bottom: 15px;
     }
-    padding-top: 74px;
-
     .eb-homeSlider {
         position: relative;
         .homeslider-content {
@@ -300,6 +312,10 @@ img {
     }
     .btn {
         @include gradientButton;
+        // @include media('<=1000px') {
+        //     font-size: 100px;
+        // }
+
     }
     p {
         font-size: 24px;
@@ -561,8 +577,12 @@ img {
         display: block;
     }
     svg{
-        width: 240px;
+        width: 100%;
         height: auto;
+        @include media("<=767px"){
+            width: 145px;
+            margin: auto;
+        }
         path { transition: fill .2s ease-out; }
         &:hover {
             .st2 {
@@ -1486,13 +1506,7 @@ input[type="file"] {
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .homeslider-content .btn {
-        padding: 12px 20px;
-        font-size: 17px;
-        min-width: 160px;
-    }
-}
+
 
 @media (max-width: 767px) {
     .eb-vAlignment,
@@ -1509,15 +1523,13 @@ input[type="file"] {
         color: #179a8d;
         font-size: 26px;
     }
-    #header nav li {
-        display: block;
-        text-align: left;
-        a {
-            line-height: 40px;
-        }
-    }
- 
-
+    // #header nav li {
+    //     display: block;
+    //     text-align: left;
+    //     a {
+    //         line-height: 40px;
+    //     }
+    // }
   
     .eb-homeSlider {
         .homeslider-content {
@@ -1537,14 +1549,6 @@ input[type="file"] {
         p,
         .homeSlider-desc {
             display: none;
-        }
-        .btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            min-width: 48%;
-            display: inline-block;
-            margin: 5px 0px;
         }
     }
     .owl-nav {
