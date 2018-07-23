@@ -28,7 +28,7 @@
             <label>What is your budget for your waiters/waitresses?</label>
             <div class="input-adjust">
                 <span class="place-ico">$</span>
-                <input type="number" class="form-control" ng-model="task.category_question.totalCost" name="totalCost" required ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+                <input type="number" class="form-control" ng-model="task.category_question.Cost" name="Cost" required ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
             </div>
             <div class="input-adjust">
                 <select class="form-control singleSelection" required data-ng-model="task.category_question.totalCostType" name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
@@ -37,9 +37,11 @@
                     <option value="Per hour">PER HOUR</option>
                     <option value="Total">TOTAL</option>
                 </select>
+                <span data-ng-hide="true"> {{task.category_question.totalCost = task.category_question.Cost}} </span>
             </div>
         </div>
     </div>
+ 
     <div class="col-sm-4" data-ng-if="task.category_question.dressCode === 'Yes'">
         <div class="form-field">
             <label>Please describe your dress code.</label>
@@ -60,6 +62,15 @@
         <div class="form-field">
             <label>How many bartenders do you require ?</label>
             <input type="number" class="form-control" ng-model="task.category_question.bartender_count" name="is_bartender_count" required ng-class="{error : postTaskForm.is_bartender_count.$invalid && postTaskForm.$submitted}">
+        </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="task.category_question.totalCostType === 'Per Person'">
+        <div class="form-field">
+            <label>Total Cost(in $)</label>
+            <div>
+                <span data-ng-hide="true">{{task.category_question.totalCost = task.category_question.Cost * task.category_question.totalWaiter}}</span>
+                <input type="number" disabled class="form-control" ng-model="task.category_question.totalCost" name="totalCost" required ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+            </div>
         </div>
     </div>
 </div>

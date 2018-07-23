@@ -150,9 +150,10 @@
                 $scope.VideographyIndicator = true;
         });
     }
-
+    
     function postTask()
     {
+        //$scope.task = getTotalCost($scope.task);
         $scope.task.timeFrom = $('#timeFrom').val();
         $scope.task.timeTo = $('#timeTo').val();
         $scope.postTaskForm.$setSubmitted(true);

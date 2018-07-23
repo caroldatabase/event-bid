@@ -36,7 +36,7 @@
             <label style="width:100%; margin-left:5px;" class="desk-hair">Give us an idea about how much you want to spend </label>
             <div class="input-adjust">
                 <span class="place-ico">$</span>
-                <input type="number" class="form-control" data-ng-model="task.category_question.totalCost" name="totalCost" required min="0" ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
+                <input type="number" class="form-control" data-ng-model="task.category_question.Cost" name="Cost" required min="0" ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
             </div>
             <div class="input-adjust">
                 <select class="form-control singleSelection" required data-ng-model="task.category_question.costType" name="costType" ng-class="{error : postTaskForm.costType.$invalid && postTaskForm.$submitted}">
@@ -46,6 +46,18 @@
                     <option value="Per dessert">PER DESSERT</option>
                     <option value="Total">TOTAL</option>
                 </select>
+                <span data-ng-hide="true"> {{task.category_question.totalCost = task.category_question.Cost}} </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4" data-ng-if="(task.category_question.costType !== 'Total') && (task.category_question.costType !== '')">
+        <div class="form-field">
+            <label>Total Cost(in $)</label>
+            <div>
+                <span data-ng-hide="true">{{task.category_question.totalCost = task.category_question.Cost * task.category_question.numberOfDesert}}</span>
+                <input type="number" disabled class="form-control" ng-model="task.category_question.totalCost" name="totalCost" required ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
             </div>
         </div>
     </div>

@@ -50,6 +50,7 @@
                 waitingRequire : 'Waiting Service required',
                 dietaryRequirement: 'Dietary requirement',
                 totalGuest: 'Total Guests',
+                Cost: 'Total Cost(in $)',
                 totalCost: 'Cost(in $)',
                 costType: 'Type of Cost',
                 
@@ -61,7 +62,8 @@
                     equipmentRequired: 'Equipments required for cleaning',
                     timeRequired: 'Time Required(in hrs)',
                     waitingRequire: 'Waiting Service required',
-                    totalCost: 'Cost(in $)',
+                    totalCost: 'Total Cost(in $)',
+                    Cost: 'Cost(in $)',
                     costType: 'Type of Cost',
             },
             Patisserie :
@@ -73,6 +75,7 @@
                 numberOfDesert: "number of desert",
                 costType: "Type of cost",
                 totalCost: "Total Cost",
+                Cost: 'Cost(in $)',
                 desertImages : "Desert Images for reference"
             },
             Waiting_Staff:
@@ -80,6 +83,7 @@
                 dressCode: "Dress code required for waiters",
                 dressCodeDescription: "Dress code description",
                 totalCost: "Total cost",
+                Cost: 'Cost(in $)',
                 totalCostType: "Total cost type ",
                 totalWaiter: "Total waiters",
                 waitersTask: "Waiters Task",
@@ -122,6 +126,7 @@
                 hireType: "Type of hire",
                 totalCars: "Total Number of cars",
                 totalCost: "Total Cost",
+                Cost: 'Cost(in $)',
                 totalCostType: "Total cost type",
                 totalGuest: "Total guest",
                 venueCleaning: "Venue Cleaning",
@@ -132,7 +137,8 @@
                 costType: "Type of cost",
                 flowersRequiredDescription: "Description for flowers required",
                 specialRequestDesc: "Special request for description",
-                totalCost : "Total cost"
+                totalCost: "Total cost",
+                Cost: 'Cost(in $)',
             },
             Photography_Videography: {
                 eventRequirement : "Events required",

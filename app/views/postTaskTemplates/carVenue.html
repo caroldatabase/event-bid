@@ -43,7 +43,7 @@
             <label style="width:100%; margin-left:5px;">Budget</label>
             <div class="input-adjust">
                 <span class="place-ico">$</span>
-                <input type="number" class="form-control" ng-model="task.category_question.totalCost" name="totalCost"
+                <input type="number" class="form-control" ng-model="task.category_question.Cost" name="Cost"
                        required
                        ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}" />
                 </div>
@@ -51,12 +51,22 @@
                 <select class="form-control singleSelection" required data-ng-model="task.category_question.totalCostType"
                         name="totalCostType" ng-class="{error : postTaskForm.totalCostType.$invalid && postTaskForm.$submitted}">
                     <option value="">Select Budget type</option>
-                    <option value="Per Person">PER HOUr</option>
-                    <option value="Per Piece">PER CAR</option>
+                    <option value="Per Hour">PER HOUR</option>
+                    <option value="Per Car">PER CAR</option>
                     <option value="Total">TOTAL</option>
                 </select>
+                <span data-ng-hide="true"> {{task.category_question.totalCost = task.category_question.Cost}} </span>
             </div>
          </div>
+    </div>
+    <div class="col-sm-4" data-ng-if="task.category_question.totalCostType === 'Per Car'">
+        <div class="form-field">
+            <label>Total Cost(in $)</label>
+            <div>
+                <span data-ng-hide="true">{{task.category_question.totalCost = task.category_question.Cost * task.category_question.totalCars}}</span>
+                <input type="number" disabled class="form-control" ng-model="task.category_question.totalCost" name="totalCost" required ng-class="{error : postTaskForm.totalCost.$invalid && postTaskForm.$submitted}">
+            </div>
+        </div>
     </div>
 </div>
 <!--venue hire-->
