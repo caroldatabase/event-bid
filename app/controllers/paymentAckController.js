@@ -4,16 +4,30 @@
     function init() {
         $scope.transaction_id = $routeParams.tx;
         $scope.item_name = $routeParams.item_name;
-        $scope.task_name = $scope.item_name.split("-").pop();
+        var task_array = $scope.item_name.split("-");
+        $scope.task_name = task_array[1];
+        $scope.task_id = task_array[0];
         $scope.amt = $routeParams.amt;
         $scope.currency = $routeParams.cc;
         console.log($scope.transaction_id);
         commonService.scrollToTop();
-        checkTransaction();
+        // checkTransaction();
+        
+        var requestObj = {}
+        requestObj.isPaymentMade = "true";
+        requestObj.make_payment_transactionId = $scope.transaction_id;
+        if ($routeParams.st == 'Completed')
+        {
+              httpService.updateTask($scope.task_id, requestObj).then(function (data) {
+               $scope.message = "Payment Suceeded. Now you can assign task to people who are interested in doing task.";
+               $scope.status = "Completed";
+             });
+        }
+      
     }
 
     
-    function checkTransaction()
+   /* function checkTransaction()
     {
         var data = {};
         data.cmd = "_notify-synch",
@@ -53,5 +67,5 @@
         //returnedData = "SUCCESS mc_gross=1.00 protection_eligibility=Ineligible payer_id=DZGKP6TSJLBYS tax=0.00 payment_date=20:36:03+May+19,+2018+PDT payment_status=Completed charset=windows-1252 first_name=Rebecca mc_fee=0.33 custom= payer_status=verified business=rebecca@eventbid.com.au quantity=1 payer_email=Rebecca.aiezza@bigpond.com txn_id=78V220220L0531157 payment_type=instant last_name=Aiezza receiver_email=rebecca@eventbid.com.au payment_fee= shipping_discount=0.00 insurance_amount=0.00 receiver_id=SXKJS3MKX2H7L txn_type=web_accept item_name=60-TEST+PAYPAL+20.05 discount=0.00 mc_currency=AUD item_number= residence_country=AU handling_amount=0.00 shipping_method=Default transaction_subject= payment_gross= shipping=0.00";
         
        
-    }
+    }*/
 }]);
