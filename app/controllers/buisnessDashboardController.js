@@ -558,8 +558,29 @@
                 if (res.data.code == 200 && res.data.message == "Recommended Task") {
                     $scope.recommendationJobsCustomerIndicator = true;
                     $rootScope.loaderIndicator = false;
-                    $scope.recommendedTaskCustomer = res.data.data;
-
+                    httpService.getUserDetails(userId).then(function (userDetails) {
+                        {
+                            if (userDetails.data.code == 200) {
+                                var userCategories = userDetails.data.data.category;
+                                if (userCategories.length > 0) {
+                                    $scope.recommendedTaskCustomer = [];
+                                    for (var i = 0; i < userCategories.length ; i++) {
+                                        for (var j = 0; j < res.data.data.length ; j++) {
+                                            if (userCategories[i].category_id == res.data.data[j].category_id) {
+                                                $scope.recommendedTaskCustomer.push(res.data.data[j]);
+                                            }
+                                        }
+                                    }
+                                }
+                                else {
+                                    $scope.recommendedTaskCustomer = res.data.data;
+                                }
+                            }
+                            else {
+                                $scope.recommendedTaskCustomer = res.data.data;
+                            }
+                    }
+                  });
                 }
                 else
                 {

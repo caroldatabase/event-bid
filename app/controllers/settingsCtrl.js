@@ -577,6 +577,7 @@
                         $scope.cardDetailIndicator = false;
                         $scope.updateCardDetailIndicator = false;
                         getCardDetails();
+                        alert("Card added successfully.");
                     }
                     else {
                         if (response.data.message == "This card already added!")
