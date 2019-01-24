@@ -1,4 +1,4 @@
-<div class="content-body mydashboard">
+<div class="content-body myprofile">
     <div class="sub-banner">
         <div class="banner-name-user text-center">
             <h1>Hello, {{firstName}}</h1>
@@ -8,14 +8,14 @@
 <div class="profile-page-event">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-3 ">
                 <div class="side-bar-profile">
                     <div data-ng-if="isEdit"><a href="#/settings"><i class="fa fa-pencil"></i></a></div>
                     <div class="user-pic" data-ng-if="user.photo == null">
                         <img src="app/images/sample-img.png">
                     </div>
                     <div class="user-pic">
-                        <img ng-src="{{user.photo}}" alt="photo..." id="profilePicture">
+                        <img ng-src="{{user.photo}}" id="profilePicture">
                     </div>
                     <p class="user-name">{{user.first_name}} {{user.last_name}}</p>
                     <p class="pro-ratting"><img src="app/images/4-stars.png"></p>

@@ -25,8 +25,6 @@
             </div>
         </div>
     </div>
-
-
     <!--<div class="about-section gray-bg text-center">
         <div class="container-fluid">
             <div class="row">
@@ -45,7 +43,7 @@
         <div class="container">
             <!--<h2 class="heading">What do you need done</h2>-->
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <a href="#/how-it-works">
                         <svg id="howitworks_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
                             <style>
@@ -78,7 +76,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <a href="#/about-us">
                         <svg id="aboutus_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
                             <style>
@@ -114,7 +112,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <a href="#/EBManager">
                         <svg id="ebmanager_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
                             <style>
@@ -147,7 +145,7 @@
                         </svg>
                     </a>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-md-3">
                     <a href="#/Rewards">
                         <svg id="rewards_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
                             <style>
@@ -183,7 +181,6 @@
             </div>
         </div>
     </div>
-
     <div class="category-section text-center gray-bg">
         <div class="container">
             <div class="row">
@@ -198,8 +195,8 @@
                         <img src="app/images/request-cate.png">
                     </a>
                     <p>Request a category</p>
+                </div>
             </div>
-        </div>
             <!--<div class="row">
                
                 <div class="col-sm-3 text-center">
@@ -249,9 +246,6 @@
             </div>-->
         </div>
     </div>
-
-
-
     <div class="event-hub-page">
         <div class="container">
             <!-- <div class="row">
@@ -259,12 +253,11 @@
                     <h1><a href="#/blogs">Event Bid Blog</a></h1>
                 </div>
             </div> -->
-            <div class="row hub-thumbnails" data-ng-repeat="item in blogList | limitTo: 6">
-                <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-4 hub-thumbnails" data-ng-repeat="item in blogList | limitTo: 6">
                     <div class="hub-post">
                         <div class="post-hub-pic">
-                           
-                        <a href="#/blog-detail/{{item.blog_title}}" class="eb_blog_bg" style="background-image: url({{item.blog_image}});">
+                            <a href="#/blog-detail/{{item.blog_title}}" class="eb_blog_bg" style="background-image: url({{item.blog_image}});">
                                 <div class="post-hub-content">
                                     <p class="hub-tag">{{item.blog_sub_title}}</p>
                                     <h3>{{item.blog_title}}</h3>
@@ -274,9 +267,6 @@
                                     </p>
                                 </div>
                             </a>
-
-
-
                         </div>
                     </div>
                 </div>
@@ -308,8 +298,4 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
-

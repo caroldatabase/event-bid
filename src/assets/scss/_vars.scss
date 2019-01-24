@@ -15,7 +15,7 @@ $lightgrey:     #F9F9F9;
 
 @mixin blueGradient(){
     background: $eb_blue; 
-    background: linear-gradient(110deg,  $eb_blue_2 0%, $eb_blue 130%); 
+    background: linear-gradient(110deg,  darken($eb_blue_2, 10%) 0%, $eb_blue 130%); 
 }
 
 @mixin blueGradientReverse(){
@@ -38,7 +38,7 @@ $lightgrey:     #F9F9F9;
 }
 
 
-@mixin gradientButton($marginTop: 0px, $padingTop: 15px, $paddingLeft: 55px, $radius: 15px, $font: 26px){
+@mixin gradientButton($marginTop: 0px, $padingTop: 15px, $paddingLeft: 55px, $radius: 6px, $font: 26px){
     padding: $padingTop $paddingLeft;
     border-radius: $radius;
     font-size: $font;

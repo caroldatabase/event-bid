@@ -1,3 +1,5 @@
+@import './include-media';
+
 body {
     font-family: 'Lato', sans-serif;
     font-size: 14px;
@@ -152,11 +154,6 @@ img {
 }
 
 .navbar-toggle {
-    position: fixed;
-    margin: 0px;
-    top: 20px;
-    right: 15px;
-    border-radius: 0px;
     .icon-bar {
         background: #179a8d;
     }
@@ -181,16 +178,27 @@ img {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+    margin: 0;
+    .navbar-header {
+        height: 68px;
+    }
+
+    .navbarLink {
+        display: inline-block;
+        padding: 10px;
+        @include media("<=tablet")  {
+            padding:0;
+            padding-top: 6px;
+        }
+
+    }
     .homeLogo {
         display: block;
         max-width: 250px;
     }
     .navbar-nav {
-        float: right;  
-        margin-top: 6px;
+    
     li {
-        text-align: right;
-        display: inline-block;
             a {
                 color: $lightcolor;
                 cursor: pointer;
@@ -201,6 +209,9 @@ img {
                 position: relative;
                 text-transform: lowercase;
                 padding: 0 10px;
+                @include media('<=tablet') {
+                    line-height: 56px;
+                }
 
                 &:hover,
                 &:focus,
@@ -227,7 +238,7 @@ img {
     margin-bottom: 2px;
 }
 
-#header nav .dropdown-menu {
+#header .dropdown-menu {
     left: auto;
     right: 0;
     margin: 0px;
@@ -248,6 +259,9 @@ img {
     &.accountList {
         text-align: center;
         padding: 15px 0px;
+        @include media("<=tablet") {
+            background-color: white;
+        }
         li {
             text-align: center;
         }
@@ -264,8 +278,6 @@ img {
         text-align: center;
         margin-bottom: 15px;
     }
-    padding-top: 74px;
-
     .eb-homeSlider {
         position: relative;
         .homeslider-content {
@@ -300,6 +312,10 @@ img {
     }
     .btn {
         @include gradientButton;
+        // @include media('<=1000px') {
+        //     font-size: 100px;
+        // }
+
     }
     p {
         font-size: 24px;
@@ -561,8 +577,12 @@ img {
         display: block;
     }
     svg{
-        width: 240px;
+        width: 100%;
         height: auto;
+        @include media("<=767px"){
+            width: 145px;
+            margin: auto;
+        }
         path { transition: fill .2s ease-out; }
         &:hover {
             .st2 {
@@ -580,6 +600,9 @@ img {
 /*------------------------------------*\
     #EB Manager
 \*------------------------------------*/
+.howitworks {
+    font-size: 24px;
+}
 
 .how-it-works {
     .eb-manager-form {
@@ -666,6 +689,11 @@ img {
     padding-bottom: 4rem;
     .sub-banner{
         border-color: $eb_orange;
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+    }
+    .btn-primary {
+        background-color: $eb_blue;
     }
     .para-before-login {
         background: #eee;
@@ -690,6 +718,7 @@ img {
 
         h3 {
             text-align: center;
+            color: $eb_blue;
         }   
         .searchBar {
             width: 100%;
@@ -802,7 +831,9 @@ img {
 }
 
 .search-bar .right-addon .glyphicon {
-    top: 6px;
+    top: 4px;
+    font-size: 21px;
+    color: $eb_blue;
 }
 
 
@@ -819,16 +850,40 @@ img {
     background: url(../images/time-icon.png) no-repeat 96% center;
 }
 
+.postatask {
+    .sub-banner{
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+        .banner-overlay .heading {
+            text-transform: none;
+            font-size: 34px;
+            &::before {
+                height: 77px;
+                top: -17px;
+            }
+        }
+    }
+}
+
 .post-a-task {
     padding: 7rem 0 10rem;
     background-color: $eb_orange_2;
 
     .post-a-task-form--desc {
-        margin-top: 4rem;
+        margin-top: 1rem;
+        p {
+            color: $eb_blue;
+        }
     }
 
     .main-heading {
         border: none;
+        h2 {
+            text-transform: uppercase;
+            color: $eb_blue;
+            font-size: 2rem;
+            font-weight: 600;
+        }
     }
 
     form {
@@ -853,7 +908,7 @@ img {
         border-top: 3px solid $eb_blue;
     }
     .button-group .btn {
-        @include gradientButton($marginTop: 8rem, $padingTop: 11px,  $font: 24px);
+        @include gradientButton($marginTop: 1rem, $padingTop: 11px,  $font: 24px);
         border: 1px solid lighten($eb_blue, 24%);
     }
 }
@@ -1451,13 +1506,7 @@ input[type="file"] {
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .homeslider-content .btn {
-        padding: 12px 20px;
-        font-size: 17px;
-        min-width: 160px;
-    }
-}
+
 
 @media (max-width: 767px) {
     .eb-vAlignment,
@@ -1474,15 +1523,13 @@ input[type="file"] {
         color: #179a8d;
         font-size: 26px;
     }
-    #header nav li {
-        display: block;
-        text-align: left;
-        a {
-            line-height: 40px;
-        }
-    }
- 
-
+    // #header nav li {
+    //     display: block;
+    //     text-align: left;
+    //     a {
+    //         line-height: 40px;
+    //     }
+    // }
   
     .eb-homeSlider {
         .homeslider-content {
@@ -1502,14 +1549,6 @@ input[type="file"] {
         p,
         .homeSlider-desc {
             display: none;
-        }
-        .btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            min-width: 48%;
-            display: inline-block;
-            margin: 5px 0px;
         }
     }
     .owl-nav {
@@ -1588,10 +1627,31 @@ a#submit {
         margin-right: 2%;
     }
 }
-
+.contactUs {
+    background-color: $eb_blue_3;
+    .sub-banner{
+        background-image: url(../imgs/BOKEH_3.jpg);
+        padding: 8rem 0;
+        .banner-overlay .heading {
+            text-transform: none;
+            font-size: 34px;
+            &::before {
+                height: 77px;
+                top: -17px;
+            }
+        }
+    }
+}
 .contact-us-form {
-    padding: 40px 15px;
-
+    padding: 40px 30px;
+    background-color: $eb_blue_2;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    border-radius: 5px;
+    .fisrt-name-contact,
+    .last-name-contact {
+        margin-bottom: 10px;
+    }
     h2 {
         text-align: center;
         font-size: 2.5rem;
@@ -1603,19 +1663,15 @@ a#submit {
         margin-bottom: 5px;
     }
     .submit {
-        font-size: 16px;
-        font-weight: 400;
-        padding: 15px 30px;
-        font-family: 'Lato', sans-serif;
-        border: none;
-        margin-bottom: 40px;
-        background-color: $eb_blue;
+        @include gradientButton($padingTop: 0,  $paddingLeft: 0, $font: 20px);
+        margin: auto;
+        height: 50px;
+        width: 185px;
+        line-height: 2.4;
+        text-transform: none;
         display: block;
-        text-align: center;
-        width: 11rem;
-        margin: 34px auto 0;
-        border-radius: 5px;
-        color: white;
+        border-radius: 6px;
+        margin-top: 58px;
         &:hover,
         &:active {
             background-color: darken($eb_blue, 10%);
@@ -1651,19 +1707,22 @@ a#submit {
                 height: 120px;
                 width: 100%;
                 position: absolute;
-                top: -44px;
+                top: -40px;
                 z-index: -1;
             }
         }
         button {
-            @include gradientButton(8rem, 8.5rem);
+            @include gradientButton(2rem, 1.5rem);
+        }
+        .hidenButtons {
+            margin-top:  40px;
         }
     }
 }
 
 .how-it-tabs {
-    padding: 10rem 0;
-    background-color: $eb_orange_2;
+    background-color: $eb_blue_3;
+    padding: 50px 0 40px;
 
     .panel-group .panel + .panel {
         margin-top: 0;
@@ -1688,9 +1747,10 @@ a#submit {
                     font-weight: 300;
                     height: 50px;
                 }
-                p{
-
-                }
+                
+            }
+            p{
+                font-size: 16px;
             }
         }
 
@@ -1736,16 +1796,23 @@ a#submit {
         }
     
     }
+    .hire {
+        margin-top: 3rem;
+    }
+    .submitHire {
+        @include gradientButton($padingTop: 12px, $paddingLeft: 45px, $font: 20px);
+        margin: 0;
+
+    }
 }
 
 
 
 
 .request-form {
-    float: left;
-    width: 100%;
-    padding: 20px 15px;
-    background: #eee;
+    border-radius: 6px;
+    padding: 35px 40px;
+    background: $eb_blue_2;
 
     input {
         float: left;
@@ -1857,7 +1924,7 @@ a.fb_login_btn.btn.btn-block:hover {
 
 
 .banner-overlay h4 {
-    color: #fff;
+    color: black;
 }
 
 .hire .option-input {
@@ -1871,12 +1938,121 @@ a.fb_login_btn.btn.btn-block:hover {
 }
 
 .setting-pages {
-    padding: 25px 0px;
+    padding: 60px 25px;
+    color: $eb_blue;
+
+    .m-space {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300;
+        color: $eb_blue;
+        margin: 0;
+    }
+
+    input {
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+        color: $eb_blue;
+        border: none;
+        border-radius: 5px;
+        margin-top: 6px;
+        padding-left: 15px;
+    }
+    textarea {
+        font-size: 16px;
+        width: 100%;
+        height: 60px;
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        color: $eb_blue;
+    }
+    select {
+        width: 100%;
+        color: $eb_blue;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px;
+    }
+    .btn-lg {
+        @include gradientButton( $padingTop: 8px, $paddingLeft: 49px, $font: 21px);
+        margin: 20px 0 0;
+    }
+    .form-field {
+        width: 100%;
+    }
+
+    h4 {
+        margin-bottom: 20px;
+        color: $eb_blue;
+        font-weight: bold;
+    }
+    p {
+        color: $eb_blue;
+        margin: 15px 0;
+    }
+    .enter-mobile {
+        position: relative;
+        .country-mobile-code {
+            position: absolute;
+            top: 39px;
+            left: 28px;
+            font-weight: bold;
+            font-size: 15px;
+        }   
+    }
+    input[type="file"]{
+        font-size: 14px;
+        background: $white;
+    }
+    .reset-btn {
+        @include gradientButton( $padingTop: 8px, $paddingLeft: 49px, $font: 21px);
+        padding: 0;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        width: 185px;
+        margin-top: 27px;
+    }
+    .add-account-paypal {
+        margin-bottom: 10px;
+    }
+    .add-insurance-info{
+        @include gradientButton( $padingTop: 8px, $paddingLeft: 49px, $font: 21px);
+        padding: 0;
+        font-size: 20px;
+        margin: 0;
+        padding: 0;
+        width: 185px;
+        margin-top: 27px;
+    }
+    .addMoreStuff {
+        @include gradientButton( $padingTop: 8px, $paddingLeft: 49px, $font: 21px);
+        font-size: 20px;
+        margin: 0;
+        padding: 3px;
+        width: 277px;
+        margin-top: 27px;
+    }
+    input[type="radio"] {
+        margin-left: -20px;
+        width: 17px;
+        top: -16px;
+        left: 20px;
+        border: 0;
+        box-shadow: none;
+    }
 }
 
 .menubar-left {
-    background: #eee;
-    padding: 15px;
+    background: $white;
+    padding: 13px;
     border-radius: 5px;
     ul li {
         text-align: left;
@@ -1884,39 +2060,20 @@ a.fb_login_btn.btn.btn-block:hover {
     a {
         display: block;
         padding: 10px 15px;
-        color: #333;
-        font-size: 18px;
+        color: $eb_blue;
+        font-size: 16px;
         &:hover {
-            background: #298992;
+            background: $eb_blue;
             text-decoration: none;
             color: #fff;
         }
     }
 }
 
-.setting-pages {
-    label {
-        font-size: 16px;
-        float: left;
-        width: 100%;
-        font-weight: 300;
-    }
-    input {
-        font-size: 16px;
-        float: left;
-        width: 100%;
-        height: 40px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin-top: 10px;
-        padding-left: 15px;
-    }
-}
-
 a.activeSide {
-    background: #298992;
+    background: $eb_blue;
     text-decoration: none;
-    color: #fff;
+    color: $white;
 }
 
 i {
@@ -2061,12 +2218,57 @@ ul.multiselect-container.dropdown-menu li a:hover {
     text-align: center;
 }
 
+
+.myprofile {
+    background-color: $eb_blue_3;
+
+    .sub-banner{
+        padding: 9rem 0;
+        background-image: url(../imgs/BOKEH_1.jpg);
+        border-bottom: 20px solid $eb_blue_2;
+    }
+}
+
+
+.myprofile-settings {
+    background-color: $eb_blue_2;
+
+    .sub-banner{
+        padding: 9rem 0;
+        background-image: url(../imgs/BOKEH_1.jpg);
+        border-bottom: 20px solid $eb_orange;
+    }
+}
+
+.profile-page-event {
+    background-color: $eb_orange;
+    padding: 8rem 0 10rem;
+    color: $eb_blue;
+    .skill-pro {
+        background-color: $eb_blue_2;
+        color: white;
+    }
+    .skill-list {
+        float: left;
+        padding-right: 14px;
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .location-text {
+        font-size: 13px;
+    }
+    .jobs-profile,
+    .review-outer {
+        background-color: white;
+    }
+}   
+
 .mydashboard {
     background-color: $eb_blue_3;
 
     .sub-banner{
-        padding: 13rem 0;
-        background-image: url(../imgs/Balloon_short.jpg);
+        padding: 9rem 0;
+        background-image: url(../imgs/BOKEH_1.jpg);
     }
     .col-sm-4 {
         text-align: center;
@@ -2208,14 +2410,14 @@ ul.multiselect-container.dropdown-menu li a:hover {
         transform: translatey(-50%);
         z-index: 99;
         text-align: center;
-        padding: 5rem 0;
+        padding: 4rem 0;
         background-color: rgba(255, 255, 255, 0.7);
         color: $white;
         z-index: 1;
     }
     h1 {
         z-index: 5;
-        font-size: 4.5rem;
+        font-size: 3.5rem;
         color: $eb_blue;
         position: relative;
     }
@@ -2857,6 +3059,8 @@ ul.multiselect-container.dropdown-menu {
     display: inline-block;
     font-size: 26.66667px;
     text-align: center;
+    top: 0;
+    left:0;
     line-height: 40px;
 }
 
@@ -2882,7 +3086,7 @@ ul.multiselect-container.dropdown-menu {
     height: 40px;
     width: 40px;
     transition: all 0.15s ease-out 0s;
-    background: #cbd1d8;
+    background: white;
     border: none;
     color: #fff;
     cursor: pointer;

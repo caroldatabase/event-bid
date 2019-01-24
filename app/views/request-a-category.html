@@ -1,16 +1,15 @@
-<div class="content-body">
+<div class="content-body how-it-tabs">
     <div class="sub-banner">
-            <img src="app/images/how-it-works.jpg">
         <div class="banner-overlay">
-            <h3>Request a category</h3>
+             <div class="heading">Request a category</div>
             <h4>An overview of hiring and freelancing on Upwork.</h4>
-            <button>Sign Up</button>
+            <!-- <button>Sign Up</button> -->
         </div>
     </div>
-    <div class="container how-it-tabs">
+    <div class="container">
         <form name="requestCategoryForm" novalidate>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-md-10 col-md-offset-1">
                     <div class="request-form">
                         <div class="row">
                             <div class="alert alert-danger" data-ng-show="errorMessageIndicator">
@@ -55,7 +54,7 @@
                                             <div class="center-element">
                                                 <input type="radio" class="option-input checkbox request-input" value="taskHirer" name="userType" required data-ng-model="reqUser.userType"
                                                        ng-class="{error : requestCategoryForm.userType.$invalid && requestCategoryForm.$submitted }" />
-                                                 <span class="input-letter">I am a hirer</span>
+                                                 <!-- <span class="input-letter">I am a hirer</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +69,7 @@
                                             <div class="center-element">
                                                 <input type="radio" class="option-input checkbox request-input" value="taskSeeker" name="userType" required data-ng-model="reqUser.userType"
                                                        ng-class="{error : requestCategoryForm.userType.$invalid && requestCategoryForm.$submitted }" />
-                                                 <span class="input-letter">I am service provider</span>
+                                                 <!-- <span class="input-letter">I am service provider</span> -->
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +94,7 @@
                             <div class="col-sm-12">
                                 <textarea class="form-control" rows="10" name="whyNeedCategory" required data-ng-model="reqUser.whyNeedCategory" ng-keyup="countChar();"
                                           ng-class="{error : requestCategoryForm.whyNeedCategory.$invalid && requestCategoryForm.$submitted }"></textarea>
-                                <div style="font-size: 12px; float: right; color: #666">
+                                <div style="font-size: 12px;  margin-top:15px; float: right; color: #4F748C">
                                     <span id="charNum">5000</span>
                                     <span>Words Remaining</span>
                                 </div>
@@ -103,10 +102,8 @@
                            
                         </div>
                         <div class="row hire">
-
                             <div class="col-sm-12">
-                                <br /><br />
-                                <a data-ng-click="requestCategory()"><img src="app/images/submit-btn.png" alt=""></a>
+                                <a data-ng-click="requestCategory()" class="submitHire">Submit</a>
                             </div>
 
                         </div>
